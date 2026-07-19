@@ -14,7 +14,6 @@ import {
 import {
   IntensityProvider,
   AuroraBackdrop,
-  LiquidCursor,
   KineticHeadline,
   KineticBody,
   KineticEyebrow,
@@ -22,6 +21,7 @@ import {
   Reveal,
   useIntensity,
 } from "@/components/chrono";
+import { LaserTrail } from "@/components/laser-trail";
 import { useTransform } from "framer-motion";
 import { CLIENT_LOGOS } from "@/lib/logos";
 
@@ -47,31 +47,30 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
 
-type RailItem = {
-  label: string;
-  kind: "route" | "external" | "hash";
-  href: string;
-};
+type RailRoute = "/about" | "/works" | "/services" | "/contact";
+type RailItem = { label: string; to: RailRoute };
 
 const RAIL: RailItem[] = [
-  { label: "WORK", kind: "route", href: "/works" },
-  { label: "ABOUT", kind: "route", href: "/about" },
-  { label: "INSIGHTS", kind: "route", href: "/insights" },
-  { label: "CONTACT", kind: "external", href: WHATSAPP_URL },
+  { label: "ABOUT", to: "/about" },
+  { label: "WORK", to: "/works" },
+  { label: "SERVICES", to: "/services" },
+  { label: "CONTACT", to: "/contact" },
 ];
 
-type NavItem = { label: string; href: string; to?: "/works" | "/about" | "/insights" };
+type NavRoute = "/works" | "/about" | "/insights" | "/services" | "/contact";
+type NavItem = { label: string; href: string; to?: NavRoute };
 
 const NAV: NavItem[] = [
   { label: "Capture", href: "#capture" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Sectors", href: "#industries" },
-  { label: "Services", href: "#integrations" },
+  { label: "Services", href: "/services", to: "/services" },
   { label: "Client Work", href: "/works", to: "/works" },
   { label: "Insights", href: "/insights", to: "/insights" },
   { label: "About", href: "/about", to: "/about" },
-  { label: "Scope", href: "#pricing" },
+  { label: "Contact", href: "/contact", to: "/contact" },
 ];
+
 
 const CAPTURE_FEATURES = [
   { title: "LiDAR-Powered Accuracy", body: "Capture every measurement, corner, and detail with professional-grade depth sensors." },
