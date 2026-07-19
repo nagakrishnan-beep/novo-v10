@@ -283,20 +283,12 @@ function Hero() {
           <span className="text-white/90">Chrono-Adaptive Canvas.</span>
         </KineticHeadline>
 
-        <div className="mt-10 max-w-xl">
+        <div className="mt-10 max-w-3xl">
           <KineticHeadline className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight text-neutral-100">
-            Genuine innovation
+            Turn your venue into a 24/7 sales engine.
             <br />
-            in web design.
+            Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
           </KineticHeadline>
-        </div>
-
-        <div className="mt-10 max-w-2xl">
-          <KineticBody className="text-neutral-400 text-base md:text-lg font-light leading-relaxed">
-            Turn your venue into a 24/7 sales engine. Photorealistic Matterport,
-            LiDAR, 360° and drone walkthroughs — delivered inside a page that
-            morphs with your scroll, your cursor, and the hour of the day.
-          </KineticBody>
         </div>
       </div>
 
