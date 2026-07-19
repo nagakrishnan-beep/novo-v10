@@ -38,11 +38,9 @@ function WorksPage() {
       {/* Header */}
       <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
         <div className="flex items-center justify-between px-6 md:px-12 py-4">
-          <Link
-            to="/"
-            className="text-sm tracking-[0.3em] uppercase text-emerald-400"
-          >
-            Novo Reperio
+          <Link to="/" className="flex items-center gap-3">
+            <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
+            <span className="sr-only">Novo Reperio</span>
           </Link>
           <nav className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-neutral-500">
             <Link to="/" hash="capture" className="hover:text-emerald-400">
