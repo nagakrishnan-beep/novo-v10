@@ -43,18 +43,18 @@ function WorksPage() {
             <span className="sr-only">Novo Reperio</span>
           </Link>
           <nav className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-neutral-500">
-            <Link to="/" hash="capture" className="hover:text-emerald-400">
-              Capture
-            </Link>
-            <Link to="/" hash="outcomes" className="hover:text-emerald-400">
-              Outcomes
-            </Link>
             <Link to="/works" className="text-emerald-400">
-              Client Work
+              Work
             </Link>
-            <Link to="/" hash="pricing" className="hover:text-emerald-400">
-              Scope
+            <Link to="/about" className="hover:text-emerald-400">
+              About
             </Link>
+            <Link to="/insights" className="hover:text-emerald-400">
+              Insights
+            </Link>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-emerald-400">
+              Contact
+            </a>
           </nav>
           <a
             href={WHATSAPP_URL}
