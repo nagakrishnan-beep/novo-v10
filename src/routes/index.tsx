@@ -230,7 +230,7 @@ function Index() {
             scaleY: textScaleY,
             skewY: textSkewY,
             opacity: textOpacity,
-            filter: useTransform(matrixBlur, (b) => `blur(${b})`),
+            filter: matrixFilter,
           }}
           className="max-w-5xl origin-left pointer-events-auto"
         >
