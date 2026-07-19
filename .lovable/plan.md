@@ -1,70 +1,72 @@
-## Scope
+## Goal
 
-Add `/about` and `/insights` (with `/insights/$slug` detail routes), extend the main nav, and rename the hero right-rail to **WORK · ABOUT · INSIGHTS · CONTACT**. Content mirrors development.novoreperio.com/about + /insights, with post content sourced from novoreperio.com/blog (curated static list).
+1. Single global nav (top pill bar).
+2. Right-side rail = hero-only "quick links" strip: **ABOUT · WORK · SERVICES · CONTACT**.
+3. Add `/services` (+ slugs) and `/contact` routes sourced from development.novoreperio.com.
+4. Replace cursor with a multi-stage spring laser trail engine (emerald→cyan hover morph + live coordinate telemetry).
 
-## New routes
+## 1. Consolidate nav
 
-### `src/routes/about.tsx`
-Mirrors the dev site `/about` page, in the current dark HUD aesthetic:
-- Hero: "A focused team for spatial clarity, immersive capture, stronger presentation, commercial confidence." + CTAs (View Selected Work → `/works`, Start a Conversation → WhatsApp).
-- Trust logos strip (reuses the existing `CLIENT_LOGOS` from `src/routes/index.tsx`, extracted to `src/lib/logos.ts`).
-- "Our story" — studio origin (2014, Kuala Lumpur, immersive capture direction).
-- "How Novo works" — three cards: **Capture**, **Clarify**, **Present**.
-- "Studio trajectory" — timeline: 2014 Foundation → 2014–2018 Immersive capture → 2019–2021 Expanded output → 2022–2023 Category platforms.
-- Team grid — 5 members (Naga, Kasthuri, Kairudin, Tatasha, Shobak) with role text; portrait images referenced by absolute URL from development.novoreperio.com (no downloads).
-- "Next step" contact block — email `hello@novoreperio.com`, WhatsApp, Solaris Mont Kiara address.
-- `head()` with unique title/description/og tags. Reuses existing `Reveal` / `MagneticCard` / `Kinetic*` primitives from `src/components/chrono.tsx`.
+Top nav (CAPTURE · OUTCOMES · SECTORS · SERVICES · CLIENT WORK · INSIGHTS · ABOUT · SCOPE · WHATSAPP) stays as the only persistent global menu.
 
-### `src/routes/insights.tsx`
-- Hero: "Insights for clearer project decisions." + subhead about digital twins, virtual tours, LiDAR, Scan-to-BIM.
-- Grid of cards from a new `src/lib/insights.ts` — curated array of ~12 posts drawn from novoreperio.com/blog. Each entry: `slug`, `title`, `excerpt`, `date`, `category`, `image` (WP featured-image URL), `sourceUrl` (original novoreperio.com post).
-- Card links to internal `/insights/$slug`.
-- `head()` with insights-specific meta.
-
-### `src/routes/insights.$slug.tsx`
-- Detail layout matching `works.$slug.tsx`: header (breadcrumb back to `/insights`), title, category chip, date, featured image, excerpt, plus a "Read the full article on novoreperio.com" outbound button pointing at the WP post.
-- `notFoundComponent` and `errorComponent` as required by the TanStack rules.
-- Dynamic `head()` from loader/params using the entry's title/excerpt/image (og:image at leaf only).
-- "Next insight" footer link.
-
-### `src/lib/insights.ts`
-Static array of 12 posts curated from the WP feed (verified from the fetched blog page):
-- best-tools-for-digital-twins
-- 3d-rendering-for-pre-sales
-- bim-ready-point-cloud-workflow-existing-buildings
-- can-virtual-tours-increase-bookings
-- digital-twin-for-facility-management
-- matterport-virtual-tour-for-real-estate
-- lidar-scanning-for-buildings-that-pays-off
-- plus 5 more topical entries filling the same 4 WP categories (Digital Twins & Matterport, 3D Rendering & Visualisation, LiDAR/Scan/BIM, Virtual Tours).
-
-Slugs match the WP post URLs so the outbound "read full article" links are correct.
-
-### `src/lib/logos.ts`
-Extract the existing `CLIENT_LOGOS` array (currently inline in `src/routes/index.tsx`) so `/about` and `/` share one source.
-
-## Edits to existing files
-
-### `src/routes/index.tsx`
-- Extend `NAV` with `{ label: "About", href: "/about", to: "/about" }` and `{ label: "Insights", href: "/insights", to: "/insights" }` (rendered as `<Link to>` for internal routes, `<a href>` for hash anchors — same split as the existing Client Work item).
-- Rename the right-rail `RAIL` constant to:
-  - `WORK` → `/works`
+Rail changes in `src/routes/index.tsx`:
+- Eyebrow label `QUICK LINKS //` (mono, small, muted) above the rail.
+- Items:
   - `ABOUT` → `/about`
-  - `INSIGHTS` → `/insights`
-  - `CONTACT` → WhatsApp URL (external `<a>` opens in new tab)
-- Update the rail render so entries can be internal routes (`<Link to>`), external URLs (`<a target="_blank">`), or in-page hash anchors, since the current implementation assumes hash only.
-- Replace the inline `CLIENT_LOGOS` with the import from `src/lib/logos.ts`.
+  - `WORK` → `/works`
+  - `SERVICES` → `/services`
+  - `CONTACT` → `/contact`
+- Hero-only: `useTransform(scrollY, [0, vh*0.8, vh], [1, 1, 0])` opacity fade + `pointer-events: none` at 0.
+- Restyled as a subtle vertical strip (thin cyan tick, lower default opacity that lifts on hover) — reads as a shortcut affordance, not a duplicate menu.
+- Mobile: hidden.
 
-### `src/routes/works.tsx` and `src/routes/works.$slug.tsx`
-- Add matching header nav links to `About` and `Insights` alongside the existing items so the shared chrome stays consistent.
+## 2. New `/services` route + slugs
 
-## Metadata & SEO
+`src/lib/services.ts` — curated from source:
+- Core: `spatial-capture-digital-twins`, `immersive-visualization`, `aerial-context-intelligence`.
+- Supporting: `web-development`, `3d-walkthroughs`, `3d-visualisation`, `3d-360-rendering`, `commercial-photography`.
+- Also `COMBINATIONS` (Venue Marketing / Property Launch / Facilities Presentation) and `APPROACH` (3 steps).
 
-- Each new route sets its own `title`, `description`, `og:title`, `og:description`, `og:url`, `canonical` (leaf-only).
-- `og:image` only on `insights.$slug.tsx` (uses the post featured image URL). No og:image on `/about` or `/insights` index.
+Each entry: `slug`, `title`, `tier`, `tagline`, `description`, `bestFor`, `benefits[]`, `image` (absolute URL from source), optional `exampleUrl`.
+
+- `src/routes/services.tsx` — hero, core grid, supporting grid, Approach, Combinations, industries strip, CTAs (Contact + Works).
+- `src/routes/services.$slug.tsx` — nameplate header, hero image, benefits, "Request Quote" → `/contact`, "View Example" → source works URL, "Next service" footer. Standard `notFoundComponent` / `errorComponent`. Dynamic `head()` with og:image = entry image.
+- Top nav `Services` item: change to `to="/services"` (internal Link).
+
+## 3. New `/contact` route
+
+`src/routes/contact.tsx`:
+- Hero: "Tell us about your space, not just the deliverable." + subhead.
+- Two primary CTAs: `mailto:hello@novoreperio.com`, WhatsApp `https://wa.me/60172029996`.
+- Three contact method cards: Email, WhatsApp, Studio Base (Solaris Mont Kiara, links to Google Maps).
+- "Start your project in five simple steps" — 5-step block (Tell us the space / Explain the audience / Describe the decision / Share the timing / Add references).
+- "Example first brief" — 5-field summary card (Space / Audience / Decision / Timing / References).
+- "Need examples first?" — CTAs to `/works` and `/about`.
+- `head()`: unique title/description; no og:image on this route.
+
+## 4. Laser light trail engine
+
+`src/components/laser-trail.tsx`:
+- `TargetContext` + `useTargetHover()` hook returning spreadable `{ onPointerEnter, onPointerLeave }`.
+- `<LaserTrail />`: two `useSpring` motion values — fast focus node (`damping: 28, stiffness: 180, mass: 0.6`) and slower elastic glow (`damping: 40, stiffness: 140, mass: 0.8`).
+- Focus ring 24px border + inner dot; emerald default → cyan + 1.5× scale on hover.
+- Glow: 176px radial blur emerald/cyan blend on the slower spring.
+- Telemetry chip 20px off the ring: `LDR_IDX // X:… Y:…` using live `clientX+scrollX / clientY+scrollY`.
+- Skips on `(pointer: coarse)` and `prefers-reduced-motion`.
+
+Wiring — mount `<LaserTrail />` once (replaces `<LiquidCursor />`) in every route: `index`, `about`, `insights`, `insights.$slug`, `works`, `works.$slug`, `services`, `services.$slug`, `contact`.
+Spread `useTargetHover()` on: top nav pills, WhatsApp CTA, rail items, hero CTAs, every `MagneticCard`, client logos, service cards, works cards, insight cards, contact-method cards.
+
+`chrono.tsx`: keep `IntensityProvider`, `AuroraBackdrop`, kinetic typography, `MagneticCard`, `Reveal`. Remove `<LiquidCursor />` mounts (delete the component; no other consumers).
+
+## Metadata
+
+- `/services`: unique title/description/og.
+- `/services/$slug`: dynamic title/description; og:image = entry image (leaf-only).
+- `/contact`: unique title/description; no og:image.
 
 ## Out of scope
 
-- No new backend, no WP REST fetching (per your pick).
-- No changes to the visual language, colour tokens, or hero motion behavior — only the rail labels/targets and nav items change.
-- Existing hash-anchor sections (`#capture`, `#outcomes`, etc.) stay as they are.
+- No backend, no CMS, no form submission wiring (contact CTAs are mailto/WhatsApp/maps links only).
+- No changes to existing hash sections on `/`, aurora palette, or kinetic typography behavior.
+- Not adopting the pasted Index.jsx wholesale — only the trail engine + hover-target pattern from it.
