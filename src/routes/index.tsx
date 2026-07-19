@@ -210,46 +210,47 @@ function TopBar() {
 function SideRail() {
   const { scrollY } = useIntensity();
   const opacity = useTransform(scrollY, [0, 500, 700], [1, 1, 0]);
-  const [active, setActive] = React.useState(0);
 
-  React.useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const idx = RAIL.findIndex((r) => r.href === `#${e.target.id}`);
-            if (idx >= 0) setActive(idx);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px" },
-    );
-    RAIL.forEach((r) => {
-      const el = document.querySelector(r.href);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
-  }, []);
+  const cls =
+    "text-[10px] font-mono tracking-[0.35em] transition text-neutral-500 hover:text-cyan-300";
 
   return (
     <motion.aside
       style={{ opacity }}
       className="fixed right-6 md:right-12 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4 items-end pointer-events-auto"
     >
-      <div className="relative flex flex-col gap-4">
-        {RAIL.map((r, i) => (
-          <a
-            key={r.href}
-            href={r.href}
-            className={`text-[10px] font-mono tracking-[0.35em] transition ${
-              active === i
-                ? "text-cyan-300"
-                : "text-neutral-600 hover:text-neutral-300"
-            }`}
-          >
-            {r.label}
-          </a>
-        ))}
+      <div className="relative flex flex-col gap-4 items-end">
+        {RAIL.map((r) => {
+          if (r.kind === "route") {
+            return (
+              <Link
+                key={r.label}
+                to={r.href as "/works" | "/about" | "/insights"}
+                className={cls}
+              >
+                {r.label}
+              </Link>
+            );
+          }
+          if (r.kind === "external") {
+            return (
+              <a
+                key={r.label}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cls}
+              >
+                {r.label}
+              </a>
+            );
+          }
+          return (
+            <a key={r.label} href={r.href} className={cls}>
+              {r.label}
+            </a>
+          );
+        })}
       </div>
       <motion.div
         className="w-px h-16 bg-gradient-to-b from-cyan-400/80 to-transparent mt-2"
@@ -260,6 +261,8 @@ function SideRail() {
     </motion.aside>
   );
 }
+
+
 
 /* ---------- hero ---------- */
 
