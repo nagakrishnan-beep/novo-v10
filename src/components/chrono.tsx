@@ -315,14 +315,13 @@ export function MagneticCard({
   children,
   className = "",
   strength = 12,
-  as = "div",
-  ...rest
+  onClick,
 }: {
   children: ReactNode;
   className?: string;
   strength?: number;
-  as?: "div" | "a" | "button";
-} & React.HTMLAttributes<HTMLElement>) {
+  onClick?: () => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -347,19 +346,17 @@ export function MagneticCard({
     y.set(0);
   };
 
-  const MotionEl = motion[as] as typeof motion.div;
-
   return (
-    <MotionEl
-      ref={ref as never}
+    <motion.div
+      ref={ref}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
+      onClick={onClick}
       style={{ x: sx, y: sy }}
       className={className}
-      {...rest}
     >
       {children}
-    </MotionEl>
+    </motion.div>
   );
 }
 
