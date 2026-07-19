@@ -130,7 +130,7 @@ function WorkDetail() {
           <p className="text-neutral-400 leading-relaxed mb-8">{work.helps}</p>
           {work.bullets && (
             <ul className="space-y-3">
-              {work.bullets.map((b) => (
+              {work.bullets.map((b: string) => (
                 <li
                   key={b}
                   className="flex gap-3 text-neutral-300 text-sm leading-relaxed"
