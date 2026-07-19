@@ -1,48 +1,88 @@
-## Goal
+# Chrono-Adaptive Canvas — Home Redesign
 
-Align the current Spatial Taxonomy Dashboard (`/`) with the naming and content shown on `https://development.novoreperio.com/`, while keeping the enterprise HUD visual language (dark `#020203`, emerald accent, framer-motion chrono-adaptive hero, command-center overlay, live-stream panel) already built.
+The current `src/routes/index.tsx` uses framer-motion for a single scroll-velocity headline blur and static sections below. It looks static because 95% of the page is plain markup — the "kinetic" idea only touches one line. This plan rebuilds the home around three genuine motion systems, all implemented with the already-installed `framer-motion` (no Three.js, no GSAP, no new deps).
 
-Yes — doable, no backend or new routes needed. It's a copy/IA swap on the same single-page index route.
+Scope: `/` only. `/works`, `/works/$slug`, and section copy stay untouched.
 
-## Menu / navigation IA (from the reference)
+## 1. Velocity-Based Kinetic Micro-Morphing
 
-Replace the current pill selector (Digital Twin Platform / Reality Capture / Building Intelligence) and the "OPEN INDEX Matrix //" overlay's sections with the reference site's six anchors, in this exact order and wording:
+A global `useScroll` + `useVelocity` + `useSpring` pipeline exposes a single normalized `intensity` motion value (0 = still, 1 = fast scroll). Every hero and section header subscribes to it via `useTransform`:
 
-1. Capture → `#capture`
-2. Outcomes → `#outcomes`
-3. Sectors → `#industries`
-4. Services → `#integrations`
-5. Client Work → `#stories`
-6. Scope → `#pricing`
+- **Headline** — as intensity rises, letter-spacing tightens, font-weight interpolates from 300 → 700, line-height compresses, and secondary words fade to reveal a compact glyph row (icon substitutes for "Space", "Sales", "Engine"). When scroll stops, a spring unfurls them back into full editorial typography.
+- **Body copy** — opacity dips to ~0.35 and blurs 4px during fast scroll so the reader isn't fighting motion-smear; snaps back on stop.
+- **Background** — page background interpolates `#020203` → `#000` and a subtle vignette darkens at high velocity to reduce perceived motion blur.
+- **Section labels** — the `[10px] tracking-[0.4em]` eyebrows expand tracking further and shift accent hue toward cyan as velocity climbs.
 
-Plus a persistent right-side CTA: **WhatsApp Us** → `https://wa.me/60172029996` (replaces the "OPEN INDEX Matrix //" button; the overlay is removed since the top nav now carries the same links).
+One shared `useMotionValue` drives all of this, so the whole page breathes in sync rather than each component animating independently.
 
-Hash links scroll smoothly to the matching `<section id="…">`; no route files are added — the reference uses the same single-page pattern.
+## 2. Intent-Driven Liquid Navigation
 
-## Section content (URL content mapping)
+- Desktop: a custom cursor (a 12px cyan disc + trailing 40px soft aurora blob) tracks pointer position with a lagging spring. When the pointer nears the right edge (last 15% of viewport width), the side nav rail (`Experience / Innovation / Vision / Studio`) skews +2° and scales 1.05 toward the cursor, and the next context block soft-preloads (opacity 0 → 0.15 preview underneath current section).
+- Cards and CTA buttons apply a magnetic pull: on hover-proximity (not just hover), the element translates up to 8px toward the cursor using a `useMotionValue` distance calc.
+- Mobile: a floating thumb-zone bubble in the bottom-right acts as the same gravity well; dragging it warps the nearest section header.
 
-Each section keeps the HUD styling (mono eyebrows, emerald accents, neutral-900 cards) but the copy is rewritten from the reference:
+Native cursor is hidden only on desktop (`pointer: fine` media query) so touch and accessibility flows are unaffected.
 
-- **Hero** — headline "Turn Your Space Into a 24/7 Sales Engine", supporting paragraph from the reference, two CTAs: "Get a Project Quote" (`#demo`) and "See Our Work" (`#stories`). Eyebrow: "SPACE CAPTURE STUDIO". Three trust bullets (10+ Years / Reduce Sales Cycles / Trusted by Global Brands) rendered as the mono stat strip.
-- **#capture** — "Let people walk through your venue before they even arrive." Three feature cards: LiDAR-Powered Accuracy, Pro-Level Fidelity, Frictionless Integration.
-- **#outcomes** — "Your space isn't just a location. It's your best sales tool." Five bullets: Anytime Anywhere, Optimized For Web, Spatial Digital Twins, Brand-First 360° Tours, Omnichannel Delivery.
-- **#industries** — "Strategy-First Capture" with sector chips: Hospitality, Venues, Property, Facilities & More.
-- **#integrations** (Services) — "One capture, many ways to use it." Workflow row uses Capture → Package → Publish, with support-layer cards for Matterport + 360, 360 Tours, Drone & Aerial, Project Websites. This replaces the existing generic workflow strip.
-- **#stories** (Client Work) — three case cards: Hyatt Kuantan (Kempas & Prefunction Hall), WTCKL venue sales, Maxis facilities review. Each links to the corresponding `novoreperio.com/…` URL from the reference.
-- **#pricing** (Scope) — three numbered steps: 01 Define the Objective, 02 Engineer the Experience, 03 Seamless Launch, with the reference's sub-bullets. Closes with "Stop letting geography limit your sales." CTA block.
-- **Trust strip** — client + affiliation logos, using the reference's WordPress-hosted image URLs directly (Mahkota, Matterport, Glomac, KLCC, Mah Sing, Maxis, MHUB, Hong Leong, UEM, SP Setia; affiliations: PropTech, MDEC, MHTC, PCEB, MyCEB).
-- **Google reviews** — four testimonial cards (Joyce Chong, Kammy Parkland, Low Lap Sheng, Nur Aiman) from the reference.
-- **FAQ** — kept, rewritten so the two questions reflect the new positioning ("What does a Novo Reperio capture include?" / "Can existing spaces be digitized?").
+## 3. Chrono-Adaptive Canvas Backdrop
 
-Every `[cite: …]` fragment stays stripped. All external links open in a new tab.
+- A full-viewport fixed layer renders an aurora gradient using two blurred, animated radial gradients (pure CSS + framer-motion `animate` loops) — no canvas, no WebGL. Hue slowly cycles based on local time-of-day (`new Date().getHours()` bucketed into dawn/day/dusk/night palettes, computed in `useEffect` after hydration to stay SSR-safe).
+- Scroll progress shifts the aurora vertically and rotates it 15° across the full page, giving the sense of a single evolving canvas rather than discrete sections.
+- Grain overlay (SVG noise, 3% opacity) prevents banding on the gradients.
 
-## Files touched
+## 4. Hero Rebuild (matches the reference mockup)
 
-- `src/routes/index.tsx` — rewrite the component (keep the route wrapper, `head()`, and framer-motion scroll setup untouched). Update `<title>`/description to "Novo Reperio — Turn Your Space Into a 24/7 Sales Engine" to match the new hero.
-- No new files, no new routes, no dependency changes.
+New composition:
 
-## Explicit non-goals
+```text
+┌────────────────────────────────────────────────┐
+│ logo                                     ☰ menu│
+│                                                │
+│   CHRONO-ADAPTIVE CANVAS  (eyebrow)            │
+│   TURN YOUR SPACE                              │
+│   INTO A 24/7                          EXPERIENCE│
+│   SALES ENGINE.                        INNOVATION│
+│                                        VISION   │
+│   Genuine spatial intelligence         STUDIO   │
+│   for venues and brands.                        │
+│                                                │
+│  ┌───────────────┐ ┌───────────────┐  ┌──────┐ │
+│  │ KINETIC       │ │ FLUID         │  │START │ │
+│  │ MORPHING      │ │ NAVIGATION    │  │ THE  │ │
+│  │ TYPOGRAPHY    │ │               │  │EXPER.│ │
+│  └───────────────┘ └───────────────┘  └──────┘ │
+│                                                │
+│  VELOCITY LAYOUTS │ CONTEXTUAL UI │ ORGANIC TX │
+└────────────────────────────────────────────────┘
+```
 
-- Not embedding the Matterport iframe / 360 player from the reference (heavy third-party). The "Live Twin Stream" panel keeps its placeholder video card, relabelled "Live Matterport Preview".
-- Not building `/works`, `/portfolio-item/…`, or any of the deep novoreperio.com pages — case-study cards link out to the live site.
-- Keeping the existing dark HUD aesthetic; not adopting the reference's light theme.
+- Right-rail vertical nav with an active-indicator that slides on scroll (spring), replacing the top pill nav on the hero. The existing top pill nav returns from section 2 onward.
+- Two "feature preview" cards (`Kinetic Morphing Typography`, `Fluid Navigation`) — each shows a live micro-demo of the effect it names (the typography card literally morphs its own label as you scroll).
+- CTA slab (`START THE EXPERIENCE`) with a cyan glow that pulses in rhythm with the velocity signal.
+
+## 5. Downstream section polish
+
+Existing sections (Capture, Outcomes, Sectors, Services, Client Work teaser, Scope, Reviews, WhatsApp CTA) keep their copy and IA. Motion additions only:
+
+- Section headers use the shared intensity signal (tracking + hue).
+- Cards fade + rise on enter using `whileInView` with staggered children (60ms stagger).
+- Sector chips have magnetic hover.
+- The `#stories` teaser row auto-marquees at ~15s loop; pauses on hover; speeds up when overall scroll velocity is high.
+
+## Technical notes
+
+- All new motion lives in framer-motion primitives already in the dep tree: `useScroll`, `useVelocity`, `useSpring`, `useMotionValue`, `useTransform`, `useMotionValueEvent`, `motion.*`, `AnimatePresence`.
+- Time-of-day palette read is client-only (`useEffect` after `useHydrated`) — avoids SSR hydration mismatch per the execution-model rules.
+- Custom cursor and aurora backdrop are wrapped in `<ClientOnly>` so SSR HTML stays clean.
+- `prefers-reduced-motion` short-circuits the velocity pipeline (intensity pinned at 0), disables the aurora animation loop, and hides the custom cursor.
+- No changes to route metadata, `/works`, `/works/$slug`, or `src/lib/works.ts`.
+- No new npm packages.
+
+## Deliverables
+
+1. Rewrite `src/routes/index.tsx` around the shared intensity signal and new hero composition.
+2. Add `src/components/chrono/AuroraBackdrop.tsx`, `LiquidCursor.tsx`, `KineticText.tsx`, `MagneticCard.tsx` — small, focused components that each subscribe to the shared signal via a context.
+3. Add `src/components/chrono/IntensityProvider.tsx` — one `useScroll`/`useVelocity` instance shared through React context, so the page doesn't spin up N scroll listeners.
+
+## Open question
+
+The vertical right-rail nav in the mockup (`Experience / Innovation / Vision / Studio`) is a different IA than the current hash nav (`Capture / Outcomes / Sectors / Services / Client Work / Scope`). I'll keep the current IA labels but present them in the mockup's vertical rail style on the hero, then swap to the horizontal pill nav from section 2 down. Tell me if you'd rather actually rename the sections to `Experience / Innovation / Vision / Studio`.
