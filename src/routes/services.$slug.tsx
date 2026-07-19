@@ -93,7 +93,7 @@ function ServiceDetail() {
             {service.description}
           </p>
           <ul className="mt-6 space-y-3">
-            {service.benefits.map((b) => (
+            {service.benefits.map((b: string) => (
               <li key={b} className="flex items-start gap-3 text-neutral-300 text-sm">
                 <span className="text-cyan-400">+</span> {b}
               </li>
