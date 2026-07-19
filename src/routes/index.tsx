@@ -271,12 +271,14 @@ function Hero() {
       className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-16"
     >
       {/* corner brand */}
-      <div className="absolute top-6 left-6 md:top-10 md:left-16 z-20 flex flex-col">
-        <span className="text-sm font-black tracking-[0.3em] text-white">
-          novoreperio
-        </span>
-        <span className="text-[9px] font-mono tracking-widest text-cyan-400/80 mt-1 uppercase">
-          SPACE CAPTURE STUDIO
+      <div className="absolute top-6 left-6 md:top-10 md:left-16 z-20 flex items-center gap-3">
+        <img
+          src="/novo-logo.png"
+          alt="Novo Reperio"
+          className="h-9 md:h-11 w-auto brightness-0 invert"
+        />
+        <span className="hidden md:inline-block text-[9px] font-mono tracking-widest text-cyan-400/80 uppercase border-l border-white/15 pl-3">
+          Space Capture Studio
         </span>
       </div>
       <div className="absolute top-6 right-6 md:top-10 md:right-16 z-20">
@@ -897,8 +899,15 @@ function FaqSection() {
 
 function Footer() {
   return (
-    <footer className="px-6 md:px-24 py-10 border-t border-white/5 text-[11px] font-mono text-neutral-500 flex flex-wrap justify-between gap-4">
-      <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
+    <footer className="px-6 md:px-24 py-10 border-t border-white/5 text-[11px] font-mono text-neutral-500 flex flex-wrap items-center justify-between gap-4">
+      <div className="flex items-center gap-3">
+        <img
+          src="/novo-logo.png"
+          alt="Novo Reperio"
+          className="h-7 w-auto opacity-70"
+        />
+        <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
+      </div>
       <a
         href={WHATSAPP_URL}
         target="_blank"
