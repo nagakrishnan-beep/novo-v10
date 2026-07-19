@@ -41,7 +41,7 @@ const NAV = [
   { label: "Outcomes", href: "#outcomes" },
   { label: "Sectors", href: "#industries" },
   { label: "Services", href: "#integrations" },
-  { label: "Client Work", href: "#stories" },
+  { label: "Client Work", href: "/works" },
   { label: "Scope", href: "#pricing" },
 ] as const;
 
