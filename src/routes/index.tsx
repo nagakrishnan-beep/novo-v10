@@ -23,6 +23,7 @@ import {
   useIntensity,
 } from "@/components/chrono";
 import { useTransform } from "framer-motion";
+import { CLIENT_LOGOS } from "@/lib/logos";
 
 const TITLE = "Novo Reperio — The Chrono-Adaptive Canvas";
 const DESCRIPTION =
@@ -46,19 +47,29 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
 
-const RAIL = [
-  { label: "EXPERIENCE", href: "#top" },
-  { label: "INNOVATION", href: "#capture" },
-  { label: "VISION", href: "#outcomes" },
-  { label: "STUDIO", href: "#pricing" },
-] as const;
+type RailItem = {
+  label: string;
+  kind: "route" | "external" | "hash";
+  href: string;
+};
 
-const NAV = [
+const RAIL: RailItem[] = [
+  { label: "WORK", kind: "route", href: "/works" },
+  { label: "ABOUT", kind: "route", href: "/about" },
+  { label: "INSIGHTS", kind: "route", href: "/insights" },
+  { label: "CONTACT", kind: "external", href: WHATSAPP_URL },
+];
+
+type NavItem = { label: string; href: string; to?: "/works" | "/about" | "/insights" };
+
+const NAV: NavItem[] = [
   { label: "Capture", href: "#capture" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Sectors", href: "#industries" },
   { label: "Services", href: "#integrations" },
-  { label: "Client Work", href: "/works", to: "/works" as const },
+  { label: "Client Work", href: "/works", to: "/works" },
+  { label: "Insights", href: "/insights", to: "/insights" },
+  { label: "About", href: "/about", to: "/about" },
   { label: "Scope", href: "#pricing" },
 ];
 
