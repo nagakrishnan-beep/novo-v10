@@ -7,12 +7,18 @@ import {
   useTransform,
   useSpring,
 } from "framer-motion";
-import { Database, HelpCircle, ArrowRight, Play, ChevronRight } from "lucide-react";
+import {
+  Database,
+  HelpCircle,
+  ArrowRight,
+  Play,
+  ChevronRight,
+  MessageCircle,
+} from "lucide-react";
 
-const TITLE =
-  "Novo Reperio — Transforming Physical Spaces into Intelligent Digital Assets";
+const TITLE = "Novo Reperio — Turn Your Space Into a 24/7 Sales Engine";
 const DESCRIPTION =
-  "Malaysia's leading Digital Twin specialist. Reality Capture, BIM, and IoT-ready platforms that turn buildings into intelligent, operational digital assets.";
+  "Space capture studio. Photorealistic Matterport, LiDAR, 360° and drone walkthroughs that let clients explore, measure, and book your venue from anywhere.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,69 +28,174 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
 
-type PillarKey = "platform" | "capture" | "intelligence";
+const NAV = [
+  { label: "Capture", href: "#capture" },
+  { label: "Outcomes", href: "#outcomes" },
+  { label: "Sectors", href: "#industries" },
+  { label: "Services", href: "#integrations" },
+  { label: "Client Work", href: "#stories" },
+  { label: "Scope", href: "#pricing" },
+] as const;
 
-type Pillar = {
-  title: string;
-  meta: string;
-  tagline: string;
-  desc: string;
-  features: string[];
-  workflow: string[];
-};
+const WHATSAPP_URL = "https://wa.me/60172029996";
 
-const pillars: Record<PillarKey, Pillar> = {
-  platform: {
-    title: "Digital Twin Platform",
-    meta: "Digital Twin Platform Malaysia | Intelligent Building & Asset Digitalisation",
-    tagline: "One Platform. Endless Possibilities.",
-    desc: "Novo Reperio's Digital Twin Platform combines Reality Capture, BIM, IoT-ready data structures, and immersive visualization into a single digital ecosystem that helps organizations market, manage, and optimize their physical assets.",
-    features: [
-      "Interactive 3D Environments",
-      "Digital Asset Register",
-      "IoT-Ready API Integrations",
-      "Analytics Dashboards",
-    ],
-    workflow: ["Reality Capture", "Point Cloud", "BIM Modelling", "Digital Twin Platform"],
+const CAPTURE_FEATURES = [
+  {
+    title: "LiDAR-Powered Accuracy",
+    body: "Capture every measurement, corner, and detail with professional-grade depth sensors.",
   },
-  capture: {
-    title: "Reality Capture",
-    meta: "Reality Capture Specialist | LiDAR & Drone Mapping Malaysia",
-    tagline: "Capture Reality. Build Intelligence.",
-    desc: "Precise spatial data collection using high-accuracy LiDAR, advanced autonomous drone mapping, and photogrammetry to create flawless, millimeter-accurate digital replicas of existing environments.",
-    features: [
-      "LiDAR Laser Scanning",
-      "Drone Photogrammetry",
-      "Construction Documentation",
-      "Scan to BIM Pipelines",
-    ],
-    workflow: ["Field Operations", "Laser Scanning", "Point Cloud Generation", "Mesh Optimization"],
+  {
+    title: "Pro-Level Fidelity",
+    body: "4K-resolution walkthroughs that hold clarity even when zooming in on fine textures.",
   },
-  intelligence: {
-    title: "Building Intelligence",
-    meta: "Building Lifecycle Management & Space Optimisation",
-    tagline: "Buildings should do more than exist. They should provide intelligence.",
-    desc: "Transform structural spaces into active operational assets. Integrate predictive analytics, monitor asset lifecycles, and optimize space utilization through data-driven central records.",
-    features: [
-      "Equipment Database",
-      "Maintenance Dashboards",
-      "Space Utilisation Analytics",
-      "Inspection Histories",
-    ],
-    workflow: ["Data Layering", "IoT Sensor Binding", "Analytics Compilation", "Operational Insights"],
+  {
+    title: "Frictionless Integration",
+    body: "Your digital twin is fully hosted and ready for website embedding or BIM software.",
   },
-};
+];
+
+const OUTCOMES = [
+  "Anytime, Anywhere — 24/7 access to your site from anywhere in the world.",
+  "Optimized For Web — lightweight, web-ready experiences built for engagement.",
+  "Spatial Digital Twins — accurate remote walkthroughs for flow and layout analysis.",
+  "Brand-First 360° Tours — polished, interactive showcases reflecting your brand.",
+  "Omnichannel Delivery — packaged for web, mobile, and high-stakes presentations.",
+];
+
+const SECTORS = ["Hospitality", "Venues", "Property", "Facilities & More"];
+
+const SERVICES = [
+  {
+    kicker: "Core delivery layer",
+    title: "Matterport + 360",
+    body: "Main hosted tour. Shows flow, size, and layout as your primary asset.",
+  },
+  {
+    kicker: "Lightweight share format",
+    title: "360 Tours",
+    body: "Lighter tour formats for web, QR, and quick review flows.",
+  },
+  {
+    kicker: "Context and arrival",
+    title: "Drone & Aerial",
+    body: "Show scale, access, and the surroundings around the venue.",
+  },
+  {
+    kicker: "Launch wrapper",
+    title: "Project Websites",
+    body: "Package the final experience for sharing and sales-ready launch pages.",
+  },
+];
+
+const WORKFLOW = ["Capture", "Package", "Publish"];
+
+const STORIES = [
+  {
+    tag: "Featured case study",
+    title: "Hyatt Kuantan — Kempas & Prefunction Hall",
+    body: "Ballroom presentation that helps buyers see layout and setup before the first visit.",
+    cta: "View Hyatt project",
+    href: "https://novoreperio.com/portfolio-item/hotel/3d-matterport-virtual-tour/hyatt-kuantan-kempas-prefunction-hall/",
+  },
+  {
+    tag: "Venue sales support",
+    title: "WTCKL — Venue sales proof",
+    body: "Venue storytelling that helps scale, flow, and room layout make sense earlier.",
+    cta: "See venue work",
+    href: "https://novoreperio.com/works/?vp_filter=portfolio_category%3Aconvention-centers-ballroom",
+  },
+  {
+    tag: "Facilities review",
+    title: "Maxis — Facilities review use case",
+    body: "Office and facilities work made clearer for teams that need quick context.",
+    cta: "Explore facilities work",
+    href: "https://novoreperio.com/portfolio-category/facilities-management/",
+  },
+];
+
+const SCOPE_STEPS = [
+  {
+    n: "01",
+    title: "Define the Objective",
+    body: "We start with the ‘Why.’ We analyze your space, your target audience, and the specific decision you want them to make after viewing the tour.",
+    bullets: [
+      "Single vs. multi-site strategy",
+      "Conversion-focused UX",
+      "Operational vs. marketing use cases",
+    ],
+  },
+  {
+    n: "02",
+    title: "Engineer the Experience",
+    body: "We select the perfect combination of capture technology and interactive layers to match your brand's standards and technical requirements.",
+    bullets: [
+      "Precision LiDAR vs. 360° walkthroughs",
+      "Custom branding & infotags",
+      "Interactive floorplans & media",
+    ],
+  },
+  {
+    n: "03",
+    title: "Seamless Launch",
+    body: "We don't just send a link. We provide a launch-ready package, integrated into your website, ads, or pitch decks.",
+    bullets: [
+      "Quick turnaround",
+      "Campaign-ready assets",
+      "Dedicated integration support",
+    ],
+  },
+];
+
+const CLIENT_LOGOS = [
+  { alt: "Mahkota", src: "https://novoreperio.com/wp-content/uploads/2022/02/mmc-final-1.png" },
+  { alt: "Matterport", src: "https://novoreperio.com/wp-content/uploads/2025/01/mp-logo-v-lock-rgb-color-black.png" },
+  { alt: "Glomac", src: "https://novoreperio.com/wp-content/uploads/2022/02/glomac-1.png" },
+  { alt: "KLCC", src: "https://novoreperio.com/wp-content/uploads/2022/02/klcc-1.png" },
+  { alt: "Mah Sing", src: "https://novoreperio.com/wp-content/uploads/2022/02/mahsing-1.png" },
+  { alt: "Maxis", src: "https://novoreperio.com/wp-content/uploads/2022/02/maxis.png" },
+  { alt: "MHUB", src: "https://novoreperio.com/wp-content/uploads/2022/02/Mhub-1.png" },
+  { alt: "Hong Leong / Yamaha", src: "https://novoreperio.com/wp-content/uploads/2022/02/yamaha-logo-1-1.png" },
+  { alt: "UEM", src: "https://novoreperio.com/wp-content/uploads/2022/02/uem-1.png" },
+  { alt: "SP Setia", src: "https://novoreperio.com/wp-content/uploads/2022/02/setia-1.png" },
+];
+
+const AFFILIATIONS = [
+  { alt: "PropTech", src: "https://novoreperio.com/wp-content/uploads/2022/02/prop.png" },
+  { alt: "MDEC", src: "https://novoreperio.com/wp-content/uploads/2022/02/mdec.png" },
+  { alt: "MHTC", src: "https://novoreperio.com/wp-content/uploads/2023/01/Untitled-1.jpg" },
+  { alt: "PCEB", src: "https://novoreperio.com/wp-content/uploads/2022/11/PCeb-web2.png" },
+  { alt: "MyCEB", src: "https://novoreperio.com/wp-content/uploads/2022/11/MyCeb-web.png" },
+];
+
+const REVIEWS = [
+  {
+    name: "Joyce Chong",
+    body: "Novo Reperio is good and they use the latest equipment for their work. Experienced team, fast output, high quality.",
+  },
+  {
+    name: "Kammy Parkland",
+    body: "Been approaching Novo Reperio since 2020 for my projects' virtual show units. Great service, helpful staff, high quality works.",
+  },
+  {
+    name: "Low Lap Sheng",
+    body: "Skylon Residences, Kuala Lumpur by GBD Land. 60% of units now sold. Their 360° virtual tours greatly supported our foreign-buyer sales.",
+  },
+  {
+    name: "Nur Aiman",
+    body: "Excellent Matterport setup for our project. Professional, supportive, on time — the whole process was stress-free and rewarding.",
+  },
+];
 
 function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState<PillarKey>("platform");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [, setIsFastScrolling] = useState(false);
 
   const { scrollYProgress } = useScroll();
@@ -106,230 +217,142 @@ function Index() {
     return () => unsub();
   }, [scrollVelocity]);
 
-  const active = pillars[activeTab];
-
   return (
     <motion.div
       ref={containerRef}
-      className="min-h-[500vh] bg-[#020203] text-neutral-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-500 selection:text-black"
+      className="min-h-screen bg-[#020203] text-neutral-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-500 selection:text-black scroll-smooth"
     >
       {/* ENTERPRISE HUD NAVIGATION */}
-      <nav className="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-center z-50 bg-[#020203]/80 backdrop-blur-xl border-b border-neutral-900">
-        <div className="flex flex-col">
-          <span className="text-xl font-black tracking-[0.25em] text-white">NOVO REPERIO</span>
+      <nav className="fixed top-0 left-0 w-full p-4 md:p-6 flex justify-between items-center z-50 bg-[#020203]/80 backdrop-blur-xl border-b border-neutral-900 gap-4">
+        <a href="#top" className="flex flex-col shrink-0">
+          <span className="text-lg md:text-xl font-black tracking-[0.25em] text-white">NOVO REPERIO</span>
           <span className="text-[9px] font-mono tracking-widest text-emerald-400 mt-0.5 uppercase">
-            MALAYSIA'S LEADING DIGITAL TWIN SPECIALIST
+            SPACE CAPTURE STUDIO
           </span>
-        </div>
+        </a>
 
         <div className="hidden lg:flex bg-neutral-950 border border-neutral-800 p-1 rounded-full">
-          {(Object.keys(pillars) as PillarKey[]).map((key) => (
-            <button
-              key={key}
-              onClick={() => setActiveTab(key)}
-              className={`px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 ${
-                activeTab === key
-                  ? "bg-emerald-500 text-black font-bold shadow-lg shadow-emerald-500/20"
-                  : "text-neutral-400 hover:text-white"
-              }`}
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider text-neutral-400 hover:text-white hover:bg-neutral-900 transition"
             >
-              {pillars[key].title}
-            </button>
+              {item.label}
+            </a>
           ))}
         </div>
 
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-full font-mono text-xs hover:bg-white hover:text-black transition"
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-emerald-500 text-black px-4 py-2 rounded-full font-mono text-xs font-bold hover:bg-emerald-400 transition"
         >
-          {isMenuOpen ? "CLOSE INDEX //" : "OPEN INDEX Matrix //"}
-        </button>
+          <MessageCircle className="w-3.5 h-3.5" />
+          WHATSAPP US
+        </a>
       </nav>
 
-      {/* FULL-SCREEN COMMAND CENTER MATRIX OVERLAY */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed inset-0 z-40 bg-[#020203] pt-32 px-6 md:px-24 overflow-y-auto"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto pb-24">
-            <div>
-              <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-widest border-b border-neutral-800 pb-3 mb-4">
-                [ SOLUTIONS ARCHITECTURE ]
-              </h4>
-              <ul className="space-y-2 font-mono text-sm text-neutral-400">
-                {[
-                  "Digital Twin Platform",
-                  "Reality Capture",
-                  "Building Intelligence",
-                  "Property Marketing",
-                  "Facility Management",
-                ].map((s) => (
-                  <li
-                    key={s}
-                    className="hover:text-emerald-400 cursor-pointer flex items-center justify-between"
-                  >
-                    {s} <ChevronRight className="w-3 h-3" />
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-widest border-b border-neutral-800 pb-3 mb-4">
-                [ CORE METHODOLOGIES ]
-              </h4>
-              <ul className="space-y-2 font-mono text-xs text-neutral-400 grid grid-cols-2 gap-2">
-                {[
-                  "Matterport",
-                  "LiDAR Scanning",
-                  "Scan to BIM",
-                  "Point Cloud",
-                  "Drone Mapping",
-                  "Photogrammetry",
-                ].map((m) => (
-                  <li key={m} className="hover:text-white cursor-pointer">
-                    • {m}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-widest border-b border-neutral-800 pb-3 mb-4">
-                [ TARGET SECTORS ]
-              </h4>
-              <div className="flex flex-wrap gap-2 font-mono text-[10px]">
-                {[
-                  "Property Developers",
-                  "Hotels & Hospitality",
-                  "Shopping Malls",
-                  "Industrial Plants",
-                  "Hospitals",
-                  "Data Centres",
-                ].map((ind) => (
-                  <span
-                    key={ind}
-                    className="px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded hover:border-emerald-500 transition cursor-pointer"
-                  >
-                    {ind}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      )}
-
-      {/* STICKY CHRONO-ADAPTIVE HERO VIEWPORT */}
+      {/* HERO */}
       <motion.section
+        id="top"
         style={{ paddingLeft: paddingX, paddingRight: paddingX }}
-        className="h-screen w-full flex flex-col justify-center sticky top-0 z-10 pointer-events-none transition-all duration-300"
+        className="min-h-screen w-full flex flex-col justify-center pt-32 pb-24 relative"
       >
         <motion.div
-          style={{
-            scaleY: textScaleY,
-            skewY: textSkewY,
-            opacity: textOpacity,
-            filter: matrixFilter,
-          }}
-          className="max-w-5xl origin-left pointer-events-auto"
+          style={{ scaleY: textScaleY, skewY: textSkewY, opacity: textOpacity, filter: matrixFilter }}
+          className="max-w-5xl origin-left"
         >
           <span className="text-xs font-mono text-emerald-400 tracking-[0.4em] block mb-4 uppercase">
-            // SOLUTIONS PIVOT // {active.title}
+            // SPACE CAPTURE STUDIO
           </span>
           <h1 className="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-none text-white">
-            {active.tagline}
+            Turn Your Space Into a 24/7 Sales Engine
           </h1>
           <p className="mt-6 text-neutral-400 text-lg font-light leading-relaxed max-w-3xl">
-            {active.desc}
+            Transform your physical location into a high-performance sales tool. Eliminate site-visit
+            friction and build instant trust with immersive 3D walkthroughs that let clients explore,
+            measure, and book from anywhere in the world.
           </p>
 
-          <div className="mt-8 flex gap-4 font-mono text-xs">
-            <button className="px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-emerald-400 transition">
-              EXPLORE SOLUTION
-            </button>
-            <button className="px-6 py-3 border border-neutral-800 rounded-full text-neutral-300 hover:bg-neutral-900 transition">
-              BOOK ACCREDITED CONSULTATION
-            </button>
+          <div className="mt-8 flex flex-wrap gap-4 font-mono text-xs">
+            <a
+              href="#demo"
+              className="px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-emerald-400 transition"
+            >
+              GET A PROJECT QUOTE
+            </a>
+            <a
+              href="#stories"
+              className="px-6 py-3 border border-neutral-800 rounded-full text-neutral-300 hover:bg-neutral-900 transition"
+            >
+              SEE OUR WORK
+            </a>
           </div>
         </motion.div>
 
-        <div className="absolute bottom-10 left-6 right-6 flex justify-between items-end font-mono text-[11px] text-neutral-500">
-          <div>
-            ASSET META MAP:{" "}
-            <span className="text-neutral-300 font-bold">{active.meta}</span>
-          </div>
-          <div>VELOCITY DETECTOR: {smoothVelocity.get().toFixed(3)}</div>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl font-mono text-[11px]">
+          {[
+            ["10+ YEARS", "Malaysia's most experienced capture team."],
+            ["FASTER CYCLES", "Close deals faster with 24/7 virtual accessibility."],
+            ["GLOBAL BRANDS", "From KL Convention Centre to five-star hospitality groups."],
+          ].map(([k, v]) => (
+            <div key={k} className="p-4 bg-neutral-950 border border-neutral-900 rounded-xl">
+              <div className="text-emerald-400 font-bold tracking-widest">{k}</div>
+              <div className="text-neutral-400 mt-2 leading-relaxed">{v}</div>
+            </div>
+          ))}
         </div>
       </motion.section>
 
-      {/* CONTENT ZONE: DYNAMIC CAPABILITY STREAMS */}
-      <section className="relative z-20 px-6 md:px-24 py-32 bg-gradient-to-b from-transparent to-[#050507] border-t border-neutral-900">
+      {/* CAPTURE */}
+      <section id="capture" className="relative z-20 px-6 md:px-24 py-24 bg-gradient-to-b from-transparent to-[#050507] border-t border-neutral-900 scroll-mt-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <span className="text-xs font-mono text-neutral-500 uppercase">
-                [ Operational Architecture Specifications ]
-              </span>
+              <span className="text-xs font-mono text-neutral-500 uppercase">[ DIGITAL TWIN ]</span>
               <h2 className="text-2xl md:text-4xl font-extrabold uppercase mt-1">
-                Platform Functional Scope
+                Let people walk through your venue before they even arrive.
               </h2>
+              <p className="mt-4 text-neutral-400 font-light leading-relaxed max-w-3xl">
+                Your clients are busy. Give them the confidence to book your venue without stepping
+                foot on-site. Our photorealistic capture provides the scale, flow, and vibe of your
+                space in a format that works on any device.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {active.features.map((feature, idx) => (
+              {CAPTURE_FEATURES.map((f, idx) => (
                 <div
-                  key={idx}
+                  key={f.title}
                   className="p-6 bg-neutral-900/30 border border-neutral-800/60 rounded-xl backdrop-blur-md flex gap-4 items-start hover:border-emerald-500/40 transition"
                 >
                   <div className="bg-neutral-950 p-2 rounded text-emerald-400 font-mono text-xs font-bold">
                     0{idx + 1}
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm uppercase text-white tracking-wide">
-                      {feature}
-                    </h4>
-                    <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-light">
-                      End-to-end telemetry modules mapped cleanly to target architectural
-                      system frameworks.
-                    </p>
+                    <h3 className="font-bold text-sm uppercase text-white tracking-wide">{f.title}</h3>
+                    <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-light">{f.body}</p>
                   </div>
                 </div>
               ))}
             </div>
-
-            <div className="p-8 bg-neutral-950 border border-neutral-900 rounded-2xl">
-              <h4 className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-6">
-                [ INTELLIGENT WORKFLOW SEQUENCE ]
-              </h4>
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-xs text-neutral-400">
-                {active.workflow.map((node, idx, arr) => (
-                  <React.Fragment key={idx}>
-                    <div className="bg-neutral-900 px-4 py-3 border border-neutral-800 rounded flex items-center gap-2">
-                      <span className="text-emerald-500 text-[10px] font-bold">▶</span>
-                      <span>{node}</span>
-                    </div>
-                    {idx < arr.length - 1 && (
-                      <ArrowRight className="w-4 h-4 text-neutral-700 hidden md:block" />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
           </div>
 
-          <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between h-[520px] sticky top-32">
+          {/* LIVE MATTERPORT PREVIEW PANEL */}
+          <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between h-[520px] lg:sticky lg:top-32">
             <div>
               <div className="flex justify-between items-center border-b border-neutral-900 pb-4 mb-4">
                 <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-2">
                   <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
-                  LIVE TWIN STREAM SHOWCASE
+                  LIVE MATTERPORT PREVIEW
                 </span>
                 <Database className="w-4 h-4 text-neutral-500" />
               </div>
               <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                Experience the 90-second Platform Overview framework. Toggle across
-                structural processing stages seamlessly below.
+                Preview from a Novo Reperio hospitality project — Hyatt Kuantan Ballroom, lower to
+                upper level walkthrough.
               </p>
             </div>
 
@@ -340,63 +363,288 @@ function Index() {
                   <Play className="w-4 h-4 fill-current translate-x-0.5" />
                 </div>
                 <span className="text-[10px] font-mono text-neutral-500 tracking-widest block uppercase">
-                  [ INITIALIZE PORTFOLIO FRAMEWORK SHOWCASE ]
+                  [ LAUNCH SAMPLE WALKTHROUGH ]
                 </span>
               </div>
             </div>
 
             <div className="space-y-3 font-mono text-[11px] text-neutral-400 border-t border-neutral-900 pt-4">
-              <div className="flex justify-between">
-                <span>PROCESSING FRAME:</span>{" "}
-                <span className="text-emerald-400">UNREAL ENGINE 5 STREAM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>ACCURACY TOLERANCE:</span>{" "}
-                <span className="text-neutral-200">MILLIMETER ACCURATE SCAN</span>
-              </div>
-              <div className="flex justify-between">
-                <span>REVISION INTERVALS:</span>{" "}
-                <span className="text-neutral-200">3 DEDICATED ROUNDS GIVEN</span>
-              </div>
+              <div className="flex justify-between"><span>CAPTURE STACK:</span><span className="text-emerald-400">MATTERPORT PRO3</span></div>
+              <div className="flex justify-between"><span>ACCURACY:</span><span className="text-neutral-200">MILLIMETER-GRADE LiDAR</span></div>
+              <div className="flex justify-between"><span>DELIVERY:</span><span className="text-neutral-200">HOSTED + EMBED-READY</span></div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OUTCOMES */}
+      <section id="outcomes" className="px-6 md:px-24 py-24 bg-[#050507] border-t border-neutral-900 scroll-mt-24">
+        <div className="max-w-5xl mx-auto space-y-8">
+          <span className="text-xs font-mono text-neutral-500 uppercase">[ THE COMPETITIVE EDGE ]</span>
+          <h2 className="text-2xl md:text-4xl font-extrabold uppercase">
+            Your space isn't just a location. It's your best sales tool.
+          </h2>
+          <p className="text-neutral-400 font-light max-w-3xl leading-relaxed">
+            Transform your space into an interactive environment that lets your audience understand
+            layout, atmosphere, and scale in seconds.
+          </p>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs">
+            {OUTCOMES.map((o) => (
+              <li key={o} className="flex gap-3 p-4 bg-neutral-900/40 border border-neutral-800 rounded-lg">
+                <span className="text-emerald-400">+</span>
+                <span className="text-neutral-300">{o}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* INDUSTRIES / SECTORS */}
+      <section id="industries" className="px-6 md:px-24 py-24 border-t border-neutral-900 scroll-mt-24">
+        <div className="max-w-5xl mx-auto space-y-8">
+          <span className="text-xs font-mono text-neutral-500 uppercase">[ SECTORS ]</span>
+          <h2 className="text-2xl md:text-4xl font-extrabold uppercase">
+            Strategy-first capture. Built for your business goals.
+          </h2>
+          <p className="text-neutral-400 font-light max-w-3xl leading-relaxed">
+            From boutique retail to 1,000,000+ sq ft industrial complexes, we scale our process to
+            match your project's complexity.
+          </p>
+          <div className="flex flex-wrap gap-2 font-mono text-xs">
+            {SECTORS.map((s) => (
+              <span
+                key={s}
+                className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded hover:border-emerald-500 transition"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES / INTEGRATIONS */}
+      <section id="integrations" className="px-6 md:px-24 py-24 bg-[#050507] border-t border-neutral-900 scroll-mt-24">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div>
+            <span className="text-xs font-mono text-neutral-500 uppercase">[ SERVICES ]</span>
+            <h2 className="text-2xl md:text-4xl font-extrabold uppercase mt-1">
+              One capture, many ways to use it.
+            </h2>
+            <p className="mt-4 text-neutral-400 font-light max-w-3xl leading-relaxed">
+              One capture becomes a tour, a share link, or a presentation. Matterport shows flow, size,
+              and layout — then we add web formats and launch pages.
+            </p>
+          </div>
+
+          <div className="p-6 md:p-8 bg-neutral-950 border border-neutral-900 rounded-2xl">
+            <h3 className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-6">
+              [ CAPTURE → PACKAGE → PUBLISH ]
+            </h3>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-xs text-neutral-400">
+              {WORKFLOW.map((node, idx, arr) => (
+                <React.Fragment key={node}>
+                  <div className="bg-neutral-900 px-4 py-3 border border-neutral-800 rounded flex items-center gap-2">
+                    <span className="text-emerald-500 text-[10px] font-bold">▶</span>
+                    <span>{node}</span>
+                  </div>
+                  {idx < arr.length - 1 && <ArrowRight className="w-4 h-4 text-neutral-700 hidden md:block" />}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {SERVICES.map((s) => (
+              <div key={s.title} className="p-6 bg-neutral-900/30 border border-neutral-800/60 rounded-xl hover:border-emerald-500/40 transition">
+                <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">{s.kicker}</div>
+                <h3 className="text-sm font-bold uppercase text-white tracking-wide mt-2">{s.title}</h3>
+                <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-light">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STORIES / CLIENT WORK */}
+      <section id="stories" className="px-6 md:px-24 py-24 border-t border-neutral-900 scroll-mt-24">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div>
+            <span className="text-xs font-mono text-neutral-500 uppercase">[ CLIENT WORK ]</span>
+            <h2 className="text-2xl md:text-4xl font-extrabold uppercase mt-1">
+              See how spaces are easier to trust before a visit.
+            </h2>
+            <p className="mt-4 text-neutral-400 font-light max-w-3xl leading-relaxed">
+              Selected work across hospitality, venues, and facilities shows how Novo helps spaces
+              feel clearer and easier to act on.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {STORIES.map((s) => (
+              <a
+                key={s.title}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-6 bg-neutral-900/30 border border-neutral-800/60 rounded-xl hover:border-emerald-500/40 transition flex flex-col justify-between min-h-[240px]"
+              >
+                <div>
+                  <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">{s.tag}</div>
+                  <h3 className="text-base font-bold uppercase text-white tracking-wide mt-2">{s.title}</h3>
+                  <p className="text-xs text-neutral-400 mt-3 leading-relaxed font-light">{s.body}</p>
+                </div>
+                <div className="mt-6 font-mono text-[11px] text-emerald-400 flex items-center gap-2">
+                  {s.cta} <ArrowRight className="w-3 h-3" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST LOGOS */}
+      <section className="px-6 md:px-24 py-16 bg-[#050507] border-t border-neutral-900">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div className="text-center space-y-2">
+            <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">[ CLIENTS & AFFILIATIONS ]</span>
+            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-tight">
+              Trusted by clients, partners, and industry bodies.
+            </h2>
+          </div>
+
+          <div>
+            <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-4">Clients</div>
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              {CLIENT_LOGOS.map((l) => (
+                <img key={l.alt} src={l.src} alt={`${l.alt} logo`} loading="lazy" className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition invert" />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-4">Affiliations</div>
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              {AFFILIATIONS.map((l) => (
+                <img key={l.alt} src={l.src} alt={`${l.alt} logo`} loading="lazy" className="h-10 md:h-12 object-contain opacity-70 hover:opacity-100 transition invert" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GOOGLE REVIEWS */}
+      <section className="px-6 md:px-24 py-24 border-t border-neutral-900">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div>
+            <span className="text-xs font-mono text-neutral-500 uppercase">[ GOOGLE REVIEWS ]</span>
+            <h2 className="text-2xl md:text-4xl font-extrabold uppercase mt-1">Trusted by clients</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {REVIEWS.map((r) => (
+              <div key={r.name} className="p-6 bg-neutral-900/30 border border-neutral-800/60 rounded-xl">
+                <div className="text-amber-400 text-sm">★★★★★</div>
+                <p className="text-xs text-neutral-300 mt-3 leading-relaxed font-light">{r.body}</p>
+                <div className="mt-4 text-[11px] font-mono text-neutral-500 uppercase tracking-widest">— {r.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SCOPE / PRICING */}
+      <section id="pricing" className="px-6 md:px-24 py-24 bg-[#050507] border-t border-neutral-900 scroll-mt-24">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div>
+            <span className="text-xs font-mono text-neutral-500 uppercase">[ SCOPE ]</span>
+            <h2 className="text-2xl md:text-4xl font-extrabold uppercase mt-1">
+              One proven process. Infinite possibilities.
+            </h2>
+            <p className="mt-4 text-neutral-400 font-light max-w-3xl leading-relaxed">
+              We don't believe in one-size-fits-all. We tailor our stack — Matterport, LiDAR, 360,
+              drone, or 3D CGI — so your digital twin delivers exactly what your audience needs to see.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {SCOPE_STEPS.map((s) => (
+              <div key={s.n} className="p-6 bg-neutral-900/30 border border-neutral-800/60 rounded-xl">
+                <div className="text-emerald-400 font-mono text-xs font-bold tracking-widest">{s.n}</div>
+                <h3 className="text-lg font-bold uppercase text-white tracking-tight mt-2">{s.title}</h3>
+                <p className="text-xs text-neutral-400 mt-3 leading-relaxed font-light">{s.body}</p>
+                <ul className="mt-4 space-y-2 font-mono text-[11px] text-neutral-400">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2">
+                      <ChevronRight className="w-3 h-3 text-emerald-500 mt-0.5 shrink-0" /> {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="demo" className="px-6 md:px-24 py-24 border-t border-neutral-900 scroll-mt-24">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold uppercase tracking-tight">
+            Stop letting geography limit your sales.
+          </h2>
+          <p className="text-neutral-400 font-light leading-relaxed">
+            Your space is your biggest asset — don't keep it behind closed doors. Launch high-performance
+            digital experiences that remove site-visit friction, build instant buyer trust, and accelerate
+            your sales cycle.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 font-mono text-xs pt-4">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-emerald-500 text-black font-bold rounded-full hover:bg-emerald-400 transition inline-flex items-center gap-2">
+              <MessageCircle className="w-3.5 h-3.5" /> WHATSAPP US
+            </a>
+            <a href="#stories" className="px-6 py-3 border border-neutral-800 rounded-full text-neutral-300 hover:bg-neutral-900 transition">
+              SEE INDUSTRY WORK
+            </a>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="px-6 md:px-24 py-24 bg-[#050507]">
+      <section className="px-6 md:px-24 py-24 bg-[#050507] border-t border-neutral-900">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="flex items-center gap-3 text-xs font-mono text-neutral-500">
             <HelpCircle className="w-4 h-4 text-emerald-400" />
-            <span>Topical Authority Reference Matrix FAQ</span>
+            <span>Frequently Asked</span>
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
-            Frequently Answered Queries
-          </h3>
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">FAQ</h2>
 
           <div className="border-t border-neutral-900 pt-4 space-y-6">
             <div className="space-y-2">
-              <h4 className="text-sm font-bold uppercase text-neutral-200">
-                What is a Digital Twin?
-              </h4>
+              <h3 className="text-sm font-bold uppercase text-neutral-200">
+                What does a Novo Reperio capture include?
+              </h3>
               <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                An accurate digital asset representation combining spatial reality data,
-                active operational systems metrics, and continuous cloud access frameworks.
+                A hosted Matterport tour as the main asset, plus support layers — 360°, drone/aerial,
+                and stills — and a launch layer for embedding into your website, page, or deck.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="text-sm font-bold uppercase text-neutral-200">
-                Can existing physical structural setups be digitized?
-              </h4>
+              <h3 className="text-sm font-bold uppercase text-neutral-200">
+                Can existing spaces be digitized?
+              </h3>
               <p className="text-xs text-neutral-400 leading-relaxed font-light">
-                Yes. Utilizing advanced LiDAR scanning, photogrammetry, and certified
-                Matterport workflows, completed spaces map perfectly to existing facility
-                models.
+                Yes. Using LiDAR scanning, photogrammetry, and certified Matterport workflows, completed
+                spaces map cleanly into hosted, embed-ready digital twins.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      <footer className="px-6 md:px-24 py-10 border-t border-neutral-900 text-[11px] font-mono text-neutral-500 flex flex-wrap justify-between gap-4">
+        <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400">
+          WhatsApp +60 17-202 9996
+        </a>
+      </footer>
     </motion.div>
   );
 }
