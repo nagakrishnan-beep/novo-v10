@@ -23,6 +23,7 @@ import {
   useIntensity,
 } from "@/components/chrono";
 import { useTransform } from "framer-motion";
+import { CLIENT_LOGOS } from "@/lib/logos";
 
 const TITLE = "Novo Reperio — The Chrono-Adaptive Canvas";
 const DESCRIPTION =
@@ -46,19 +47,29 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
 
-const RAIL = [
-  { label: "EXPERIENCE", href: "#top" },
-  { label: "INNOVATION", href: "#capture" },
-  { label: "VISION", href: "#outcomes" },
-  { label: "STUDIO", href: "#pricing" },
-] as const;
+type RailItem = {
+  label: string;
+  kind: "route" | "external" | "hash";
+  href: string;
+};
 
-const NAV = [
+const RAIL: RailItem[] = [
+  { label: "WORK", kind: "route", href: "/works" },
+  { label: "ABOUT", kind: "route", href: "/about" },
+  { label: "INSIGHTS", kind: "route", href: "/insights" },
+  { label: "CONTACT", kind: "external", href: WHATSAPP_URL },
+];
+
+type NavItem = { label: string; href: string; to?: "/works" | "/about" | "/insights" };
+
+const NAV: NavItem[] = [
   { label: "Capture", href: "#capture" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Sectors", href: "#industries" },
   { label: "Services", href: "#integrations" },
-  { label: "Client Work", href: "/works", to: "/works" as const },
+  { label: "Client Work", href: "/works", to: "/works" },
+  { label: "Insights", href: "/insights", to: "/insights" },
+  { label: "About", href: "/about", to: "/about" },
   { label: "Scope", href: "#pricing" },
 ];
 
@@ -99,18 +110,6 @@ const SCOPE_STEPS = [
   { n: "03", title: "Seamless Launch", body: "We don't just send a link. We provide a launch-ready package, integrated into your website, ads, or pitch decks.", bullets: ["Quick turnaround", "Campaign-ready assets", "Dedicated integration support"] },
 ];
 
-const CLIENT_LOGOS = [
-  { alt: "Mahkota", src: "https://novoreperio.com/wp-content/uploads/2022/02/mmc-final-1.png" },
-  { alt: "Matterport", src: "https://novoreperio.com/wp-content/uploads/2025/01/mp-logo-v-lock-rgb-color-black.png" },
-  { alt: "Glomac", src: "https://novoreperio.com/wp-content/uploads/2022/02/glomac-1.png" },
-  { alt: "KLCC", src: "https://novoreperio.com/wp-content/uploads/2022/02/klcc-1.png" },
-  { alt: "Mah Sing", src: "https://novoreperio.com/wp-content/uploads/2022/02/mahsing-1.png" },
-  { alt: "Maxis", src: "https://novoreperio.com/wp-content/uploads/2022/02/maxis.png" },
-  { alt: "MHUB", src: "https://novoreperio.com/wp-content/uploads/2022/02/Mhub-1.png" },
-  { alt: "Yamaha", src: "https://novoreperio.com/wp-content/uploads/2022/02/yamaha-logo-1-1.png" },
-  { alt: "UEM", src: "https://novoreperio.com/wp-content/uploads/2022/02/uem-1.png" },
-  { alt: "SP Setia", src: "https://novoreperio.com/wp-content/uploads/2022/02/setia-1.png" },
-];
 
 const REVIEWS = [
   { name: "Joyce Chong", body: "Novo Reperio is good and they use the latest equipment for their work. Experienced team, fast output, high quality." },
@@ -211,46 +210,47 @@ function TopBar() {
 function SideRail() {
   const { scrollY } = useIntensity();
   const opacity = useTransform(scrollY, [0, 500, 700], [1, 1, 0]);
-  const [active, setActive] = React.useState(0);
 
-  React.useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const idx = RAIL.findIndex((r) => r.href === `#${e.target.id}`);
-            if (idx >= 0) setActive(idx);
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px" },
-    );
-    RAIL.forEach((r) => {
-      const el = document.querySelector(r.href);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
-  }, []);
+  const cls =
+    "text-[10px] font-mono tracking-[0.35em] transition text-neutral-500 hover:text-cyan-300";
 
   return (
     <motion.aside
       style={{ opacity }}
       className="fixed right-6 md:right-12 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4 items-end pointer-events-auto"
     >
-      <div className="relative flex flex-col gap-4">
-        {RAIL.map((r, i) => (
-          <a
-            key={r.href}
-            href={r.href}
-            className={`text-[10px] font-mono tracking-[0.35em] transition ${
-              active === i
-                ? "text-cyan-300"
-                : "text-neutral-600 hover:text-neutral-300"
-            }`}
-          >
-            {r.label}
-          </a>
-        ))}
+      <div className="relative flex flex-col gap-4 items-end">
+        {RAIL.map((r) => {
+          if (r.kind === "route") {
+            return (
+              <Link
+                key={r.label}
+                to={r.href as "/works" | "/about" | "/insights"}
+                className={cls}
+              >
+                {r.label}
+              </Link>
+            );
+          }
+          if (r.kind === "external") {
+            return (
+              <a
+                key={r.label}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cls}
+              >
+                {r.label}
+              </a>
+            );
+          }
+          return (
+            <a key={r.label} href={r.href} className={cls}>
+              {r.label}
+            </a>
+          );
+        })}
       </div>
       <motion.div
         className="w-px h-16 bg-gradient-to-b from-cyan-400/80 to-transparent mt-2"
@@ -261,6 +261,8 @@ function SideRail() {
     </motion.aside>
   );
 }
+
+
 
 /* ---------- hero ---------- */
 
