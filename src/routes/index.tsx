@@ -95,6 +95,7 @@ function Index() {
   const textSkewY = useTransform(smoothVelocity, [-3, 0, 3], [-5, 0, 5]);
   const textOpacity = useTransform(smoothVelocity, [-2, -0.2, 0, 0.2, 2], [0.1, 0.95, 1, 0.95, 0.1]);
   const matrixBlur = useTransform(smoothVelocity, [-2, 0, 2], ["8px", "0px", "8px"]);
+  const matrixFilter = useTransform(matrixBlur, (b) => `blur(${b})`);
   const paddingX = useTransform(smoothVelocity, [-3, 0, 3], ["1.5rem", "6rem", "1.5rem"]);
 
   useEffect(() => {
