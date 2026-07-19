@@ -334,11 +334,10 @@ function SiteHeader() {
         </Link>
         <nav className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-neutral-500">
           <Link to="/works" className="hover:text-cyan-300">Work</Link>
+          <Link to="/services" className="hover:text-cyan-300">Services</Link>
           <Link to="/about" className="text-cyan-300">About</Link>
           <Link to="/insights" className="hover:text-cyan-300">Insights</Link>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-cyan-300">
-            Contact
-          </a>
+          <Link to="/contact" className="hover:text-cyan-300">Contact</Link>
         </nav>
         <a
           href={WHATSAPP_URL}
