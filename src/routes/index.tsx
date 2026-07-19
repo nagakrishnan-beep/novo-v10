@@ -219,38 +219,15 @@ function SideRail() {
       style={{ opacity }}
       className="fixed right-6 md:right-12 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4 items-end pointer-events-auto"
     >
+      <div className="text-[9px] font-mono tracking-[0.4em] text-cyan-300/70 mb-1">
+        QUICK LINKS //
+      </div>
       <div className="relative flex flex-col gap-4 items-end">
-        {RAIL.map((r) => {
-          if (r.kind === "route") {
-            return (
-              <Link
-                key={r.label}
-                to={r.href as "/works" | "/about" | "/insights"}
-                className={cls}
-              >
-                {r.label}
-              </Link>
-            );
-          }
-          if (r.kind === "external") {
-            return (
-              <a
-                key={r.label}
-                href={r.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cls}
-              >
-                {r.label}
-              </a>
-            );
-          }
-          return (
-            <a key={r.label} href={r.href} className={cls}>
-              {r.label}
-            </a>
-          );
-        })}
+        {RAIL.map((r) => (
+          <Link key={r.label} to={r.to} className={cls}>
+            {r.label}
+          </Link>
+        ))}
       </div>
       <motion.div
         className="w-px h-16 bg-gradient-to-b from-cyan-400/80 to-transparent mt-2"
@@ -261,6 +238,7 @@ function SideRail() {
     </motion.aside>
   );
 }
+
 
 
 
