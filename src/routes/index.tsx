@@ -122,12 +122,13 @@ function Index() {
     <IntensityProvider>
       <ClientOnly fallback={null}>
         <AuroraBackdrop />
-        <LiquidCursor />
+        <LaserTrail />
       </ClientOnly>
       <PageContent />
     </IntensityProvider>
   );
 }
+
 
 function PageContent() {
   return (
