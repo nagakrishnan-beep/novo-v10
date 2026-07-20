@@ -1,16 +1,18 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
-import { getWork, WORKS } from "@/lib/works";
-
-const WHATSAPP_URL = "https://wa.me/60172029996";
+import { ArrowLeft, ArrowRight, ExternalLink, MessageCircle } from "lucide-react";
+import { getWork, getRelatedWorks } from "@/lib/works";
+import { SiteHeader, SiteFooter, BreadcrumbNav, MediaSlot } from "@/components/site-chrome";
+import { abs, WHATSAPP_URL, BASE_URL } from "@/lib/site";
+import { breadcrumbJsonLd } from "@/lib/schema";
 
 export const Route = createFileRoute("/works/$slug")({
   loader: ({ params }) => {
     const work = getWork(params.slug);
     if (!work) throw notFound();
-    return { work };
+    const related = getRelatedWorks(params.slug, 2);
+    return { work, related };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
         meta: [
@@ -21,6 +23,8 @@ export const Route = createFileRoute("/works/$slug")({
     }
     const { work } = loaderData;
     const title = `${work.title} — Novo Reperio`;
+    const url = abs(`/works/${params.slug}`);
+    const img = abs(work.image);
     return {
       meta: [
         { title },
@@ -28,82 +32,51 @@ export const Route = createFileRoute("/works/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: work.summary },
         { property: "og:type", content: "article" },
-        { property: "og:image", content: work.image },
+        { property: "og:url", content: url },
+        { property: "og:image", content: img },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: work.image },
+        { name: "twitter:image", content: img },
       ],
-      links: [{ rel: "canonical", href: `/works/${work.slug}` }],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", url: BASE_URL },
+              { name: "Works", url: abs("/works") },
+              { name: work.title, url },
+            ])
+          ),
+        },
+      ],
     };
   },
   component: WorkDetail,
-  notFoundComponent: WorkNotFound,
-  errorComponent: ({ error }) => (
-    <div className="min-h-screen bg-[#020203] text-neutral-300 flex items-center justify-center p-10">
-      <div>
-        <h1 className="text-2xl mb-2">Something went wrong.</h1>
-        <p className="text-neutral-500 text-sm">{error.message}</p>
-        <Link to="/works" className="text-emerald-400 text-sm mt-4 inline-block">
-          ← Back to Works
-        </Link>
-      </div>
-    </div>
-  ),
 });
 
-function WorkNotFound() {
-  return (
-    <div className="min-h-screen bg-[#020203] text-neutral-300 flex items-center justify-center p-10">
-      <div className="text-center">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-3">
-          404
-        </div>
-        <h1 className="text-3xl font-light mb-4">Project not found</h1>
-        <Link to="/works" className="text-emerald-400 text-sm">
-          ← Back to Selected Projects
-        </Link>
-      </div>
-    </div>
-  );
-}
-
 function WorkDetail() {
-  const { work } = Route.useLoaderData();
-
-  const idx = WORKS.findIndex((w) => w.slug === work.slug);
-  const next = WORKS[(idx + 1) % WORKS.length];
+  const { work, related } = Route.useLoaderData();
 
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 font-sans antialiased">
-      {/* Header */}
-      <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
-        <div className="flex items-center justify-between px-6 md:px-12 py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
-            <span className="sr-only">Novo Reperio</span>
-          </Link>
-          <Link
-            to="/works"
-            className="text-xs tracking-widest uppercase text-neutral-400 hover:text-emerald-400 inline-flex items-center gap-2"
-          >
-            <ArrowLeft size={14} /> All Projects
-          </Link>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 text-emerald-300 text-xs hover:bg-emerald-500/10"
-          >
-            <MessageCircle size={14} /> WhatsApp Us
-          </a>
-        </div>
-      </header>
+      <SiteHeader active="works" />
+
+      <div className="px-6 md:px-24 pt-8">
+        <BreadcrumbNav
+          items={[
+            { name: "Works", to: "/works" },
+            { name: work.title },
+          ]}
+        />
+      </div>
 
       {/* Hero */}
-      <section className="px-6 md:px-24 pt-16 pb-10">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-6">
+      <section className="px-6 md:px-24 pt-8 pb-10">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           {work.format} · {work.categories.join(" · ")}
         </div>
-        <h1 className="text-4xl md:text-6xl font-light leading-[1.05] max-w-4xl">
+        <h1 className="text-4xl md:text-6xl font-light leading-[1.05] max-w-4xl text-white">
           {work.title}
         </h1>
         <p className="mt-6 max-w-2xl text-neutral-400 leading-relaxed">
@@ -111,96 +84,128 @@ function WorkDetail() {
         </p>
       </section>
 
-      {/* Image */}
+      {/* Image or MediaSlot placeholder */}
       <section className="px-6 md:px-24">
-        <div
-          className="aspect-[16/9] w-full rounded-xl border border-neutral-900 bg-neutral-900 bg-cover bg-center"
-          style={{ backgroundImage: `url(${work.image})` }}
-          role="img"
-          aria-label={work.title}
-        />
+        <MediaSlot ratio="16/9" label={`Cover · ${work.title}`} />
       </section>
 
-      {/* Detail */}
+      {/* Body content */}
       <section className="px-6 md:px-24 py-16 grid gap-10 md:grid-cols-3">
-        <div className="md:col-span-2">
-          <h2 className="text-2xl font-light mb-4">How it helps</h2>
-          <p className="text-neutral-400 leading-relaxed mb-8">{work.helps}</p>
-          {work.bullets && (
+        <div className="md:col-span-2 space-y-8">
+          <div>
+            <h2 className="text-2xl font-light mb-4 text-white">How it helps</h2>
+            <p className="text-neutral-400 leading-relaxed">{work.helps}</p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-light mb-4 text-white">The project</h2>
+            <p className="text-neutral-400 leading-relaxed whitespace-pre-line">
+              {work.body}
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-light mb-4 text-white">What's included</h2>
             <ul className="space-y-3">
-              {work.bullets.map((b: string) => (
-                <li
-                  key={b}
-                  className="flex gap-3 text-neutral-300 text-sm leading-relaxed"
-                >
-                  <span className="text-emerald-400 mt-1">▸</span>
+              {work.features.map((b) => (
+                <li key={b} className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
+                  <span className="text-cyan-400 mt-1">▸</span>
                   {b}
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="border-l-2 border-cyan-400/40 pl-4">
+            <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-2">Impact</div>
+            <p className="text-neutral-200 leading-relaxed">{work.impact}</p>
+          </div>
+
+          {work.tourUrl && (
+            <a
+              href={work.tourUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-cyan-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-cyan-300"
+            >
+              <ExternalLink size={14} /> View Live Tour
+            </a>
           )}
         </div>
-        <aside className="border border-neutral-900 rounded-xl p-6 bg-neutral-950 h-fit">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-neutral-500 mb-4">
+
+        <aside className="border border-neutral-900 rounded-xl p-6 bg-neutral-950 h-fit space-y-4">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-neutral-500 mb-2">
             Project Meta
           </div>
-          <dl className="space-y-4 text-sm">
+          <MetaRow label="Format" value={work.format} />
+          <MetaRow label="Sector" value={work.categories.join(", ")} />
+          <MetaRow label="Space Type" value={work.spaceType} />
+          {work.relatedService && work.relatedServiceLabel && (
             <div>
-              <dt className="text-neutral-500 text-xs uppercase tracking-widest">
-                Format
-              </dt>
-              <dd className="text-neutral-200 mt-1">{work.format}</dd>
+              <div className="text-neutral-500 text-xs uppercase tracking-widest">Service</div>
+              <Link
+                to="/services/$slug"
+                params={{ slug: work.relatedService }}
+                className="text-cyan-300 text-sm mt-1 inline-flex items-center gap-1 hover:text-cyan-200"
+              >
+                {work.relatedServiceLabel} <ArrowRight size={12} />
+              </Link>
             </div>
-            <div>
-              <dt className="text-neutral-500 text-xs uppercase tracking-widest">
-                Sector
-              </dt>
-              <dd className="text-neutral-200 mt-1">
-                {work.categories.join(", ")}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-neutral-500 text-xs uppercase tracking-widest">
-                Space Type
-              </dt>
-              <dd className="text-neutral-200 mt-1">{work.spaceType}</dd>
-            </div>
-          </dl>
+          )}
+          <Link
+            to="/contact"
+            className="mt-4 w-full inline-flex justify-center items-center gap-2 px-5 py-3 rounded-full bg-cyan-400 text-black text-sm font-medium hover:bg-cyan-300"
+          >
+            Request Similar Project
+          </Link>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 w-full inline-flex justify-center items-center gap-2 px-5 py-3 rounded-full bg-emerald-500 text-black text-sm font-medium hover:bg-emerald-400"
+            className="w-full inline-flex justify-center items-center gap-2 px-5 py-3 rounded-full border border-white/10 text-neutral-300 text-sm hover:border-cyan-400/40 hover:text-cyan-300"
           >
-            Request Similar Project
+            <MessageCircle size={14} /> WhatsApp Us
           </a>
         </aside>
       </section>
 
-      {/* Next */}
-      <section className="px-6 md:px-24 py-16 border-t border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
-          Next Project
-        </div>
-        <Link
-          to="/works/$slug"
-          params={{ slug: next.slug }}
-          className="group flex items-center justify-between gap-6 border border-neutral-900 rounded-xl p-6 hover:border-emerald-500/40 transition"
-        >
-          <div>
-            <div className="text-xs tracking-widest uppercase text-neutral-500 mb-2">
-              {next.format}
-            </div>
-            <h3 className="text-2xl font-light group-hover:text-emerald-300">
-              {next.title}
-            </h3>
+      {/* Related */}
+      {related.length > 0 && (
+        <section className="px-6 md:px-24 py-16 border-t border-neutral-900">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+            Related work
           </div>
-          <ArrowRight
-            size={20}
-            className="text-neutral-500 group-hover:text-emerald-400"
-          />
-        </Link>
-      </section>
+          <div className="grid md:grid-cols-2 gap-6">
+            {related.map((r) => (
+              <Link
+                key={r.slug}
+                to="/works/$slug"
+                params={{ slug: r.slug }}
+                className="group border border-neutral-900 rounded-xl p-6 hover:border-cyan-500/40 transition"
+              >
+                <div className="text-xs tracking-widest uppercase text-neutral-500 mb-2">
+                  {r.format}
+                </div>
+                <h3 className="text-xl font-light text-white group-hover:text-cyan-300">
+                  {r.title}
+                </h3>
+                <p className="mt-2 text-sm text-neutral-400">{r.summary}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <SiteFooter />
+    </div>
+  );
+}
+
+function MetaRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <div className="text-neutral-500 text-xs uppercase tracking-widest">{label}</div>
+      <div className="text-neutral-200 mt-1 text-sm">{value}</div>
     </div>
   );
 }
