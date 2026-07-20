@@ -1,0 +1,43 @@
+# Novo Reperio Sdn Bhd
+
+Novo Reperio is a spatial capture and immersive visualization studio based in
+Kuala Lumpur, Malaysia. Founded in 2014, we have delivered 400+ projects for
+hotels, developers, venues, showrooms, corporates and cultural institutions
+across Malaysia, Southeast Asia, the Middle East and worldwide.
+
+Novo Reperio is a Matterport Certified Service Partner.
+
+## What we do
+- Matterport digital twins (Pro3 LiDAR capture, hosted twins, embed-ready)
+- 360° virtual tours (ground level and aerial)
+- Drone capture and 4K aerial video
+- Scan to BIM (LiDAR point clouds converted to as-built BIM models)
+- Photoreal CGI stills (interiors, exteriors, aerials, dusk hero shots)
+- Virtual show units and 3D 360° rendered tours for pre-sale developments
+- Property walkthrough films and cinematic launch videos
+- Unreal Engine 5 (UE5) masterplan and web-streamed experiences
+- AI-assisted visualization, finished by human artists
+- Launch-ready microsites that package tours, films and CGI for distribution
+
+## Sectors we serve
+Hospitality (hotels, resorts, F&B), event and convention venues, property
+developers (residential, commercial, mixed-use), corporate workplaces, retail
+and showrooms, cultural institutions and museums, oil & gas / industrial
+safety training, aviation and yachts.
+
+## Key facts
+- Founded: 2014
+- Base: Solaris Mont Kiara, 50480 Kuala Lumpur, Malaysia
+- Contact: hello@novoreperio.com — +60 17-202 9996
+- Coverage: Malaysia (all states), Singapore, worldwide on request
+- Turnaround: capture in days for most single-site projects
+
+## Key URLs
+- Home:      https://novo-v10.lovable.app/
+- Services:  https://novo-v10.lovable.app/services
+- Property visualization: https://novo-v10.lovable.app/services/property-visualization
+- Hospitality digital twins: https://novo-v10.lovable.app/services/hospitality-digital-twins
+- Works:     https://novo-v10.lovable.app/works
+- Insights:  https://novo-v10.lovable.app/insights
+- About:     https://novo-v10.lovable.app/about
+- Contact:   https://novo-v10.lovable.app/contact
