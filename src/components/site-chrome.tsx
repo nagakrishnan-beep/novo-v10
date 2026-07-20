@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle, Mail, MapPin, Phone, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import { type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   WHATSAPP_URL,
   PHONE,
@@ -191,7 +191,6 @@ function ActivateableIframe({ src, title }: { src: string; title: string }) {
 }
 
 // Client-only click-to-load wrapper.
-import { useState } from "react";
 function ClickToLoad({ src, title }: { src: string; title: string }) {
   const [on, setOn] = useState(false);
   if (on) {
