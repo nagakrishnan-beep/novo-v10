@@ -1,11 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { WORKS, SPACE_TYPES } from "@/lib/works";
+import { WORKS, SPACE_TYPES, WORK_CATEGORIES } from "@/lib/works";
+import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
+import { WHATSAPP_URL, abs } from "@/lib/site";
 
 const TITLE = "Selected Projects — Novo Reperio";
 const DESCRIPTION =
-  "Immersive work for venues, ballrooms, showrooms, destinations, and workplaces. Explore Novo Reperio's Matterport, 360°, CGI, and visualisation projects.";
+  "Immersive work for venues, ballrooms, showrooms, destinations and workplaces. Matterport, 360°, CGI and UE5 visualisation projects across Malaysia and beyond.";
 
 export const Route = createFileRoute("/works")({
   head: () => ({
@@ -15,15 +17,13 @@ export const Route = createFileRoute("/works")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/works" },
+      { property: "og:url", content: abs("/works") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/works" }],
+    links: [{ rel: "canonical", href: abs("/works") }],
   }),
   component: WorksPage,
 });
-
-const WHATSAPP_URL = "https://wa.me/60172029996";
 
 function WorksPage() {
   const [filter, setFilter] = useState<string>("All Spaces");
@@ -35,57 +35,26 @@ function WorksPage() {
 
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 font-sans antialiased">
-      {/* Header */}
-      <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
-        <div className="flex items-center justify-between px-6 md:px-12 py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
-            <span className="sr-only">Novo Reperio</span>
-          </Link>
-          <nav className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-neutral-500">
-            <Link to="/works" className="text-emerald-400">
-              Work
-            </Link>
-            <Link to="/about" className="hover:text-emerald-400">
-              About
-            </Link>
-            <Link to="/insights" className="hover:text-emerald-400">
-              Insights
-            </Link>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-emerald-400">
-              Contact
-            </a>
-          </nav>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 text-emerald-300 text-xs hover:bg-emerald-500/10"
-          >
-            <MessageCircle size={14} /> WhatsApp Us
-          </a>
-        </div>
-      </header>
+      <SiteHeader active="works" />
 
       {/* Hero */}
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-6">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           Portfolio
         </div>
-        <h1 className="text-4xl md:text-6xl font-light leading-[1.05] max-w-5xl">
-          Immersive work for venues, ballrooms, showrooms, destinations,
-          workplaces.
+        <h1 className="text-4xl md:text-6xl font-light leading-[1.05] max-w-5xl text-white">
+          Immersive work for venues, ballrooms, showrooms, destinations, workplaces.
         </h1>
         <p className="mt-6 max-w-2xl text-neutral-400 leading-relaxed">
-          Explore how Novo Reperio helps venue teams, property marketers, and
-          commercial brands make scale, flow, and atmosphere legible before the
+          Explore how Novo Reperio helps venue teams, property marketers and
+          commercial brands make scale, flow and atmosphere legible before the
           first visit happens.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             to="/works/$slug"
             params={{ slug: "hyatt-kuantan-ballroom" }}
-            className="px-6 py-3 rounded-full bg-emerald-500 text-black text-sm font-medium hover:bg-emerald-400 inline-flex items-center gap-2"
+            className="px-6 py-3 rounded-full bg-cyan-400 text-black text-sm font-medium hover:bg-cyan-300 inline-flex items-center gap-2"
           >
             View Featured Project <ArrowRight size={14} />
           </Link>
@@ -93,15 +62,34 @@ function WorksPage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3 rounded-full border border-neutral-800 text-neutral-300 text-sm hover:bg-neutral-900"
+            className="px-6 py-3 rounded-full border border-neutral-800 text-neutral-300 text-sm hover:bg-neutral-900 inline-flex items-center gap-2"
           >
-            Request Quote
+            <MessageCircle size={14} /> Request Quote
           </a>
         </div>
       </section>
 
-      {/* Filters */}
+      {/* Category pillars */}
       <section className="px-6 md:px-24 pt-16">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+          Browse by category
+        </div>
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-3">
+          {Object.values(WORK_CATEGORIES).map((c) => (
+            <Link
+              key={c.slug}
+              to="/works/category/$cat"
+              params={{ cat: c.slug }}
+              className="border border-white/10 rounded-lg px-4 py-3 text-xs text-neutral-300 hover:border-cyan-400/40 hover:text-cyan-300 transition"
+            >
+              {c.title}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Filters */}
+      <section className="px-6 md:px-24 pt-12">
         <div className="flex items-baseline justify-between flex-wrap gap-4 mb-6">
           <h2 className="text-2xl font-light">Selected Projects</h2>
           <span className="text-[10px] tracking-[0.3em] uppercase text-neutral-500">
@@ -117,7 +105,7 @@ function WorksPage() {
                 onClick={() => setFilter(type)}
                 className={`px-4 py-2 rounded-full border text-xs transition ${
                   active
-                    ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-300"
+                    ? "border-cyan-500/60 bg-cyan-500/10 text-cyan-300"
                     : "border-neutral-800 text-neutral-400 hover:border-neutral-700"
                 }`}
               >
@@ -132,8 +120,7 @@ function WorksPage() {
       <section className="px-6 md:px-24 pb-24">
         {filtered.length === 0 ? (
           <p className="text-neutral-500 text-sm">
-            No projects match this filter yet. Try another category to explore
-            more of Novo Reperio's work.
+            No projects match this filter yet. Try another category.
           </p>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -142,22 +129,19 @@ function WorksPage() {
                 key={w.slug}
                 to="/works/$slug"
                 params={{ slug: w.slug }}
-                className="group border border-neutral-900 rounded-xl overflow-hidden bg-neutral-950 hover:border-emerald-500/40 transition"
+                className="group border border-neutral-900 rounded-xl overflow-hidden bg-neutral-950 hover:border-cyan-500/40 transition"
               >
-                <div
-                  className="aspect-[4/3] bg-neutral-900 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${w.image})` }}
-                />
+                <MediaSlot ratio="4/3" label={w.title} className="rounded-none border-none" />
                 <div className="p-5">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="text-[10px] tracking-widest uppercase text-emerald-400">
+                    <span className="text-[10px] tracking-widest uppercase text-cyan-400">
                       {w.format}
                     </span>
                     <span className="text-[10px] tracking-widest uppercase text-neutral-500">
                       {w.categories.join(" · ")}
                     </span>
                   </div>
-                  <h3 className="text-lg font-light mb-2 group-hover:text-emerald-300">
+                  <h3 className="text-lg font-light mb-2 group-hover:text-cyan-300 text-white">
                     {w.title}
                   </h3>
                   <p className="text-sm text-neutral-400 leading-relaxed mb-4">
@@ -174,28 +158,7 @@ function WorksPage() {
         )}
       </section>
 
-      {/* CTA */}
-      <section className="px-6 md:px-24 py-20 border-t border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
-          Next Step
-        </div>
-        <h2 className="text-3xl md:text-4xl font-light max-w-3xl">
-          Ready to showcase your space like this?
-        </h2>
-        <p className="mt-4 max-w-2xl text-neutral-400">
-          Novo Reperio can help you choose the right virtual tour, visual
-          format, and presentation flow for your venue, property, office,
-          showroom, or destination.
-        </p>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-500 text-black text-sm font-medium hover:bg-emerald-400"
-        >
-          <MessageCircle size={14} /> Request a Quote
-        </a>
-      </section>
+      <SiteFooter />
     </div>
   );
 }

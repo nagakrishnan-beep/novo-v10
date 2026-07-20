@@ -16,8 +16,11 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as ServicesPropertyVisualizationRouteImport } from './routes/services.property-visualization'
+import { Route as ServicesHospitalityDigitalTwinsRouteImport } from './routes/services.hospitality-digital-twins'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as WorksCategoryCatRouteImport } from './routes/works.category.$cat'
 
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
@@ -54,6 +57,18 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const ServicesPropertyVisualizationRoute =
+  ServicesPropertyVisualizationRouteImport.update({
+    id: '/property-visualization',
+    path: '/property-visualization',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesHospitalityDigitalTwinsRoute =
+  ServicesHospitalityDigitalTwinsRouteImport.update({
+    id: '/hospitality-digital-twins',
+    path: '/hospitality-digital-twins',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -63,6 +78,11 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
+} as any)
+const WorksCategoryCatRoute = WorksCategoryCatRouteImport.update({
+  id: '/category/$cat',
+  path: '/category/$cat',
+  getParentRoute: () => WorksRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -74,7 +94,10 @@ export interface FileRoutesByFullPath {
   '/works': typeof WorksRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/hospitality-digital-twins': typeof ServicesHospitalityDigitalTwinsRoute
+  '/services/property-visualization': typeof ServicesPropertyVisualizationRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/works/category/$cat': typeof WorksCategoryCatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,7 +108,10 @@ export interface FileRoutesByTo {
   '/works': typeof WorksRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/hospitality-digital-twins': typeof ServicesHospitalityDigitalTwinsRoute
+  '/services/property-visualization': typeof ServicesPropertyVisualizationRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/works/category/$cat': typeof WorksCategoryCatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,7 +123,10 @@ export interface FileRoutesById {
   '/works': typeof WorksRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/hospitality-digital-twins': typeof ServicesHospitalityDigitalTwinsRoute
+  '/services/property-visualization': typeof ServicesPropertyVisualizationRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/works/category/$cat': typeof WorksCategoryCatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,7 +139,10 @@ export interface FileRouteTypes {
     | '/works'
     | '/insights/$slug'
     | '/services/$slug'
+    | '/services/hospitality-digital-twins'
+    | '/services/property-visualization'
     | '/works/$slug'
+    | '/works/category/$cat'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,7 +153,10 @@ export interface FileRouteTypes {
     | '/works'
     | '/insights/$slug'
     | '/services/$slug'
+    | '/services/hospitality-digital-twins'
+    | '/services/property-visualization'
     | '/works/$slug'
+    | '/works/category/$cat'
   id:
     | '__root__'
     | '/'
@@ -132,7 +167,10 @@ export interface FileRouteTypes {
     | '/works'
     | '/insights/$slug'
     | '/services/$slug'
+    | '/services/hospitality-digital-twins'
+    | '/services/property-visualization'
     | '/works/$slug'
+    | '/works/category/$cat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -195,6 +233,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/services/property-visualization': {
+      id: '/services/property-visualization'
+      path: '/property-visualization'
+      fullPath: '/services/property-visualization'
+      preLoaderRoute: typeof ServicesPropertyVisualizationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/hospitality-digital-twins': {
+      id: '/services/hospitality-digital-twins'
+      path: '/hospitality-digital-twins'
+      fullPath: '/services/hospitality-digital-twins'
+      preLoaderRoute: typeof ServicesHospitalityDigitalTwinsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
@@ -208,6 +260,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
+    }
+    '/works/category/$cat': {
+      id: '/works/category/$cat'
+      path: '/category/$cat'
+      fullPath: '/works/category/$cat'
+      preLoaderRoute: typeof WorksCategoryCatRouteImport
+      parentRoute: typeof WorksRoute
     }
   }
 }
@@ -226,10 +285,14 @@ const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesHospitalityDigitalTwinsRoute: typeof ServicesHospitalityDigitalTwinsRoute
+  ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSlugRoute: ServicesSlugRoute,
+  ServicesHospitalityDigitalTwinsRoute: ServicesHospitalityDigitalTwinsRoute,
+  ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
@@ -238,10 +301,12 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
+  WorksCategoryCatRoute: typeof WorksCategoryCatRoute
 }
 
 const WorksRouteChildren: WorksRouteChildren = {
   WorksSlugRoute: WorksSlugRoute,
+  WorksCategoryCatRoute: WorksCategoryCatRoute,
 }
 
 const WorksRouteWithChildren = WorksRoute._addFileChildren(WorksRouteChildren)
@@ -257,13 +322,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
