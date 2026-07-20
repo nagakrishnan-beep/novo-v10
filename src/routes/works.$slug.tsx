@@ -65,8 +65,8 @@ function WorkDetail() {
       <div className="px-6 md:px-24 pt-8">
         <BreadcrumbNav
           items={[
-            { name: "Works", to: "/works" },
-            { name: work.title },
+            { label: "Works", to: "/works" },
+            { label: work.title },
           ]}
         />
       </div>
@@ -107,7 +107,7 @@ function WorkDetail() {
           <div>
             <h2 className="text-2xl font-light mb-4 text-white">What's included</h2>
             <ul className="space-y-3">
-              {work.features.map((b) => (
+              {work.features.map((b: string) => (
                 <li key={b} className="flex gap-3 text-neutral-300 text-sm leading-relaxed">
                   <span className="text-cyan-400 mt-1">▸</span>
                   {b}
@@ -176,7 +176,7 @@ function WorkDetail() {
             Related work
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            {related.map((r) => (
+            {related.map((r: any) => (
               <Link
                 key={r.slug}
                 to="/works/$slug"

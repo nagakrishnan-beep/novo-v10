@@ -60,8 +60,8 @@ function CategoryPage() {
       <div className="px-6 md:px-24 pt-8">
         <BreadcrumbNav
           items={[
-            { name: "Works", to: "/works" },
-            { name: cat.title },
+            { label: "Works", to: "/works" },
+            { label: cat.title },
           ]}
         />
       </div>
@@ -81,7 +81,7 @@ function CategoryPage() {
 
       <section className="px-6 md:px-24 py-16">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {works.map((w) => (
+          {works.map((w: any) => (
             <Link
               key={w.slug}
               to="/works/$slug"
