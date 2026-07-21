@@ -1,11 +1,13 @@
-export type ServiceTier = "core" | "supporting";
+export type ServiceTier = "flagship" | "core" | "supporting";
 export type ServiceTrack = "have" | "unbuilt" | "supporting";
+export type ServiceCluster = "market" | "build" | "train" | "plan" | "supporting";
 
 export type Service = {
   slug: string;
   title: string;
   tier: ServiceTier;
   track: ServiceTrack;
+  cluster: ServiceCluster;
   tagline: string;
   description: string;
   bestFor: string;
@@ -17,11 +19,13 @@ export type Service = {
 const img = (name: string) => `/images/services/${name}`;
 
 export const SERVICES: Service[] = [
+  /* ---------- MARKET IT — existing (Track A) ---------- */
   {
     slug: "spatial-capture-digital-twins",
     title: "Matterport Digital Twin",
     tier: "core",
     track: "have",
+    cluster: "market",
     tagline: "Precision LiDAR twins that convert real-world environments into structured, measurable digital assets.",
     description:
       "Matterport Pro3 LiDAR capture, laser scanning, and Scan-to-BIM workflows convert existing environments into structured, dimensionally accurate digital twins ready for marketing, review, and operations.",
@@ -42,6 +46,7 @@ export const SERVICES: Service[] = [
     title: "Ground-Level 360° Tour",
     tier: "core",
     track: "have",
+    cluster: "market",
     tagline: "Lightweight 360° tours for web, OTAs, WhatsApp and rapid distribution.",
     description:
       "Ground-level 360° panoramic capture stitched into interactive tours — lighter than a full digital twin, ideal for social, OTA listings and quick sales replies.",
@@ -59,6 +64,7 @@ export const SERVICES: Service[] = [
     title: "Drone Aerial 360° & Cinematic Video",
     tier: "core",
     track: "have",
+    cluster: "market",
     tagline: "Aerial 360° panoramas and 4K cinematic drone footage that reveal scale, arrival and surroundings.",
     description:
       "Drone and aerial photography, 360° panoramic capture, orthomosaic mapping and cinematic 4K video that show the arrival experience, scale, and surroundings that ground-level media cannot communicate.",
@@ -76,6 +82,7 @@ export const SERVICES: Service[] = [
     title: "Cinematic Video",
     tier: "core",
     track: "have",
+    cluster: "market",
     tagline: "60–90s launch films and 15–30s social cuts, colour-graded and delivery-ready.",
     description:
       "Cinematic ground and aerial video edited into launch films, brand suites, social cuts and 9:16 reels — one production run powers every channel.",
@@ -88,12 +95,13 @@ export const SERVICES: Service[] = [
     ],
     image: img("cinematic-video.jpg"),
   },
-  /* ---------- Track B — Unbuilt ---------- */
+  /* ---------- MARKET IT — unbuilt (Track B) ---------- */
   {
     slug: "3d-rendered-walkthrough-tours",
     title: "3D Rendered Walkthrough Tours",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline: "Dollhouse-style virtual show units generated from CAD, BIM, SketchUp or PDF at any stage.",
     description:
       "Rendered walkthrough tours of unbuilt units — dollhouse and floorplan views, room-by-room navigation, measurement tool where applicable. Perfect pre-sales asset when the physical show unit isn't ready.",
@@ -111,6 +119,7 @@ export const SERVICES: Service[] = [
     title: "CGI 360° Panorama Tours",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline: "Rendered 360° panoramas — light enough for portals, WhatsApp and interactive campaign pages.",
     description:
       "Photoreal 360° panoramas rendered from architectural intent — buyers can look around a proposed space long before it exists.",
@@ -128,6 +137,7 @@ export const SERVICES: Service[] = [
     title: "Photoreal CGI Stills",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline: "Magazine-grade exteriors, interiors, aerials and dusk hero shots — print-ready for billboards.",
     description:
       "Still CGI at the highest fidelity — exteriors, interiors, aerials and dusk hero shots ready for print, campaign pages, billboards and portal listings.",
@@ -145,6 +155,7 @@ export const SERVICES: Service[] = [
     title: "Property Walkthrough Films",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline: "60–90s launch films, 15–30s social cuts and drone-CGI hybrids for portal, gallery and social.",
     description:
       "Cinematic films that combine CGI walkthroughs, drone hybrids and lifestyle vignettes — the launch centrepiece for property developments.",
@@ -162,6 +173,7 @@ export const SERVICES: Service[] = [
     title: "UE5 Masterplan Experience",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline:
       "SIGNATURE — a fully explorable township in Unreal Engine 5: free-roam, phase timeline, live availability, day/night, POI hotspots.",
     description:
@@ -181,6 +193,7 @@ export const SERVICES: Service[] = [
     title: "UE5 Interactive Web Platform",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline: "Console-quality 3D pixel-streamed from the cloud, no downloads — live unit selector, real-time finish switching.",
     description:
       "Cloud pixel-streamed UE5 experiences — buyers explore console-quality 3D in the browser with zero download. Live unit selector, real-time finish switching, shareable agent links and buyer-behaviour analytics.",
@@ -198,6 +211,7 @@ export const SERVICES: Service[] = [
     title: "AI-Assisted Visualization",
     tier: "core",
     track: "unbuilt",
+    cluster: "market",
     tagline: "Concepts in hours not weeks, more directions per budget — every final frame finished by human artists.",
     description:
       "AI-assisted iteration during concept development — more directions per budget, faster feedback loops. Every final frame is finished by human artists to preserve consistency and photoreal quality.",
@@ -210,16 +224,127 @@ export const SERVICES: Service[] = [
     ],
     image: img("ai-viz.jpg"),
   },
+
+  /* ---------- BUILD IT ---------- */
+  {
+    slug: "scan-to-bim",
+    title: "Scan-to-BIM & LiDAR Point Cloud Services",
+    tier: "core",
+    track: "have",
+    cluster: "build",
+    tagline:
+      "LiDAR point clouds converted into accurate as-built BIM, 2D CAD and measurable digital twins.",
+    description:
+      "Novo Reperio captures existing buildings with LiDAR and 3D scanning, then converts the point cloud into accurate as-built deliverables — BIM models, 2D CAD drawings, and measurable digital twins — so architects, engineers and facility teams design and plan from reality, not guesswork.",
+    bestFor:
+      "Architects, engineers, quantity surveyors, renovation & retrofit, MEP coordination, facility handover.",
+    benefits: [
+      "Registered LiDAR point clouds",
+      "Scan-to-BIM models at LOD 200–350",
+      "2D CAD floor plans, elevations, sections",
+      "As-built vs design verification",
+      "Measurable 3D twin alongside the point cloud",
+    ],
+    image: img("scan-to-bim.jpg"),
+  },
+  {
+    slug: "construction-progress",
+    title: "Construction Progress Capture & Remote Inspection",
+    tier: "core",
+    track: "have",
+    cluster: "build",
+    tagline:
+      "Scheduled 3D and 360° capture turns your site into a dated, walkable record.",
+    description:
+      "Scheduled 3D and 360° capture turns your construction site into a dated, walkable record — so project teams inspect remotely, verify progress against programme, and settle disputes with evidence instead of memory.",
+    bestFor: "Developers, main contractors, project consultants, PMCs.",
+    benefits: [
+      "Scheduled progress twins (weekly/monthly)",
+      "Remote inspection walkthroughs",
+      "Milestone & claim records",
+      "Dispute-proof as-built history",
+      "Handover twin at completion",
+    ],
+    image: img("construction-progress.jpg"),
+  },
+  {
+    slug: "facilities-operations",
+    title: "Facilities Management Digital Twins",
+    tier: "core",
+    track: "have",
+    cluster: "build",
+    tagline:
+      "Asset-tagged 3D operations — run the building from anywhere.",
+    description:
+      "An operational digital twin gives facilities teams a live, navigable model of their building — asset registers, room-by-room documentation, and contractor briefing without a site visit.",
+    bestFor: "Building owners, FM companies, corporate real estate, REITs.",
+    benefits: [
+      "Asset-tagged twins",
+      "Space & inventory registers",
+      "Remote contractor/vendor briefing",
+      "Insurance-grade condition documentation",
+      "Virtual onboarding of new FM staff",
+    ],
+    image: img("facilities-operations.jpg"),
+  },
+
+  /* ---------- TRAIN IN IT ---------- */
+  {
+    slug: "immersive-training",
+    title: "Immersive & Virtual Training",
+    tier: "core",
+    track: "have",
+    cluster: "train",
+    tagline:
+      "360° interactive, gamified digital twins, and game-engine simulation training.",
+    description:
+      "Novo Reperio converts real workplaces into interactive training environments — 360° guided walkthroughs, gamified digital twins, and game-engine simulations on engagement — so staff learn procedures hands-on, from anywhere, on any device.",
+    bestFor:
+      "HSE/safety, L&D, operations, HR onboarding — oil & gas, manufacturing, plants, distributed corporates.",
+    benefits: [
+      "Consistency at global scale",
+      "Travel & downtime eliminated",
+      "Safety without exposure",
+      "Measurable — completion, scores, time",
+      "Always-on, multilingual, mobile/VR-ready",
+    ],
+    image: img("immersive-training.jpg"),
+  },
+
+  /* ---------- PLAN IT ---------- */
+  {
+    slug: "urban-digital-twins",
+    title: "Urban & Masterplan Digital Twins",
+    tier: "flagship",
+    track: "unbuilt",
+    cluster: "plan",
+    tagline:
+      "City-scale 3D with data overlay — visualise upcoming projects in their real surroundings.",
+    description:
+      "Novo Reperio builds digital twins at every scale — building, township, city and state — combining reality capture with real-time 3D so planners, authorities and developers can visualise upcoming projects in context and overlay the data that matters.",
+    bestFor:
+      "Master developers, state/municipal planning, GLCs, large landowners, authorities.",
+    benefits: [
+      "Real-time visualisation of upcoming projects",
+      "Data/GIS overlays for planning",
+      "Public-safety & resilience overlays",
+      "Shared authority/stakeholder review",
+      "Scenario comparison (Plan A vs Plan B)",
+    ],
+    image: img("urban-digital-twins.jpg"),
+  },
+
   /* ---------- Supporting ---------- */
   {
     slug: "web-development",
-    title: "Launch Microsites & Web Development",
+    title: "Launch Microsites & Project Websites",
     tier: "supporting",
     track: "supporting",
+    cluster: "supporting",
     tagline:
-      "Polished microsites and landing pages that package your tours, films and CGI into one shareable presentation.",
+      "The wrapper that hosts your tours, renders and films for property launches.",
     description:
-      "Launch-ready websites and campaign microsites that package Matterport tours, aerial films, and CGI into one clear, shareable presentation.",
+      "Launch-ready microsites and project websites that package Matterport tours, aerial films, and CGI into one clear, shareable presentation for a property launch.",
     bestFor: "Project launches, campaign pages and venues that need a single link to send.",
     benefits: [
       "Custom microsites and landing pages",
@@ -230,27 +355,11 @@ export const SERVICES: Service[] = [
     image: img("web.jpg"),
   },
   {
-    slug: "scan-to-bim",
-    title: "Scan to BIM",
-    tier: "supporting",
-    track: "supporting",
-    tagline: "LiDAR point clouds converted into accurate as-built BIM models — LOD 200 through 350.",
-    description:
-      "Convert LiDAR captures into reliable as-built BIM models for renovation, MEP coordination and handover — the design team works against reality, not out-of-date drawings.",
-    bestFor: "Renovation projects, complex MEP coordination, facility handover.",
-    benefits: [
-      "LOD 200 / 300 / 350 depending on need",
-      "MEP coordination on real geometry",
-      "Fewer clashes on site",
-      "Owner-ready handover packages",
-    ],
-    image: img("scan-to-bim.jpg"),
-  },
-  {
     slug: "commercial-photography",
     title: "Commercial Photography",
     tier: "supporting",
     track: "supporting",
+    cluster: "supporting",
     tagline: "Premium interior, exterior and architectural stills that complement immersive capture.",
     description:
       "High-end interior, exterior and architectural photography — the still hero layer that complements immersive capture with editorial and campaign imagery.",
@@ -262,6 +371,40 @@ export const SERVICES: Service[] = [
       "Rights cleared for marketing use",
     ],
     image: img("photography.jpg"),
+  },
+];
+
+export type ClusterDef = {
+  key: ServiceCluster;
+  label: string;
+  outcome: string;
+  href: string;
+};
+
+export const CLUSTERS: ClusterDef[] = [
+  {
+    key: "market",
+    label: "MARKET IT",
+    outcome: "Property marketing, hospitality, staging, CGI, video, launch microsites.",
+    href: "/services#market",
+  },
+  {
+    key: "build",
+    label: "BUILD IT",
+    outcome: "Scan-to-BIM, construction progress capture, facilities operations twins.",
+    href: "/services#build",
+  },
+  {
+    key: "train",
+    label: "TRAIN IN IT",
+    outcome: "360° interactive, gamified and simulation training environments.",
+    href: "/services/immersive-training",
+  },
+  {
+    key: "plan",
+    label: "PLAN IT",
+    outcome: "City & masterplan-scale digital twins with data overlay for planning.",
+    href: "/services/urban-digital-twins",
   },
 ];
 
