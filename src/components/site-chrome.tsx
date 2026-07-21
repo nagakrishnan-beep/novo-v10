@@ -80,45 +80,45 @@ export function SiteFooter() {
           </address>
           <ul className="mt-4 space-y-1 text-sm text-neutral-300 font-mono">
             <li className="flex items-center gap-2">
-              <Phone size={12} className="text-cyan-300" />
-              <a href={`tel:${PHONE.replace(/\s|-/g, "")}`} className="hover:text-cyan-300">{PHONE}</a>
+              <Phone size={12} className="text-emerald-300" />
+              <a href={`tel:${PHONE.replace(/\s|-/g, "")}`} className="hover:text-emerald-300">{PHONE}</a>
             </li>
             <li className="flex items-center gap-2">
-              <Mail size={12} className="text-cyan-300" />
-              <a href={`mailto:${EMAIL}`} className="hover:text-cyan-300">{EMAIL}</a>
+              <Mail size={12} className="text-emerald-300" />
+              <a href={`mailto:${EMAIL}`} className="hover:text-emerald-300">{EMAIL}</a>
             </li>
             <li className="flex items-center gap-2">
-              <MapPin size={12} className="text-cyan-300" />
+              <MapPin size={12} className="text-emerald-300" />
               <span className="text-neutral-400 text-xs">{HOURS}</span>
             </li>
           </ul>
         </div>
 
         <div>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 mb-4">Explore</div>
+          <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">Explore</div>
           <ul className="space-y-2 text-sm text-neutral-300">
             {NAV.filter((n) => n.key !== "home").map((n) => (
               <li key={n.key}>
-                <Link to={n.to} className="hover:text-cyan-300">{n.label}</Link>
+                <Link to={n.to} className="hover:text-emerald-300">{n.label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 mb-4">Follow</div>
+          <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">Follow</div>
           <ul className="space-y-2 text-sm text-neutral-300">
-            <li><a href={SOCIALS.instagram} target="_blank" rel="noreferrer" className="hover:text-cyan-300 inline-flex items-center gap-2"><Instagram size={14}/> Instagram</a></li>
-            <li><a href={SOCIALS.facebook} target="_blank" rel="noreferrer" className="hover:text-cyan-300 inline-flex items-center gap-2"><Facebook size={14}/> Facebook</a></li>
-            <li><a href={SOCIALS.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan-300 inline-flex items-center gap-2"><Linkedin size={14}/> LinkedIn</a></li>
-            <li><a href={SOCIALS.youtube} target="_blank" rel="noreferrer" className="hover:text-cyan-300 inline-flex items-center gap-2"><Youtube size={14}/> YouTube</a></li>
+            <li><a href={SOCIALS.instagram} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Instagram size={14}/> Instagram</a></li>
+            <li><a href={SOCIALS.facebook} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Facebook size={14}/> Facebook</a></li>
+            <li><a href={SOCIALS.linkedin} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Linkedin size={14}/> LinkedIn</a></li>
+            <li><a href={SOCIALS.youtube} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Youtube size={14}/> YouTube</a></li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-neutral-900 px-6 md:px-24 py-6 flex flex-wrap items-center justify-between gap-4 text-[11px] font-mono text-neutral-500">
+      <div className="border-t border-neutral-900 px-6 md:px-24 py-6 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neutral-500">
         <span>© {new Date().getFullYear()} {LEGAL_NAME}. All rights reserved.</span>
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackWhatsApp} className="hover:text-cyan-300 inline-flex items-center gap-2">
+        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackWhatsApp} className="hover:text-emerald-300 inline-flex items-center gap-2">
           <MessageCircle size={12}/> WhatsApp {PHONE}
         </a>
       </div>
