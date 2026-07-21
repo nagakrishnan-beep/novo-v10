@@ -8,7 +8,6 @@ import {
   Play,
   ChevronRight,
   MessageCircle,
-  Sparkles,
 } from "lucide-react";
 import {
   IntensityProvider,
@@ -193,148 +192,43 @@ function Hero() {
       className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-16 pb-16"
     >
       <div className="max-w-5xl origin-left">
-        <KineticEyebrow className="text-[11px] font-mono block mb-6 uppercase">
-          CHRONO-ADAPTIVE CANVAS
+        <KineticEyebrow className="text-xs font-mono block mb-6 uppercase tracking-widest">
+          NOVO REPERIO — SPACE CAPTURE STUDIO
         </KineticEyebrow>
 
         <KineticHeadline className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] text-white">
-          The evolution of sensation.
-          <br />
-          Experiencing the
-          <br />
-          <span className="text-white/90">Chrono-Adaptive Canvas.</span>
+          Turn Your Space Into a 24/7 Sales Engine
         </KineticHeadline>
 
-        <div className="mt-10 max-w-3xl">
-          <KineticHeadline className="text-xl md:text-2xl font-semibold tracking-tight leading-snug text-neutral-100 normal-case">
-            Turn your venue into a 24/7 sales engine.
-            <br />
-            <span className="text-neutral-300 font-light">
-              Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
-            </span>
-          </KineticHeadline>
+        <div className="mt-8 max-w-3xl">
+          <KineticBody className="text-base md:text-lg leading-relaxed text-neutral-300 font-light">
+            Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that responds to you. Explore, measure, and book from anywhere in the world.
+          </KineticBody>
         </div>
+
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-300 font-light">
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>10+ Years of Immersive Excellence</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Reduce Sales Cycles with 24/7 virtual access</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Trusted by Global Brands — KLCC to five-star hospitality groups</li>
+        </ul>
 
         <HeroQuickLinks />
       </div>
 
-      {/* feature preview strip */}
-      <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl">
-        <FeaturePreview
-          label="KINETIC MORPHING TYPOGRAPHY"
-          demo={<KineticDemo />}
-        />
-        <FeaturePreview label="FLUID NAVIGATION" demo={<FluidDemo />} />
-        <StartExperienceCta />
-      </div>
-
-      {/* thin baseline row */}
-      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap justify-between gap-4 text-xs font-mono tracking-widest text-neutral-500 uppercase">
-        <span>VELOCITY-BASED LAYOUTS</span>
-        <span>CONTEXTUAL INTERFACE</span>
-        <span>ORGANIC TRANSITIONS</span>
-        <ArrowRight className="w-4 h-4" />
+      {/* proof line */}
+      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-300">
+        <span className="font-mono text-xs uppercase tracking-wider text-emerald-300">Proof</span>
+        <span className="font-light">
+          WTCKL digital twin: <span className="text-white font-medium">8,000+ visits · 37/week</span> — bookings confirmed faster.
+        </span>
+        <ArrowRight className="w-4 h-4 text-neutral-500" />
       </div>
     </section>
   );
 }
 
 
-function FeaturePreview({
-  label,
-  demo,
-}: {
-  label: string;
-  demo: React.ReactNode;
-}) {
-  return (
-    <MagneticCard
-      strength={10}
-      className="relative bg-white/[0.02] border border-white/10 rounded-xl p-5 min-h-[180px] backdrop-blur-md overflow-hidden group hover:border-cyan-400/40 transition"
-    >
-      <div className="text-[10px] font-mono tracking-[0.25em] text-white/90 uppercase leading-tight max-w-[10rem]">
-        {label}
-      </div>
-      <div className="absolute inset-0 pointer-events-none opacity-70">
-        {demo}
-      </div>
-    </MagneticCard>
-  );
-}
 
-function KineticDemo() {
-  const { intensity } = useIntensity();
-  const y = useTransform(intensity, [0, 1], [0, -30]);
-  return (
-    <div className="absolute inset-0 flex items-end justify-end p-4 overflow-hidden">
-      <motion.div
-        style={{ y }}
-        className="flex flex-col gap-2 items-end font-mono text-[10px] text-cyan-300/70"
-      >
-        <div className="w-24 h-1 bg-gradient-to-r from-transparent to-cyan-400/60 rounded-full" />
-        <div className="w-16 h-1 bg-gradient-to-r from-transparent to-emerald-400/60 rounded-full" />
-        <div className="w-32 h-1 bg-gradient-to-r from-transparent to-purple-400/60 rounded-full" />
-        <div className="w-20 h-1 bg-gradient-to-r from-transparent to-cyan-400/60 rounded-full" />
-      </motion.div>
-    </div>
-  );
-}
-
-function FluidDemo() {
-  return (
-    <div className="absolute inset-0 flex items-end justify-end p-4">
-      <motion.div
-        className="w-32 h-20 rounded-lg border border-white/10 bg-gradient-to-br from-cyan-400/10 via-transparent to-purple-500/10"
-        animate={{
-          scale: [1, 1.05, 1],
-          rotate: [0, 1.5, 0],
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-full h-full flex items-center justify-center">
-          <Sparkles className="w-6 h-6 text-cyan-300/60" />
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
-function StartExperienceCta() {
-  const { intensity } = useIntensity();
-  const boxShadow = useTransform(
-    intensity,
-    [0, 1],
-    [
-      "0 0 40px rgba(34,211,238,0.35)",
-      "0 0 90px rgba(34,211,238,0.7)",
-    ],
-  );
-  return (
-    <MagneticCard strength={16} className="relative flex">
-      <motion.a
-        href="#capture"
-        style={{ boxShadow }}
-        className="flex-1 relative overflow-hidden bg-gradient-to-br from-cyan-300 to-emerald-400 text-black rounded-xl p-5 flex flex-col justify-between min-h-[180px] font-black uppercase tracking-tight text-2xl leading-none"
-      >
-        <div className="text-[10px] font-mono tracking-[0.3em] font-bold">
-          [ CTA ]
-        </div>
-        <div>
-          Start the
-          <br />
-          Experience
-        </div>
-        <div
-          className="absolute top-0 right-0 w-8 h-full"
-          style={{
-            background:
-              "linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.9) 50%)",
-          }}
-        />
-      </motion.a>
-    </MagneticCard>
-  );
-}
 
 /* ---------- sections ---------- */
 
