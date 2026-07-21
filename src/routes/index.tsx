@@ -21,16 +21,30 @@ import {
   KineticEyebrow,
   MagneticCard,
   Reveal,
-  useIntensity,
 } from "@/components/chrono";
 import { LaserTrail } from "@/components/laser-trail";
-import { useTransform } from "framer-motion";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
-const TITLE = "Novo Reperio — The Chrono-Adaptive Canvas";
+const TITLE = "360° Virtual Tour & Digital Twin Experts Malaysia | Novo Reperio";
 const DESCRIPTION =
-  "Space capture studio building the Chrono-Adaptive Canvas: velocity-morphing typography, liquid navigation, and time-of-day generative motion for venues and brands.";
+  "Matterport digital twins, 360° virtual tours & drone capture in Kuala Lumpur. Trusted by Hyatt, KLCC, Porsche & 400+ clients since 2014.";
+const CANONICAL = "https://novo-v10.lovable.app/";
+
+const HOMEPAGE_FAQ = [
+  { q: "What is a digital twin?", a: "A digital twin is a photorealistic, dimensionally accurate 3D copy of a real space that people can explore online. It captures every wall, corner and finish so remote viewers can walk through, measure and understand the venue as if they were there." },
+  { q: "What's the difference between Matterport and a 360° tour?", a: "Matterport is a measurable 3D digital twin with dollhouse view, floorplan and room-to-room navigation. A 360° tour is a series of linked panoramas — lighter and cheaper, ideal for OTAs and social. Most venues benefit from both." },
+  { q: "How much does a project cost?", a: "Pricing is scoped per property; packages range from single-space capture to full-property annual subscriptions. Request a quote and we'll size it against your space and use case." },
+  { q: "How long does delivery take?", a: "Most capture projects deliver within days of the shoot. Larger CGI, UE5 masterplans and launch films are scoped per project — typically two to eight weeks depending on scale." },
+  { q: "Where do you operate?", a: "We are based in Kuala Lumpur and cover all of Malaysia, Singapore, and worldwide on request. Regional deployments to Indonesia and the Middle East are handled by our travelling capture teams." },
+  { q: "How do I embed a tour on my website or listing?", a: "Every tour ships with an embed snippet and a shareable link. It drops into your website, OTA listing (Booking.com, Agoda), Google Business Profile and email — no plugins or hosting on your side." },
+  { q: "Who owns the files?", a: "You own the delivered media — final renders, videos, images and embed rights are yours to use for marketing in perpetuity. Raw project files remain with the studio unless a buy-out is agreed upfront." },
+  { q: "How long do you host the tour for?", a: "Matterport tours are hosted on our active subscription for the term you buy — typically one to three years, renewable. We notify you before expiry so nothing goes dark unexpectedly." },
+  { q: "Do I need to prepare the site before capture?", a: "Yes — the space should look the way you want buyers to see it. Lights on, clutter cleared, staging in place. We send a short prep checklist before every shoot and can advise on styling." },
+  { q: "Are your drone operations licensed?", a: "Yes. All aerial capture in Malaysia is flown by CAAM-certified pilots with the appropriate permits, and we secure landowner and airspace approvals before every shoot." },
+  { q: "Can you deliver point clouds and Scan-to-BIM?", a: "Yes. Our LiDAR captures produce registered point clouds that we convert to as-built BIM models (LOD 200–350), 2D CAD drawings and measurable twins for AEC and facilities teams." },
+  { q: "How do I book?", a: "WhatsApp us for the fastest reply, email hello@novoreperio.com, or use the contact form. We'll respond within one business day with next steps and a scoping call." },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,39 +54,29 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: CANONICAL },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: CANONICAL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: HOMEPAGE_FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: Index,
 });
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
-
-type RailRoute = "/about" | "/works" | "/services" | "/contact";
-type RailItem = { label: string; to: RailRoute };
-
-const RAIL: RailItem[] = [
-  { label: "ABOUT", to: "/about" },
-  { label: "WORK", to: "/works" },
-  { label: "SERVICES", to: "/services" },
-  { label: "CONTACT", to: "/contact" },
-];
-
-type NavRoute = "/works" | "/about" | "/insights" | "/services" | "/contact";
-type NavItem = { label: string; href: string; to?: NavRoute };
-
-const NAV: NavItem[] = [
-  { label: "Capture", href: "#capture" },
-  { label: "Outcomes", href: "#outcomes" },
-  { label: "Sectors", href: "#industries" },
-  { label: "Services", href: "/services", to: "/services" },
-  { label: "Client Work", href: "/works", to: "/works" },
-  { label: "Insights", href: "/insights", to: "/insights" },
-  { label: "About", href: "/about", to: "/about" },
-  { label: "Contact", href: "/contact", to: "/contact" },
-];
 
 
 const CAPTURE_FEATURES = [
