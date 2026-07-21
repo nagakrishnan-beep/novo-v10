@@ -1,5 +1,5 @@
 import { createFileRoute, ClientOnly, Link } from "@tanstack/react-router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Database,
@@ -8,6 +8,10 @@ import {
   Play,
   ChevronRight,
   MessageCircle,
+  Building2,
+  Ruler,
+  GraduationCap,
+  Map as MapIcon,
 } from "lucide-react";
 import {
   IntensityProvider,
