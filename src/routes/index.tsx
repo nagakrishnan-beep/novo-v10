@@ -193,51 +193,41 @@ function Hero() {
       className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-16 pb-16"
     >
       <div className="max-w-5xl origin-left">
-        <KineticEyebrow className="text-[11px] font-mono block mb-6 uppercase">
-          CHRONO-ADAPTIVE CANVAS
+        <KineticEyebrow className="text-xs font-mono block mb-6 uppercase tracking-widest">
+          NOVO REPERIO — SPACE CAPTURE STUDIO
         </KineticEyebrow>
 
         <KineticHeadline className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] text-white">
-          The evolution of sensation.
-          <br />
-          Experiencing the
-          <br />
-          <span className="text-white/90">Chrono-Adaptive Canvas.</span>
+          Turn Your Space Into a 24/7 Sales Engine
         </KineticHeadline>
 
-        <div className="mt-10 max-w-3xl">
-          <KineticHeadline className="text-xl md:text-2xl font-semibold tracking-tight leading-snug text-neutral-100 normal-case">
-            Turn your venue into a 24/7 sales engine.
-            <br />
-            <span className="text-neutral-300 font-light">
-              Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
-            </span>
-          </KineticHeadline>
+        <div className="mt-8 max-w-3xl">
+          <KineticBody className="text-base md:text-lg leading-relaxed text-neutral-300 font-light">
+            Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that responds to you. Explore, measure, and book from anywhere in the world.
+          </KineticBody>
         </div>
+
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-300 font-light">
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>10+ Years of Immersive Excellence</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Reduce Sales Cycles with 24/7 virtual access</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Trusted by Global Brands — KLCC to five-star hospitality groups</li>
+        </ul>
 
         <HeroQuickLinks />
       </div>
 
-      {/* feature preview strip */}
-      <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl">
-        <FeaturePreview
-          label="KINETIC MORPHING TYPOGRAPHY"
-          demo={<KineticDemo />}
-        />
-        <FeaturePreview label="FLUID NAVIGATION" demo={<FluidDemo />} />
-        <StartExperienceCta />
-      </div>
-
-      {/* thin baseline row */}
-      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap justify-between gap-4 text-xs font-mono tracking-widest text-neutral-500 uppercase">
-        <span>VELOCITY-BASED LAYOUTS</span>
-        <span>CONTEXTUAL INTERFACE</span>
-        <span>ORGANIC TRANSITIONS</span>
-        <ArrowRight className="w-4 h-4" />
+      {/* proof line */}
+      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-300">
+        <span className="font-mono text-xs uppercase tracking-wider text-emerald-300">Proof</span>
+        <span className="font-light">
+          WTCKL digital twin: <span className="text-white font-medium">8,000+ visits · 37/week</span> — bookings confirmed faster.
+        </span>
+        <ArrowRight className="w-4 h-4 text-neutral-500" />
       </div>
     </section>
   );
 }
+
 
 
 function FeaturePreview({
