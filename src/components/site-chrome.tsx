@@ -35,15 +35,15 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Novo Reperio home">
           <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
         </Link>
-        <nav className="hidden md:flex gap-6 lg:gap-8 text-xs tracking-widest uppercase text-neutral-500">
+        <nav className="hidden md:flex gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400">
           {NAV.map((n) => (
             <Link
               key={n.key ?? n.label}
               to={n.to}
               className={
                 active === n.key
-                  ? "text-cyan-300"
-                  : "hover:text-cyan-300 transition"
+                  ? "text-emerald-300"
+                  : "hover:text-emerald-300 transition"
               }
             >
               {n.label}
@@ -55,7 +55,7 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
           target="_blank"
           rel="noreferrer"
           onClick={trackWhatsApp}
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/40 text-cyan-300 text-xs hover:bg-cyan-500/10"
+          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 text-emerald-300 text-xs hover:bg-emerald-500/10"
         >
           <MessageCircle size={14} /> WhatsApp Us
         </a>
