@@ -255,7 +255,13 @@ function SideRail() {
   }, []);
 
   const { intensity } = useIntensity();
-  const label = intensity > 0.35 ? "KINETIC STREAMING" : "EDITORIAL MATRIX";
+  const [label, setLabel] = useState("EDITORIAL MATRIX");
+  useEffect(() => {
+    const unsub = intensity.on("change", (v) =>
+      setLabel(v > 0.35 ? "KINETIC STREAMING" : "EDITORIAL MATRIX"),
+    );
+    return () => unsub();
+  }, [intensity]);
 
   return (
     <aside
