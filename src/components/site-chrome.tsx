@@ -176,7 +176,7 @@ export function LazyEmbed({
         <ActivateableIframe src={src} title={title} />
       </div>
       {caption && (
-        <figcaption className="mt-3 text-[11px] font-mono uppercase tracking-widest text-neutral-500">
+        <figcaption className="mt-3 text-xs font-mono uppercase tracking-wider text-neutral-500">
           {caption}
         </figcaption>
       )}
@@ -244,7 +244,7 @@ export function trackEvent(name: string, params?: Record<string, unknown>) {
 
 export function BreadcrumbNav({ items }: { items: { label: string; to?: any }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 flex flex-wrap gap-2">
+    <nav aria-label="Breadcrumb" className="text-xs font-mono uppercase tracking-wider text-neutral-500 flex flex-wrap gap-2">
       {items.map((it, i) => (
         <span key={i} className="flex items-center gap-2">
           {it.to ? (
