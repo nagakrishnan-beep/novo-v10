@@ -1,17 +1,36 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronRight, MessageCircle } from "lucide-react";
+import { ArrowRight, Building2, Ruler, GraduationCap, Map, MessageCircle } from "lucide-react";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { LaserTrail } from "@/components/laser-trail";
+import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
+import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import {
   SERVICES,
   APPROACH,
   COMBINATIONS,
   SERVICE_INDUSTRIES,
+  SERVICES_HUB_FAQ,
+  type ServiceCluster,
 } from "@/lib/services";
 
-const WHATSAPP_URL = "https://wa.me/60172029996";
-const TITLE = "Services — Immersive Spatial Solutions for the Built World";
+const TITLE = "Services — Novo Reperio | Market It · Build It · Train In It · Plan It";
 const DESCRIPTION =
-  "Matterport digital twins, 360° tours, aerial capture, CGI, and launch-ready web. Novo Reperio's end-to-end spatial services for venues, property, and facilities.";
+  "Four service tracks — market it (property marketing & CGI), build it (Scan-to-BIM, progress capture, FM twins), train in it (immersive training), plan it (urban digital twins).";
+const URL = abs("/services");
+
+const DOORS: {
+  key: ServiceCluster;
+  label: string;
+  outcome: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+  anchor: string;
+}[] = [
+  { key: "market", label: "MARKET IT", outcome: "Property marketing, hospitality, staging, CGI, video, launch microsites.", href: "#market", anchor: "market", icon: Building2 },
+  { key: "build", label: "BUILD IT", outcome: "Scan-to-BIM, construction progress capture, facilities operations twins.", href: "#build", anchor: "build", icon: Ruler },
+  { key: "train", label: "TRAIN IN IT", outcome: "360° interactive, gamified and simulation training environments.", href: "/services/immersive-training", anchor: "train", icon: GraduationCap },
+  { key: "plan", label: "PLAN IT", outcome: "City & masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", anchor: "plan", icon: Map },
+];
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -21,166 +40,180 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: URL },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: URL }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([
+        { name: "Home", url: BASE_URL },
+        { name: "Services", url: URL },
+      ])) },
+      { type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(SERVICES_HUB_FAQ)) },
+    ],
   }),
   component: ServicesPage,
 });
 
 function ServicesPage() {
-  const core = SERVICES.filter((s) => s.tier === "core");
-  const supporting = SERVICES.filter((s) => s.tier === "supporting");
+  const market = SERVICES.filter((s) => s.cluster === "market");
+  const build = SERVICES.filter((s) => s.cluster === "build");
+  const supporting = SERVICES.filter((s) => s.cluster === "supporting");
 
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 font-sans antialiased">
       <LaserTrail />
-      <SiteHeader />
+      <SiteHeader active="services" />
 
-      {/* Hero */}
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
-          Virtual Tour Services
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-6 font-mono">
+          Services
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] max-w-5xl text-white">
-          Immersive Spatial Solutions for the Built World.
+          Four ways to put your space to work.
         </h1>
-        <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
-          We transform physical environments into intelligent digital
-          experiences through advanced spatial capture, visualization, and
-          360° interactive technologies — enabling faster sales decisions,
-          stronger client engagement, and smarter operations across industries.
+        <p className="mt-6 max-w-3xl text-sm md:text-base text-neutral-300 leading-relaxed">
+          Novo Reperio delivers across four outcome tracks — from marketing an
+          existing space to planning an entire city. Pick the door that matches
+          the job.
         </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-cyan-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-cyan-300"
-          >
-            Start Your Transformation <ArrowRight size={14} />
-          </Link>
-          <Link
-            to="/works"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-cyan-400/50 hover:text-cyan-300"
-          >
-            Browse Our Portfolio
-          </Link>
-        </div>
-        <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-          <li>Pioneering Digital Twins since 2014</li>
-          <li>· Cinematic 4K Drone & 360° Media</li>
-          <li>· End-to-End Asset Deployment</li>
-        </ul>
       </section>
 
-      {/* Core services */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
-          From physical spaces to intelligent digital ecosystems
+      {/* Four-door router */}
+      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {DOORS.map((d) => {
+            const Icon = d.icon;
+            const isRoute = d.href.startsWith("/");
+            const inner = (
+              <div className="h-full border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:border-emerald-400/40 transition flex flex-col group">
+                <Icon className="text-emerald-300" size={22} />
+                <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
+                  {d.label}
+                </div>
+                <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">
+                  {d.outcome}
+                </p>
+                <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white group-hover:text-emerald-300">
+                  Open <ArrowRight size={12} />
+                </div>
+              </div>
+            );
+            return isRoute ? (
+              <Link key={d.key} to={d.href as any} className="block h-full">{inner}</Link>
+            ) : (
+              <a key={d.key} href={d.href} className="block h-full">{inner}</a>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* MARKET IT */}
+      <section id="market" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          MARKET IT · Track A + B
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
-          Select the technology that best translates your vision into a
-          digital reality.
+          For property, venues and brands that need to sell a space.
         </h2>
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {core.map((s) => (
-            <Link
-              key={s.slug}
-              to="/services/$slug"
-              params={{ slug: s.slug }}
-              className="group border border-white/10 rounded-xl overflow-hidden bg-white/[0.02] hover:border-cyan-400/40 transition flex flex-col"
-            >
-              <div className="aspect-[4/3] bg-black/40 overflow-hidden">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
-                />
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="text-cyan-300 text-[10px] font-mono uppercase tracking-[0.3em]">
-                  Core service
-                </div>
-                <h3 className="text-white text-lg font-light mt-2 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                  {s.tagline}
-                </p>
-                <div className="mt-6 inline-flex items-center gap-2 text-cyan-300 text-xs font-mono uppercase tracking-widest">
-                  Explore service <ArrowRight size={14} />
-                </div>
-              </div>
-            </Link>
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {market.map((s) => (
+            <ServiceCard key={s.slug} s={s} />
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            to="/services/property-visualization"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-emerald-400/50 hover:text-emerald-300"
+          >
+            Property Visualization <ArrowRight size={12} />
+          </Link>
+          <Link
+            to="/services/hospitality-digital-twins"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-emerald-400/50 hover:text-emerald-300"
+          >
+            Hospitality Digital Twins <ArrowRight size={12} />
+          </Link>
+        </div>
+      </section>
+
+      {/* BUILD IT */}
+      <section id="build" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          BUILD IT
+        </div>
+        <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
+          For architects, engineers, contractors and facility owners.
+        </h2>
+        <div className="mt-12 grid md:grid-cols-3 gap-4">
+          {build.map((s) => (
+            <ServiceCard key={s.slug} s={s} />
           ))}
         </div>
       </section>
 
-      {/* Supporting services */}
+      {/* TRAIN IN IT */}
+      <section id="train" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          TRAIN IN IT
+        </div>
+        <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
+          Turn workplaces into hands-on training environments.
+        </h2>
+        <div className="mt-8">
+          <Link
+            to="/services/immersive-training"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
+          >
+            Open Immersive Training <ArrowRight size={12} />
+          </Link>
+        </div>
+      </section>
+
+      {/* PLAN IT */}
+      <section id="plan" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          PLAN IT
+        </div>
+        <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
+          Planning at township, city and state scale.
+        </h2>
+        <div className="mt-8">
+          <Link
+            to="/services/urban-digital-twins"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
+          >
+            Open Urban Digital Twins <ArrowRight size={12} />
+          </Link>
+        </div>
+      </section>
+
+      {/* Supporting */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Supporting services
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
-          End-to-end spatial intelligence for capturing, visualising, and
-          activating the built world.
+          Add-ons that complete a launch or engagement.
         </h2>
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid md:grid-cols-2 gap-4">
           {supporting.map((s) => (
-            <Link
-              key={s.slug}
-              to="/services/$slug"
-              params={{ slug: s.slug }}
-              className="group border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:border-cyan-400/40 transition h-full flex flex-col"
-            >
-              <div className="text-cyan-300 text-[10px] font-mono uppercase tracking-[0.3em]">
-                {s.slug === "web-development"
-                  ? "Featured service"
-                  : "Additional service"}
-              </div>
-              <h3 className="text-white text-base font-light mt-2 leading-snug">
-                {s.title}
-              </h3>
-              <p className="mt-3 text-neutral-400 text-sm leading-relaxed flex-1">
-                {s.tagline}
-              </p>
-              <div className="mt-4 inline-flex items-center gap-2 text-cyan-300 text-xs font-mono uppercase tracking-widest">
-                Explore <ArrowRight size={14} />
-              </div>
-            </Link>
+            <ServiceCard key={s.slug} s={s} />
           ))}
         </div>
       </section>
 
       {/* Approach */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Our approach
         </div>
-        <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
-          Every project is tailored to the audience it needs to impress.
-        </h2>
-        <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
-          We do not force every project into the same package. Instead, we
-          recommend the right combination based on what your space needs to
-          communicate and how your audience will experience it.
-        </p>
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
+        <div className="mt-6 grid md:grid-cols-3 gap-6">
           {APPROACH.map((a) => (
-            <div
-              key={a.step}
-              className="border border-white/10 rounded-lg p-6 bg-white/[0.02]"
-            >
-              <div className="font-mono text-cyan-300 text-xs tracking-widest">
-                STEP {a.step}
-              </div>
-              <h3 className="mt-3 text-white text-xl font-light leading-snug">
-                {a.title}
-              </h3>
-              <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
-                {a.body}
-              </p>
+            <div key={a.step} className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+              <div className="font-mono text-emerald-300 text-xs tracking-widest">STEP {a.step}</div>
+              <h3 className="mt-3 text-white text-xl font-light leading-snug">{a.title}</h3>
+              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">{a.body}</p>
             </div>
           ))}
         </div>
@@ -188,29 +221,15 @@ function ServicesPage() {
 
       {/* Combinations */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Popular combinations
         </div>
-        <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
-          Combine two or more services for a richer, more complete
-          presentation.
-        </h2>
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
+        <div className="mt-6 grid md:grid-cols-3 gap-6">
           {COMBINATIONS.map((c) => (
-            <div
-              key={c.title}
-              className="border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:border-cyan-400/40 transition"
-            >
-              <div className="text-cyan-300 text-[10px] font-mono uppercase tracking-[0.3em]">
-                Recommended combination
-              </div>
-              <h3 className="mt-3 text-white text-xl font-light">{c.title}</h3>
-              <div className="mt-2 font-mono text-xs text-neutral-300">
-                {c.stack}
-              </div>
-              <p className="mt-4 text-neutral-400 text-sm leading-relaxed">
-                {c.body}
-              </p>
+            <div key={c.title} className="border border-white/10 rounded-lg p-6 bg-white/[0.02]">
+              <h3 className="text-white text-xl font-light">{c.title}</h3>
+              <div className="mt-2 font-mono text-xs text-neutral-300">{c.stack}</div>
+              <p className="mt-4 text-sm text-neutral-400 leading-relaxed">{c.body}</p>
             </div>
           ))}
         </div>
@@ -218,47 +237,50 @@ function ServicesPage() {
 
       {/* Industries */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
-          Built for spaces people need to understand fast
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          Sectors we serve
         </div>
-        <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
-          Novo supports sectors that need clearer views and faster review.
-        </h2>
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
           {SERVICE_INDUSTRIES.map((i) => (
-            <div
-              key={i}
-              className="border border-white/10 rounded px-3 py-3 text-neutral-300 hover:border-cyan-400/40 hover:text-cyan-300 transition"
-            >
+            <div key={i} className="border border-white/10 rounded px-3 py-3 text-neutral-300">
               {i}
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
+      {/* FAQ */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
+        <h2 className="text-3xl md:text-4xl font-light text-white mb-10">Common questions</h2>
+        <div className="space-y-6 max-w-4xl">
+          {SERVICES_HUB_FAQ.map((f) => (
+            <div key={f.q} className="border-t border-white/10 pt-4">
+              <h3 className="text-white text-base font-light">{f.q}</h3>
+              <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-6 md:px-24 py-24">
         <div className="max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
             Looking for the right presentation for your space?
           </h2>
-          <p className="mt-6 max-w-2xl text-neutral-400 leading-relaxed">
-            Novo Reperio can help recommend the right mix of capture,
-            supporting visuals, and delivery format for your venue, property,
-            facility, showroom, or destination.
-          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-cyan-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-cyan-300"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
             >
-              Start a Project <ArrowRight size={14} />
+              Start a project <ArrowRight size={14} />
             </Link>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-cyan-400/50 hover:text-cyan-300"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-emerald-400/50 hover:text-emerald-300"
             >
               <MessageCircle size={14} /> WhatsApp Us
             </a>
@@ -271,49 +293,21 @@ function ServicesPage() {
   );
 }
 
-function SiteHeader() {
+function ServiceCard({ s }: { s: (typeof SERVICES)[number] }) {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
-      <div className="flex items-center justify-between px-6 md:px-12 py-4">
-        <Link to="/" className="flex items-center gap-3">
-          <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
-          <span className="sr-only">Novo Reperio</span>
-        </Link>
-        <nav className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-neutral-500">
-          <Link to="/works" className="hover:text-cyan-300">Work</Link>
-          <Link to="/services" className="text-cyan-300">Services</Link>
-          <Link to="/about" className="hover:text-cyan-300">About</Link>
-          <Link to="/insights" className="hover:text-cyan-300">Insights</Link>
-          <Link to="/contact" className="hover:text-cyan-300">Contact</Link>
-        </nav>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/40 text-cyan-300 text-xs hover:bg-cyan-500/10"
-        >
-          <MessageCircle size={14} /> WhatsApp Us
-        </a>
+    <Link
+      to="/services/$slug"
+      params={{ slug: s.slug }}
+      className="group border border-white/10 rounded-xl p-6 bg-white/[0.02] hover:border-emerald-400/40 transition flex flex-col h-full"
+    >
+      <div className="text-xs font-mono uppercase tracking-[0.3em] text-emerald-300">
+        {s.tier === "flagship" ? "Flagship" : s.tier === "core" ? "Core" : "Supporting"}
       </div>
-    </header>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="px-6 md:px-24 py-10 text-[11px] font-mono text-neutral-500 flex flex-wrap items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <img src="/novo-logo.png" alt="Novo Reperio" className="h-7 w-auto opacity-70" />
-        <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
+      <h3 className="text-white text-base font-light mt-2 leading-snug">{s.title}</h3>
+      <p className="mt-3 text-sm text-neutral-400 leading-relaxed flex-1">{s.tagline}</p>
+      <div className="mt-4 inline-flex items-center gap-2 text-emerald-300 text-xs font-mono uppercase tracking-widest">
+        Explore <ArrowRight size={12} />
       </div>
-      <div className="flex items-center gap-4">
-        <Link to="/contact" className="hover:text-cyan-300 inline-flex items-center gap-1">
-          Contact <ChevronRight size={12} />
-        </Link>
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-cyan-300">
-          WhatsApp +60 17-202 9996
-        </a>
-      </div>
-    </footer>
+    </Link>
   );
 }
