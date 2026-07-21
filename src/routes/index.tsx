@@ -8,7 +8,6 @@ import {
   Play,
   ChevronRight,
   MessageCircle,
-  Menu,
   Sparkles,
 } from "lucide-react";
 import {
@@ -24,6 +23,7 @@ import {
 import { LaserTrail } from "@/components/laser-trail";
 import { useTransform } from "framer-motion";
 import { CLIENT_LOGOS } from "@/lib/logos";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
 const TITLE = "Novo Reperio — The Chrono-Adaptive Canvas";
 const DESCRIPTION =
