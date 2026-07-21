@@ -190,28 +190,8 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-16"
+      className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-16 pb-16"
     >
-      {/* corner brand */}
-      <div className="absolute top-6 left-6 md:top-10 md:left-16 z-20 flex items-center gap-3">
-        <img
-          src="/novo-logo.png"
-          alt="Novo Reperio"
-          className="h-9 md:h-11 w-auto brightness-0 invert"
-        />
-        <span className="hidden md:inline-block text-[9px] font-mono tracking-widest text-cyan-400/80 uppercase border-l border-white/15 pl-3">
-          Space Capture Studio
-        </span>
-      </div>
-      <div className="absolute top-6 right-6 md:top-10 md:right-16 z-20">
-        <button
-          aria-label="Menu"
-          className="w-10 h-10 rounded border border-white/10 flex items-center justify-center text-white/70 hover:text-cyan-300 hover:border-cyan-400/40 transition"
-        >
-          <Menu className="w-4 h-4" />
-        </button>
-      </div>
-
       <div className="max-w-5xl origin-left">
         <KineticEyebrow className="text-[11px] font-mono block mb-6 uppercase">
           CHRONO-ADAPTIVE CANVAS
@@ -226,12 +206,16 @@ function Hero() {
         </KineticHeadline>
 
         <div className="mt-10 max-w-3xl">
-          <KineticHeadline className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight text-neutral-100">
+          <KineticHeadline className="text-xl md:text-2xl font-semibold tracking-tight leading-snug text-neutral-100 normal-case">
             Turn your venue into a 24/7 sales engine.
             <br />
-            Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
+            <span className="text-neutral-300 font-light">
+              Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
+            </span>
           </KineticHeadline>
         </div>
+
+        <HeroQuickLinks />
       </div>
 
       {/* feature preview strip */}
@@ -245,7 +229,7 @@ function Hero() {
       </div>
 
       {/* thin baseline row */}
-      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap justify-between gap-4 text-[10px] font-mono tracking-[0.3em] text-neutral-500 uppercase">
+      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap justify-between gap-4 text-xs font-mono tracking-widest text-neutral-500 uppercase">
         <span>VELOCITY-BASED LAYOUTS</span>
         <span>CONTEXTUAL INTERFACE</span>
         <span>ORGANIC TRANSITIONS</span>
@@ -254,6 +238,7 @@ function Hero() {
     </section>
   );
 }
+
 
 function FeaturePreview({
   label,
