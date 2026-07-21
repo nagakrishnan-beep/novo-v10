@@ -16,8 +16,13 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as ServicesUrbanDigitalTwinsRouteImport } from './routes/services.urban-digital-twins'
+import { Route as ServicesScanToBimRouteImport } from './routes/services.scan-to-bim'
 import { Route as ServicesPropertyVisualizationRouteImport } from './routes/services.property-visualization'
+import { Route as ServicesImmersiveTrainingRouteImport } from './routes/services.immersive-training'
 import { Route as ServicesHospitalityDigitalTwinsRouteImport } from './routes/services.hospitality-digital-twins'
+import { Route as ServicesFacilitiesOperationsRouteImport } from './routes/services.facilities-operations'
+import { Route as ServicesConstructionProgressRouteImport } from './routes/services.construction-progress'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as WorksCategoryCatRouteImport } from './routes/works.category.$cat'
@@ -57,16 +62,45 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const ServicesUrbanDigitalTwinsRoute =
+  ServicesUrbanDigitalTwinsRouteImport.update({
+    id: '/urban-digital-twins',
+    path: '/urban-digital-twins',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesScanToBimRoute = ServicesScanToBimRouteImport.update({
+  id: '/scan-to-bim',
+  path: '/scan-to-bim',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesPropertyVisualizationRoute =
   ServicesPropertyVisualizationRouteImport.update({
     id: '/property-visualization',
     path: '/property-visualization',
     getParentRoute: () => ServicesRoute,
   } as any)
+const ServicesImmersiveTrainingRoute =
+  ServicesImmersiveTrainingRouteImport.update({
+    id: '/immersive-training',
+    path: '/immersive-training',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesHospitalityDigitalTwinsRoute =
   ServicesHospitalityDigitalTwinsRouteImport.update({
     id: '/hospitality-digital-twins',
     path: '/hospitality-digital-twins',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesFacilitiesOperationsRoute =
+  ServicesFacilitiesOperationsRouteImport.update({
+    id: '/facilities-operations',
+    path: '/facilities-operations',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesConstructionProgressRoute =
+  ServicesConstructionProgressRouteImport.update({
+    id: '/construction-progress',
+    path: '/construction-progress',
     getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
@@ -94,8 +128,13 @@ export interface FileRoutesByFullPath {
   '/works': typeof WorksRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/construction-progress': typeof ServicesConstructionProgressRoute
+  '/services/facilities-operations': typeof ServicesFacilitiesOperationsRoute
   '/services/hospitality-digital-twins': typeof ServicesHospitalityDigitalTwinsRoute
+  '/services/immersive-training': typeof ServicesImmersiveTrainingRoute
   '/services/property-visualization': typeof ServicesPropertyVisualizationRoute
+  '/services/scan-to-bim': typeof ServicesScanToBimRoute
+  '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -108,8 +147,13 @@ export interface FileRoutesByTo {
   '/works': typeof WorksRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/construction-progress': typeof ServicesConstructionProgressRoute
+  '/services/facilities-operations': typeof ServicesFacilitiesOperationsRoute
   '/services/hospitality-digital-twins': typeof ServicesHospitalityDigitalTwinsRoute
+  '/services/immersive-training': typeof ServicesImmersiveTrainingRoute
   '/services/property-visualization': typeof ServicesPropertyVisualizationRoute
+  '/services/scan-to-bim': typeof ServicesScanToBimRoute
+  '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -123,8 +167,13 @@ export interface FileRoutesById {
   '/works': typeof WorksRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/construction-progress': typeof ServicesConstructionProgressRoute
+  '/services/facilities-operations': typeof ServicesFacilitiesOperationsRoute
   '/services/hospitality-digital-twins': typeof ServicesHospitalityDigitalTwinsRoute
+  '/services/immersive-training': typeof ServicesImmersiveTrainingRoute
   '/services/property-visualization': typeof ServicesPropertyVisualizationRoute
+  '/services/scan-to-bim': typeof ServicesScanToBimRoute
+  '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -139,8 +188,13 @@ export interface FileRouteTypes {
     | '/works'
     | '/insights/$slug'
     | '/services/$slug'
+    | '/services/construction-progress'
+    | '/services/facilities-operations'
     | '/services/hospitality-digital-twins'
+    | '/services/immersive-training'
     | '/services/property-visualization'
+    | '/services/scan-to-bim'
+    | '/services/urban-digital-twins'
     | '/works/$slug'
     | '/works/category/$cat'
   fileRoutesByTo: FileRoutesByTo
@@ -153,8 +207,13 @@ export interface FileRouteTypes {
     | '/works'
     | '/insights/$slug'
     | '/services/$slug'
+    | '/services/construction-progress'
+    | '/services/facilities-operations'
     | '/services/hospitality-digital-twins'
+    | '/services/immersive-training'
     | '/services/property-visualization'
+    | '/services/scan-to-bim'
+    | '/services/urban-digital-twins'
     | '/works/$slug'
     | '/works/category/$cat'
   id:
@@ -167,8 +226,13 @@ export interface FileRouteTypes {
     | '/works'
     | '/insights/$slug'
     | '/services/$slug'
+    | '/services/construction-progress'
+    | '/services/facilities-operations'
     | '/services/hospitality-digital-twins'
+    | '/services/immersive-training'
     | '/services/property-visualization'
+    | '/services/scan-to-bim'
+    | '/services/urban-digital-twins'
     | '/works/$slug'
     | '/works/category/$cat'
   fileRoutesById: FileRoutesById
@@ -233,6 +297,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/services/urban-digital-twins': {
+      id: '/services/urban-digital-twins'
+      path: '/urban-digital-twins'
+      fullPath: '/services/urban-digital-twins'
+      preLoaderRoute: typeof ServicesUrbanDigitalTwinsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/scan-to-bim': {
+      id: '/services/scan-to-bim'
+      path: '/scan-to-bim'
+      fullPath: '/services/scan-to-bim'
+      preLoaderRoute: typeof ServicesScanToBimRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/property-visualization': {
       id: '/services/property-visualization'
       path: '/property-visualization'
@@ -240,11 +318,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesPropertyVisualizationRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/immersive-training': {
+      id: '/services/immersive-training'
+      path: '/immersive-training'
+      fullPath: '/services/immersive-training'
+      preLoaderRoute: typeof ServicesImmersiveTrainingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/hospitality-digital-twins': {
       id: '/services/hospitality-digital-twins'
       path: '/hospitality-digital-twins'
       fullPath: '/services/hospitality-digital-twins'
       preLoaderRoute: typeof ServicesHospitalityDigitalTwinsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/facilities-operations': {
+      id: '/services/facilities-operations'
+      path: '/facilities-operations'
+      fullPath: '/services/facilities-operations'
+      preLoaderRoute: typeof ServicesFacilitiesOperationsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/construction-progress': {
+      id: '/services/construction-progress'
+      path: '/construction-progress'
+      fullPath: '/services/construction-progress'
+      preLoaderRoute: typeof ServicesConstructionProgressRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/$slug': {
@@ -285,14 +384,24 @@ const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesConstructionProgressRoute: typeof ServicesConstructionProgressRoute
+  ServicesFacilitiesOperationsRoute: typeof ServicesFacilitiesOperationsRoute
   ServicesHospitalityDigitalTwinsRoute: typeof ServicesHospitalityDigitalTwinsRoute
+  ServicesImmersiveTrainingRoute: typeof ServicesImmersiveTrainingRoute
   ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
+  ServicesScanToBimRoute: typeof ServicesScanToBimRoute
+  ServicesUrbanDigitalTwinsRoute: typeof ServicesUrbanDigitalTwinsRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSlugRoute: ServicesSlugRoute,
+  ServicesConstructionProgressRoute: ServicesConstructionProgressRoute,
+  ServicesFacilitiesOperationsRoute: ServicesFacilitiesOperationsRoute,
   ServicesHospitalityDigitalTwinsRoute: ServicesHospitalityDigitalTwinsRoute,
+  ServicesImmersiveTrainingRoute: ServicesImmersiveTrainingRoute,
   ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
+  ServicesScanToBimRoute: ServicesScanToBimRoute,
+  ServicesUrbanDigitalTwinsRoute: ServicesUrbanDigitalTwinsRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(

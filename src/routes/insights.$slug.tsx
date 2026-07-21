@@ -119,6 +119,21 @@ function InsightDetail() {
           {post.excerpt}
         </p>
 
+        {post.relatedService && (
+          <div className="mt-8 max-w-3xl border border-emerald-500/20 bg-emerald-500/[0.03] rounded-lg p-5">
+            <div className="text-xs font-mono uppercase tracking-widest text-emerald-300 mb-2">
+              Related service
+            </div>
+            <Link
+              to="/services/$slug"
+              params={{ slug: post.relatedService }}
+              className="text-white text-base font-light hover:text-emerald-300 inline-flex items-center gap-2"
+            >
+              {post.relatedServiceLabel ?? post.relatedService} <ArrowRight size={14} />
+            </Link>
+          </div>
+        )}
+
         <div className="mt-10 border-t border-white/5 pt-8">
           <a
             href={post.sourceUrl}

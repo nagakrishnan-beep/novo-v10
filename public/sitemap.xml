@@ -4,6 +4,11 @@
   <url><loc>https://novo-v10.lovable.app/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://novo-v10.lovable.app/services/property-visualization</loc><priority>0.9</priority></url>
   <url><loc>https://novo-v10.lovable.app/services/hospitality-digital-twins</loc><priority>0.9</priority></url>
+  <url><loc>https://novo-v10.lovable.app/services/scan-to-bim</loc><priority>0.9</priority></url>
+  <url><loc>https://novo-v10.lovable.app/services/construction-progress</loc><priority>0.9</priority></url>
+  <url><loc>https://novo-v10.lovable.app/services/facilities-operations</loc><priority>0.9</priority></url>
+  <url><loc>https://novo-v10.lovable.app/services/immersive-training</loc><priority>0.9</priority></url>
+  <url><loc>https://novo-v10.lovable.app/services/urban-digital-twins</loc><priority>0.9</priority></url>
   <url><loc>https://novo-v10.lovable.app/services/spatial-capture-digital-twins</loc></url>
   <url><loc>https://novo-v10.lovable.app/services/ground-level-360</loc></url>
   <url><loc>https://novo-v10.lovable.app/services/aerial-context-intelligence</loc></url>
@@ -16,7 +21,6 @@
   <url><loc>https://novo-v10.lovable.app/services/ue5-interactive-web-platform</loc></url>
   <url><loc>https://novo-v10.lovable.app/services/ai-assisted-visualization</loc></url>
   <url><loc>https://novo-v10.lovable.app/services/web-development</loc></url>
-  <url><loc>https://novo-v10.lovable.app/services/scan-to-bim</loc></url>
   <url><loc>https://novo-v10.lovable.app/services/commercial-photography</loc></url>
   <url><loc>https://novo-v10.lovable.app/works</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://novo-v10.lovable.app/works/category/hospitality</loc></url>
