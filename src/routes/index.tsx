@@ -137,7 +137,9 @@ function PageContent() {
   return (
     <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-400 selection:text-black">
       <SiteHeader active="home" />
+      <SideRail />
       <Hero />
+      <FourDoorRouter />
       <CaptureSection />
       <OutcomesSection />
       <IndustriesSection />
@@ -152,6 +154,150 @@ function PageContent() {
     </div>
   );
 }
+
+/* ---------- four-door router (MARKET / BUILD / TRAIN / PLAN) ---------- */
+
+type Door = {
+  key: string;
+  label: string;
+  outcome: string;
+  href: string;
+  routeTo?: "/services/immersive-training" | "/services/urban-digital-twins";
+  icon: React.ComponentType<{ className?: string; size?: number }>;
+};
+
+const DOORS: Door[] = [
+  { key: "market", label: "MARKET IT", outcome: "Property marketing, hospitality, staging, CGI, video, launch microsites.", href: "/services#market", icon: Building2 },
+  { key: "build",  label: "BUILD IT",  outcome: "Scan-to-BIM, construction progress capture, facilities operations twins.", href: "/services#build",  icon: Ruler },
+  { key: "train",  label: "TRAIN IN IT", outcome: "360° interactive, gamified and simulation training environments.", href: "/services/immersive-training", routeTo: "/services/immersive-training", icon: GraduationCap },
+  { key: "plan",   label: "PLAN IT",   outcome: "City & masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon },
+];
+
+function FourDoorRouter() {
+  return (
+    <section id="doors" className="relative z-10 px-6 md:px-24 py-20 border-t border-white/5 scroll-mt-24">
+      <div className="max-w-7xl mx-auto space-y-8">
+        <Reveal className="max-w-3xl space-y-3">
+          <KineticEyebrow className="text-xs font-mono uppercase block">[ FOUR TRACKS ]</KineticEyebrow>
+          <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">
+            Pick the door that matches the job.
+          </h2>
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {DOORS.map((d, i) => {
+            const Icon = d.icon;
+            const inner = (
+              <MagneticCard
+                strength={10}
+                className="h-full p-6 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
+              >
+                <Icon className="text-emerald-300" size={22} />
+                <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
+                  {d.label}
+                </div>
+                <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
+                <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
+                  Open <ArrowRight size={12} />
+                </div>
+              </MagneticCard>
+            );
+            return (
+              <Reveal key={d.key} delay={i * 0.06} className="h-full">
+                {d.routeTo ? (
+                  <Link to={d.routeTo} className="block h-full">{inner}</Link>
+                ) : (
+                  <a href={d.href} className="block h-full">{inner}</a>
+                )}
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- side rail (desktop only, scroll-spy over in-page sections) ---------- */
+
+function SideRail() {
+  const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState<string>("capture");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.7);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
+    const ids = QUICK_LINKS.map((q) => q.href.replace("#", ""));
+    const els = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((e) => e.isIntersecting);
+        if (visibleEntries.length) {
+          const top = visibleEntries.sort(
+            (a, b) => (a.target as HTMLElement).offsetTop - (b.target as HTMLElement).offsetTop,
+          )[0];
+          setActive((top.target as HTMLElement).id);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const { intensity } = useIntensity();
+  const label = intensity > 0.35 ? "KINETIC STREAMING" : "EDITORIAL MATRIX";
+
+  return (
+    <aside
+      role="complementary"
+      aria-label="On this page"
+      className={`hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-30 flex-col gap-3 pointer-events-none transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
+    >
+      <div className="pointer-events-auto flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/40 backdrop-blur px-3 py-4">
+        <div className="text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 px-1">
+          {label}
+        </div>
+        <div className="h-px bg-white/10" />
+        <ul className="flex flex-col gap-1">
+          {QUICK_LINKS.map((q) => {
+            const id = q.href.replace("#", "");
+            const isActive = active === id;
+            return (
+              <li key={q.href}>
+                <a
+                  href={q.href}
+                  className={`group flex items-center gap-2 px-2 py-1.5 rounded text-xs font-mono uppercase tracking-widest transition ${
+                    isActive
+                      ? "text-emerald-300"
+                      : "text-neutral-500 hover:text-neutral-200"
+                  }`}
+                >
+                  <span
+                    className={`inline-block h-px transition-all ${
+                      isActive ? "w-6 bg-emerald-300" : "w-3 bg-neutral-700 group-hover:bg-neutral-400"
+                    }`}
+                  />
+                  {q.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </aside>
+  );
+}
+
 
 /* ---------- in-hero quick links (static, non-sticky) ---------- */
 
