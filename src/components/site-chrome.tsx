@@ -31,11 +31,11 @@ function trackWhatsApp() {
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
-      <div className="flex items-center justify-between px-6 md:px-12 py-4 gap-6">
+      <div className="flex items-center px-6 md:px-12 py-4 gap-6">
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Novo Reperio home">
           <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
         </Link>
-        <nav className="hidden md:flex gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400 ml-auto">
           {NAV.map((n) => (
             <Link
               key={n.key ?? n.label}
@@ -49,16 +49,16 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
               {n.label}
             </Link>
           ))}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            onClick={trackWhatsApp}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 text-emerald-300 text-sm hover:bg-emerald-500/10"
+          >
+            <MessageCircle size={14} /> WhatsApp Us
+          </a>
         </nav>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          onClick={trackWhatsApp}
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 text-emerald-300 text-xs hover:bg-emerald-500/10"
-        >
-          <MessageCircle size={14} /> WhatsApp Us
-        </a>
       </div>
     </header>
   );
@@ -86,6 +86,12 @@ export function SiteFooter() {
             <li className="flex items-center gap-2">
               <Mail size={12} className="text-emerald-300" />
               <a href={`mailto:${EMAIL}`} className="hover:text-emerald-300">{EMAIL}</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <MessageCircle size={12} className="text-emerald-300" />
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackWhatsApp} className="hover:text-emerald-300">
+                WhatsApp {PHONE}
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <MapPin size={12} className="text-emerald-300" />
@@ -116,11 +122,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-neutral-900 px-6 md:px-24 py-6 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+      <div className="border-t border-neutral-900 px-6 md:px-24 py-6 flex items-center justify-center text-xs font-mono text-neutral-500">
         <span>© {new Date().getFullYear()} {LEGAL_NAME}. All rights reserved.</span>
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackWhatsApp} className="hover:text-emerald-300 inline-flex items-center gap-2">
-          <MessageCircle size={12}/> WhatsApp {PHONE}
-        </a>
       </div>
     </footer>
   );
@@ -220,9 +223,9 @@ function ClickToLoad({ src, title }: { src: string; title: string }) {
           backgroundSize: "40px 40px",
         }}
       />
-      <div className="relative flex flex-col items-center gap-3 text-cyan-300">
-        <span className="w-14 h-14 rounded-full border border-cyan-400/60 flex items-center justify-center group-hover:bg-cyan-400/10 transition">
-          <span className="w-0 h-0 border-l-[10px] border-l-cyan-300 border-y-[7px] border-y-transparent ml-1" />
+      <div className="relative flex flex-col items-center gap-3 text-emerald-300">
+        <span className="w-14 h-14 rounded-full border border-emerald-400/60 flex items-center justify-center group-hover:bg-emerald-400/10 transition">
+          <span className="w-0 h-0 border-l-[10px] border-l-emerald-300 border-y-[7px] border-y-transparent ml-1" />
         </span>
         <span className="text-xs font-mono uppercase tracking-wider">
           Load interactive tour
@@ -248,7 +251,7 @@ export function BreadcrumbNav({ items }: { items: { label: string; to?: any }[] 
       {items.map((it, i) => (
         <span key={i} className="flex items-center gap-2">
           {it.to ? (
-            <Link to={it.to} className="hover:text-cyan-300">{it.label}</Link>
+            <Link to={it.to} className="hover:text-emerald-300">{it.label}</Link>
           ) : (
             <span className="text-neutral-300">{it.label}</span>
           )}
