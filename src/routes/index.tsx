@@ -107,7 +107,7 @@ const WORKFLOW = ["Capture", "Package", "Publish"];
 const STORIES = [
   { tag: "Featured case study", title: "Hyatt Kuantan — Kempas & Prefunction Hall", body: "Ballroom presentation that helps buyers see layout and setup before the first visit.", cta: "View Hyatt project", href: "/works/hyatt-kuantan-ballroom", internal: true },
   { tag: "Venue sales support", title: "WTCKL — Venue sales proof", body: "Venue storytelling that helps scale, flow, and room layout make sense earlier.", cta: "See venue work", href: "/works/world-trade-centre-kuala-lumpur", internal: true },
-  { tag: "Facilities review", title: "Maxis — Facilities review use case", body: "Office and facilities work made clearer for teams that need quick context.", cta: "Explore facilities work", href: "/works", internal: true },
+  { tag: "Facilities review", title: "Maxis — Facilities review use case", body: "Office and facilities work made clearer for teams that need quick context.", cta: "Explore facilities work", href: "/works/pnb-cimb-hub", internal: true },
 ];
 
 const SCOPE_STEPS = [
@@ -258,24 +258,15 @@ function SideRail() {
     return () => io.disconnect();
   }, []);
 
-  const { intensity } = useIntensity();
-  const [label, setLabel] = useState("EDITORIAL MATRIX");
-  useEffect(() => {
-    const unsub = intensity.on("change", (v) =>
-      setLabel(v > 0.35 ? "KINETIC STREAMING" : "EDITORIAL MATRIX"),
-    );
-    return () => unsub();
-  }, [intensity]);
-
   return (
     <aside
       role="complementary"
       aria-label="On this page"
-      className={`hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-30 flex-col gap-3 pointer-events-none transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
+      className={`hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-30 flex-col gap-3 pointer-events-none transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
     >
       <div className="pointer-events-auto flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/40 backdrop-blur px-3 py-4">
         <div className="text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 px-1">
-          {label}
+          QUICK LINK
         </div>
         <div className="h-px bg-white/10" />
         <ul className="flex flex-col gap-1">
@@ -307,6 +298,19 @@ function SideRail() {
     </aside>
   );
 }
+
+
+/* ---------- in-hero quick links (static, non-sticky) ---------- */
+
+const QUICK_LINKS: { label: string; href: string }[] = [
+  { label: "Capture", href: "#capture" },
+  { label: "Outcomes", href: "#outcomes" },
+  { label: "Sectors", href: "#industries" },
+  { label: "Services", href: "#integrations" },
+  { label: "Client Work", href: "#stories" },
+  { label: "Scope", href: "#pricing" },
+];
+
 
 
 /* ---------- in-hero quick links (static, non-sticky) ---------- */
@@ -487,7 +491,7 @@ function CaptureSection() {
             </div>
             <div className="space-y-3 font-mono text-[11px] text-neutral-400 border-t border-white/10 pt-4">
               <div className="flex justify-between"><span>CAPTURE:</span><span className="text-cyan-300">MATTERPORT PRO3</span></div>
-              <div className="flex justify-between"><span>ACCURACY:</span><span className="text-neutral-200">mm-GRADE LiDAR</span></div>
+              <div className="flex justify-between"><span>ACCURACY:</span><span className="text-neutral-200">cm-GRADE LiDAR</span></div>
               <div className="flex justify-between"><span>DELIVERY:</span><span className="text-neutral-200">HOSTED + EMBED</span></div>
             </div>
           </div>
@@ -817,36 +821,27 @@ function FaqSection() {
     <section className="px-6 md:px-24 py-32 border-t border-white/5">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex items-center gap-3 text-xs font-mono text-neutral-500">
-          <HelpCircle className="w-4 h-4 text-cyan-400" />
+          <HelpCircle className="w-4 h-4 text-emerald-400" />
           <span>Frequently Asked</span>
         </div>
         <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
           FAQ
         </h2>
         <div className="border-t border-white/10 pt-4 space-y-6">
-          <Reveal className="space-y-2">
-            <h3 className="text-sm font-bold uppercase text-neutral-200">
-              What does a Novo Reperio capture include?
-            </h3>
-            <p className="text-xs text-neutral-400 leading-relaxed font-light">
-              A hosted Matterport tour as the main asset, plus support layers —
-              360°, drone/aerial, and stills — and a launch layer for embedding
-              into your website, page, or deck.
-            </p>
-          </Reveal>
-          <Reveal className="space-y-2">
-            <h3 className="text-sm font-bold uppercase text-neutral-200">
-              Can existing spaces be digitized?
-            </h3>
-            <p className="text-xs text-neutral-400 leading-relaxed font-light">
-              Yes. Using LiDAR scanning, photogrammetry, and certified
-              Matterport workflows, completed spaces map cleanly into hosted,
-              embed-ready digital twins.
-            </p>
-          </Reveal>
+          {HOMEPAGE_FAQ.map((f) => (
+            <Reveal key={f.q} className="space-y-2">
+              <h3 className="text-sm font-bold uppercase text-neutral-200">
+                {f.q}
+              </h3>
+              <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                {f.a}
+              </p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
