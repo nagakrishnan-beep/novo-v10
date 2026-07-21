@@ -8,7 +8,6 @@ import {
   Play,
   ChevronRight,
   MessageCircle,
-  Sparkles,
 } from "lucide-react";
 import {
   IntensityProvider,
