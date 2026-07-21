@@ -8,7 +8,6 @@ import {
   Play,
   ChevronRight,
   MessageCircle,
-  Menu,
   Sparkles,
 } from "lucide-react";
 import {
@@ -24,6 +23,7 @@ import {
 import { LaserTrail } from "@/components/laser-trail";
 import { useTransform } from "framer-motion";
 import { CLIENT_LOGOS } from "@/lib/logos";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
 const TITLE = "Novo Reperio — The Chrono-Adaptive Canvas";
 const DESCRIPTION =
@@ -132,10 +132,9 @@ function Index() {
 
 function PageContent() {
   return (
-    <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-hidden selection:bg-cyan-400 selection:text-black">
-      <TopBar />
+    <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-400 selection:text-black">
+      <SiteHeader active="home" />
       <Hero />
-      <SideRail />
       <CaptureSection />
       <OutcomesSection />
       <IndustriesSection />
@@ -146,98 +145,41 @@ function PageContent() {
       <ScopeSection />
       <CtaSection />
       <FaqSection />
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }
 
-/* ---------- top bar (hides on hero, visible below) ---------- */
+/* ---------- in-hero quick links (static, non-sticky) ---------- */
 
-function TopBar() {
-  const { scrollY } = useIntensity();
-  const opacity = useTransform(scrollY, [0, 400, 600], [0, 0, 1]);
-  const y = useTransform(scrollY, [0, 400, 600], [-30, -30, 0]);
-  const pointerEvents = useTransform(scrollY, (v) =>
-    v > 500 ? "auto" : "none",
-  ) as unknown as string;
+const QUICK_LINKS: { label: string; href: string }[] = [
+  { label: "Capture", href: "#capture" },
+  { label: "Outcomes", href: "#outcomes" },
+  { label: "Sectors", href: "#industries" },
+  { label: "Services", href: "#integrations" },
+  { label: "Client Work", href: "#stories" },
+  { label: "Scope", href: "#pricing" },
+];
 
+function HeroQuickLinks() {
   return (
-    <motion.nav
-      style={{ opacity, y, pointerEvents: pointerEvents as any }}
-      className="fixed top-0 left-0 w-full px-6 md:px-10 py-4 flex justify-between items-center z-50 bg-black/60 backdrop-blur-xl border-b border-white/5"
+    <nav
+      aria-label="Jump to section"
+      className="mt-10 flex flex-wrap gap-2 max-w-5xl"
     >
-      <a href="#top" className="flex items-center gap-2 shrink-0">
-        <span className="text-sm font-black tracking-[0.3em] text-white">
-          NOVOREPERIO
-        </span>
-      </a>
-      <div className="hidden lg:flex gap-1 bg-white/[0.03] border border-white/10 p-1 rounded-full">
-        {NAV.map((item) =>
-          item.to ? (
-            <Link
-              key={item.href}
-              to={item.to}
-              className="px-4 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-widest text-neutral-400 hover:text-cyan-300 hover:bg-white/5 transition"
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <a
-              key={item.href}
-              href={item.href}
-              className="px-4 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-widest text-neutral-400 hover:text-cyan-300 hover:bg-white/5 transition"
-            >
-              {item.label}
-            </a>
-          ),
-        )}
-      </div>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 bg-cyan-400 text-black px-4 py-2 rounded-full font-mono text-[10px] font-bold hover:bg-cyan-300 transition"
-      >
-        <MessageCircle className="w-3 h-3" />
-        WHATSAPP US
-      </a>
-    </motion.nav>
+      {QUICK_LINKS.map((q) => (
+        <a
+          key={q.href}
+          href={q.href}
+          className="px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-xs font-mono tracking-wider uppercase text-neutral-400 hover:text-emerald-300 hover:border-emerald-400/40 transition"
+        >
+          {q.label}
+        </a>
+      ))}
+    </nav>
   );
 }
 
-/* ---------- side rail (hero-only vertical nav) ---------- */
-
-function SideRail() {
-  const { scrollY } = useIntensity();
-  const opacity = useTransform(scrollY, [0, 500, 700], [1, 1, 0]);
-
-  const cls =
-    "text-[10px] font-mono tracking-[0.35em] transition text-neutral-500 hover:text-cyan-300";
-
-  return (
-    <motion.aside
-      style={{ opacity }}
-      className="fixed right-6 md:right-12 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4 items-end pointer-events-auto"
-    >
-      <div className="text-[9px] font-mono tracking-[0.4em] text-cyan-300/70 mb-1">
-        QUICK LINKS //
-      </div>
-      <div className="relative flex flex-col gap-4 items-end">
-        {RAIL.map((r) => (
-          <Link key={r.label} to={r.to} className={cls}>
-            {r.label}
-          </Link>
-        ))}
-      </div>
-      <motion.div
-        className="w-px h-16 bg-gradient-to-b from-cyan-400/80 to-transparent mt-2"
-        animate={{ scaleY: [1, 0.6, 1] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformOrigin: "top" }}
-      />
-    </motion.aside>
-  );
-}
 
 
 
@@ -248,28 +190,8 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-32 pb-16"
+      className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-16 pb-16"
     >
-      {/* corner brand */}
-      <div className="absolute top-6 left-6 md:top-10 md:left-16 z-20 flex items-center gap-3">
-        <img
-          src="/novo-logo.png"
-          alt="Novo Reperio"
-          className="h-9 md:h-11 w-auto brightness-0 invert"
-        />
-        <span className="hidden md:inline-block text-[9px] font-mono tracking-widest text-cyan-400/80 uppercase border-l border-white/15 pl-3">
-          Space Capture Studio
-        </span>
-      </div>
-      <div className="absolute top-6 right-6 md:top-10 md:right-16 z-20">
-        <button
-          aria-label="Menu"
-          className="w-10 h-10 rounded border border-white/10 flex items-center justify-center text-white/70 hover:text-cyan-300 hover:border-cyan-400/40 transition"
-        >
-          <Menu className="w-4 h-4" />
-        </button>
-      </div>
-
       <div className="max-w-5xl origin-left">
         <KineticEyebrow className="text-[11px] font-mono block mb-6 uppercase">
           CHRONO-ADAPTIVE CANVAS
@@ -284,12 +206,16 @@ function Hero() {
         </KineticHeadline>
 
         <div className="mt-10 max-w-3xl">
-          <KineticHeadline className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight text-neutral-100">
+          <KineticHeadline className="text-xl md:text-2xl font-semibold tracking-tight leading-snug text-neutral-100 normal-case">
             Turn your venue into a 24/7 sales engine.
             <br />
-            Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
+            <span className="text-neutral-300 font-light">
+              Photorealistic Matterport, LiDAR, 360° and drone walkthroughs — delivered inside a page that morphs with your scroll, your cursor, and the hour of the day.
+            </span>
           </KineticHeadline>
         </div>
+
+        <HeroQuickLinks />
       </div>
 
       {/* feature preview strip */}
@@ -303,7 +229,7 @@ function Hero() {
       </div>
 
       {/* thin baseline row */}
-      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap justify-between gap-4 text-[10px] font-mono tracking-[0.3em] text-neutral-500 uppercase">
+      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap justify-between gap-4 text-xs font-mono tracking-widest text-neutral-500 uppercase">
         <span>VELOCITY-BASED LAYOUTS</span>
         <span>CONTEXTUAL INTERFACE</span>
         <span>ORGANIC TRANSITIONS</span>
@@ -312,6 +238,7 @@ function Hero() {
     </section>
   );
 }
+
 
 function FeaturePreview({
   label,
@@ -869,25 +796,3 @@ function FaqSection() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="px-6 md:px-24 py-10 border-t border-white/5 text-[11px] font-mono text-neutral-500 flex flex-wrap items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <img
-          src="/novo-logo.png"
-          alt="Novo Reperio"
-          className="h-7 w-auto opacity-70"
-        />
-        <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
-      </div>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-cyan-300"
-      >
-        WhatsApp +60 17-202 9996
-      </a>
-    </footer>
-  );
-}
