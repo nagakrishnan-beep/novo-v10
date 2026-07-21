@@ -796,25 +796,3 @@ function FaqSection() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="px-6 md:px-24 py-10 border-t border-white/5 text-[11px] font-mono text-neutral-500 flex flex-wrap items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <img
-          src="/novo-logo.png"
-          alt="Novo Reperio"
-          className="h-7 w-auto opacity-70"
-        />
-        <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
-      </div>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-cyan-300"
-      >
-        WhatsApp +60 17-202 9996
-      </a>
-    </footer>
-  );
-}
