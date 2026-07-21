@@ -312,18 +312,6 @@ const QUICK_LINKS: { label: string; href: string }[] = [
 ];
 
 
-
-/* ---------- in-hero quick links (static, non-sticky) ---------- */
-
-const QUICK_LINKS: { label: string; href: string }[] = [
-  { label: "Capture", href: "#capture" },
-  { label: "Outcomes", href: "#outcomes" },
-  { label: "Sectors", href: "#industries" },
-  { label: "Services", href: "#integrations" },
-  { label: "Client Work", href: "#stories" },
-  { label: "Scope", href: "#pricing" },
-];
-
 function HeroQuickLinks() {
   return (
     <nav
