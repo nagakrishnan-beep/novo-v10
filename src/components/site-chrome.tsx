@@ -224,10 +224,10 @@ function ClickToLoad({ src, title }: { src: string; title: string }) {
         <span className="w-14 h-14 rounded-full border border-cyan-400/60 flex items-center justify-center group-hover:bg-cyan-400/10 transition">
           <span className="w-0 h-0 border-l-[10px] border-l-cyan-300 border-y-[7px] border-y-transparent ml-1" />
         </span>
-        <span className="text-[10px] font-mono uppercase tracking-widest">
+        <span className="text-xs font-mono uppercase tracking-wider">
           Load interactive tour
         </span>
-        <span className="text-[10px] font-mono text-neutral-500">
+        <span className="text-xs font-mono text-neutral-500">
           {title}
         </span>
       </div>
