@@ -39,6 +39,12 @@ export const Route = createFileRoute("/services/hospitality-digital-twins")({
         { name: "Hospitality Digital Twins", url: URL },
       ])) },
       { type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(FAQ)) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({
+        name: "Hospitality Digital Twins",
+        description: DESCRIPTION,
+        url: URL,
+        offers: offersForServiceSchema(),
+      })) },
     ],
   }),
   component: HospitalityPage,
