@@ -312,12 +312,16 @@ function SideRail() {
       aria-label="On this page"
       className={`hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-30 flex-col gap-3 pointer-events-none transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
     >
-      <div className="pointer-events-auto flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/40 backdrop-blur px-3 py-4">
-        <div className="text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 px-1">
+      <div className="pointer-events-auto relative flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/[0.04] px-3 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.25)] ring-1 ring-white/5 backdrop-blur-2xl backdrop-saturate-150">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.06] to-transparent"
+        />
+        <div className="relative z-10 text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 px-1 [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
           QUICK LINK
         </div>
-        <div className="h-px bg-white/10" />
-        <ul className="flex flex-col gap-1">
+        <div className="relative z-10 h-px bg-white/10" />
+        <ul className="relative z-10 flex flex-col gap-1">
           {QUICK_LINKS.map((q) => {
             const id = q.href.replace("#", "");
             const isActive = active === id;
@@ -325,10 +329,10 @@ function SideRail() {
               <li key={q.href}>
                 <a
                   href={q.href}
-                  className={`group flex items-center gap-2 px-2 py-1.5 rounded text-xs font-mono uppercase tracking-widest transition ${
+                  className={`group flex items-center gap-2 px-2 py-1.5 rounded text-xs font-mono uppercase tracking-widest transition [text-shadow:0_1px_6px_rgba(0,0,0,0.6)] ${
                     isActive
                       ? "text-emerald-300"
-                      : "text-neutral-500 hover:text-neutral-200"
+                      : "text-neutral-400 hover:text-neutral-200"
                   }`}
                 >
                   <span
