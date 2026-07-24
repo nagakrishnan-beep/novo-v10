@@ -85,7 +85,7 @@ const FRAG = /* glsl */ `
     if (r > 0.5) discard;
     float soft = smoothstep(0.5, 0.15, r);
     vec3 tint = mix(uColorA, uColorB, clamp(uIntensity, 0.0, 1.0));
-    vec3 base = mix(vColor, tint, 0.5);
+    vec3 base = mix(vColor, tint, 0.5) + 0.08;
     // subtle height-based emerald wash
     base = mix(base, uColorA, clamp((vHeight + 0.3) * 0.35, 0.0, 0.4));
     // mouse lift + scan glow (additive)
@@ -229,9 +229,6 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       renderer.setClearColor(0x000000, 0);
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 100);
-      camera.position.set(0, 0.2, 3.0);
-      camera.lookAt(0, 0, 0);
 
       const geo = new THREE.BufferGeometry();
       geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
@@ -239,13 +236,24 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       geo.setAttribute("aRand", new THREE.BufferAttribute(rand, 3));
       geo.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
 
+      // Auto-frame: center cloud at origin, place camera to fit bounding sphere.
+      geo.computeBoundingSphere();
+      const R = geo.boundingSphere ? geo.boundingSphere.radius : 1;
+      const c = geo.boundingSphere ? geo.boundingSphere.center : new THREE.Vector3();
+      geo.translate(-c.x, -c.y, -c.z);
+      const fov = 45;
+      const dist = (R / Math.sin((fov * Math.PI) / 180 / 2)) * 1.25;
+      const camera = new THREE.PerspectiveCamera(fov, rect.width / rect.height, 0.01, dist * 10);
+      camera.position.set(dist * 0.5, dist * 0.3, dist * 0.9);
+      camera.lookAt(0, 0, 0);
+
       const uniforms = {
         uDisperse: { value: 0 },
         uIntensity: { value: 0 },
         uAssemble: { value: reducedMotion ? 1 : 0 },
         uMouse: { value: new THREE.Vector2(2, 2) },
         uMouseStrength: { value: isCoarse ? 0 : 1 },
-        uSize: { value: (isSmall ? 2.2 : 3.0) * sizeScale },
+        uSize: { value: (isSmall ? 2.6 : 3.6) * sizeScale },
         uTime: { value: 0 },
         uScan: { value: -1 },
         uColorA: { value: new THREE.Color(0.20, 0.83, 0.60) }, // emerald
@@ -262,7 +270,10 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       });
 
       const points = new THREE.Points(geo, mat);
+      points.position.set(0, 0, 0);
       scene.add(points);
+      // First paint so it shows before RAF ticks.
+      renderer.render(scene, camera);
 
       // Pointer tracking
       const onMove = (e: PointerEvent) => {
@@ -282,6 +293,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         renderer.setSize(r.width, r.height, false);
         camera.aspect = r.width / r.height;
         camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
       };
       const ro = new ResizeObserver(onResize);
       ro.observe(container);
@@ -319,7 +331,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
           // scanner loop 6s
           uniforms.uScan.value = -1 + ((t % 6) / 6) * 2;
           // slow yaw
-          points.rotation.y = t * 0.08;
+          points.rotation.y = t * 0.06;
           // scroll intensity → disperse/color
           const iv = intensitySpring.get();
           uniforms.uIntensity.value = iv;
@@ -384,7 +396,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        Scan-verified geometry · 150,000 points
+        Live preview · placeholder scan — real capture drops in on launch
       </motion.div>
     </div>
   );
