@@ -162,9 +162,10 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         return;
       }
 
-      // Check WebGL availability.
-      const testCtx = canvas.getContext("webgl2") || canvas.getContext("webgl");
-      if (!testCtx) { if (!disposed) setFailed(true); return; }
+      // Note: do NOT pre-probe the canvas with getContext — that acquires the
+      // WebGL context and makes THREE.WebGLRenderer fail to attach. We rely on
+      // the try/catch around renderer creation below.
+
 
       // Fetch and parse cloud.
       let cloud: ParsedCloud;
