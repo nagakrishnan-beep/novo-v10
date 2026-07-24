@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
+import { ScopeEstimator } from "@/components/scope-estimator";
+import { MonthlyValue, PricingBands } from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
+import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { offersForServiceSchema } from "@/lib/pricing";
 import { WORKS } from "@/lib/works";
 import { SERVICES } from "@/lib/services";
 
@@ -36,6 +39,12 @@ export const Route = createFileRoute("/services/hospitality-digital-twins")({
         { name: "Hospitality Digital Twins", url: URL },
       ])) },
       { type: "application/ld+json", children: JSON.stringify(faqPageJsonLd(FAQ)) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({
+        name: "Hospitality Digital Twins",
+        description: DESCRIPTION,
+        url: URL,
+        offers: offersForServiceSchema(),
+      })) },
     ],
   }),
   component: HospitalityPage,
@@ -178,6 +187,24 @@ function HospitalityPage() {
           ))}
         </div>
       </section>
+
+      <MonthlyValue
+        intro="Every hospitality twin at Novo Reperio is designed to keep working long after launch day."
+        bullets={[
+          "Hosted, embed-ready and shareable as one link — property site, OTA extranet, RFP replies, GMB and sales decks.",
+          "Usage analytics for your sales team — visits, dwell time and room-by-room engagement piped into your monthly review.",
+          "Scheduled recapture programs — refreshes for renovations, seasonal setups and new suite categories.",
+          "Integrations — embed into OTA listings and stitch tours into your booking or MICE enquiry flow.",
+        ]}
+      />
+
+      {/* Instant scope estimator */}
+      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <ScopeEstimator />
+      </section>
+
+      {/* Published pricing bands */}
+      <PricingBands />
 
       <SiteFooter />
     </div>

@@ -2,6 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, Ruler, GraduationCap, Map, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { LaserTrail } from "@/components/laser-trail";
+import { ScopeEstimator } from "@/components/scope-estimator";
+import {
+  PricingBands,
+  VerifiedByScanStrip,
+  FreeOpenLayer,
+} from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import {
@@ -106,6 +112,14 @@ function ServicesPage() {
             );
           })}
         </div>
+      </section>
+
+      {/* Verified-by-scan explainer strip */}
+      <VerifiedByScanStrip />
+
+      {/* Instant scope estimator */}
+      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <ScopeEstimator />
       </section>
 
       {/* MARKET IT */}
@@ -248,6 +262,13 @@ function ServicesPage() {
           ))}
         </div>
       </section>
+
+      {/* Published pricing bands */}
+      <PricingBands />
+
+      {/* Always free layer */}
+      <FreeOpenLayer />
+
 
       {/* FAQ */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">

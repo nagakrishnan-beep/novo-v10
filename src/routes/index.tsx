@@ -371,6 +371,24 @@ function Hero() {
         </ul>
 
         <HeroQuickLinks />
+
+        {/* Compact estimator entry card */}
+        <a
+          href="/estimate"
+          className="mt-10 inline-flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 w-full max-w-3xl border border-emerald-400/30 rounded-2xl bg-emerald-400/[0.03] hover:border-emerald-400/60 transition px-6 py-5"
+        >
+          <div>
+            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-emerald-300">
+              60-second estimate
+            </div>
+            <div className="mt-2 text-base md:text-lg font-light text-white">
+              What would your space cost to capture?
+            </div>
+          </div>
+          <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300">
+            Get an instant estimate <ArrowRight size={14} />
+          </span>
+        </a>
       </div>
 
       {/* proof line */}

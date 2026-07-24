@@ -25,6 +25,16 @@ developers (residential, commercial, mixed-use), corporate workplaces, retail
 and showrooms, cultural institutions and museums, oil & gas / industrial
 safety training, aviation and yachts.
 
+## Indicative pricing (MYR)
+- Airbnb / Homestay → Matterport capture from RM988
+- Residential or Show Unit → from RM2,599
+- Commercial / Showroom → from RM2,599
+- Small Event Space / F&B → from RM5,999
+- Hotel / Resort, Office / Corporate Facility, Large Venue / Convention / Industrial → custom scope, sized by area and complexity, quoted after a scoping walkthrough
+- Hosting & virtual-tour subscription → from RM499/month
+
+Final quotes scoped per property; terms & conditions apply.
+
 ## Key facts
 - Founded: 2014
 - Base: Solaris Mont Kiara, 50480 Kuala Lumpur, Malaysia
@@ -34,6 +44,8 @@ safety training, aviation and yachts.
 
 ## Key URLs
 - Home:      https://novo-v10.lovable.app/
+- Estimate:  https://novo-v10.lovable.app/estimate
+- Methodology: https://novo-v10.lovable.app/methodology
 - Services:  https://novo-v10.lovable.app/services
 - Property visualization: https://novo-v10.lovable.app/services/property-visualization
 - Hospitality digital twins: https://novo-v10.lovable.app/services/hospitality-digital-twins

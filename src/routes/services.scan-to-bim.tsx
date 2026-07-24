@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Scan-to-BIM & LiDAR Point Cloud Services Malaysia | As-Built CAD & Revit — Novo Reperio";
@@ -200,6 +201,16 @@ function ScanToBimPage() {
           </Link>
         </div>
       </section>
+
+      <MonthlyValue
+        intro="Scan deliverables don't have to end when the point cloud is handed over."
+        bullets={[
+          "Hosted measurable twin alongside the BIM model — architects, MEP and QS teams share one live link.",
+          "Usage analytics on twin access — see who inside the design team is inspecting what.",
+          "Scheduled recapture — resurvey at fit-out, defects liability and post-occupation to track drift from as-designed.",
+          "BIM handover integrations — LOD 200–350 model feeds straight into the FM asset register.",
+        ]}
+      />
 
       <SiteFooter />
     </div>
