@@ -85,7 +85,7 @@ const FRAG = /* glsl */ `
     if (r > 0.5) discard;
     float soft = smoothstep(0.5, 0.15, r);
     vec3 tint = mix(uColorA, uColorB, clamp(uIntensity, 0.0, 1.0));
-    vec3 base = mix(vColor, tint, 0.5);
+    vec3 base = mix(vColor, tint, 0.5) + 0.08;
     // subtle height-based emerald wash
     base = mix(base, uColorA, clamp((vHeight + 0.3) * 0.35, 0.0, 0.4));
     // mouse lift + scan glow (additive)
