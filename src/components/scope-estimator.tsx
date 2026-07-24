@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+
 import { WHATSAPP_URL } from "@/lib/site";
 import { trackEvent } from "@/components/site-chrome";
 import {
