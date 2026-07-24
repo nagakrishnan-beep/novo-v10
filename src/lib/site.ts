@@ -26,8 +26,10 @@ export const SOCIALS = {
 export const abs = (path: string) =>
   path.startsWith("http") ? path : `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 
-/** Web3Forms access key — replace TODO placeholder in production. */
-export const WEB3FORMS_ACCESS_KEY = "TODO_WEB3FORMS_ACCESS_KEY";
+/** Web3Forms access key — public access key, safe to ship in the client bundle.
+ *  ClickUp destination = set the Web3Forms email recipient (in the Web3Forms
+ *  dashboard) to the ClickUp list's email-to-task inbox address. No token here. */
+export const WEB3FORMS_ACCESS_KEY = "dcf1882e-da1a-4dec-b8e3-6d8c2e783b7a";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 /** GA4 measurement ID — replace TODO placeholder in production. */
