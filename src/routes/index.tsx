@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Play,
   ChevronRight,
+  ChevronLeft,
   MessageCircle,
   Building2,
   Ruler,
