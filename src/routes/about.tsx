@@ -150,14 +150,26 @@ function AboutPage() {
           Led by
         </div>
         <div className="max-w-3xl border border-white/10 rounded-xl p-6 bg-white/[0.02]">
-          <div className="text-white text-2xl font-light">Naga Krishnan</div>
+          <div className="text-white text-2xl font-light">{FOUNDER.name}</div>
           <div className="mt-1 text-sm text-emerald-300">
-            Chief Executive Officer &amp; Business Development
+            {FOUNDER.jobTitle}
           </div>
-          <p className="mt-4 text-sm text-neutral-400 leading-relaxed">
-            TODO_FOUNDER_BIO — [2–3 sentence bio pending from client]
+          <p className="mt-4 text-sm text-neutral-300 leading-relaxed">
+            {FOUNDER.bio}
           </p>
+          <ul className="mt-5 flex flex-wrap gap-2 text-[11px] font-mono uppercase tracking-widest text-emerald-300/90">
+            <li className="border border-emerald-500/30 rounded-full px-3 py-1">
+              Matterport Certified Service Partner since 2015
+            </li>
+            <li className="border border-emerald-500/30 rounded-full px-3 py-1">
+              MDEC Malaysia Digital
+            </li>
+            <li className="border border-emerald-500/30 rounded-full px-3 py-1">
+              Google Street View Trusted
+            </li>
+          </ul>
         </div>
+
       </section>
 
 
