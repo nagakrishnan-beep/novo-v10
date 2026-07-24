@@ -35,6 +35,9 @@ export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 /** GA4 measurement ID — replace TODO placeholder in production. */
 export const GA4_MEASUREMENT_ID = "G-PRMCVHTCGZ";
 
+/** Meta (Facebook) Pixel ID. */
+export const META_PIXEL_ID = "1196186000412033";
+
 /** Founder / principal author. Bio TODO — pending client-supplied copy. */
 export const FOUNDER = {
   name: "Naga R. Krishnan",
