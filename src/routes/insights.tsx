@@ -73,7 +73,7 @@ function InsightsIndex() {
             {DESCRIPTION}
           </p>
           <div className="mt-6 text-xs font-mono text-neutral-400">
-            {ALL_INSIGHTS.length} articles · By Naga Krishnan · Novo Reperio
+            {ALL_INSIGHTS.length} articles · By Naga R. Krishnan · Novo Reperio
           </div>
         </section>
 
@@ -134,7 +134,7 @@ function InsightsIndex() {
                     {post.excerpt}
                   </p>
                   <div className="mt-6 flex items-center justify-between text-xs font-mono text-neutral-400">
-                    <span>By Naga Krishnan · {post.date}</span>
+                    <span>By Naga R. Krishnan · {post.date}</span>
                     <span className="inline-flex items-center gap-1 text-emerald-300">
                       Read <ArrowRight size={12} />
                     </span>
