@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as EstimateRouteImport } from './routes/estimate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -39,6 +41,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsRoute = InsightsRouteImport.update({
   id: '/insights',
   path: '/insights',
@@ -47,6 +54,11 @@ const InsightsRoute = InsightsRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstimateRoute = EstimateRouteImport.update({
+  id: '/estimate',
+  path: '/estimate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -135,8 +147,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
+  '/methodology': typeof MethodologyRoute
   '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -156,8 +170,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
+  '/methodology': typeof MethodologyRoute
   '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -178,8 +194,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
+  '/methodology': typeof MethodologyRoute
   '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -201,8 +219,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/estimate'
     | '/industries'
     | '/insights'
+    | '/methodology'
     | '/services'
     | '/works'
     | '/industries/$slug'
@@ -222,8 +242,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/estimate'
     | '/industries'
     | '/insights'
+    | '/methodology'
     | '/services'
     | '/works'
     | '/industries/$slug'
@@ -243,8 +265,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/estimate'
     | '/industries'
     | '/insights'
+    | '/methodology'
     | '/services'
     | '/works'
     | '/industries/$slug'
@@ -265,8 +289,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  EstimateRoute: typeof EstimateRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   InsightsRoute: typeof InsightsRouteWithChildren
+  MethodologyRoute: typeof MethodologyRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   WorksRoute: typeof WorksRouteWithChildren
 }
@@ -287,6 +313,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights': {
       id: '/insights'
       path: '/insights'
@@ -299,6 +332,13 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estimate': {
+      id: '/estimate'
+      path: '/estimate'
+      fullPath: '/estimate'
+      preLoaderRoute: typeof EstimateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -475,8 +515,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  EstimateRoute: EstimateRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   InsightsRoute: InsightsRouteWithChildren,
+  MethodologyRoute: MethodologyRoute,
   ServicesRoute: ServicesRouteWithChildren,
   WorksRoute: WorksRouteWithChildren,
 }

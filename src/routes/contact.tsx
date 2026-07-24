@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Check } from "lucide-react";
 import { LaserTrail } from "@/components/laser-trail";
 import { SiteHeader, SiteFooter, trackEvent } from "@/components/site-chrome";
@@ -56,6 +56,31 @@ type FormState = "idle" | "loading" | "success" | "error";
 function ContactPage() {
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
+  const [prefill, setPrefill] = useState<string>("");
+
+  // Read ?type= & ?size= URL params and prefill the message textarea.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+    const size = params.get("size");
+    if (type || size) {
+      const sizeLabel =
+        size === "under-1000"
+          ? "under 1,000"
+          : size === "1000-3000"
+            ? "1,000–3,000"
+            : size === "3000-10000"
+              ? "3,000–10,000"
+              : size === "10000-plus"
+                ? "10,000+"
+                : size ?? "";
+      const typeLabel = (type ?? "").replace(/-/g, " ");
+      setPrefill(
+        `Scope estimate request: ${typeLabel || "space"}, ${sizeLabel || "size TBD"} sq ft.`,
+      );
+    }
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -231,6 +256,8 @@ function ContactPage() {
                 rows={5}
                 required
                 maxLength={4000}
+                defaultValue={prefill}
+                key={prefill}
                 placeholder="Tell us about the space, timeline and how it will be used."
                 className="mt-2 w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-neutral-600 focus:border-cyan-400/60 focus:outline-none"
               />
