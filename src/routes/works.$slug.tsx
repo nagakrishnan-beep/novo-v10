@@ -49,6 +49,24 @@ export const Route = createFileRoute("/works/$slug")({
             ])
           ),
         },
+        ...(work.tourUrl
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "CreativeWork",
+                  name: work.title,
+                  url,
+                  subjectOf: {
+                    "@type": "3DModel",
+                    url: work.tourUrl,
+                    name: `${work.title} digital twin`,
+                  },
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
@@ -85,8 +103,16 @@ function WorkDetail() {
       </section>
 
       {/* Image or MediaSlot placeholder */}
+      {/* Image or MediaSlot placeholder */}
       <section className="px-6 md:px-24">
-        <MediaSlot ratio="16/9" label={`Cover · ${work.title}`} />
+        <MediaSlot
+          ratio="16/9"
+          label={
+            work.tourUrl
+              ? "Scan-verified capture — explore the real geometry"
+              : `Cover · ${work.title}`
+          }
+        />
       </section>
 
       {/* Body content */}
