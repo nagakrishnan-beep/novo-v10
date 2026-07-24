@@ -182,6 +182,24 @@ function HospitalityPage() {
         </div>
       </section>
 
+      <MonthlyValue
+        intro="Every hospitality twin at Novo Reperio is designed to keep working long after launch day."
+        bullets={[
+          "Hosted, embed-ready and shareable as one link — property site, OTA extranet, RFP replies, GMB and sales decks.",
+          "Usage analytics for your sales team — visits, dwell time and room-by-room engagement piped into your monthly review.",
+          "Scheduled recapture programs — refreshes for renovations, seasonal setups and new suite categories.",
+          "Integrations — embed into OTA listings and stitch tours into your booking or MICE enquiry flow.",
+        ]}
+      />
+
+      {/* Instant scope estimator */}
+      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <ScopeEstimator />
+      </section>
+
+      {/* Published pricing bands */}
+      <PricingBands />
+
       <SiteFooter />
     </div>
   );

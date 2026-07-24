@@ -144,6 +144,16 @@ function Page() {
         </div>
       </section>
 
+      <MonthlyValue
+        intro="An FM twin is a living record — most of the value shows up month after month."
+        bullets={[
+          "Hosted, embed-ready twin — asset registers, room documentation and contractor brief packs from one link.",
+          "Usage analytics — see how often assets and rooms are inspected remotely by FM and contractors.",
+          "Scheduled recapture — refit and tenant-change captures keep the twin aligned with the physical building.",
+          "FM integrations — asset registers, inspection history and vendor contracts wired to each tagged asset.",
+        ]}
+      />
+
       <SiteFooter />
     </div>
   );

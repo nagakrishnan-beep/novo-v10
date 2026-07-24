@@ -153,6 +153,21 @@ function PropertyVizPage() {
         </div>
       </section>
 
+      <MonthlyValue
+        intro="A launch tour or CGI package doesn't have to end when the campaign does."
+        bullets={[
+          "Hosted, embed-ready and shareable as one link — launch microsite, sales gallery kiosks, agent tools and OTA listings.",
+          "Usage analytics — see which units, layouts and finishes prospects explore before they book a viewing.",
+          "Scheduled refresh — swap finishes, colourways and staged furniture without a full reshoot.",
+          "Integrations — plug straight into your sales CRM and gallery iPads.",
+        ]}
+      />
+
+      {/* Instant scope estimator */}
+      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <ScopeEstimator />
+      </section>
+
       <SiteFooter />
     </div>
   );

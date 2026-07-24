@@ -196,6 +196,6 @@ export function whatsappEstimateUrl(
     `Result: ${line}`,
     "Can we set up a free scoping consultation?",
   ].join("\n");
-  const base = phoneUrl.includes("?") ? phoneUrl : `${phoneUrl}?text=`;
+  const base = phoneUrl.includes("?text=") ? phoneUrl : `${phoneUrl}?text=`;
   return base + encodeURIComponent(text);
 }

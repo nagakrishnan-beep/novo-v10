@@ -207,6 +207,16 @@ function Page() {
         </div>
       </section>
 
+      <MonthlyValue
+        intro="Immersive training is a live product — it should evolve with the workplace it mirrors."
+        bullets={[
+          "Hosted, embed-ready training environments — LMS embeds, mobile, tablet and headset access.",
+          "Usage & assessment analytics — completion rates, hazard-hunt scores and cohort leaderboards.",
+          "Scheduled recapture — training twins stay aligned with real workplace layout changes.",
+          "Integrations — quiz gates, checklists and certification records exportable to your HRIS or LMS.",
+        ]}
+      />
+
       <SiteFooter />
     </div>
   );
