@@ -32,3 +32,18 @@ export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 /** GA4 measurement ID — replace TODO placeholder in production. */
 export const GA4_MEASUREMENT_ID = "G-XXXXXXXXXX";
+
+/** Founder / principal author. Bio TODO — pending client-supplied copy. */
+export const FOUNDER = {
+  name: "Naga Krishnan",
+  jobTitle: "Chief Executive Officer & Business Development",
+  bio: "TODO_FOUNDER_BIO — [2–3 sentence bio pending from client]",
+  knowsAbout: [
+    "Digital Twins",
+    "Matterport",
+    "LiDAR",
+    "Spatial Technology",
+    "Reality Capture",
+    "3D Visualization",
+  ],
+} as const;

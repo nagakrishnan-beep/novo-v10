@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LEGAL_NAME, BASE_URL, GA4_MEASUREMENT_ID } from "@/lib/site";
-import { ORGANIZATION_JSONLD, LOCALBUSINESS_JSONLD } from "@/lib/schema";
+import { ORGANIZATION_JSONLD, LOCALBUSINESS_JSONLD, WEBSITE_JSONLD } from "@/lib/schema";
 
 function NotFoundComponent() {
   return (
@@ -98,11 +98,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     ],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify(ORGANIZATION_JSONLD),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(WEBSITE_JSONLD),
       },
       {
         type: "application/ld+json",
