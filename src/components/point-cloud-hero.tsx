@@ -229,9 +229,6 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       renderer.setClearColor(0x000000, 0);
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 100);
-      camera.position.set(0, 0.2, 3.0);
-      camera.lookAt(0, 0, 0);
 
       const geo = new THREE.BufferGeometry();
       geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
@@ -239,13 +236,24 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       geo.setAttribute("aRand", new THREE.BufferAttribute(rand, 3));
       geo.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
 
+      // Auto-frame: center cloud at origin, place camera to fit bounding sphere.
+      geo.computeBoundingSphere();
+      const R = geo.boundingSphere ? geo.boundingSphere.radius : 1;
+      const c = geo.boundingSphere ? geo.boundingSphere.center : new THREE.Vector3();
+      geo.translate(-c.x, -c.y, -c.z);
+      const fov = 45;
+      const dist = (R / Math.sin((fov * Math.PI) / 180 / 2)) * 1.25;
+      const camera = new THREE.PerspectiveCamera(fov, rect.width / rect.height, 0.01, dist * 10);
+      camera.position.set(dist * 0.5, dist * 0.3, dist * 0.9);
+      camera.lookAt(0, 0, 0);
+
       const uniforms = {
         uDisperse: { value: 0 },
         uIntensity: { value: 0 },
         uAssemble: { value: reducedMotion ? 1 : 0 },
         uMouse: { value: new THREE.Vector2(2, 2) },
         uMouseStrength: { value: isCoarse ? 0 : 1 },
-        uSize: { value: (isSmall ? 2.2 : 3.0) * sizeScale },
+        uSize: { value: (isSmall ? 2.6 : 3.6) * sizeScale },
         uTime: { value: 0 },
         uScan: { value: -1 },
         uColorA: { value: new THREE.Color(0.20, 0.83, 0.60) }, // emerald
