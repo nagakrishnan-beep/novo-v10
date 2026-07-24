@@ -187,6 +187,7 @@ export const serviceJsonLd = (s: {
   description: string;
   url: string;
   image?: string;
+  offers?: unknown[];
 }) => ({
   "@context": "https://schema.org",
   "@type": "Service",
@@ -196,6 +197,7 @@ export const serviceJsonLd = (s: {
   provider: { "@id": `${BASE_URL}/#organization` },
   areaServed: ["Malaysia", "Singapore", "Indonesia", "Middle East", "Worldwide"],
   ...(s.image ? { image: abs(s.image) } : {}),
+  ...(s.offers && s.offers.length ? { offers: s.offers } : {}),
 });
 
 export const faqPageJsonLd = (faqs: { q: string; a: string }[]) => ({
