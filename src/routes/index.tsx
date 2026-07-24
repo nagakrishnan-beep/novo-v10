@@ -177,10 +177,11 @@ function ScanRealitySection() {
       className="relative z-10 border-t border-white/5 bg-[#04060a]"
       aria-label="Scan-verified geometry"
     >
-      <div className="relative h-[80vh] min-h-[520px] w-full overflow-hidden">
-        <PointCloudHero className="absolute inset-0" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 h-full flex items-center px-6 md:px-24">
+      <div className="relative h-[70vh] md:h-[80vh] min-h-[520px] w-full overflow-hidden">
+        <PointCloudHero className="absolute inset-0" offsetX={0.85} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent md:block hidden" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent md:hidden" />
+        <div className="relative z-10 h-full flex items-end md:items-center px-6 md:px-24 pb-10 md:pb-0">
           <div className="max-w-2xl">
             <div className="text-xs font-mono uppercase tracking-[0.4em] text-emerald-300 mb-6">
               [ Scan-verified geometry · 150,000 points ]
