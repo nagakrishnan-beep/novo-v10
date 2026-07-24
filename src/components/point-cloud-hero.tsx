@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useContext } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useSpring, useMotionValueEvent, useReducedMotion } from "framer-motion";
 import { useIntensity } from "./chrono";
 
@@ -32,68 +32,6 @@ export function parsePcbin(buf: ArrayBuffer): ParsedCloud {
   return { count: N, positions, colors };
 }
 
-const VERT = /* glsl */ `
-  attribute vec3 aColor;
-  attribute vec3 aRand;
-  attribute float aSeed;
-  uniform float uDisperse;
-  uniform float uIntensity;
-  uniform float uAssemble;
-  uniform vec2 uMouse;
-  uniform float uMouseStrength;
-  uniform float uSize;
-  uniform float uTime;
-  varying vec3 vColor;
-  varying float vHeight;
-  varying float vMouseProx;
-  varying float vScanGlow;
-  uniform float uScan;
-  void main() {
-    vec3 scattered = position + aRand * 1.4;
-    vec3 base = mix(scattered, position, clamp(uAssemble, 0.0, 1.0));
-    vec3 disp = base + aRand * uDisperse * 1.2;
-    vec4 mv = modelViewMatrix * vec4(disp, 1.0);
-    vec4 proj = projectionMatrix * mv;
-    // ndc for mouse proximity
-    vec2 ndc = proj.xy / proj.w;
-    float d = distance(ndc, uMouse);
-    float prox = smoothstep(0.35, 0.0, d) * uMouseStrength;
-    vMouseProx = prox;
-    vHeight = disp.y;
-    vColor = aColor;
-    // scanner sweep — thin band around uScan on x axis
-    float band = smoothstep(0.08, 0.0, abs(disp.x - uScan));
-    vScanGlow = band;
-    float sizeAtten = clamp(140.0 / -mv.z, 1.0, 4.0);
-    gl_PointSize = clamp(uSize * (1.0 + uIntensity*0.5 + prox*1.4 + band*0.7) * sizeAtten, 1.0, 5.0);
-    gl_Position = proj;
-  }
-`;
-
-const FRAG = /* glsl */ `
-  precision mediump float;
-  uniform vec3 uColorA;
-  uniform vec3 uColorB;
-  uniform float uIntensity;
-  varying vec3 vColor;
-  varying float vHeight;
-  varying float vMouseProx;
-  varying float vScanGlow;
-  void main() {
-    vec2 c = gl_PointCoord - vec2(0.5);
-    float r = length(c);
-    if (r > 0.5) discard;
-    float soft = smoothstep(0.5, 0.15, r);
-    vec3 tint = mix(uColorA, uColorB, clamp(uIntensity, 0.0, 1.0));
-    vec3 base = mix(vColor, tint, 0.5) + 0.08;
-    // subtle height-based emerald wash
-    base = mix(base, uColorA, clamp((vHeight + 0.3) * 0.35, 0.0, 0.4));
-    // mouse lift + scan glow (additive)
-    base += uColorA * (vMouseProx * 0.4 + vScanGlow * 0.9);
-    gl_FragColor = vec4(base, 0.9 * soft);
-  }
-`;
-
 type Props = {
   className?: string;
   /** decimation factor for coarse devices (2 = every other point) */
@@ -102,7 +40,6 @@ type Props = {
   sizeScale?: number;
 };
 
-// Safe intensity hook — returns null if not inside provider.
 function useOptionalIntensity() {
   try {
     return useIntensity();
@@ -121,13 +58,11 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
   const reducedMotion = !!useReducedMotion();
   const ctx = useOptionalIntensity();
 
-  // Spring-smoothed intensity driver (0..1).
   const intensitySpring = useSpring(0, { stiffness: 60, damping: 20 });
   useMotionValueEvent(ctx?.intensity ?? intensitySpring, "change", (v) => {
     intensitySpring.set(v);
   });
 
-  // Observe entry into viewport (mount canvas only when in view).
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -142,7 +77,6 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
     return () => io.disconnect();
   }, []);
 
-  // Mount three scene when in view.
   useEffect(() => {
     if (!inView) return;
     const canvas = canvasRef.current;
@@ -162,12 +96,6 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         return;
       }
 
-      // Note: do NOT pre-probe the canvas with getContext — that acquires the
-      // WebGL context and makes THREE.WebGLRenderer fail to attach. We rely on
-      // the try/catch around renderer creation below.
-
-
-      // Fetch and parse cloud.
       let cloud: ParsedCloud;
       try {
         const res = await fetch(CLOUD_SRC);
@@ -180,32 +108,48 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       }
       if (disposed) return;
 
-      // Optional decimation for coarse devices.
-      const isCoarse = window.matchMedia("(pointer: coarse)").matches;
       const isSmall = window.innerWidth < 768;
       const dec = decimate ?? (isSmall ? 2 : 1);
       const N = Math.floor(cloud.count / dec);
-      const positions = new Float32Array(N * 3);
+      const target = new Float32Array(N * 3);
+      const scattered = new Float32Array(N * 3);
       const colors = new Float32Array(N * 3);
-      const rand = new Float32Array(N * 3);
-      const seed = new Float32Array(N);
+
+      // First pass: copy positions to compute bounds for height-based tinting.
+      let minY = Infinity, maxY = -Infinity;
       for (let i = 0; i < N; i++) {
         const src = i * dec;
-        positions[i * 3] = cloud.positions[src * 3];
-        positions[i * 3 + 1] = cloud.positions[src * 3 + 1];
-        positions[i * 3 + 2] = cloud.positions[src * 3 + 2];
-        colors[i * 3] = cloud.colors[src * 3];
-        colors[i * 3 + 1] = cloud.colors[src * 3 + 1];
-        colors[i * 3 + 2] = cloud.colors[src * 3 + 2];
-        // unit-ish direction
+        const x = cloud.positions[src * 3];
+        const y = cloud.positions[src * 3 + 1];
+        const z = cloud.positions[src * 3 + 2];
+        target[i * 3] = x;
+        target[i * 3 + 1] = y;
+        target[i * 3 + 2] = z;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      }
+      const yRange = maxY - minY || 1;
+
+      const emerald = { r: 0.20, g: 0.83, b: 0.60 };
+      for (let i = 0; i < N; i++) {
+        const src = i * dec;
+        const r = cloud.colors[src * 3];
+        const g = cloud.colors[src * 3 + 1];
+        const b = cloud.colors[src * 3 + 2];
+        const hNorm = (target[i * 3 + 1] - minY) / yRange; // 0..1
+        const mix = 0.35 * hNorm;
+        colors[i * 3] = Math.min(1, r * (1 - mix) + emerald.r * mix + 0.06);
+        colors[i * 3 + 1] = Math.min(1, g * (1 - mix) + emerald.g * mix + 0.06);
+        colors[i * 3 + 2] = Math.min(1, b * (1 - mix) + emerald.b * mix + 0.06);
+
+        // scattered start position
         const rx = Math.random() * 2 - 1;
         const ry = Math.random() * 2 - 1;
         const rz = Math.random() * 2 - 1;
         const l = Math.hypot(rx, ry, rz) || 1;
-        rand[i * 3] = rx / l;
-        rand[i * 3 + 1] = ry / l;
-        rand[i * 3 + 2] = rz / l;
-        seed[i] = Math.random();
+        scattered[i * 3] = target[i * 3] + (rx / l) * 1.4;
+        scattered[i * 3 + 1] = target[i * 3 + 1] + (ry / l) * 1.4;
+        scattered[i * 3 + 2] = target[i * 3 + 2] + (rz / l) * 1.4;
       }
 
       let renderer: import("three").WebGLRenderer;
@@ -223,143 +167,135 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       }
 
       try {
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-      const rect = container.getBoundingClientRect();
-      renderer.setSize(rect.width, rect.height, false);
-      renderer.setClearColor(0x000000, 0);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        const rect = container.getBoundingClientRect();
+        renderer.setSize(rect.width, rect.height, false);
+        renderer.setClearColor(0x000000, 0);
 
-      const scene = new THREE.Scene();
+        const scene = new THREE.Scene();
 
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-      geo.setAttribute("aColor", new THREE.BufferAttribute(colors, 3));
-      geo.setAttribute("aRand", new THREE.BufferAttribute(rand, 3));
-      geo.setAttribute("aSeed", new THREE.BufferAttribute(seed, 1));
-
-      // Auto-frame: center cloud at origin, place camera to fit bounding sphere.
-      geo.computeBoundingSphere();
-      const R = geo.boundingSphere ? geo.boundingSphere.radius : 1;
-      const c = geo.boundingSphere ? geo.boundingSphere.center : new THREE.Vector3();
-      geo.translate(-c.x, -c.y, -c.z);
-      const fov = 45;
-      const dist = (R / Math.sin((fov * Math.PI) / 180 / 2)) * 1.25;
-      const camera = new THREE.PerspectiveCamera(fov, rect.width / rect.height, 0.01, dist * 10);
-      camera.position.set(dist * 0.5, dist * 0.3, dist * 0.9);
-      camera.lookAt(0, 0, 0);
-
-      const uniforms = {
-        uDisperse: { value: 0 },
-        uIntensity: { value: 0 },
-        uAssemble: { value: reducedMotion ? 1 : 0 },
-        uMouse: { value: new THREE.Vector2(2, 2) },
-        uMouseStrength: { value: isCoarse ? 0 : 1 },
-        uSize: { value: (isSmall ? 2.6 : 3.6) * sizeScale },
-        uTime: { value: 0 },
-        uScan: { value: -1 },
-        uColorA: { value: new THREE.Color(0.20, 0.83, 0.60) }, // emerald
-        uColorB: { value: new THREE.Color(0.13, 0.83, 0.93) }, // cyan
-      };
-
-      const mat = new THREE.ShaderMaterial({
-        uniforms,
-        vertexShader: VERT,
-        fragmentShader: FRAG,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.NormalBlending,
-      });
-
-      const points = new THREE.Points(geo, mat);
-      points.position.set(0, 0, 0);
-      scene.add(points);
-      // First paint so it shows before RAF ticks.
-      renderer.render(scene, camera);
-
-      // Pointer tracking
-      const onMove = (e: PointerEvent) => {
-        if (isCoarse) return;
-        const r = container.getBoundingClientRect();
-        const nx = ((e.clientX - r.left) / r.width) * 2 - 1;
-        const ny = -(((e.clientY - r.top) / r.height) * 2 - 1);
-        uniforms.uMouse.value.set(nx, ny);
-      };
-      const onLeave = () => uniforms.uMouse.value.set(2, 2);
-      container.addEventListener("pointermove", onMove);
-      container.addEventListener("pointerleave", onLeave);
-
-      // Resize
-      const onResize = () => {
-        const r = container.getBoundingClientRect();
-        renderer.setSize(r.width, r.height, false);
-        camera.aspect = r.width / r.height;
-        camera.updateProjectionMatrix();
-        renderer.render(scene, camera);
-      };
-      const ro = new ResizeObserver(onResize);
-      ro.observe(container);
-
-      // Visibility pause
-      let visible = true;
-      const onVis = () => { visible = !document.hidden; if (visible && !rafId && !reducedMotion) loop(); };
-      document.addEventListener("visibilitychange", onVis);
-
-      // Offscreen pause via IntersectionObserver on container
-      let onscreen = true;
-      const io2 = new IntersectionObserver(
-        (entries) => {
-          for (const e of entries) onscreen = e.isIntersecting;
-          if (onscreen && !rafId && !reducedMotion) loop();
-        },
-        { threshold: 0.01 }
-      );
-      io2.observe(container);
-
-      // Assemble animation
-      const start = performance.now();
-      const ASSEMBLE_MS = 2200;
-
-      const loop = () => {
-        rafId = 0;
-        if (disposed) return;
-        if (!visible || !onscreen) return;
-        const t = (performance.now() - start) / 1000;
-        uniforms.uTime.value = t;
-        if (!reducedMotion) {
-          // assemble ease-out
-          const a = Math.min(1, (t * 1000) / ASSEMBLE_MS);
-          uniforms.uAssemble.value = 1 - Math.pow(1 - a, 3);
-          // scanner loop 6s
-          uniforms.uScan.value = -1 + ((t % 6) / 6) * 2;
-          // slow yaw
-          points.rotation.y = t * 0.06;
-          // scroll intensity → disperse/color
-          const iv = intensitySpring.get();
-          uniforms.uIntensity.value = iv;
-          uniforms.uDisperse.value = iv * 0.6;
+        // Initial live positions: scattered (or target if reducedMotion).
+        const live = new Float32Array(N * 3);
+        if (reducedMotion) {
+          live.set(target);
+        } else {
+          live.set(scattered);
         }
-        renderer.render(scene, camera);
-        if (!reducedMotion) rafId = requestAnimationFrame(loop);
-      };
 
-      if (reducedMotion) {
-        uniforms.uAssemble.value = 1;
-        renderer.render(scene, camera);
-      } else {
-        rafId = requestAnimationFrame(loop);
-      }
-      setReady(true);
+        const geo = new THREE.BufferGeometry();
+        const posAttr = new THREE.BufferAttribute(live, 3);
+        geo.setAttribute("position", posAttr);
+        geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
-      cleanup = () => {
-        if (rafId) cancelAnimationFrame(rafId);
-        container.removeEventListener("pointermove", onMove);
-        container.removeEventListener("pointerleave", onLeave);
-        document.removeEventListener("visibilitychange", onVis);
-        ro.disconnect();
-        io2.disconnect();
-        geo.dispose();
-        mat.dispose();
-        renderer.dispose();
-      };
+        // Auto-frame: use target for bounds, translate live+target so centroid at origin.
+        const tmpGeo = new THREE.BufferGeometry();
+        tmpGeo.setAttribute("position", new THREE.BufferAttribute(target.slice(), 3));
+        tmpGeo.computeBoundingSphere();
+        const R = tmpGeo.boundingSphere ? tmpGeo.boundingSphere.radius : 1;
+        const c = tmpGeo.boundingSphere ? tmpGeo.boundingSphere.center : new THREE.Vector3();
+        // translate all buffers
+        for (let i = 0; i < N; i++) {
+          target[i * 3] -= c.x; target[i * 3 + 1] -= c.y; target[i * 3 + 2] -= c.z;
+          scattered[i * 3] -= c.x; scattered[i * 3 + 1] -= c.y; scattered[i * 3 + 2] -= c.z;
+          live[i * 3] -= c.x; live[i * 3 + 1] -= c.y; live[i * 3 + 2] -= c.z;
+        }
+        posAttr.needsUpdate = true;
+        tmpGeo.dispose();
+
+        const fov = 45;
+        const dist = (R / Math.sin((fov * Math.PI) / 180 / 2)) * 1.25;
+        const camera = new THREE.PerspectiveCamera(fov, rect.width / rect.height, 0.01, dist * 10);
+        camera.position.set(dist * 0.5, dist * 0.3, dist * 0.9);
+        camera.lookAt(0, 0, 0);
+
+        const baseSize = 0.011 * sizeScale;
+        const mat = new THREE.PointsMaterial({
+          size: baseSize,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.95,
+          sizeAttenuation: true,
+          depthWrite: false,
+        });
+
+        const points = new THREE.Points(geo, mat);
+        scene.add(points);
+        renderer.render(scene, camera);
+        console.log("[PointCloud] mounted, points:", N);
+        console.log("[PointCloud] first frame rendered");
+
+        const onResize = () => {
+          const r = container.getBoundingClientRect();
+          renderer.setSize(r.width, r.height, false);
+          camera.aspect = r.width / r.height;
+          camera.updateProjectionMatrix();
+          renderer.render(scene, camera);
+        };
+        const ro = new ResizeObserver(onResize);
+        ro.observe(container);
+
+        let visible = true;
+        const onVis = () => { visible = !document.hidden; if (visible && !rafId && !reducedMotion) loop(); };
+        document.addEventListener("visibilitychange", onVis);
+
+        let onscreen = true;
+        const io2 = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) onscreen = e.isIntersecting;
+            if (onscreen && !rafId && !reducedMotion) loop();
+          },
+          { threshold: 0.01 }
+        );
+        io2.observe(container);
+
+        const start = performance.now();
+        const ASSEMBLE_MS = 2200;
+        let assembled = false;
+
+        const loop = () => {
+          rafId = 0;
+          if (disposed) return;
+          if (!visible || !onscreen) return;
+          const t = (performance.now() - start) / 1000;
+
+          if (!assembled) {
+            const a = Math.min(1, (t * 1000) / ASSEMBLE_MS);
+            const eased = 1 - Math.pow(1 - a, 3);
+            for (let i = 0; i < N; i++) {
+              const i3 = i * 3;
+              live[i3] = scattered[i3] + (target[i3] - scattered[i3]) * eased;
+              live[i3 + 1] = scattered[i3 + 1] + (target[i3 + 1] - scattered[i3 + 1]) * eased;
+              live[i3 + 2] = scattered[i3 + 2] + (target[i3 + 2] - scattered[i3 + 2]) * eased;
+            }
+            posAttr.needsUpdate = true;
+            if (a >= 1) assembled = true;
+          }
+
+          const iv = intensitySpring.get();
+          mat.size = baseSize * (1 + iv * 0.8);
+          mat.opacity = 0.95 - iv * 0.35;
+          points.rotation.y = t * (0.06 + iv * 0.25);
+
+          renderer.render(scene, camera);
+          rafId = requestAnimationFrame(loop);
+        };
+
+        if (reducedMotion) {
+          renderer.render(scene, camera);
+        } else {
+          rafId = requestAnimationFrame(loop);
+        }
+        setReady(true);
+
+        cleanup = () => {
+          if (rafId) cancelAnimationFrame(rafId);
+          document.removeEventListener("visibilitychange", onVis);
+          ro.disconnect();
+          io2.disconnect();
+          geo.dispose();
+          mat.dispose();
+          renderer.dispose();
+        };
       } catch (e) {
         console.error("PointCloud scene setup failed", e);
         if (!disposed) setFailed(true);
@@ -375,7 +311,6 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
 
   return (
     <div ref={containerRef} className={className ?? "relative w-full h-full"}>
-      {/* Poster fallback — visible until the scene is ready or if WebGL failed */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
