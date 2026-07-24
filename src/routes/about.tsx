@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
 import { CLIENT_LOGOS } from "@/lib/logos";
+import { FOUNDER } from "@/lib/site";
+
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
 const TITLE = "About Novo Reperio — Spatial capture studio in Kuala Lumpur";
