@@ -238,12 +238,19 @@ function ContactPage() {
           </div>
         ) : (
           <form onSubmit={onSubmit} noValidate className="space-y-4">
-            {/* honeypot */}
+            {/* honeypots — must remain empty; bots fill them */}
             <input
               type="text"
               name="company_website"
               tabIndex={-1}
               autoComplete="off"
+              className="hidden"
+              aria-hidden
+            />
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
               className="hidden"
               aria-hidden
             />
