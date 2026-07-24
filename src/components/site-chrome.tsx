@@ -32,9 +32,7 @@ const NAV: { key: ActiveKey; label: string; to: any }[] = [
 ];
 
 function trackWhatsApp() {
-  if (typeof window !== "undefined" && (window as any).gtag) {
-    (window as any).gtag("event", "whatsapp_click", { event_category: "engagement" });
-  }
+  trackEvent("whatsapp_click", { event_category: "engagement" });
 }
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
@@ -247,10 +245,24 @@ function ClickToLoad({ src, title }: { src: string; title: string }) {
   );
 }
 
-/** Very small util: fire a GA4 event, no-op if gtag not present. */
+/** Very small util: fire GA4 + Meta Pixel events, no-op if not present. */
 export function trackEvent(name: string, params?: Record<string, unknown>) {
-  if (typeof window !== "undefined" && (window as any).gtag) {
-    (window as any).gtag("event", name, params ?? {});
+  if (typeof window === "undefined") return;
+  const w = window as any;
+  if (w.gtag) {
+    w.gtag("event", name, params ?? {});
+  }
+  if (w.fbq) {
+    // Map select events to Meta standard events
+    if (name === "form_submit_success") {
+      w.fbq("track", "Lead", params ?? {});
+    } else if (name === "estimator_complete") {
+      w.fbq("track", "Lead", { content_name: "scope_estimator", ...(params ?? {}) });
+    } else if (name === "whatsapp_click") {
+      w.fbq("track", "Contact", params ?? {});
+    } else {
+      w.fbq("trackCustom", name, params ?? {});
+    }
   }
 }
 

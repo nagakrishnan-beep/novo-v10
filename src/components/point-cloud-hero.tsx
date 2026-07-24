@@ -38,6 +38,8 @@ type Props = {
   decimate?: number;
   /** point size multiplier */
   sizeScale?: number;
+  /** horizontal offset in units of bounding-sphere radius (desktop only) */
+  offsetX?: number;
 };
 
 function useOptionalIntensity() {
@@ -48,7 +50,8 @@ function useOptionalIntensity() {
   }
 }
 
-export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
+export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0 }: Props) {
+
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [inView, setInView] = useState(false);
@@ -219,6 +222,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         });
 
         const points = new THREE.Points(geo, mat);
+        points.position.x = isSmall ? 0 : offsetX * R;
         scene.add(points);
         renderer.render(scene, camera);
         console.log("[PointCloud] mounted, points:", N);
@@ -307,7 +311,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       disposed = true;
       cleanup();
     };
-  }, [inView, reducedMotion, decimate, sizeScale, intensitySpring]);
+  }, [inView, reducedMotion, decimate, sizeScale, offsetX, intensitySpring]);
 
   return (
     <div ref={containerRef} className={className ?? "relative w-full h-full"}>
