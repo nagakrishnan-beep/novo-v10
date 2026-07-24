@@ -293,6 +293,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         renderer.setSize(r.width, r.height, false);
         camera.aspect = r.width / r.height;
         camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
       };
       const ro = new ResizeObserver(onResize);
       ro.observe(container);
