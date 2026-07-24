@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ExternalLink, MessageCircle } from "lucide-react";
 import { getWork, getRelatedWorks } from "@/lib/works";
 import { SiteHeader, SiteFooter, BreadcrumbNav, MediaSlot } from "@/components/site-chrome";
+import { PointCloudHero } from "@/components/point-cloud-hero";
 import { abs, WHATSAPP_URL, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
@@ -88,6 +89,14 @@ function WorkDetail() {
           ]}
         />
       </div>
+
+      {work.slug === "private-jet-falcon-7x" && (
+        <section className="relative w-full h-[60vh] min-h-[420px] overflow-hidden mt-4">
+          <PointCloudHero className="absolute inset-0" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#020203] via-transparent to-transparent" />
+        </section>
+      )}
+
 
       {/* Hero */}
       <section className="px-6 md:px-24 pt-8 pb-10">

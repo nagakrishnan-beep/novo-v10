@@ -23,6 +23,7 @@ import {
   Reveal,
 } from "@/components/chrono";
 import { LaserTrail } from "@/components/laser-trail";
+import { PointCloudHero } from "@/components/point-cloud-hero";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
@@ -147,6 +148,7 @@ function PageContent() {
         <ByTheNumbers />
         <DefinedTerms />
         <FourDoorRouter />
+        <ScanRealitySection />
         <IndustriesRow />
         <CaptureSection />
         <OutcomesSection />
@@ -165,7 +167,47 @@ function PageContent() {
 }
 
 
-/* ---------- four-door router (MARKET / BUILD / TRAIN / PLAN) ---------- */
+/* ---------- scan reality flagship section ---------- */
+
+function ScanRealitySection() {
+  return (
+    <section
+      id="scan-reality"
+      className="relative z-10 border-t border-white/5 bg-[#04060a]"
+      aria-label="Scan-verified geometry"
+    >
+      <div className="relative h-[80vh] min-h-[520px] w-full overflow-hidden">
+        <PointCloudHero className="absolute inset-0" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />
+        <div className="relative z-10 h-full flex items-center px-6 md:px-24">
+          <div className="max-w-2xl">
+            <div className="text-xs font-mono uppercase tracking-[0.4em] text-emerald-300 mb-6">
+              [ Scan-verified geometry · 150,000 points ]
+            </div>
+            <h2 className="text-4xl md:text-6xl font-light text-white leading-[1.05] tracking-tight">
+              This is measured reality.
+            </h2>
+            <p className="mt-6 text-sm md:text-base text-neutral-300 leading-relaxed max-w-xl">
+              Every point you see was laser-captured on a real Novo Reperio
+              project. Walk the actual space — nothing here is rendered marketing.
+            </p>
+            <div className="mt-8">
+              <Link
+                to="/works/$slug"
+                params={{ slug: "private-jet-falcon-7x" }}
+                className="pointer-events-auto inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
+              >
+                Explore the aircraft twin <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 
 type Door = {
   key: string;
