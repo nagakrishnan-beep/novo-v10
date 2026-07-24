@@ -127,7 +127,6 @@ function ServicesPage() {
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           MARKET IT · Track A + B
         </div>
-        </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
           For property, venues and brands that need to sell a space.
         </h2>
