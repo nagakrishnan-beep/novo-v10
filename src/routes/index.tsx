@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Play,
   ChevronRight,
+  ChevronLeft,
   MessageCircle,
   Building2,
   Ruler,
@@ -320,8 +321,9 @@ function SideRail() {
       <div className="group relative flex justify-end">
         <div
           aria-hidden
-          className="flex flex-col items-end gap-3 py-2 pr-0.5 transition-all duration-300 ease-out group-hover:opacity-0 group-hover:translate-x-1 group-focus-within:opacity-0 group-focus-within:translate-x-1"
+          className="flex flex-col items-end gap-2.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md px-2.5 py-3 shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out group-hover:opacity-0 group-hover:translate-x-1 group-focus-within:opacity-0 group-focus-within:translate-x-1"
         >
+          <ChevronLeft size={12} className="text-neutral-400" aria-hidden />
           {QUICK_LINKS.map((q) => {
             const id = q.href.replace("#", "");
             const isActive = active === id;
@@ -330,13 +332,13 @@ function SideRail() {
                 key={q.href}
                 className={`block h-px rounded-full transition-all duration-300 ${
                   isActive
-                    ? "w-7 bg-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.7)]"
-                    : "w-3.5 bg-neutral-600"
+                    ? "w-8 bg-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.7)]"
+                    : "w-4 bg-neutral-400"
                 }`}
               />
             );
           })}
-          <span className="mt-2 text-[8px] font-mono uppercase tracking-[0.3em] text-neutral-500 [writing-mode:vertical-rl] rotate-180 select-none">
+          <span className="mt-2 text-[8px] font-mono uppercase tracking-[0.3em] text-neutral-400 [writing-mode:vertical-rl] rotate-180 select-none">
             {activeLabel}
           </span>
         </div>

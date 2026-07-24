@@ -49,7 +49,7 @@ const VERT = /* glsl */ `
   varying float vScanGlow;
   uniform float uScan;
   void main() {
-    vec3 scattered = position + aRand * 3.0;
+    vec3 scattered = position + aRand * 1.4;
     vec3 base = mix(scattered, position, clamp(uAssemble, 0.0, 1.0));
     vec3 disp = base + aRand * uDisperse * 1.2;
     vec4 mv = modelViewMatrix * vec4(disp, 1.0);
@@ -64,8 +64,8 @@ const VERT = /* glsl */ `
     // scanner sweep — thin band around uScan on x axis
     float band = smoothstep(0.08, 0.0, abs(disp.x - uScan));
     vScanGlow = band;
-    float sizeAtten = 300.0 / -mv.z;
-    gl_PointSize = uSize * (1.0 + uIntensity * 0.6 + prox * 1.6 + band * 0.8) * sizeAtten;
+    float sizeAtten = clamp(140.0 / -mv.z, 1.0, 4.0);
+    gl_PointSize = clamp(uSize * (1.0 + uIntensity*0.5 + prox*1.4 + band*0.7) * sizeAtten, 1.0, 5.0);
     gl_Position = proj;
   }
 `;
@@ -162,9 +162,10 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         return;
       }
 
-      // Check WebGL availability.
-      const testCtx = canvas.getContext("webgl2") || canvas.getContext("webgl");
-      if (!testCtx) { if (!disposed) setFailed(true); return; }
+      // Note: do NOT pre-probe the canvas with getContext — that acquires the
+      // WebGL context and makes THREE.WebGLRenderer fail to attach. We rely on
+      // the try/catch around renderer creation below.
+
 
       // Fetch and parse cloud.
       let cloud: ParsedCloud;
@@ -207,12 +208,21 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         seed[i] = Math.random();
       }
 
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: false,
-        alpha: true,
-        powerPreference: "high-performance",
-      });
+      let renderer: import("three").WebGLRenderer;
+      try {
+        renderer = new THREE.WebGLRenderer({
+          canvas,
+          antialias: false,
+          alpha: true,
+          powerPreference: "high-performance",
+        });
+      } catch (e) {
+        console.error("PointCloud WebGL init failed", e);
+        if (!disposed) setFailed(true);
+        return;
+      }
+
+      try {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       const rect = container.getBoundingClientRect();
       renderer.setSize(rect.width, rect.height, false);
@@ -220,7 +230,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 100);
-      camera.position.set(0, 0.15, 2.6);
+      camera.position.set(0, 0.2, 3.0);
       camera.lookAt(0, 0, 0);
 
       const geo = new THREE.BufferGeometry();
@@ -235,7 +245,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         uAssemble: { value: reducedMotion ? 1 : 0 },
         uMouse: { value: new THREE.Vector2(2, 2) },
         uMouseStrength: { value: isCoarse ? 0 : 1 },
-        uSize: { value: (isSmall ? 1.6 : 2.0) * sizeScale },
+        uSize: { value: (isSmall ? 2.2 : 3.0) * sizeScale },
         uTime: { value: 0 },
         uScan: { value: -1 },
         uColorA: { value: new THREE.Color(0.20, 0.83, 0.60) }, // emerald
@@ -338,6 +348,11 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         mat.dispose();
         renderer.dispose();
       };
+      } catch (e) {
+        console.error("PointCloud scene setup failed", e);
+        if (!disposed) setFailed(true);
+        return;
+      }
     })();
 
     return () => {
