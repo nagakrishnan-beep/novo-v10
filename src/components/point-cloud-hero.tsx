@@ -331,7 +331,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
           // scanner loop 6s
           uniforms.uScan.value = -1 + ((t % 6) / 6) * 2;
           // slow yaw
-          points.rotation.y = t * 0.08;
+          points.rotation.y = t * 0.06;
           // scroll intensity → disperse/color
           const iv = intensitySpring.get();
           uniforms.uIntensity.value = iv;
