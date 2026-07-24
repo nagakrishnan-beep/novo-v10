@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
+import { ScopeEstimator } from "@/components/scope-estimator";
+import { MonthlyValue } from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import { WORKS } from "@/lib/works";

@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
+import { ScopeEstimator } from "@/components/scope-estimator";
+import { MonthlyValue, PricingBands } from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
-import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
+import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { offersForServiceSchema } from "@/lib/pricing";
 import { WORKS } from "@/lib/works";
 import { SERVICES } from "@/lib/services";
 
