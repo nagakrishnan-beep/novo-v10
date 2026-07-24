@@ -36,8 +36,8 @@ export const Route = createFileRoute("/insights/$slug")({
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "author", content: "Naga Krishnan" },
-        { property: "article:author", content: "Naga Krishnan" },
+        { name: "author", content: "Naga R. Krishnan" },
+        { property: "article:author", content: "Naga R. Krishnan" },
         { property: "article:published_time", content: post.datePublished },
       ],
       links: [{ rel: "canonical", href: url }],
@@ -117,7 +117,7 @@ function InsightDetail() {
             {post.title}
           </h1>
           <div className="mt-4 text-xs font-mono text-neutral-400">
-            By Naga Krishnan · Novo Reperio · {post.date}
+            By Naga R. Krishnan · Novo Reperio · {post.date}
           </div>
 
           <div className="mt-10">
