@@ -183,7 +183,7 @@ export const INSIGHTS: Insight[] = [
     relatedWorkLabel: "PNB CIMB Hub",
   },
   {
-    slug: "scan-to-bim-services",
+    slug: "scan-to-bim-services-that-reduce-risk",
     title: "Scan to BIM Services for Existing Buildings",
     excerpt:
       "Scan to BIM services convert laser scans into accurate as-built models — supporting renovation, MEP coordination, and facility handover with fewer surprises.",
@@ -206,7 +206,7 @@ export const INSIGHTS: Insight[] = [
     relatedWorkLabel: "PNB CIMB Hub",
   },
   {
-    slug: "360-virtual-tour-for-hotels",
+    slug: "360-virtual-tour-for-hotels-that-converts",
     title: "360° Virtual Tour for Hotels and Resorts",
     excerpt:
       "A 360° virtual tour for hotels lets planners, corporates, and guests preview rooms, ballrooms, and public spaces before booking or site inspection.",
@@ -229,7 +229,7 @@ export const INSIGHTS: Insight[] = [
     relatedWorkLabel: "Royal Lexis KL",
   },
   {
-    slug: "aerial-drone-photography-for-property",
+    slug: "drone-mapping-services-for-construction-sites",
     title: "Aerial Drone Photography for Property Launches",
     excerpt:
       "Aerial drone photography shows scale, access, and surroundings — the context that unit floorplans and interior renders simply cannot communicate.",
@@ -302,6 +302,21 @@ export const INSIGHTS: Insight[] = [
   },
 ];
 
+import { MIGRATED_INSIGHTS } from "./insights-migrated";
+
+export const ALL_INSIGHTS: Insight[] = [...INSIGHTS, ...MIGRATED_INSIGHTS].sort(
+  (a, b) => (a.datePublished < b.datePublished ? 1 : -1),
+);
+
+export const INSIGHT_CATEGORIES = [
+  "Digital Twins & Matterport",
+  "LiDAR, Scan & BIM",
+  "3D Rendering & Visualisation",
+  "Virtual Tours",
+  "Guides",
+] as const;
+
 export function getInsight(slug: string): Insight | undefined {
-  return INSIGHTS.find((i) => i.slug === slug);
+  return ALL_INSIGHTS.find((i) => i.slug === slug);
 }
+

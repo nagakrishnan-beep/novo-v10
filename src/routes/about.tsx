@@ -125,6 +125,42 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* By the numbers */}
+      <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+        <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
+          By the numbers
+        </div>
+        <ul className="space-y-3 max-w-3xl">
+          {[
+            "12+ years in spatial capture (since 2014).",
+            "400+ projects delivered.",
+            "WTCKL digital twin: 8,000+ visits, averaging 37 per week.",
+            "Skylon Residences: 60% of units sold, supported by 360° virtual tours.",
+          ].map((s) => (
+            <li key={s} className="text-base md:text-lg text-white font-light border-l-2 border-emerald-400/50 pl-4">
+              {s}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Led by */}
+      <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+        <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
+          Led by
+        </div>
+        <div className="max-w-3xl border border-white/10 rounded-xl p-6 bg-white/[0.02]">
+          <div className="text-white text-2xl font-light">Naga Krishnan</div>
+          <div className="mt-1 text-sm text-emerald-300">
+            Chief Executive Officer &amp; Business Development
+          </div>
+          <p className="mt-4 text-sm text-neutral-400 leading-relaxed">
+            TODO_FOUNDER_BIO — [2–3 sentence bio pending from client]
+          </p>
+        </div>
+      </section>
+
+
       {/* Trust strip */}
       <section className="px-6 md:px-24 py-10 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-neutral-500 mb-6">

@@ -11,11 +11,20 @@ import {
   SOCIALS,
 } from "@/lib/site";
 
-type ActiveKey = "home" | "services" | "works" | "about" | "insights" | "contact" | null;
+type ActiveKey =
+  | "home"
+  | "services"
+  | "industries"
+  | "works"
+  | "about"
+  | "insights"
+  | "contact"
+  | null;
 
 const NAV: { key: ActiveKey; label: string; to: any }[] = [
   { key: "home", label: "Home", to: "/" },
   { key: "services", label: "Services", to: "/services" },
+  { key: "industries", label: "Industries", to: "/industries" },
   { key: "works", label: "Works", to: "/works" },
   { key: "about", label: "About", to: "/about" },
   { key: "insights", label: "Insights", to: "/insights" },

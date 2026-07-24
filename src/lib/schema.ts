@@ -10,16 +10,60 @@ import {
   REGION,
   COUNTRY,
   SOCIALS,
+  FOUNDER,
   abs,
 } from "./site";
+
+export const FOUNDER_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${BASE_URL}/#founder`,
+  name: FOUNDER.name,
+  jobTitle: FOUNDER.jobTitle,
+  description: FOUNDER.bio,
+  knowsAbout: [...FOUNDER.knowsAbout],
+  worksFor: { "@id": `${BASE_URL}/#organization` },
+  url: `${BASE_URL}/about`,
+};
 
 export const ORGANIZATION_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
   name: LEGAL_NAME,
   url: BASE_URL,
   logo: `${BASE_URL}/novo-logo.png`,
   foundingDate: "2014",
+  slogan: "Reality, replicated.",
+  founder: {
+    "@type": "Person",
+    name: FOUNDER.name,
+    jobTitle: FOUNDER.jobTitle,
+  },
+  knowsAbout: [
+    "Digital Twin",
+    "Reality Capture",
+    "Matterport",
+    "LiDAR Scanning",
+    "Scan-to-BIM",
+    "360 Virtual Tours",
+    "Drone Mapping",
+    "3D Visualization",
+    "Property Development",
+    "Construction",
+    "Hospitality",
+    "Events",
+    "Facilities Management",
+    "Manufacturing",
+    "Healthcare",
+    "Government",
+  ],
+  hasCredential: [
+    "Matterport Certified Service Partner",
+    "MDEC Malaysia Digital recognised",
+    "Google Street View Trusted",
+  ],
+  areaServed: ["Malaysia", "Singapore", "Southeast Asia"],
   sameAs: [SOCIALS.instagram, SOCIALS.facebook, SOCIALS.linkedin, SOCIALS.youtube],
   contactPoint: [
     {
@@ -31,6 +75,23 @@ export const ORGANIZATION_JSONLD = {
       availableLanguage: ["en", "ms"],
     },
   ],
+};
+
+export const WEBSITE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
+  name: "Novo Reperio",
+  url: BASE_URL,
+  publisher: { "@id": `${BASE_URL}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE_URL}/works?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export const LOCALBUSINESS_JSONLD = {
@@ -61,6 +122,20 @@ export const LOCALBUSINESS_JSONLD = {
   sameAs: [SOCIALS.instagram, SOCIALS.facebook, SOCIALS.linkedin, SOCIALS.youtube],
 };
 
+export const webPageJsonLd = (p: {
+  title: string;
+  url: string;
+  description?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: p.title,
+  url: abs(p.url),
+  ...(p.description ? { description: p.description } : {}),
+  isPartOf: { "@id": `${BASE_URL}/#website` },
+  about: { "@id": `${BASE_URL}/#organization` },
+});
+
 export const breadcrumbJsonLd = (
   crumbs: { name: string; url: string }[],
 ) => ({
@@ -90,7 +165,12 @@ export const articleJsonLd = (a: {
   datePublished: a.datePublished,
   dateModified: a.dateModified ?? a.datePublished,
   mainEntityOfPage: abs(a.url),
-  author: { "@type": "Organization", name: LEGAL_NAME, url: BASE_URL },
+  author: {
+    "@type": "Person",
+    name: FOUNDER.name,
+    jobTitle: FOUNDER.jobTitle,
+    url: `${BASE_URL}/about`,
+  },
   publisher: {
     "@type": "Organization",
     name: LEGAL_NAME,
@@ -110,7 +190,7 @@ export const serviceJsonLd = (s: {
   name: s.name,
   description: s.description,
   url: abs(s.url),
-  provider: { "@type": "Organization", name: LEGAL_NAME, url: BASE_URL },
+  provider: { "@id": `${BASE_URL}/#organization` },
   areaServed: ["Malaysia", "Singapore", "Indonesia", "Middle East", "Worldwide"],
   ...(s.image ? { image: abs(s.image) } : {}),
 });

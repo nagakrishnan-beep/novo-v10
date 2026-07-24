@@ -142,22 +142,28 @@ function PageContent() {
     <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-hidden selection:bg-emerald-400 selection:text-black">
       <SiteHeader active="home" />
       <SideRail />
-      <Hero />
-      <FourDoorRouter />
-      <CaptureSection />
-      <OutcomesSection />
-      <IndustriesSection />
-      <ServicesSection />
-      <StoriesSection />
-      <LogosSection />
-      <ReviewsSection />
-      <ScopeSection />
-      <CtaSection />
-      <FaqSection />
+      <main>
+        <Hero />
+        <ByTheNumbers />
+        <DefinedTerms />
+        <FourDoorRouter />
+        <IndustriesRow />
+        <CaptureSection />
+        <OutcomesSection />
+        <IndustriesSection />
+        <ServicesSection />
+        <StoriesSection />
+        <LogosSection />
+        <ReviewsSection />
+        <ScopeSection />
+        <CtaSection />
+        <FaqSection />
+      </main>
       <SiteFooter />
     </div>
   );
 }
+
 
 /* ---------- four-door router (MARKET / BUILD / TRAIN / PLAN) ---------- */
 
@@ -379,10 +385,95 @@ function Hero() {
   );
 }
 
+/* ---------- By the numbers strip ---------- */
+function ByTheNumbers() {
+  const stats = [
+    "12+ years in spatial capture (since 2014).",
+    "400+ projects delivered.",
+    "WTCKL digital twin: 8,000+ visits, averaging 37 per week.",
+    "Skylon Residences: 60% of units sold, supported by 360° virtual tours.",
+  ];
+  return (
+    <section className="px-6 md:px-24 py-14 border-t border-neutral-900">
+      <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
+        By the numbers
+      </div>
+      <ul className="space-y-3 max-w-3xl">
+        {stats.map((s) => (
+          <li key={s} className="text-base md:text-lg text-white font-light border-l-2 border-emerald-400/50 pl-4">
+            {s}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
+/* ---------- Defined terms ---------- */
+function DefinedTerms() {
+  const terms = [
+    { term: "Digital Twin", def: "A photorealistic, walkable 3D replica of a physical space — measurable, shareable and always up to date." },
+    { term: "Scan-to-BIM", def: "The process of converting a LiDAR point cloud into an accurate BIM model that design and FM teams can trust." },
+    { term: "LiDAR", def: "Light Detection and Ranging — laser scanning that captures a building's true geometry at centimetre-grade accuracy." },
+  ];
+  return (
+    <section className="px-6 md:px-24 pb-14">
+      <div className="grid md:grid-cols-3 gap-4">
+        {terms.map((t) => (
+          <div key={t.term} className="border border-white/10 rounded-xl p-5 bg-white/[0.02]">
+            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
+              Definition
+            </div>
+            <div className="mt-2 text-white text-lg font-light">{t.term}</div>
+            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+              <span className="text-emerald-300">{t.term}:</span> {t.def.replace(/^[^:]*:\s*/,"")}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
+/* ---------- Industries we serve row ---------- */
+function IndustriesRow() {
+  const items = [
+    { slug: "property-development", label: "Property" },
+    { slug: "construction", label: "Construction" },
+    { slug: "hospitality", label: "Hospitality" },
+    { slug: "events-venues", label: "Events & Venues" },
+    { slug: "facilities-management", label: "Facilities" },
+    { slug: "manufacturing", label: "Manufacturing" },
+    { slug: "healthcare", label: "Healthcare" },
+    { slug: "government", label: "Government" },
+  ];
+  return (
+    <section className="px-6 md:px-24 py-10 border-t border-neutral-900">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <span className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
+          Industries we serve
+        </span>
+        {items.map((it) => (
+          <Link
+            key={it.slug}
+            to="/industries/$slug"
+            params={{ slug: it.slug }}
+            className="text-sm text-neutral-300 hover:text-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded"
+          >
+            {it.label}
+          </Link>
+        ))}
+        <Link to="/industries" className="text-xs font-mono uppercase tracking-wider text-emerald-300 ml-auto">
+          All industries →
+        </Link>
+      </div>
+    </section>
+  );
+}
 
 /* ---------- sections ---------- */
+
+
 
 function SectionHeader({
   kicker,
