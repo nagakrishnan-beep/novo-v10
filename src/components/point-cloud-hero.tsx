@@ -222,6 +222,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
         });
 
         const points = new THREE.Points(geo, mat);
+        points.position.x = isSmall ? 0 : offsetX * R;
         scene.add(points);
         renderer.render(scene, camera);
         console.log("[PointCloud] mounted, points:", N);
