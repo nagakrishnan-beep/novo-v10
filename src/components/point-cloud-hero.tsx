@@ -311,7 +311,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
       disposed = true;
       cleanup();
     };
-  }, [inView, reducedMotion, decimate, sizeScale, intensitySpring]);
+  }, [inView, reducedMotion, decimate, sizeScale, offsetX, intensitySpring]);
 
   return (
     <div ref={containerRef} className={className ?? "relative w-full h-full"}>
