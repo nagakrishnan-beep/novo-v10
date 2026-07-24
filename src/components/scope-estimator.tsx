@@ -159,18 +159,15 @@ export function ScopeEstimator({ variant = "full" }: { variant?: "full" | "compa
           <p className="mt-3 text-xs font-mono text-neutral-500">{TC_LINE}</p>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              search={{ type, size } as any}
+            <a
+              href={contactHref}
               onClick={() =>
                 trackEvent("estimator_cta_click", { where: "contact", type, size })
               }
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
-              // TanStack search prop typing is strict; fall back with href-safe navigation
-              href={contactHref}
             >
               Book a scoping consultation <ArrowRight size={14} />
-            </Link>
+            </a>
             <a
               href={waHref}
               target="_blank"
