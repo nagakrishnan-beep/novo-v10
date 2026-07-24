@@ -292,9 +292,9 @@ function SideRail() {
     if (!els.length) return;
     const io = new IntersectionObserver(
       (entries) => {
-        const visibleEntries = entries.filter((e) => e.isIntersecting);
-        if (visibleEntries.length) {
-          const top = visibleEntries.sort(
+        const vis = entries.filter((e) => e.isIntersecting);
+        if (vis.length) {
+          const top = vis.sort(
             (a, b) => (a.target as HTMLElement).offsetTop - (b.target as HTMLElement).offsetTop,
           )[0];
           setActive((top.target as HTMLElement).id);
@@ -306,46 +306,73 @@ function SideRail() {
     return () => io.disconnect();
   }, []);
 
+  const activeLabel =
+    QUICK_LINKS.find((q) => q.href.replace("#", "") === active)?.label ?? "";
+
   return (
     <aside
       role="complementary"
       aria-label="On this page"
-      className={`hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-30 flex-col gap-3 pointer-events-none transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
+      className={`hidden lg:block fixed right-5 top-1/2 -translate-y-1/2 z-30 transition-opacity duration-500 ${
+        visible ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
     >
-      <div className="pointer-events-auto relative flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/[0.04] px-3 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.25)] ring-1 ring-white/5 backdrop-blur-2xl backdrop-saturate-150">
+      <div className="group relative flex justify-end">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.06] to-transparent"
-        />
-        <div className="relative z-10 text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 px-1 [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
-          QUICK LINK
-        </div>
-        <div className="relative z-10 h-px bg-white/10" />
-        <ul className="relative z-10 flex flex-col gap-1">
+          className="flex flex-col items-end gap-3 py-2 pr-0.5 transition-all duration-300 ease-out group-hover:opacity-0 group-hover:translate-x-1 group-focus-within:opacity-0 group-focus-within:translate-x-1"
+        >
           {QUICK_LINKS.map((q) => {
             const id = q.href.replace("#", "");
             const isActive = active === id;
             return (
-              <li key={q.href}>
-                <a
-                  href={q.href}
-                  className={`group flex items-center gap-2 px-2 py-1.5 rounded text-xs font-mono uppercase tracking-widest transition [text-shadow:0_1px_6px_rgba(0,0,0,0.6)] ${
-                    isActive
-                      ? "text-emerald-300"
-                      : "text-neutral-400 hover:text-neutral-200"
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-px transition-all ${
-                      isActive ? "w-6 bg-emerald-300" : "w-3 bg-neutral-700 group-hover:bg-neutral-400"
-                    }`}
-                  />
-                  {q.label}
-                </a>
-              </li>
+              <span
+                key={q.href}
+                className={`block h-px rounded-full transition-all duration-300 ${
+                  isActive
+                    ? "w-7 bg-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.7)]"
+                    : "w-3.5 bg-neutral-600"
+                }`}
+              />
             );
           })}
-        </ul>
+          <span className="mt-2 text-[8px] font-mono uppercase tracking-[0.3em] text-neutral-500 [writing-mode:vertical-rl] rotate-180 select-none">
+            {activeLabel}
+          </span>
+        </div>
+
+        <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 origin-right translate-x-3 scale-95 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-x-0 group-focus-within:scale-100 group-focus-within:opacity-100">
+          <div className="relative flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/[0.05] px-4 py-4 shadow-[0_12px_40px_rgba(0,0,0,0.4)] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150">
+            <div aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.07] to-transparent" />
+            <div className="relative z-10 text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">
+              Quick Link
+            </div>
+            <div className="relative z-10 h-px bg-white/10" />
+            <ul className="relative z-10 flex flex-col gap-0.5">
+              {QUICK_LINKS.map((q) => {
+                const id = q.href.replace("#", "");
+                const isActive = active === id;
+                return (
+                  <li key={q.href}>
+                    <a
+                      href={q.href}
+                      className={`group/link flex items-center gap-2.5 rounded px-2 py-1.5 text-xs font-mono uppercase tracking-widest transition [text-shadow:0_1px_6px_rgba(0,0,0,0.7)] ${
+                        isActive ? "text-emerald-300" : "text-neutral-300 hover:text-white"
+                      }`}
+                    >
+                      <span
+                        className={`inline-block h-px transition-all duration-300 ${
+                          isActive ? "w-6 bg-emerald-300" : "w-3 bg-neutral-600 group-hover/link:w-5 group-hover/link:bg-neutral-300"
+                        }`}
+                      />
+                      {q.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </aside>
   );
