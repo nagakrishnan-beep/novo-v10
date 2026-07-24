@@ -348,6 +348,11 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         mat.dispose();
         renderer.dispose();
       };
+      } catch (e) {
+        console.error("PointCloud scene setup failed", e);
+        if (!disposed) setFailed(true);
+        return;
+      }
     })();
 
     return () => {
