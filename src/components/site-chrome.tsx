@@ -32,9 +32,7 @@ const NAV: { key: ActiveKey; label: string; to: any }[] = [
 ];
 
 function trackWhatsApp() {
-  if (typeof window !== "undefined" && (window as any).gtag) {
-    (window as any).gtag("event", "whatsapp_click", { event_category: "engagement" });
-  }
+  trackEvent("whatsapp_click", { event_category: "engagement" });
 }
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
