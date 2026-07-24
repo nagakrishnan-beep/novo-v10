@@ -148,6 +148,7 @@ function PageContent() {
         <ByTheNumbers />
         <DefinedTerms />
         <FourDoorRouter />
+        <ScanRealitySection />
         <IndustriesRow />
         <CaptureSection />
         <OutcomesSection />
