@@ -263,6 +263,13 @@ function ServicesPage() {
         </div>
       </section>
 
+      {/* Published pricing bands */}
+      <PricingBands />
+
+      {/* Always free layer */}
+      <FreeOpenLayer />
+
+
       {/* FAQ */}
       <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
