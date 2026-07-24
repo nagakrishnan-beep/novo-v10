@@ -396,7 +396,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        Scan-verified geometry · 150,000 points
+        Live preview · placeholder scan — real capture drops in on launch
       </motion.div>
     </div>
   );
