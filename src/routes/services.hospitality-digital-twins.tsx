@@ -103,6 +103,8 @@ function HospitalityPage() {
             </p>
           </li>
         </ul>
+      </section>
+
 
 
       <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
