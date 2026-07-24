@@ -95,22 +95,36 @@ function ContactPage() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Please enter a valid email.");
     if (!message || message.length > 4000) return fail("Please add a message (max 4000 chars).");
 
-    // honeypot
+    // honeypot (two fields — legacy company_website + Web3Forms `botcheck`)
     if ((data.get("company_website") as string)?.length) return; // silent drop
+    if ((data.get("botcheck") as string)?.length) return; // silent drop
 
     setState("loading");
     setErrorMsg("");
 
-    // If key hasn't been configured yet, gracefully succeed with a notice.
-    if (WEB3FORMS_ACCESS_KEY === "TODO_WEB3FORMS_ACCESS_KEY") {
-      trackEvent("form_submit_stub");
-      setState("success");
-      return;
-    }
+    const company = (data.get("company") as string || "").trim();
+    const phone = (data.get("phone") as string || "").trim();
+    const location = (data.get("location") as string || "").trim();
+
+    // Compose a labeled block so the resulting ClickUp task email is readable.
+    const composed = [
+      `Name: ${name}`,
+      `Company: ${company || "—"}`,
+      `Email: ${email}`,
+      `Phone: ${phone || "—"}`,
+      `Location: ${location || "—"}`,
+      ``,
+      `Needs:`,
+      message,
+    ].join("\n");
 
     data.set("access_key", WEB3FORMS_ACCESS_KEY);
-    data.set("subject", `New project brief from ${name} — novoreperio.com`);
-    data.set("from_name", "Novo Reperio Website");
+    data.set("subject", "New enquiry — Novo Reperio website");
+    data.set("from_name", name);
+    data.set("replyto", email);
+    data.set("message", composed);
+    // stay on page; success state is rendered client-side
+    data.delete("redirect");
 
     try {
       const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: data });
@@ -224,12 +238,19 @@ function ContactPage() {
           </div>
         ) : (
           <form onSubmit={onSubmit} noValidate className="space-y-4">
-            {/* honeypot */}
+            {/* honeypots — must remain empty; bots fill them */}
             <input
               type="text"
               name="company_website"
               tabIndex={-1}
               autoComplete="off"
+              className="hidden"
+              aria-hidden
+            />
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
               className="hidden"
               aria-hidden
             />
