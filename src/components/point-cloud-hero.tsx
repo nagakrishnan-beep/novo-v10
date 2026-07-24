@@ -270,7 +270,10 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
       });
 
       const points = new THREE.Points(geo, mat);
+      points.position.set(0, 0, 0);
       scene.add(points);
+      // First paint so it shows before RAF ticks.
+      renderer.render(scene, camera);
 
       // Pointer tracking
       const onMove = (e: PointerEvent) => {
