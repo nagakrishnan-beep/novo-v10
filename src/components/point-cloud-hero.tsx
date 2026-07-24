@@ -208,12 +208,21 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         seed[i] = Math.random();
       }
 
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: false,
-        alpha: true,
-        powerPreference: "high-performance",
-      });
+      let renderer: import("three").WebGLRenderer;
+      try {
+        renderer = new THREE.WebGLRenderer({
+          canvas,
+          antialias: false,
+          alpha: true,
+          powerPreference: "high-performance",
+        });
+      } catch (e) {
+        console.error("PointCloud WebGL init failed", e);
+        if (!disposed) setFailed(true);
+        return;
+      }
+
+      try {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       const rect = container.getBoundingClientRect();
       renderer.setSize(rect.width, rect.height, false);
@@ -221,7 +230,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, rect.width / rect.height, 0.1, 100);
-      camera.position.set(0, 0.15, 2.6);
+      camera.position.set(0, 0.2, 3.0);
       camera.lookAt(0, 0, 0);
 
       const geo = new THREE.BufferGeometry();
@@ -236,7 +245,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1 }: Props) {
         uAssemble: { value: reducedMotion ? 1 : 0 },
         uMouse: { value: new THREE.Vector2(2, 2) },
         uMouseStrength: { value: isCoarse ? 0 : 1 },
-        uSize: { value: (isSmall ? 1.6 : 2.0) * sizeScale },
+        uSize: { value: (isSmall ? 2.2 : 3.0) * sizeScale },
         uTime: { value: 0 },
         uScan: { value: -1 },
         uColorA: { value: new THREE.Color(0.20, 0.83, 0.60) }, // emerald
