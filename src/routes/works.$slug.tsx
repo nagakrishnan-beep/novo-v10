@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ExternalLink, MessageCircle } from "lucide-react";
 import { getWork, getRelatedWorks } from "@/lib/works";
 import { SiteHeader, SiteFooter, BreadcrumbNav, MediaSlot } from "@/components/site-chrome";
+import { PointCloudHero } from "@/components/point-cloud-hero";
 import { abs, WHATSAPP_URL, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
