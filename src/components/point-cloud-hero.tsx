@@ -49,7 +49,7 @@ const VERT = /* glsl */ `
   varying float vScanGlow;
   uniform float uScan;
   void main() {
-    vec3 scattered = position + aRand * 3.0;
+    vec3 scattered = position + aRand * 1.4;
     vec3 base = mix(scattered, position, clamp(uAssemble, 0.0, 1.0));
     vec3 disp = base + aRand * uDisperse * 1.2;
     vec4 mv = modelViewMatrix * vec4(disp, 1.0);
@@ -64,8 +64,8 @@ const VERT = /* glsl */ `
     // scanner sweep — thin band around uScan on x axis
     float band = smoothstep(0.08, 0.0, abs(disp.x - uScan));
     vScanGlow = band;
-    float sizeAtten = 300.0 / -mv.z;
-    gl_PointSize = uSize * (1.0 + uIntensity * 0.6 + prox * 1.6 + band * 0.8) * sizeAtten;
+    float sizeAtten = clamp(140.0 / -mv.z, 1.0, 4.0);
+    gl_PointSize = clamp(uSize * (1.0 + uIntensity*0.5 + prox*1.4 + band*0.7) * sizeAtten, 1.0, 5.0);
     gl_Position = proj;
   }
 `;
