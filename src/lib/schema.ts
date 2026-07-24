@@ -39,7 +39,9 @@ export const ORGANIZATION_JSONLD = {
     "@type": "Person",
     name: FOUNDER.name,
     jobTitle: FOUNDER.jobTitle,
+    description: FOUNDER.bio,
   },
+
   knowsAbout: [
     "Digital Twin",
     "Reality Capture",
@@ -59,10 +61,11 @@ export const ORGANIZATION_JSONLD = {
     "Government",
   ],
   hasCredential: [
-    "Matterport Certified Service Partner",
+    "Matterport Certified Service Partner since 2015",
     "MDEC Malaysia Digital recognised",
     "Google Street View Trusted",
   ],
+
   areaServed: ["Malaysia", "Singapore", "Southeast Asia"],
   sameAs: [SOCIALS.instagram, SOCIALS.facebook, SOCIALS.linkedin, SOCIALS.youtube],
   contactPoint: [

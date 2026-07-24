@@ -35,9 +35,9 @@ export const GA4_MEASUREMENT_ID = "G-XXXXXXXXXX";
 
 /** Founder / principal author. Bio TODO — pending client-supplied copy. */
 export const FOUNDER = {
-  name: "Naga Krishnan",
-  jobTitle: "Chief Executive Officer & Business Development",
-  bio: "TODO_FOUNDER_BIO — [2–3 sentence bio pending from client]",
+  name: "Naga R. Krishnan",
+  jobTitle: "Founder & Chief Executive Officer",
+  bio: "Naga R. Krishnan is the Founder and CEO of Novo Reperio Sdn. Bhd., with more than a decade of experience in spatial technology, digital twins, reality capture, and immersive 3D visualization. Since founding the company in 2014, he has led the delivery of digital transformation projects across real estate, hospitality, facilities management, construction, and major events, helping organizations leverage Matterport, LiDAR, aerial mapping, and AI-powered digital experiences to improve marketing, operations, and asset management.",
   knowsAbout: [
     "Digital Twins",
     "Matterport",
@@ -47,3 +47,4 @@ export const FOUNDER = {
     "3D Visualization",
   ],
 } as const;
+

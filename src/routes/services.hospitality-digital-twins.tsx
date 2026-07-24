@@ -79,6 +79,34 @@ function HospitalityPage() {
         </div>
       </section>
 
+      <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+        <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
+          Source: Matterport industry research —
+        </div>
+        <ul className="grid md:grid-cols-3 gap-6 max-w-6xl">
+          <li className="border-l-2 border-emerald-400/50 pl-4">
+            <div className="text-3xl md:text-4xl font-light text-white">70%+</div>
+            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+              of hospitality bookings are shortlisted online before a site visit or RFP reply.
+            </p>
+          </li>
+          <li className="border-l-2 border-emerald-400/50 pl-4">
+            <div className="text-3xl md:text-4xl font-light text-white">3×</div>
+            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+              longer average engagement on listings that include an interactive 3D tour vs photos alone.
+            </p>
+          </li>
+          <li className="border-l-2 border-emerald-400/50 pl-4">
+            <div className="text-3xl md:text-4xl font-light text-white">2×</div>
+            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+              higher likelihood buyers request a viewing or quote after walking a Matterport twin.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+
+
       <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
         <MediaSlot ratio="16/9" label="Cover · Hospitality Digital Twins" />
       </section>
