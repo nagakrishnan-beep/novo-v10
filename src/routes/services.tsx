@@ -114,10 +114,19 @@ function ServicesPage() {
         </div>
       </section>
 
+      {/* Verified-by-scan explainer strip */}
+      <VerifiedByScanStrip />
+
+      {/* Instant scope estimator */}
+      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <ScopeEstimator />
+      </section>
+
       {/* MARKET IT */}
       <section id="market" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           MARKET IT · Track A + B
+        </div>
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
           For property, venues and brands that need to sell a space.
