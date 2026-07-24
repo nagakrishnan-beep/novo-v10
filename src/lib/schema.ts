@@ -39,7 +39,9 @@ export const ORGANIZATION_JSONLD = {
     "@type": "Person",
     name: FOUNDER.name,
     jobTitle: FOUNDER.jobTitle,
+    description: FOUNDER.bio,
   },
+
   knowsAbout: [
     "Digital Twin",
     "Reality Capture",
