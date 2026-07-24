@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Immersive & Virtual Training Malaysia | 360° Interactive, Gamified & Simulation — Novo Reperio";

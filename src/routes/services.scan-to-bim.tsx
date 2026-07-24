@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Scan-to-BIM & LiDAR Point Cloud Services Malaysia | As-Built CAD & Revit — Novo Reperio";

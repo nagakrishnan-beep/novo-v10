@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
+import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Facilities Management Digital Twins Malaysia | Asset-Tagged 3D Operations — Novo Reperio";
