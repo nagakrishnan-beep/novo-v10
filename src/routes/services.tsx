@@ -2,6 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, Ruler, GraduationCap, Map, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { LaserTrail } from "@/components/laser-trail";
+import { ScopeEstimator } from "@/components/scope-estimator";
+import {
+  PricingBands,
+  VerifiedByScanStrip,
+  FreeOpenLayer,
+} from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import {
