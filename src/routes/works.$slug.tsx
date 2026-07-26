@@ -181,7 +181,7 @@ function WorkDetail() {
       </section>
 
       {/* Body */}
-      <section className="px-6 md:px-24 py-16 grid gap-12 md:grid-cols-[1fr_340px]">
+      <section className="px-6 md:px-24 py-20 md:py-24 grid gap-12 md:grid-cols-[1fr_340px]">
         <div className="space-y-12">
           <div>
             <h2 className="text-2xl font-light mb-4 text-white">How it helps</h2>
@@ -267,7 +267,7 @@ function WorkDetail() {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="px-6 md:px-24 py-16 border-t border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-t border-neutral-900">
           <div className="text-[11px] font-mono tracking-[0.35em] uppercase text-emerald-300 mb-6">
             Related work
           </div>

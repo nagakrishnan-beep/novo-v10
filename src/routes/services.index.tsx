@@ -86,7 +86,7 @@ function ServicesPage() {
       </section>
 
       {/* Four-door router */}
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {DOORS.map((d) => {
             const Icon = d.icon;
@@ -118,12 +118,12 @@ function ServicesPage() {
       <VerifiedByScanStrip />
 
       {/* Instant scope estimator */}
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <ScopeEstimator />
       </section>
 
       {/* MARKET IT */}
-      <section id="market" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+      <section id="market" className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 scroll-mt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           MARKET IT · Track A + B
         </div>
@@ -152,7 +152,7 @@ function ServicesPage() {
       </section>
 
       {/* BUILD IT */}
-      <section id="build" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+      <section id="build" className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 scroll-mt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           BUILD IT
         </div>
@@ -167,7 +167,7 @@ function ServicesPage() {
       </section>
 
       {/* TRAIN IN IT */}
-      <section id="train" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+      <section id="train" className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 scroll-mt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           TRAIN IN IT
         </div>
@@ -185,7 +185,7 @@ function ServicesPage() {
       </section>
 
       {/* PLAN IT */}
-      <section id="plan" className="px-6 md:px-24 py-24 border-b border-neutral-900 scroll-mt-24">
+      <section id="plan" className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 scroll-mt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           PLAN IT
         </div>
@@ -203,7 +203,7 @@ function ServicesPage() {
       </section>
 
       {/* Supporting */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Supporting services
         </div>
@@ -218,7 +218,7 @@ function ServicesPage() {
       </section>
 
       {/* Approach */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Our approach
         </div>
@@ -234,7 +234,7 @@ function ServicesPage() {
       </section>
 
       {/* Combinations */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Popular combinations
         </div>
@@ -250,7 +250,7 @@ function ServicesPage() {
       </section>
 
       {/* Industries */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Sectors we serve
         </div>
@@ -271,7 +271,7 @@ function ServicesPage() {
 
 
       {/* FAQ */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">Common questions</h2>
         <div className="space-y-6 max-w-4xl">
@@ -285,7 +285,7 @@ function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 md:px-24 py-24">
+      <section className="px-6 md:px-24 py-20 md:py-24">
         <div className="max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
             Looking for the right presentation for your space?

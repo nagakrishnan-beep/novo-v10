@@ -88,7 +88,7 @@ function HospitalityPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
           Source: Matterport industry research —
         </div>
@@ -116,11 +116,11 @@ function HospitalityPage() {
 
 
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <MediaSlot ratio="16/9" label="Cover · Hospitality Digital Twins" />
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           What's included
         </div>
@@ -150,7 +150,7 @@ function HospitalityPage() {
       </section>
 
       {relatedWorks.length > 0 && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
             Selected work
           </div>
@@ -173,7 +173,7 @@ function HospitalityPage() {
         </section>
       )}
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
           Hospitality — common questions
@@ -199,7 +199,7 @@ function HospitalityPage() {
       />
 
       {/* Instant scope estimator */}
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <ScopeEstimator />
       </section>
 

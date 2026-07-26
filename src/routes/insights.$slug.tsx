@@ -193,7 +193,7 @@ function InsightDetail() {
           </div>
         </article>
 
-        <section className="px-6 md:px-24 py-16 border-t border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-t border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-4">
             Next insight
           </div>

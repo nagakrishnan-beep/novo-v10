@@ -235,7 +235,7 @@ const DOORS: Door[] = [
 
 function FourDoorRouter() {
   return (
-    <section id="doors" className="relative z-10 px-6 md:px-24 py-20 border-t border-white/5 scroll-mt-24">
+    <section id="doors" className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24">
       <div className="max-w-7xl mx-auto space-y-8">
         <Reveal className="max-w-3xl space-y-3">
           <KineticEyebrow className="text-xs font-mono uppercase block">[ FOUR TRACKS ]</KineticEyebrow>
@@ -494,7 +494,7 @@ function ByTheNumbers() {
     "Skylon Residences: 60% of units sold, supported by 360° virtual tours.",
   ];
   return (
-    <section className="px-6 md:px-24 py-14 border-t border-neutral-900">
+    <section className="px-6 md:px-24 py-20 md:py-24 border-t border-neutral-900">
       <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
         By the numbers
       </div>
@@ -866,7 +866,7 @@ function StoriesSection() {
 
 function LogosSection() {
   return (
-    <section className="px-6 md:px-24 py-20 border-t border-white/5">
+    <section className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
       <div className="max-w-7xl mx-auto space-y-8">
         <Reveal className="text-center space-y-2">
           <KineticEyebrow className="text-[11px] font-mono uppercase tracking-widest block">
@@ -900,7 +900,7 @@ function LogosSection() {
 
 function ReviewsSection() {
   return (
-    <section className="px-6 md:px-24 py-32 border-t border-white/5">
+    <section className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
       <div className="max-w-7xl mx-auto space-y-10">
         <SectionHeader kicker="GOOGLE REVIEWS" title="Trusted by clients" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1010,7 +1010,7 @@ function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="px-6 md:px-24 py-32 border-t border-white/5">
+    <section className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.3em] text-neutral-500">
           <HelpCircle className="w-4 h-4 text-emerald-400" />

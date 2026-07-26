@@ -131,7 +131,7 @@ function AboutPage() {
       </section>
 
       {/* By the numbers */}
-      <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
           By the numbers
         </div>
@@ -150,7 +150,7 @@ function AboutPage() {
       </section>
 
       {/* Led by */}
-      <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
           Led by
         </div>
@@ -216,7 +216,7 @@ function AboutPage() {
       </section>
 
       {/* Our story */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900 grid md:grid-cols-[1fr_2fr] gap-10">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-[1fr_2fr] gap-10">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400">
           Our story
         </div>
@@ -250,7 +250,7 @@ function AboutPage() {
       </section>
 
       {/* How Novo works */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           How Novo works
         </div>
@@ -275,7 +275,7 @@ function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           Studio trajectory
         </div>
@@ -304,7 +304,7 @@ function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           The team
         </div>
@@ -332,7 +332,7 @@ function AboutPage() {
       </section>
 
       {/* Next step */}
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           Next step
         </div>

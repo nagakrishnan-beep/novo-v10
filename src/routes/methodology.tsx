@@ -70,7 +70,7 @@ function MethodologyPage() {
           </p>
         </section>
 
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900 space-y-10 max-w-4xl">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 space-y-10 max-w-4xl">
           {STEPS.map((s) => (
             <div key={s.title} className="border-l-2 border-emerald-400/40 pl-5">
               <h2 className="text-2xl font-light text-white">{s.title}</h2>
@@ -79,7 +79,7 @@ function MethodologyPage() {
           ))}
         </section>
 
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
             Capacity standards — pending client input
           </div>
@@ -120,7 +120,7 @@ function MethodologyPage() {
           </p>
         </section>
 
-        <section className="px-6 md:px-24 py-16">
+        <section className="px-6 md:px-24 py-20 md:py-24">
           <Link
             to="/estimate"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"

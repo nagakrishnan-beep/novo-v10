@@ -128,7 +128,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Three tiers</div>
         <div className="grid md:grid-cols-3 gap-4">
           {TIERS.map((t) => (
@@ -153,7 +153,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Why it works</div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {BENEFITS.map((b) => (
@@ -165,7 +165,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Best for</div>
         <div className="flex flex-wrap gap-2 font-mono text-xs">
           {BEST_FOR.map((b) => (
@@ -175,7 +175,7 @@ function Page() {
       </section>
 
       {(shell || henkel) && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Selected work</div>
           <div className="grid md:grid-cols-2 gap-4">
             {[shell, henkel].filter(Boolean).map((w) => (
@@ -193,7 +193,7 @@ function Page() {
         </section>
       )}
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
           Immersive training — common questions

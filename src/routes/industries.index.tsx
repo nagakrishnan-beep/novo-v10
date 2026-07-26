@@ -68,7 +68,7 @@ function IndustriesHub() {
 
         <VerifiedByScanStrip />
 
-        <section className="px-6 md:px-24 py-16">
+        <section className="px-6 md:px-24 py-20 md:py-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {INDUSTRIES.map((ind) => (
               <Link

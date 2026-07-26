@@ -136,7 +136,7 @@ function IndustryDetail() {
         </section>
 
         {/* Problems */}
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             The problem
           </div>
@@ -160,7 +160,7 @@ function IndustryDetail() {
         </section>
 
         {/* Benefits */}
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             How spatial capture solves it
           </div>
@@ -184,7 +184,7 @@ function IndustryDetail() {
         </section>
 
         {/* Tech row */}
-        <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             Technology we deploy
           </div>
@@ -202,7 +202,7 @@ function IndustryDetail() {
 
         {/* Case studies */}
         {works.length > 0 && (
-          <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
             <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
               Related case studies
             </div>
@@ -237,7 +237,7 @@ function IndustryDetail() {
 
         {/* Industry video / showcase reel */}
         {industry.slug === "events-venues" && (
-          <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
             <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
               Watch
             </div>
@@ -253,7 +253,7 @@ function IndustryDetail() {
         )}
 
         {industry.slug === "property-development" && (
-          <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
             <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-2">
               Showcase reel
             </div>
@@ -285,7 +285,7 @@ function IndustryDetail() {
 
         {/* Related services */}
 
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             Related services
           </div>
@@ -310,7 +310,7 @@ function IndustryDetail() {
 
         {/* Related insights */}
         {insights.length > 0 && (
-          <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
             <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
               Related insights
             </div>
@@ -338,7 +338,7 @@ function IndustryDetail() {
         )}
 
         {/* FAQ */}
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             FAQ
           </div>
@@ -356,7 +356,7 @@ function IndustryDetail() {
         </section>
 
         {/* CTA */}
-        <section className="px-6 md:px-24 py-16">
+        <section className="px-6 md:px-24 py-20 md:py-24">
           <div className="border border-emerald-500/25 rounded-xl p-8 md:p-12 bg-emerald-500/[0.04]">
             <h2 className="text-2xl md:text-3xl font-light text-white max-w-2xl">
               Book a scoping consultation.

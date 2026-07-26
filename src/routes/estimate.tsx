@@ -56,7 +56,7 @@ function EstimatePage() {
           </p>
         </section>
 
-        <section className="px-6 md:px-24 py-16">
+        <section className="px-6 md:px-24 py-20 md:py-24">
           <ScopeEstimator />
         </section>
 

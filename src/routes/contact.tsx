@@ -181,7 +181,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-20 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {METHODS.map((m) => (
             <a
@@ -203,7 +203,7 @@ function ContactPage() {
       </section>
 
       {/* Project brief form */}
-      <section className="px-6 md:px-24 py-20 border-b border-neutral-900 grid md:grid-cols-[1fr_1.2fr] gap-12">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-[1fr_1.2fr] gap-12">
         <div>
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
             Project brief
@@ -302,7 +302,7 @@ function ContactPage() {
         )}
       </section>
 
-      <section className="px-6 md:px-24 py-24 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           How we work
         </div>
@@ -320,7 +320,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-20 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
         <div>
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">Studio</div>
           <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">

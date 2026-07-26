@@ -107,7 +107,7 @@ function ScanToBimPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
         <MediaSlot label="POINT CLOUD / BIM SAMPLE — PENDING" />
         <div>
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
@@ -132,7 +132,7 @@ function ScanToBimPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Best for
         </div>
@@ -146,7 +146,7 @@ function ScanToBimPage() {
       </section>
 
       {proof && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
             Proof
           </div>
@@ -165,7 +165,7 @@ function ScanToBimPage() {
         </section>
       )}
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
           Scan-to-BIM — common questions
@@ -180,7 +180,7 @@ function ScanToBimPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Related BUILD IT services
         </div>
