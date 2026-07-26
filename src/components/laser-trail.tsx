@@ -22,7 +22,7 @@ export function LaserTrail() {
   const reduced = !!useReducedMotion();
   const [enabled, setEnabled] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const coordRef = useRef<HTMLSpanElement>(null);
 
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
