@@ -78,7 +78,7 @@ export const INDUSTRIES: Industry[] = [
       ],
     },
     tech: ["Matterport twins", "CGI & UE5", "360° virtual tours", "Drone / aerial capture"],
-    workSlugs: ["flora-hijauan-gombak", "glomac-primrose", "parkland-residence-kj2", "dsara"],
+    workSlugs: ["flora-hijauan-melati-east", "glomac-primrose", "parkland-residence-kj2", "dsara"],
     serviceSlugs: [
       { slug: "property-visualization", label: "Property Visualization" },
       { slug: "cgi-360-panorama-tours", label: "CGI 360° Panorama Tours" },
@@ -234,7 +234,7 @@ export const INDUSTRIES: Industry[] = [
       "hyatt-kuantan-ballroom",
       "lexis-hibiscus-port-dickson",
       "eastin-hotel-kuala-lumpur",
-      "royal-lexis-kl",
+      "royal-lexis",
     ],
     serviceSlugs: [
       { slug: "hospitality-digital-twins", label: "Hospitality Digital Twins" },

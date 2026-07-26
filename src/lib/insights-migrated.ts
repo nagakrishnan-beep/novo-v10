@@ -16,7 +16,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Why 3D rendering for property developers matters earlier than most teams think", "What buyers and investors actually want from a render", "The business case behind 3D rendering for property developers", "Choosing the right type of rendering"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -64,7 +64,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["What the best property visualization tools actually need to do", "10 best property visualization tools worth considering", "1. Matterport", "2. Autodesk Revit"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -80,7 +80,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Why a CGI walkthrough for unbuilt projects works", "What decision-makers actually gain", "What makes a walkthrough credible instead of just attractive", "When to produce a CGI walkthrough for unbuilt projects"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -288,7 +288,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Why how digital twins improve property sales comes down to buyer confidence", "Digital twins increase engagement quality, not just traffic", "Better visibility for complex or premium spaces", "How digital twins improve property sales by shortening decision cycles"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -352,7 +352,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["How to market luxury property starts with positioning", "Static media is not enough for premium assets", "Use digital twins to qualify buyers faster", "Build a visual stack, not a single asset"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -368,7 +368,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Why presenting unbuilt developments is harder than it looks", "How to present unbuilt developments with more clarity", "Start with the decision, not the rendering", "Visual realism matters, but accuracy matters more"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -448,7 +448,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Why Kuala Lumpur property visualization matters now", "What strong property visualization actually includes", "The difference between attractive visuals and useful visuals", "How kuala lumpur property visualization supports faster sales"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -560,7 +560,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Matterport vs CGI walkthrough: the core difference", "When Matterport is the stronger choice", "When a CGI walkthrough is the better investment", "Matterport vs CGI walkthrough for marketing outcomes"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -576,7 +576,7 @@ export const MIGRATED_INSIGHTS: Insight[] = [
     keyPoints: ["Why remote property viewing Malaysia matters now", "What buyers actually need from a remote viewing experience", "The formats that work best", "360 virtual tours"],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {

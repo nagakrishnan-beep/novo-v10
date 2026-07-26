@@ -61,7 +61,7 @@ export const INSIGHTS: Insight[] = [
     ],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
@@ -225,7 +225,7 @@ export const INSIGHTS: Insight[] = [
     ],
     relatedService: "hospitality-digital-twins",
     relatedServiceLabel: "Hospitality Digital Twins",
-    relatedWork: "royal-lexis-kl",
+    relatedWork: "royal-lexis",
     relatedWorkLabel: "Royal Lexis KL",
   },
   {
@@ -249,7 +249,7 @@ export const INSIGHTS: Insight[] = [
     ],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
-    relatedWork: "flora-hijauan-gombak",
+    relatedWork: "flora-hijauan-melati-east",
     relatedWorkLabel: "Flora Hijauan Gombak",
   },
   {
