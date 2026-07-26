@@ -10,7 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as EstimateRouteImport } from './routes/estimate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -37,9 +40,24 @@ const WorksRoute = WorksRouteImport.update({
   path: '/works',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MethodologyRoute = MethodologyRouteImport.update({
   id: '/methodology',
   path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EstimateRoute = EstimateRouteImport.update({
@@ -68,19 +86,19 @@ const WorksIndexRoute = WorksIndexRouteImport.update({
   getParentRoute: () => WorksRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/services/',
-  path: '/services/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const InsightsIndexRoute = InsightsIndexRouteImport.update({
-  id: '/insights/',
-  path: '/insights/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => InsightsRoute,
 } as any)
 const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
-  id: '/industries/',
-  path: '/industries/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
 } as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
@@ -89,59 +107,59 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
 } as any)
 const ServicesUrbanDigitalTwinsRoute =
   ServicesUrbanDigitalTwinsRouteImport.update({
-    id: '/services/urban-digital-twins',
-    path: '/services/urban-digital-twins',
-    getParentRoute: () => rootRouteImport,
+    id: '/urban-digital-twins',
+    path: '/urban-digital-twins',
+    getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesScanToBimRoute = ServicesScanToBimRouteImport.update({
-  id: '/services/scan-to-bim',
-  path: '/services/scan-to-bim',
-  getParentRoute: () => rootRouteImport,
+  id: '/scan-to-bim',
+  path: '/scan-to-bim',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesPropertyVisualizationRoute =
   ServicesPropertyVisualizationRouteImport.update({
-    id: '/services/property-visualization',
-    path: '/services/property-visualization',
-    getParentRoute: () => rootRouteImport,
+    id: '/property-visualization',
+    path: '/property-visualization',
+    getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesImmersiveTrainingRoute =
   ServicesImmersiveTrainingRouteImport.update({
-    id: '/services/immersive-training',
-    path: '/services/immersive-training',
-    getParentRoute: () => rootRouteImport,
+    id: '/immersive-training',
+    path: '/immersive-training',
+    getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesHospitalityDigitalTwinsRoute =
   ServicesHospitalityDigitalTwinsRouteImport.update({
-    id: '/services/hospitality-digital-twins',
-    path: '/services/hospitality-digital-twins',
-    getParentRoute: () => rootRouteImport,
+    id: '/hospitality-digital-twins',
+    path: '/hospitality-digital-twins',
+    getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesFacilitiesOperationsRoute =
   ServicesFacilitiesOperationsRouteImport.update({
-    id: '/services/facilities-operations',
-    path: '/services/facilities-operations',
-    getParentRoute: () => rootRouteImport,
+    id: '/facilities-operations',
+    path: '/facilities-operations',
+    getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesConstructionProgressRoute =
   ServicesConstructionProgressRouteImport.update({
-    id: '/services/construction-progress',
-    path: '/services/construction-progress',
-    getParentRoute: () => rootRouteImport,
+    id: '/construction-progress',
+    path: '/construction-progress',
+    getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/services/$slug',
-  path: '/services/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/insights/$slug',
-  path: '/insights/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
 } as any)
 const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
-  id: '/industries/$slug',
-  path: '/industries/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => IndustriesRoute,
 } as any)
 const WorksCategoryCatRoute = WorksCategoryCatRouteImport.update({
   id: '/category/$cat',
@@ -154,7 +172,10 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/estimate': typeof EstimateRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -202,7 +223,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/estimate': typeof EstimateRoute
+  '/industries': typeof IndustriesRouteWithChildren
+  '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -228,7 +252,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/estimate'
+    | '/industries'
+    | '/insights'
     | '/methodology'
+    | '/services'
     | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
@@ -275,7 +302,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/estimate'
+    | '/industries'
+    | '/insights'
     | '/methodology'
+    | '/services'
     | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
@@ -300,21 +330,11 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   EstimateRoute: typeof EstimateRoute
+  IndustriesRoute: typeof IndustriesRouteWithChildren
+  InsightsRoute: typeof InsightsRouteWithChildren
   MethodologyRoute: typeof MethodologyRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   WorksRoute: typeof WorksRouteWithChildren
-  IndustriesSlugRoute: typeof IndustriesSlugRoute
-  InsightsSlugRoute: typeof InsightsSlugRoute
-  ServicesSlugRoute: typeof ServicesSlugRoute
-  ServicesConstructionProgressRoute: typeof ServicesConstructionProgressRoute
-  ServicesFacilitiesOperationsRoute: typeof ServicesFacilitiesOperationsRoute
-  ServicesHospitalityDigitalTwinsRoute: typeof ServicesHospitalityDigitalTwinsRoute
-  ServicesImmersiveTrainingRoute: typeof ServicesImmersiveTrainingRoute
-  ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
-  ServicesScanToBimRoute: typeof ServicesScanToBimRoute
-  ServicesUrbanDigitalTwinsRoute: typeof ServicesUrbanDigitalTwinsRoute
-  IndustriesIndexRoute: typeof IndustriesIndexRoute
-  InsightsIndexRoute: typeof InsightsIndexRoute
-  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -326,11 +346,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/methodology': {
       id: '/methodology'
       path: '/methodology'
       fullPath: '/methodology'
       preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/estimate': {
@@ -370,24 +411,24 @@ declare module '@tanstack/react-router' {
     }
     '/services/': {
       id: '/services/'
-      path: '/services'
+      path: '/'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/insights/': {
       id: '/insights/'
-      path: '/insights'
+      path: '/'
       fullPath: '/insights/'
       preLoaderRoute: typeof InsightsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof InsightsRoute
     }
     '/industries/': {
       id: '/industries/'
-      path: '/industries'
+      path: '/'
       fullPath: '/industries/'
       preLoaderRoute: typeof IndustriesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof IndustriesRoute
     }
     '/works/$slug': {
       id: '/works/$slug'
@@ -398,73 +439,73 @@ declare module '@tanstack/react-router' {
     }
     '/services/urban-digital-twins': {
       id: '/services/urban-digital-twins'
-      path: '/services/urban-digital-twins'
+      path: '/urban-digital-twins'
       fullPath: '/services/urban-digital-twins'
       preLoaderRoute: typeof ServicesUrbanDigitalTwinsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/scan-to-bim': {
       id: '/services/scan-to-bim'
-      path: '/services/scan-to-bim'
+      path: '/scan-to-bim'
       fullPath: '/services/scan-to-bim'
       preLoaderRoute: typeof ServicesScanToBimRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/property-visualization': {
       id: '/services/property-visualization'
-      path: '/services/property-visualization'
+      path: '/property-visualization'
       fullPath: '/services/property-visualization'
       preLoaderRoute: typeof ServicesPropertyVisualizationRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/immersive-training': {
       id: '/services/immersive-training'
-      path: '/services/immersive-training'
+      path: '/immersive-training'
       fullPath: '/services/immersive-training'
       preLoaderRoute: typeof ServicesImmersiveTrainingRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/hospitality-digital-twins': {
       id: '/services/hospitality-digital-twins'
-      path: '/services/hospitality-digital-twins'
+      path: '/hospitality-digital-twins'
       fullPath: '/services/hospitality-digital-twins'
       preLoaderRoute: typeof ServicesHospitalityDigitalTwinsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/facilities-operations': {
       id: '/services/facilities-operations'
-      path: '/services/facilities-operations'
+      path: '/facilities-operations'
       fullPath: '/services/facilities-operations'
       preLoaderRoute: typeof ServicesFacilitiesOperationsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/construction-progress': {
       id: '/services/construction-progress'
-      path: '/services/construction-progress'
+      path: '/construction-progress'
       fullPath: '/services/construction-progress'
       preLoaderRoute: typeof ServicesConstructionProgressRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/services/$slug': {
       id: '/services/$slug'
-      path: '/services/$slug'
+      path: '/$slug'
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/insights/$slug': {
       id: '/insights/$slug'
-      path: '/insights/$slug'
+      path: '/$slug'
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof InsightsRoute
     }
     '/industries/$slug': {
       id: '/industries/$slug'
-      path: '/industries/$slug'
+      path: '/$slug'
       fullPath: '/industries/$slug'
       preLoaderRoute: typeof IndustriesSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof IndustriesRoute
     }
     '/works/category/$cat': {
       id: '/works/category/$cat'
@@ -475,6 +516,62 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface IndustriesRouteChildren {
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+}
+
+const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesSlugRoute: IndustriesSlugRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+}
+
+const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
+  IndustriesRouteChildren,
+)
+
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
+
+interface ServicesRouteChildren {
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesConstructionProgressRoute: typeof ServicesConstructionProgressRoute
+  ServicesFacilitiesOperationsRoute: typeof ServicesFacilitiesOperationsRoute
+  ServicesHospitalityDigitalTwinsRoute: typeof ServicesHospitalityDigitalTwinsRoute
+  ServicesImmersiveTrainingRoute: typeof ServicesImmersiveTrainingRoute
+  ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
+  ServicesScanToBimRoute: typeof ServicesScanToBimRoute
+  ServicesUrbanDigitalTwinsRoute: typeof ServicesUrbanDigitalTwinsRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesConstructionProgressRoute: ServicesConstructionProgressRoute,
+  ServicesFacilitiesOperationsRoute: ServicesFacilitiesOperationsRoute,
+  ServicesHospitalityDigitalTwinsRoute: ServicesHospitalityDigitalTwinsRoute,
+  ServicesImmersiveTrainingRoute: ServicesImmersiveTrainingRoute,
+  ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
+  ServicesScanToBimRoute: ServicesScanToBimRoute,
+  ServicesUrbanDigitalTwinsRoute: ServicesUrbanDigitalTwinsRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
@@ -495,22 +592,22 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   EstimateRoute: EstimateRoute,
+  IndustriesRoute: IndustriesRouteWithChildren,
+  InsightsRoute: InsightsRouteWithChildren,
   MethodologyRoute: MethodologyRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   WorksRoute: WorksRouteWithChildren,
-  IndustriesSlugRoute: IndustriesSlugRoute,
-  InsightsSlugRoute: InsightsSlugRoute,
-  ServicesSlugRoute: ServicesSlugRoute,
-  ServicesConstructionProgressRoute: ServicesConstructionProgressRoute,
-  ServicesFacilitiesOperationsRoute: ServicesFacilitiesOperationsRoute,
-  ServicesHospitalityDigitalTwinsRoute: ServicesHospitalityDigitalTwinsRoute,
-  ServicesImmersiveTrainingRoute: ServicesImmersiveTrainingRoute,
-  ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
-  ServicesScanToBimRoute: ServicesScanToBimRoute,
-  ServicesUrbanDigitalTwinsRoute: ServicesUrbanDigitalTwinsRoute,
-  IndustriesIndexRoute: IndustriesIndexRoute,
-  InsightsIndexRoute: InsightsIndexRoute,
-  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
