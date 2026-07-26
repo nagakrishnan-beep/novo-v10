@@ -5,7 +5,7 @@ import { useIntensity } from "./chrono";
 // To use the real scan: run decimate_pointcloud.py on the .xyz, upload the
 // output to public/aircraft.pcbin, and change CLOUD_SRC to "/aircraft.pcbin".
 // Same NRPC format — no code change needed.
-const CLOUD_SRC = "/aircraft-placeholder.pcbin";
+const CLOUD_SRC = "/aircraft.pcbin";
 
 type ParsedCloud = {
   count: number;

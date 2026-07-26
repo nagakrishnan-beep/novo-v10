@@ -1,3 +1,5 @@
+import { wpWorkImage, wpWorkTour } from "./wp-content";
+
 export type Work = {
   slug: string;
   title: string;
