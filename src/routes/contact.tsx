@@ -1,12 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
-import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Check } from "lucide-react";
-import { LaserTrail } from "@/components/laser-trail";
+import { ArrowRight, Mail, MapPin, MessageCircle, Check } from "lucide-react";
 import { SiteHeader, SiteFooter, trackEvent } from "@/components/site-chrome";
 import {
   WHATSAPP_URL,
   PHONE,
-  PHONE_TEL,
   EMAIL,
   ADDRESS_FULL,
   HOURS,
@@ -29,9 +27,8 @@ const STEPS = [
 ];
 
 const METHODS = [
-  { icon: MessageCircle, label: "WhatsApp", value: PHONE, href: WHATSAPP_URL, hint: "Fastest response, typically same day." },
+  { icon: MessageCircle, label: "WhatsApp or call", value: PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day. Also callable weekdays 9:00–18:00 MYT." },
   { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, hint: "For scoping, quotes and briefing documents." },
-  { icon: Phone, label: "Phone", value: PHONE, href: `tel:${PHONE_TEL}`, hint: `Weekdays, ${HOURS}` },
   { icon: MapPin, label: "Studio", value: "Solaris Mont Kiara, KL", href: "https://maps.google.com/?q=Solaris+Mont+Kiara", hint: ADDRESS_FULL },
 ];
 
@@ -149,7 +146,6 @@ function ContactPage() {
 
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 font-sans antialiased">
-      <LaserTrail />
       <SiteHeader active="contact" />
 
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
@@ -182,7 +178,7 @@ function ContactPage() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           {METHODS.map((m) => (
             <a
               key={m.label}
@@ -214,6 +210,10 @@ function ContactPage() {
           <p className="mt-6 text-neutral-400 leading-relaxed max-w-md">
             The more we know about your goals, timeline and audience, the faster we can
             recommend the right capture and delivery approach.
+          </p>
+          <p className="mt-6 text-xs font-mono uppercase tracking-widest text-neutral-500">
+            400+ projects <span className="text-emerald-400">·</span> Since 2014{" "}
+            <span className="text-emerald-400">·</span> Trusted by KLCC, Hyatt, Porsche
           </p>
         </div>
 
