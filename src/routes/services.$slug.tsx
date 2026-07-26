@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-rout
 import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import { LaserTrail } from "@/components/laser-trail";
 import { getService, getNextService, SERVICES } from "@/lib/services";
+import { YouTubeEmbed } from "@/components/youtube-embed";
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
 const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
