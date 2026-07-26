@@ -12,7 +12,7 @@ import {
   MessageCircle,
   Building2,
   Ruler,
-  GraduationCap,
+  Wrench,
   Map as MapIcon,
 } from "lucide-react";
 import {
@@ -229,7 +229,7 @@ type Door = {
 const DOORS: Door[] = [
   { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2 },
   { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler },
-  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: GraduationCap },
+  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench },
   { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon },
 ];
 
