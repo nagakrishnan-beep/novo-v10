@@ -46,7 +46,7 @@ const STEPS = [
   },
   {
     title: "4 · Freshness dating",
-    body: "Every twin carries a capture date. Renovations, re-branding and menu changes drift the record. Our hosting & subscription programme funds scheduled recapture so the twin you share tomorrow still matches the space a visitor sees.",
+    body: "Every twin carries a capture date. Renovations, re-branding and menu changes drift the record. Scheduled recapture keeps the record current, so the twin you share tomorrow still matches the space a visitor sees.",
   },
 ];
 
