@@ -177,10 +177,10 @@ function AboutPage() {
               Matterport Certified Service Partner since 2015
             </li>
             <li className="border border-emerald-500/30 rounded-full px-3 py-1">
-              MDEC Malaysia Digital
+              Malaysia Digital (MD) certified
             </li>
             <li className="border border-emerald-500/30 rounded-full px-3 py-1">
-              Google Street View Trusted
+              Google Street View Publisher
             </li>
           </ul>
         </div>

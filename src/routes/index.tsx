@@ -40,15 +40,15 @@ const CANONICAL = "https://novo-v10.lovable.app/";
 const HOMEPAGE_FAQ = [
   { q: "What is a digital twin?", a: "A digital twin is a photorealistic, dimensionally accurate 3D copy of a real space that people can explore online. It captures every wall, corner and finish so remote viewers can walk through, measure and understand the venue as if they were there." },
   { q: "What's the difference between Matterport and a 360° tour?", a: "Matterport is a measurable 3D digital twin with dollhouse view, floorplan and room-to-room navigation. A 360° tour is a series of linked panoramas, lighter and cheaper, ideal for OTAs and social. Most venues benefit from both." },
-  { q: "How much does a project cost?", a: "Pricing is scoped per property; packages range from single-space capture to full-property annual subscriptions. Request a quote and we'll size it against your space and use case." },
+  { q: "How much does a project cost?", a: "A Matterport 3D scan starts from RM 2,599. Pricing is scoped per property; packages range from single-space capture to full-property annual subscriptions. Request a quote and we'll size it against your space and use case." },
   { q: "How long does delivery take?", a: "Most capture projects deliver within days of the shoot. Larger CGI, UE5 masterplans and launch films are scoped per project, typically two to eight weeks depending on scale." },
-  { q: "Where do you operate?", a: "We are based in Kuala Lumpur and cover all of Malaysia, Singapore, and worldwide on request. Regional deployments to Indonesia and the Middle East are handled by our travelling capture teams." },
+  { q: "Where do you operate?", a: "We are based in Kuala Lumpur and cover Malaysia, with regional deployment across Indonesia and the Philippines." },
   { q: "How do I embed a tour on my website or listing?", a: "Every tour ships with an embed snippet and a shareable link. It drops into your website, OTA listing (Booking.com, Agoda), Google Business Profile and email, with no plugins or hosting on your side." },
   { q: "Who owns the files?", a: "You own the delivered media: final renders, videos, images and embed rights are yours to use for marketing in perpetuity. Raw project files remain with the studio unless a buy-out is agreed upfront." },
   { q: "How long do you host the tour for?", a: "Matterport tours are hosted on our active subscription for the term you buy, typically one to three years, renewable. We notify you before expiry so nothing goes dark unexpectedly." },
   { q: "Do I need to prepare the site before capture?", a: "Yes, the space should look the way you want buyers to see it. Lights on, clutter cleared, staging in place. We send a short prep checklist before every shoot and can advise on styling." },
-  { q: "Are your drone operations licensed?", a: "Yes. All aerial capture in Malaysia is flown by CAAM-certified pilots with the appropriate permits, and we secure landowner and airspace approvals before every shoot." },
-  { q: "Can you deliver point clouds and Scan-to-BIM?", a: "Yes. Our LiDAR captures produce registered point clouds that we convert to as-built BIM models (LOD 200–350), 2D CAD drawings and measurable twins for AEC and facilities teams." },
+  { q: "Are your drone operations licensed?", a: "Yes. Our pilots are DJI-certified, and every drone operation is flown under CAAM flight permits secured for each project, in compliance with Malaysian aviation regulations." },
+  { q: "Can you deliver point clouds and Scan-to-BIM?", a: "Yes. Our LiDAR captures produce registered point clouds that we convert to as-built BIM models (up to LOD 400), 2D CAD drawings and measurable twins for AEC and facilities teams." },
   { q: "How do I book?", a: "WhatsApp us for the fastest reply, email hello@novoreperio.com, or use the contact form. We'll respond within one business day with next steps and a scoping call." },
 ];
 
@@ -87,7 +87,7 @@ const WHATSAPP_URL = "https://wa.me/60172029996";
 
 const CAPTURE_FEATURES = [
   { title: "LiDAR-powered accuracy", body: "Capture every measurement, corner, and detail with professional-grade depth sensors." },
-  { title: "Pro-level fidelity", body: "4K-resolution walkthroughs that hold clarity even when zooming in on fine textures." },
+  { title: "Highest-resolution capture", body: "DSLR and drone RAW stills at the highest resolution, plus 360° capture up to 8K." },
   { title: "Frictionless integration", body: "Your digital twin is fully hosted and ready for website embedding or BIM software." },
 ];
 
@@ -108,12 +108,12 @@ const SERVICES = [
   { kicker: "Launch wrapper", title: "Project websites", body: "Package the final experience for sharing and sales-ready launch pages." },
 ];
 
-const WORKFLOW = ["Capture", "Package", "Publish"];
+const WORKFLOW = ["Capture", "Process", "Create", "Act"];
 
 const STORIES = [
-  { tag: "Featured case study", title: "Hyatt Kuantan, Kempas & Prefunction Hall", body: "Ballroom presentation that helps buyers see layout and setup before the first visit.", cta: "View Hyatt project", href: "/works/hyatt-kuantan-ballroom", internal: true },
-  { tag: "Venue sales support", title: "WTCKL: Venue sales proof", body: "Venue storytelling that helps scale, flow, and room layout make sense earlier.", cta: "See venue work", href: "/works/world-trade-centre-kuala-lumpur", internal: true },
-  { tag: "Facilities review", title: "Maxis: Facilities review use case", body: "Office and facilities work made clearer for teams that need quick context.", cta: "Explore facilities work", href: "/works/pnb-cimb-hub", internal: true },
+  { metric: "8,000+ digital twin visits", tag: "Venue sales proof", title: "World Trade Centre Kuala Lumpur", body: "A venue digital twin averaging 37 visits a week, so event buyers understand scale and flow before they book.", cta: "See venue work", href: "/works/world-trade-centre-kuala-lumpur", internal: true },
+  { metric: "350,000 sqft captured", tag: "Large complex site proof", title: "Kuala Lumpur Convention Centre", body: "One of the largest venue captures we have delivered, covering halls, foyers and circulation in a single navigable twin.", cta: "See the KLCC capture", href: "/works/kuala-lumpur-convention-centre", internal: true },
+  { metric: "Ballroom and prefunction captured", tag: "Hospitality presentation proof", title: "Hyatt Kuantan, Kempas Ballroom", body: "Ballroom presentation that helps event buyers see layout and setup before the first site visit.", cta: "View Hyatt project", href: "/works/hyatt-kuantan-ballroom", internal: true },
 ];
 
 const SCOPE_STEPS = [
@@ -222,15 +222,15 @@ type Door = {
   label: string;
   outcome: string;
   href: string;
-  routeTo?: "/services/immersive-training" | "/services/urban-digital-twins";
+  routeTo?: "/services/facilities-operations" | "/services/urban-digital-twins";
   icon: React.ComponentType<{ className?: string; size?: number }>;
 };
 
 const DOORS: Door[] = [
-  { key: "market", label: "MARKET IT", outcome: "Property marketing, hospitality, staging, CGI, video, launch microsites.", href: "/services#market", icon: Building2 },
-  { key: "build",  label: "BUILD IT",  outcome: "Scan-to-BIM, construction progress capture, facilities operations twins.", href: "/services#build",  icon: Ruler },
-  { key: "train",  label: "TRAIN IN IT", outcome: "360° interactive, gamified and simulation training environments.", href: "/services/immersive-training", routeTo: "/services/immersive-training", icon: GraduationCap },
-  { key: "plan",   label: "PLAN IT",   outcome: "City & masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon },
+  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2 },
+  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler },
+  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: GraduationCap },
+  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon },
 ];
 
 function FourDoorRouter() {
@@ -240,7 +240,7 @@ function FourDoorRouter() {
         <Reveal className="max-w-3xl space-y-3">
           <KineticEyebrow className="text-xs font-mono uppercase block">[ FOUR TRACKS ]</KineticEyebrow>
           <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">
-            Pick the door that matches the job.
+            Pick the track that matches the job: sell, build, operate or plan.
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -433,24 +433,39 @@ function Hero() {
     >
       <div className="max-w-5xl origin-left">
         <KineticEyebrow className="text-xs font-mono block mb-6 uppercase tracking-widest">
-          NOVO REPERIO: SPACE CAPTURE STUDIO
+          NOVO REPERIO · DIGITAL TWIN & REALITY CAPTURE
         </KineticEyebrow>
 
         <KineticHeadline className="text-[clamp(30px,5vw,56px)] font-light leading-[1.05] text-white">
-          Turn your space into a 24/7 sales engine
+          Capture reality. Build digital intelligence.
         </KineticHeadline>
 
         <div className="mt-8 max-w-3xl">
           <KineticBody className="text-base md:text-lg leading-relaxed text-neutral-300 font-light">
-            Photorealistic Matterport, LiDAR, 360° and drone walkthroughs, delivered inside a page that responds to you. Explore, measure, and book from anywhere in the world.
+            Digital twins, LiDAR, Matterport, 360° and aerial reality capture for property, construction, facilities, hospitality and enterprise environments.
           </KineticBody>
         </div>
 
         <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-300 font-light">
-          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>10+ Years of Immersive Excellence</li>
-          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Reduce Sales Cycles with 24/7 virtual access</li>
-          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Trusted by Global Brands, KLCC to five-star hospitality groups</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>12+ years capturing physical space as spatial data, since 2014.</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Matterport, LiDAR, 360°, drone, photogrammetry and Scan-to-BIM under one roof.</li>
+          <li className="flex items-center gap-2"><span className="text-emerald-300">+</span>Proven on sites up to 350,000 sqft, from the KL Convention Centre to five-star hospitality.</li>
         </ul>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            to="/works"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300 transition"
+          >
+            Explore the work <ArrowRight size={14} />
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest text-white hover:border-emerald-400/50 hover:text-emerald-300 transition"
+          >
+            Talk to a specialist <ArrowRight size={14} />
+          </Link>
+        </div>
 
         <HeroQuickLinks />
 
@@ -755,7 +770,7 @@ function ServicesSection() {
         <Reveal>
           <div className="p-6 md:p-8 bg-white/[0.02] border border-white/10 rounded-2xl backdrop-blur-md">
             <h3 className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest mb-6">
-              [ CAPTURE → PACKAGE → PUBLISH ]
+              [ Capture → Process → Create → Act ]
             </h3>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-xs text-neutral-400">
               {WORKFLOW.map((node, idx, arr) => (
@@ -822,7 +837,10 @@ function StoriesSection() {
                   className="p-6 bg-white/[0.02] border border-white/10 rounded-xl hover:border-cyan-400/40 transition flex flex-col justify-between min-h-[240px] h-full"
                 >
                   <div>
-                    <div className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest">
+                    <div className="font-mono text-sm text-emerald-300 tracking-tight">
+                      {s.metric}
+                    </div>
+                    <div className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest mt-2">
                       {s.tag}
                     </div>
                     <h3 className="text-lg md:text-xl font-medium text-white mt-2">
