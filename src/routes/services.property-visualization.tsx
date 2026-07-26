@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import { WORKS } from "@/lib/works";
 import { SERVICES } from "@/lib/services";
 
-const TITLE = "Property Visualization — Novo Reperio";
+const TITLE = "Property Visualization | Novo Reperio";
 const DESCRIPTION =
   "3D rendered walkthroughs, CGI 360° panoramas, photoreal stills, launch films, UE5 masterplan experiences and AI-assisted visualisation for property developers.";
 const URL = abs("/services/property-visualization");
@@ -16,8 +16,8 @@ const URL = abs("/services/property-visualization");
 const FAQ = [
   { q: "When should we start visualisation before launch?", a: "Ideally 4–6 months before launch for CGI stills, and 3–4 months for rendered walkthrough tours and 360° panoramas. UE5 masterplan experiences and interactive web platforms need 3–6 months depending on complexity." },
   { q: "What input do you need from us?", a: "CAD, BIM, SketchUp or PDF drawings at any stage of design maturity, finish material references, and a brand palette or previous marketing assets. We work with whatever fidelity of source you have." },
-  { q: "Can we update finishes after the initial render?", a: "Yes. One of the reasons CGI stays with the project post-launch is finish and colourway updates — much cheaper than reshoot cycles." },
-  { q: "Do you produce virtual show units for pre-launch sales?", a: "Yes — 3D rendered walkthrough tours generated from CAD are the standard pre-sales replacement for a physical show gallery." },
+  { q: "Can we update finishes after the initial render?", a: "Yes. One of the reasons CGI stays with the project post-launch is finish and colourway updates, much cheaper than reshoot cycles." },
+  { q: "Do you produce virtual show units for pre-launch sales?", a: "Yes. 3D rendered walkthrough tours generated from CAD are the standard pre-sales replacement for a physical show gallery." },
 ];
 
 export const Route = createFileRoute("/services/property-visualization")({
@@ -59,7 +59,7 @@ function PropertyVizPage() {
           For property that doesn't exist yet.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
-          Pre-sales, launch and gallery experiences for unbuilt developments —
+          Pre-sales, launch and gallery experiences for unbuilt developments:
           rendered walkthroughs, CGI 360° tours, photoreal stills, launch films,
           UE5 masterplan platforms and AI-assisted concept iteration.
         </p>
@@ -141,7 +141,7 @@ function PropertyVizPage() {
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
-          Property Visualization — common questions
+          Property Visualization: common questions
         </h2>
         <div className="space-y-6 max-w-4xl">
           {FAQ.map((f) => (
@@ -156,10 +156,10 @@ function PropertyVizPage() {
       <MonthlyValue
         intro="A launch tour or CGI package doesn't have to end when the campaign does."
         bullets={[
-          "Hosted, embed-ready and shareable as one link — launch microsite, sales gallery kiosks, agent tools and OTA listings.",
-          "Usage analytics — see which units, layouts and finishes prospects explore before they book a viewing.",
-          "Scheduled refresh — swap finishes, colourways and staged furniture without a full reshoot.",
-          "Integrations — plug straight into your sales CRM and gallery iPads.",
+          "Hosted, embed-ready and shareable as one link, launch microsite, sales gallery kiosks, agent tools and OTA listings.",
+          "Usage analytics, see which units, layouts and finishes prospects explore before they book a viewing.",
+          "Scheduled refresh, swap finishes, colourways and staged furniture without a full reshoot.",
+          "Integrations, plug straight into your sales CRM and gallery iPads.",
         ]}
       />
 

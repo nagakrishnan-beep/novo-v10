@@ -38,35 +38,35 @@ export const WORK_CATEGORIES = {
   hospitality: {
     slug: "hospitality",
     title: "Hotel & Venue Virtual Tours",
-    metaTitle: "Hotel & Venue Virtual Tours — Novo Reperio Works",
+    metaTitle: "Hotel & Venue Virtual Tours | Novo Reperio Works",
     metaDesc:
       "Matterport digital twins and 360° virtual tours for hotels, ballrooms, resorts and event venues across Malaysia and beyond.",
   },
   "real-estate": {
     slug: "real-estate",
     title: "Real Estate Virtual Tours & CGI",
-    metaTitle: "Property Virtual Tours & CGI — Novo Reperio Works",
+    metaTitle: "Property Virtual Tours & CGI | Novo Reperio Works",
     metaDesc:
       "Show-unit tours, CGI panoramas and pre-launch visualization for property developers in Malaysia and worldwide.",
   },
   commercial: {
     slug: "commercial",
     title: "Corporate & Commercial Spaces",
-    metaTitle: "Corporate & Commercial Virtual Tours — Novo Reperio Works",
+    metaTitle: "Corporate & Commercial Virtual Tours | Novo Reperio Works",
     metaDesc:
       "Workplace, showroom and enterprise digital twins for corporate onboarding, facility management and internal alignment.",
   },
   automotive: {
     slug: "automotive",
     title: "Automotive & Showroom Tours",
-    metaTitle: "Automotive Showroom Virtual Tours — Novo Reperio Works",
+    metaTitle: "Automotive Showroom Virtual Tours | Novo Reperio Works",
     metaDesc:
       "Immersive 3D walkthroughs of showrooms and lifestyle stations that showcase arrival, display zones and customer flow.",
   },
   aerial: {
     slug: "aerial",
     title: "Aerial & 360° Training Platforms",
-    metaTitle: "Aerial 360° & Training Platforms — Novo Reperio Works",
+    metaTitle: "Aerial 360° & Training Platforms | Novo Reperio Works",
     metaDesc:
       "Aerial 360° captures, drone-led context and interactive safety training platforms for industrial and destination projects.",
   },
@@ -78,7 +78,7 @@ const img = (name: string) => `/images/works/${name}`;
 const RAW_WORKS: Work[] = [
   {
     slug: "hyatt-kuantan-ballroom",
-    title: "Hyatt Kuantan — Kempas Ballroom & Prefunction",
+    title: "Hyatt Kuantan: Kempas Ballroom & Prefunction",
     format: "Matterport Digital Twin",
     categories: ["Hospitality", "Convention Centre"],
     spaceType: "Convention Centre",
@@ -95,7 +95,7 @@ const RAW_WORKS: Work[] = [
       "Embedded on the property page and shared as one link in sales replies",
       "Reusable across OTAs, RFP responses and live video calls",
     ],
-    impact: "Reduces uncertainty and shortlisting time — planners commit before travelling.",
+    impact: "Reduces uncertainty and shortlisting time; planners commit before travelling.",
     tourUrl: "https://my.matterport.com/show/?m=V4ViihFfjzk",
     relatedService: "hospitality-digital-twins",
     relatedServiceLabel: "Hospitality Digital Twins",
@@ -112,14 +112,14 @@ const RAW_WORKS: Work[] = [
       "A 360° tour that helps event teams understand hall scale and venue flow before a walkthrough.",
     helps: "Supports remote event planning and quick venue review.",
     body:
-      "WTCKL's tour has been fully integrated into their event marketing and pre-planning process. The venue's sales team shares the tour link in every RFP reply, so organisers can finalise event flow without repeated physical site visits — accelerating booking confirmations.",
+      "WTCKL's tour has been fully integrated into their event marketing and pre-planning process. The venue's sales team shares the tour link in every RFP reply, so organisers can finalise event flow without repeated physical site visits, accelerating booking confirmations.",
     features: [
       "Fully integrated into WTCKL's event marketing and pre-planning",
       "8,000+ unique tour visits, averaging 37 per week",
       "Clients finalise event flow without physical site visits",
       "Faster booking confirmations for major events",
     ],
-    impact: "8,000+ tour visits, ~37/week — the twin now front-loads every enquiry.",
+    impact: "8,000+ tour visits, ~37/week; the twin now front-loads every enquiry.",
     relatedService: "hospitality-digital-twins",
     relatedServiceLabel: "Hospitality Digital Twins",
   },
@@ -135,14 +135,14 @@ const RAW_WORKS: Work[] = [
       "A 360° virtual tour of the resort that supports remote review and booking interest at every level.",
     helps: "Helps guests review the property online before enquiry or visit.",
     body:
-      "Lexis Hibiscus is a large multi-wing resort where booking decisions are made across guest, corporate, and management stakeholders. The interactive 360° tour lets multi-level management teams review, approve, and align on layout, F&B and MICE space remotely — accelerating the entire sales cycle.",
+      "Lexis Hibiscus is a large multi-wing resort where booking decisions are made across guest, corporate, and management stakeholders. The interactive 360° tour lets multi-level management teams review, approve, and align on layout, F&B and MICE space remotely, accelerating the entire sales cycle.",
     features: [
       "Multi-level management teams review, approve and align remotely",
       "Accelerated sales cycle for MICE and group bookings",
       "Deployed on the property site, OTAs and sales decks",
       "Reusable across every departmental workflow",
     ],
-    impact: "Accelerated sales cycle — remote alignment across multi-level management.",
+    impact: "Accelerated sales cycle, with remote alignment across multi-level management.",
     tourUrl: "https://novoreperio.com/360tour/lexishibiscuspd/",
     relatedService: "hospitality-digital-twins",
     relatedServiceLabel: "Hospitality Digital Twins",
@@ -171,7 +171,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "muzium-negara-gallery-a-pre-history",
-    title: "Muzium Negara — Gallery A (Pre-history)",
+    title: "Muzium Negara: Gallery A (Pre-history)",
     format: "Matterport Digital Twin",
     categories: ["Museum"],
     spaceType: "Museum",
@@ -181,7 +181,7 @@ const RAW_WORKS: Work[] = [
       "A museum walkthrough that helps teams and visitors review Gallery A layout and exhibit flow remotely.",
     helps: "Makes exhibit planning and remote review easier before a visit.",
     body:
-      "Malaysia's National Museum captured Gallery A as a digital twin so curators, educators and visitors can move through the exhibit online — a permanent, accessible record of the current installation used for planning, remote education and archival purposes.",
+      "Malaysia's National Museum captured Gallery A as a digital twin so curators, educators and visitors can move through the exhibit online, a permanent, accessible record of the current installation used for planning, remote education and archival purposes.",
     features: [
       "Full gallery walkthrough with hotspots",
       "Permanent digital record for archival",
@@ -201,7 +201,7 @@ const RAW_WORKS: Work[] = [
       "A showroom walkthrough that helps automotive teams present arrival, display zones, and customer flow online.",
     helps: "Supports sales and client review before an in-person visit.",
     body:
-      "The Porsche Center digital twin brings the arrival experience, showroom brand cues and vehicle display sequence online — sales advisors can pre-brief customers on layout and appointments before they walk in.",
+      "The Porsche Center digital twin brings the arrival experience, showroom brand cues and vehicle display sequence online. Sales advisors can pre-brief customers on layout and appointments before they walk in.",
     features: [
       "Arrival, showroom and after-sales areas captured",
       "Brand-consistent presentation embedded on partner sites",
@@ -222,7 +222,7 @@ const RAW_WORKS: Work[] = [
     helps:
       "Helps event teams review hall scale and movement more confidently before site visits.",
     body:
-      "KLCC's spatial tour eliminates repeated physical site visits for international and out-of-state organisers — hall dimensions, loading dock access, prefunction flow and breakout rooms are all walkable in one shared link.",
+      "KLCC's spatial tour eliminates repeated physical site visits for international and out-of-state organisers. Hall dimensions, loading dock access, prefunction flow and breakout rooms are all walkable in one shared link.",
     features: [
       "Grand and plenary halls captured",
       "Circulation and prefunction spaces visible",
@@ -234,7 +234,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "parkland-residence-kj2",
-    title: "Parkland Residence — Type KJ2 (929 sq ft)",
+    title: "Parkland Residence: Type KJ2 (929 sq ft)",
     format: "Matterport Digital Twin",
     categories: ["Real Estate", "Residential"],
     spaceType: "Residential",
@@ -244,20 +244,20 @@ const RAW_WORKS: Work[] = [
       "929 sq ft Type KJ2 unit with dollhouse & floorplan views, measurement tool and remote exploration.",
     helps: "Helps buyers and agents review the home before site visits.",
     body:
-      "The Type KJ2 unit at Parkland Residence — a 929 sq ft layout — was captured as a Matterport twin, exposing dollhouse and floorplan views, a room-by-room walkthrough and the measurement tool so buyers and agents can verify furniture fit and layout choices remotely.",
+      "The Type KJ2 unit at Parkland Residence, a 929 sq ft layout, was captured as a Matterport twin, exposing dollhouse and floorplan views, a room-by-room walkthrough and the measurement tool so buyers and agents can verify furniture fit and layout choices remotely.",
     features: [
       "929 sq ft Type KJ2 unit fully captured",
       "Dollhouse and floorplan views",
       "Measurement tool for furniture fit",
       "Remote exploration for out-of-town buyers",
     ],
-    impact: "Buyers self-qualify — fewer wasted show-unit visits.",
+    impact: "Buyers self-qualify, resulting in fewer wasted show-unit visits.",
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
   },
   {
     slug: "swarovski-marina-bay-sands-singapore",
-    title: "Swarovski — Marina Bay Sands, Singapore",
+    title: "Swarovski: Marina Bay Sands, Singapore",
     format: "Matterport Digital Twin",
     categories: ["Retail", "Retail Showroom"],
     spaceType: "Retail Showroom",
@@ -277,7 +277,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "pnb-cimb-hub",
-    title: "PNB — CIMB Hub",
+    title: "PNB: CIMB Hub",
     format: "Matterport Digital Twin",
     categories: ["Corporate", "Workspace"],
     spaceType: "Workspace",
@@ -287,17 +287,17 @@ const RAW_WORKS: Work[] = [
       "Doubles as a virtual showcase AND a facility-management tool supporting PNB's digital transformation.",
     helps: "Supports internal alignment and workspace presentation.",
     body:
-      "PNB's CIMB Hub is captured as a digital twin that plays two roles at once — a virtual showcase for stakeholders and partners, and a working facility-management tool that supports PNB's broader digital transformation agenda.",
+      "PNB's CIMB Hub is captured as a digital twin that plays two roles at once: a virtual showcase for stakeholders and partners, and a working facility-management tool that supports PNB's broader digital transformation agenda.",
     features: [
       "Virtual showcase for stakeholders and partners",
       "Facility-management reference for maintenance and space planning",
       "Supports PNB's digital transformation",
     ],
-    impact: "One asset, two workflows — marketing and FM.",
+    impact: "One asset, two workflows: marketing and FM.",
   },
   {
     slug: "huawei-enterprise-business-malaysia-tac-the-icon",
-    title: "Huawei Enterprise Business Malaysia — TAC, The Icon",
+    title: "Huawei Enterprise Business Malaysia: TAC, The Icon",
     format: "Matterport Digital Twin",
     categories: ["Corporate", "Workspace"],
     spaceType: "Workspace",
@@ -337,7 +337,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "sutra-house-sutra-dance-theatre",
-    title: "Sutra House — Sutra Dance Theatre",
+    title: "Sutra House: Sutra Dance Theatre",
     format: "Matterport Digital Twin",
     categories: ["Culture", "Performance Venue"],
     spaceType: "Performance Venue",
@@ -347,7 +347,7 @@ const RAW_WORKS: Work[] = [
       "A venue walkthrough that helps present rehearsal, performance, and spatial context for cultural spaces.",
     helps: "Helps audiences and stakeholders review the venue remotely.",
     body:
-      "The Sutra Dance Theatre — a heritage venue — was captured so cultural institutions, funders and audiences can experience the space and its programming context online.",
+      "The Sutra Dance Theatre, a heritage venue, was captured so cultural institutions, funders and audiences can experience the space and its programming context online.",
     features: [
       "Heritage venue captured with fidelity",
       "Used for cultural funding presentations",
@@ -367,7 +367,7 @@ const RAW_WORKS: Work[] = [
       "A workplace walkthrough that makes corporate layout and meeting areas easier to review online.",
     helps: "Supports stakeholder review and office presentation.",
     body:
-      "Henkel Malaysia uses their digital twin as a corporate virtual onboarding tool — remote candidates and new hires can walk the office, meeting rooms and collaboration spaces before their first day, keeping engagement warm during hiring.",
+      "Henkel Malaysia uses their digital twin as a corporate virtual onboarding tool. Remote candidates and new hires can walk the office, meeting rooms and collaboration spaces before their first day, keeping engagement warm during hiring.",
     features: [
       "Corporate virtual onboarding use case",
       "Remote employee engagement during hiring",
@@ -388,7 +388,7 @@ const RAW_WORKS: Work[] = [
     helps:
       "Supports leasing and membership conversations with clearer space context.",
     body:
-      "WORQ's KL Sentral hub was captured so membership prospects can preview desks, meeting rooms and lounge areas online — every enquiry can be answered with a tour link.",
+      "WORQ's KL Sentral hub was captured so membership prospects can preview desks, meeting rooms and lounge areas online, so every enquiry can be answered with a tour link.",
     features: [
       "Desks, meeting rooms and lounge captured",
       "Used for membership and enterprise leasing",
@@ -418,7 +418,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "port-dickson-360-tour",
-    title: "Port Dickson — Destination 360°",
+    title: "Port Dickson: Destination 360°",
     format: "360° Virtual Tour",
     categories: ["Hospitality"],
     spaceType: "Hospitality",
@@ -429,7 +429,7 @@ const RAW_WORKS: Work[] = [
     helps:
       "Helps audiences preview the destination quickly on mobile, web, and shared links.",
     body:
-      "Port Dickson's destination tour bundles the coastline, marina and key hospitality landmarks into a lightweight, mobile-first 360° experience — perfect for social, WhatsApp and OTA discovery.",
+      "Port Dickson's destination tour bundles the coastline, marina and key hospitality landmarks into a lightweight, mobile-first 360° experience, perfect for social, WhatsApp and OTA discovery.",
     features: [
       "Coastline, marina and hospitality landmarks",
       "Lightweight, mobile-first delivery",
@@ -477,7 +477,7 @@ const RAW_WORKS: Work[] = [
       "Multiple furnishing schemes explored",
       "Reusable across brochures and portals",
     ],
-    impact: "Buyers visualise the finished space earlier — faster commitment.",
+    impact: "Buyers visualise the finished space earlier, leading to faster commitment.",
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",
   },
@@ -493,7 +493,7 @@ const RAW_WORKS: Work[] = [
       "A dining-space walkthrough that helps guests and teams review layout and atmosphere remotely.",
     helps: "Supports brand presentation and reservation confidence.",
     body:
-      "De.Wan 1958's digital twin captures the restaurant's design language and dining flow — perfect for group bookings and private-event enquiries.",
+      "De.Wan 1958's digital twin captures the restaurant's design language and dining flow, perfect for group bookings and private-event enquiries.",
     features: [
       "Full restaurant walkthrough",
       "Private dining and event areas visible",
@@ -503,7 +503,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "private-jet-falcon-7x",
-    title: "Private Jet — Falcon 7X",
+    title: "Private Jet: Falcon 7X",
     format: "Matterport Digital Twin",
     categories: ["Aviation", "Private Jet"],
     spaceType: "Private Jet",
@@ -513,52 +513,52 @@ const RAW_WORKS: Work[] = [
       "A premium transport walkthrough that presents cabin detail, layout, and spatial finish online.",
     helps: "Supports high-touch sales and remote inspection.",
     body:
-      "The Falcon 7X cabin was captured for remote high-touch sales — brokers can walk clients through the aircraft interior at any hour, with measurement tools for cabin dimensions.",
+      "The Falcon 7X cabin was captured for remote high-touch sales. Brokers can walk clients through the aircraft interior at any hour, with measurement tools for cabin dimensions.",
     features: [
       "Cabin interior fully walkable",
       "Measurement tool for cabin dimensions",
       "Used for remote pre-inspection",
     ],
-    impact: "Sales cycles compress — buyers pre-inspect from anywhere.",
+    impact: "Sales cycles compress as buyers pre-inspect from anywhere.",
   },
   /* ---------- NEW case studies (2.4) ---------- */
   {
     slug: "confetti-kuala-lumpur",
-    title: "Confetti Kuala Lumpur — Wedding Halls & Ballrooms",
+    title: "Confetti Kuala Lumpur: Wedding Halls & Ballrooms",
     format: "Matterport Digital Twin",
     categories: ["Hospitality", "Event Venue"],
     spaceType: "Hospitality",
     category: "hospitality",
     image: img("confetti_kl.jpg"),
     summary:
-      "Wedding halls, ballrooms, honeymoon suites and themed bars — all explorable online.",
+      "Wedding halls, ballrooms, honeymoon suites and themed bars, all explorable online.",
     helps: "Supports event planning and booking decisions.",
     body:
-      "Confetti KL's full property was captured as one integrated digital twin — wedding halls, ballrooms, honeymoon suites and themed bars, all walkable from a single link. Couples, wedding planners and MICE buyers can compare rooms and finalise setup before a physical visit.",
+      "Confetti KL's full property was captured as one integrated digital twin: wedding halls, ballrooms, honeymoon suites and themed bars, all walkable from a single link. Couples, wedding planners and MICE buyers can compare rooms and finalise setup before a physical visit.",
     features: [
       "Wedding halls, ballrooms and honeymoon suites captured",
       "Themed bars included for F&B decisions",
       "Supports event planning and booking decisions",
       "Live tour: https://my.matterport.com/show/?m=UBz2L8ZyT8S",
     ],
-    impact: "Every enquiry starts with the twin — booking decisions move earlier.",
+    impact: "Every enquiry starts with the twin, so booking decisions move earlier.",
     tourUrl: "https://my.matterport.com/show/?m=UBz2L8ZyT8S",
     relatedService: "hospitality-digital-twins",
     relatedServiceLabel: "Hospitality Digital Twins",
   },
   {
     slug: "shell-360-training",
-    title: "Shell — 360° Safety Training Platform",
+    title: "Shell: 360° Safety Training Platform",
     format: "Interactive 360° Training",
     categories: ["Industrial", "Training"],
     spaceType: "Training Platform",
     category: "aerial",
     image: img("shell_training.jpg"),
     summary:
-      "An interactive 360° safety-training platform for oil & gas — aerial 360° views, guided steps, and info tags.",
+      "An interactive 360° safety-training platform for oil & gas, with aerial 360° views, guided steps, and info tags.",
     helps: "Delivers standardised safety training without deploying trainers on site.",
     body:
-      "Shell's interactive 360° safety-training platform combines aerial 360° views of the site with guided step navigation, info tags and checklist call-out forms — turning a scattered training programme into one browsable, auditable experience.",
+      "Shell's interactive 360° safety-training platform combines aerial 360° views of the site with guided step navigation, info tags and checklist call-out forms, turning a scattered training programme into one browsable, auditable experience.",
     features: [
       "Aerial 360° views of the operational site",
       "Guided step navigation through the training flow",
@@ -569,17 +569,17 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "flora-hijauan-gombak",
-    title: "Flora Hijauan Gombak — Type A / B / C Units",
+    title: "Flora Hijauan Gombak: Type A / B / C Units",
     format: "3D 360° Rendered Tour",
     categories: ["Real Estate", "Residential", "CGI"],
     spaceType: "Residential",
     category: "real-estate",
     image: img("flora_hijauan.jpg"),
     summary:
-      "3D 360° rendered tours of unbuilt Type A/B/C units plus aerial 360° context — pre-sales without physical visits.",
+      "3D 360° rendered tours of unbuilt Type A/B/C units plus aerial 360° context, enabling pre-sales without physical visits.",
     helps: "Enables pre-sales for developments that don't yet exist physically.",
     body:
-      "Flora Hijauan Gombak's Type A, B and C unit layouts were rendered as immersive 3D 360° tours before construction, paired with aerial 360° site context — letting the developer take pre-sales enquiries with a fully explorable virtual show unit in place of a costly physical gallery.",
+      "Flora Hijauan Gombak's Type A, B and C unit layouts were rendered as immersive 3D 360° tours before construction, paired with aerial 360° site context, letting the developer take pre-sales enquiries with a fully explorable virtual show unit in place of a costly physical gallery.",
     features: [
       "Type A, B and C units rendered in 3D 360°",
       "Aerial 360° site context included",
@@ -599,7 +599,7 @@ const RAW_WORKS: Work[] = [
     category: "hospitality",
     image: img("royal_lexis_kl.jpg"),
     summary:
-      "360° tour of suites and amenities — stronger online engagement and booking confidence.",
+      "360° tour of suites and amenities, for stronger online engagement and booking confidence.",
     helps: "Boosts online engagement and booking confidence.",
     body:
       "Royal Lexis KL uses a 360° virtual tour of its suites and shared amenities to drive stronger online engagement, and to give bookers the confidence to lock premium rooms without physical inspection.",
@@ -614,7 +614,7 @@ const RAW_WORKS: Work[] = [
   },
   {
     slug: "meshtech",
-    title: "Meshtech — HD 360° Corporate Showroom",
+    title: "Meshtech: HD 360° Corporate Showroom",
     format: "HD 360° Tour",
     categories: ["Corporate", "Showroom"],
     spaceType: "Showroom",
@@ -624,17 +624,17 @@ const RAW_WORKS: Work[] = [
       "HD 360° corporate showroom tour for a technology brand's client-facing experience.",
     helps: "Supports client-facing showroom preview at broadcast fidelity.",
     body:
-      "Meshtech's HD 360° tour brings their corporate showroom online at broadcast fidelity — used by sales teams to preview the space with clients before scheduling on-site demos.",
+      "Meshtech's HD 360° tour brings their corporate showroom online at broadcast fidelity, used by sales teams to preview the space with clients before scheduling on-site demos.",
     features: [
       "HD 360° capture for maximum fidelity",
       "Used for client-facing pre-demo previews",
       "Embedded on the corporate site and sales decks",
     ],
-    impact: "Client demos start warmer — the showroom is already familiar.",
+    impact: "Client demos start warmer, as the showroom is already familiar.",
   },
   {
     slug: "jerry-coworking-sri-hartamas",
-    title: "Jerry Coworking — Sri Hartamas",
+    title: "Jerry Coworking: Sri Hartamas",
     format: "Immersive Coworking Tour",
     categories: ["Corporate", "Coworking"],
     spaceType: "Workspace",
@@ -644,7 +644,7 @@ const RAW_WORKS: Work[] = [
       "Immersive coworking tour used for member acquisition and virtual community engagement.",
     helps: "Supports member acquisition without repeat viewings.",
     body:
-      "Jerry Coworking in Sri Hartamas captured their space as an immersive tour used across their member acquisition funnel — prospects walk the space, community areas and phone booths online before booking a trial day.",
+      "Jerry Coworking in Sri Hartamas captured their space as an immersive tour used across their member acquisition funnel. Prospects walk the space, community areas and phone booths online before booking a trial day.",
     features: [
       "Full coworking floor captured immersively",
       "Community areas and phone booths visible",
@@ -675,14 +675,14 @@ const RAW_WORKS: Work[] = [
       "Video walkthrough embedded alongside the tour",
       "One shareable link for agents and buyers",
     ],
-    impact: "Fewer speculative site visits — buyers arrive already convinced.",
+    impact: "Fewer speculative site visits, as buyers arrive already convinced.",
     tourUrl: "https://virtualproperty.my/360tour/royallexis/",
     relatedService: "cgi-360-panorama-tours",
     relatedServiceLabel: "CGI 360° Panorama Tours",
   },
   {
     slug: "maeps",
-    title: "MAEPS — Malaysia Agro Exposition Park",
+    title: "MAEPS: Malaysia Agro Exposition Park",
     format: "360° Virtual Tour",
     categories: ["Exhibition & Events"],
     spaceType: "Exhibition & Events",
@@ -746,7 +746,7 @@ const RAW_WORKS: Work[] = [
       "A city and local-tourism digital twin for the Seremban city council, opening the destination to remote visitors.",
     helps: "Puts the city's landmarks online for tourism and civic promotion.",
     body:
-      "Majlis Bandaraya Seremban commissioned a city digital twin that presents key civic and tourism landmarks as an explorable online destination. It serves both citizens and visitors — a single, always-available window into the city.",
+      "Majlis Bandaraya Seremban commissioned a city digital twin that presents key civic and tourism landmarks as an explorable online destination. It serves both citizens and visitors, a single, always-available window into the city.",
     features: [
       "Digital twin of civic and tourism landmarks",
       "Public-facing, always available",

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, Ruler, Repeat, LineChart } from "lucide-react";
 import { PUBLISHED_BANDS, SUBSCRIPTION_LINE, TC_LINE } from "@/lib/pricing";
 
-/** "What your twin does every month" — recurring-value reframe. */
+/** "What your twin does every month": recurring-value reframe. */
 export function MonthlyValue({
   bullets,
   intro,
@@ -35,14 +35,14 @@ export function MonthlyValue({
         ))}
       </ul>
       <p className="mt-6 text-sm text-emerald-200">
-        Capture once. Keep it working — hosting &amp; subscription from
+        Capture once. Keep it working, hosting &amp; subscription from
         <span className="text-emerald-300"> RM499/month</span>.
       </p>
     </section>
   );
 }
 
-/** Published price bands — services hub + hospitality. */
+/** Published price bands - services hub + hospitality. */
 export function PricingBands({ id = "pricing" }: { id?: string }) {
   return (
     <section
@@ -57,7 +57,7 @@ export function PricingBands({ id = "pricing" }: { id?: string }) {
       </h2>
       <p className="mt-4 max-w-3xl text-sm text-neutral-400 leading-relaxed">
         Every space is different. These starting bands cover our most common
-        engagements — final quotes are confirmed after a free scoping walkthrough.
+        engagements; final quotes are confirmed after a free scoping walkthrough.
       </p>
       <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {PUBLISHED_BANDS.map((b) => (
@@ -81,7 +81,7 @@ export function PricingBands({ id = "pricing" }: { id?: string }) {
   );
 }
 
-/** Verified-by-scan explainer strip — services + industries hub. */
+/** Verified-by-scan explainer strip - services + industries hub. */
 export function VerifiedByScanStrip() {
   return (
     <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
@@ -95,7 +95,7 @@ export function VerifiedByScanStrip() {
           </div>
         </div>
         <p className="text-sm text-neutral-300 leading-relaxed">
-          Every Novo Reperio twin is measured geometry — dimensions and layouts
+          Every Novo Reperio twin is measured geometry, dimensions and layouts
           you can verify inside the tour, not marketing copy.{" "}
           <Link to="/methodology" className="text-emerald-300 hover:text-emerald-200 underline-offset-4 hover:underline inline-flex items-center gap-1">
             How scan-verified measurement works <ArrowRight size={12} />
@@ -106,7 +106,7 @@ export function VerifiedByScanStrip() {
   );
 }
 
-/** Free/open layer statement — /services hub + /about. */
+/** Free/open layer statement - /services hub + /about. */
 export function FreeOpenLayer() {
   return (
     <section className="px-6 md:px-24 py-14 border-b border-neutral-900">

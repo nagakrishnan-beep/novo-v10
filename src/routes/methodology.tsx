@@ -4,7 +4,7 @@ import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome"
 import { abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
-const TITLE = "How scan-verified measurement works — Methodology | Novo Reperio";
+const TITLE = "How scan-verified measurement works: Methodology | Novo Reperio";
 const DESCRIPTION =
   "Every Novo Reperio digital twin is measured geometry. Here is how our Matterport and LiDAR capture, measurement, and freshness process actually works.";
 const URL = abs("/methodology");
@@ -34,15 +34,15 @@ export const Route = createFileRoute("/methodology")({
 const STEPS = [
   {
     title: "1 · Measured capture, not photography",
-    body: "Every Novo Reperio twin is captured with either Matterport Pro3 LiDAR or survey-grade terrestrial LiDAR. The output is a registered point cloud — real geometry — from which the visible twin, the 2D floorplan and any BIM deliverable are derived. Nothing in the tour is modelled from imagination.",
+    body: "Every Novo Reperio twin is captured with either Matterport Pro3 LiDAR or survey-grade terrestrial LiDAR. The output is a registered point cloud (real geometry) from which the visible twin, the 2D floorplan and any BIM deliverable are derived. Nothing in the tour is modelled from imagination.",
   },
   {
     title: "2 · Dimensions come from the capture, not the copy",
-    body: "Inside the tour you can measure walls, doors, ceiling heights, corridor widths and window openings directly. Those numbers come from LiDAR — not from a spec sheet, not from a legacy CAD file. When you compare our tour to a room, they should agree.",
+    body: "Inside the tour you can measure walls, doors, ceiling heights, corridor widths and window openings directly. Those numbers come from LiDAR, not from a spec sheet, not from a legacy CAD file. When you compare our tour to a room, they should agree.",
   },
   {
-    title: "3 · Capacity figures — how they should be derived",
-    body: "Room capacity is not a Matterport output. Capacity is the measured usable floor area multiplied by a stated layout standard (banquet / theatre / classroom / cabaret / standing) provided by the venue operator. Where a work page shows a capacity number, that number comes from the client's own standard — never from us.",
+    title: "3 · Capacity figures: how they should be derived",
+    body: "Room capacity is not a Matterport output. Capacity is the measured usable floor area multiplied by a stated layout standard (banquet / theatre / classroom / cabaret / standing) provided by the venue operator. Where a work page shows a capacity number, that number comes from the client's own standard, never from us.",
   },
   {
     title: "4 · Freshness dating",
@@ -64,7 +64,7 @@ function MethodologyPage() {
             How scan-verified measurement works.
           </h1>
           <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
-            Every Novo Reperio twin is measured geometry — dimensions and layouts
+            Every Novo Reperio twin is measured geometry, dimensions and layouts
             you can verify inside the tour, not marketing copy. Here is the
             process behind that claim.
           </p>
@@ -81,7 +81,7 @@ function MethodologyPage() {
 
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
-            Capacity standards — pending client input
+            Capacity standards: pending client input
           </div>
           <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
             Layout standards used to derive capacity from measured area.
@@ -115,7 +115,7 @@ function MethodologyPage() {
           <p className="mt-4 text-xs font-mono text-neutral-500">
             We do not publish capacity numbers we cannot back with a stated
             standard. When your operator confirms the sqm-per-pax it uses, this
-            table fills in — and so do the capacity fields on your venue's work
+            table fills in, and so do the capacity fields on your venue's work
             page.
           </p>
         </section>

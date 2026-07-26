@@ -19,9 +19,9 @@ import {
   type ServiceCluster,
 } from "@/lib/services";
 
-const TITLE = "Services — Novo Reperio | Market It · Build It · Train In It · Plan It";
+const TITLE = "Services | Novo Reperio | Market It · Build It · Train In It · Plan It";
 const DESCRIPTION =
-  "Four service tracks — market it (property marketing & CGI), build it (Scan-to-BIM, progress capture, FM twins), train in it (immersive training), plan it (urban digital twins).";
+  "Four service tracks: market it (property marketing & CGI), build it (Scan-to-BIM, progress capture, FM twins), train in it (immersive training), plan it (urban digital twins).";
 const URL = abs("/services");
 
 const DOORS: {
@@ -79,7 +79,7 @@ function ServicesPage() {
           Four ways to put your space to work.
         </h1>
         <p className="mt-6 max-w-3xl text-sm md:text-base text-neutral-300 leading-relaxed">
-          Novo Reperio delivers across four outcome tracks — from marketing an
+          Novo Reperio delivers across four outcome tracks, from marketing an
           existing space to planning an entire city. Pick the door that matches
           the job.
         </p>

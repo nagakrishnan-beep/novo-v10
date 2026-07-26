@@ -11,7 +11,7 @@ const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
 const SERVICE_VIDEOS: Record<string, { videoId: string; title: string }> = {
   "spatial-capture-digital-twins": {
     videoId: "U-VXk6MdxSI",
-    title: "Matterport measurement tool — measure any space from the twin",
+    title: "Matterport measurement tool: measure any space from the twin",
   },
 };
 
@@ -47,7 +47,7 @@ function altFromFilename(file: string): string {
     .replace(/[-_]+/g, " ")
     .replace(/\b(\d)\b/g, "$1")
     .trim();
-  return `${base.charAt(0).toUpperCase()}${base.slice(1)} — Novo Reperio`;
+  return `${base.charAt(0).toUpperCase()}${base.slice(1)} | Novo Reperio`;
 }
 
 
@@ -61,13 +61,13 @@ export const Route = createFileRoute("/services/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Service not found — Novo Reperio" },
+          { title: "Service not found | Novo Reperio" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const s = loaderData.service;
-    const title = `${s.title} — Novo Reperio`;
+    const title = `${s.title} | Novo Reperio`;
     const desc = s.tagline;
     return {
       meta: [

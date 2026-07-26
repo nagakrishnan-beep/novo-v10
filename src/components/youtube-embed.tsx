@@ -11,7 +11,7 @@ export type YouTubeEmbedProps = {
 
 /**
  * Click-to-play YouTube facade. No iframe (and no third-party JS) until the
- * user actually clicks — keeps LCP/INP clean. Emits VideoObject JSON-LD.
+ * user actually clicks, keeping LCP/INP clean. Emits VideoObject JSON-LD.
  */
 export function YouTubeEmbed({
   videoId,

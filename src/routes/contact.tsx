@@ -15,16 +15,16 @@ import {
   abs,
 } from "@/lib/site";
 
-const TITLE = "Contact — Start Your Spatial Project | Novo Reperio";
+const TITLE = "Contact: Start Your Spatial Project | Novo Reperio";
 const DESCRIPTION =
   "Tell us about your space, launch or venue. Novo Reperio replies within one working day with a recommended capture and delivery plan.";
 
 const STEPS = [
-  { step: "01", title: "Share your goals", body: "Tell us the space, audience and outcome. A venue enquiry, a launch, a facility record — we treat each brief on its own terms." },
+  { step: "01", title: "Share your goals", body: "Tell us the space, audience and outcome. A venue enquiry, a launch, a facility record: we treat each brief on its own terms." },
   { step: "02", title: "We recommend the right mix", body: "Within one working day you receive a proposed mix of Matterport, 360°, aerial, CGI and delivery formats scoped to your goals." },
   { step: "03", title: "Site visit or virtual walkthrough", body: "For local projects we visit the site. For remote projects we do a video walkthrough to confirm access, timing and coverage." },
-  { step: "04", title: "Capture and production", body: "Our team handles capture, edit, colour and post — coordinated with your marketing, PR or handover milestones." },
-  { step: "05", title: "Delivery and activation", body: "Final tour, files or microsite delivered where they will have the most impact — web, QR, deck or client presentation." },
+  { step: "04", title: "Capture and production", body: "Our team handles capture, edit, colour and post, coordinated with your marketing, PR or handover milestones." },
+  { step: "05", title: "Delivery and activation", body: "Final tour, files or microsite delivered where they will have the most impact, web, QR, deck or client presentation." },
 ];
 
 const METHODS = [
@@ -94,7 +94,7 @@ function ContactPage() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Please enter a valid email.");
     if (!message || message.length > 4000) return fail("Please add a message (max 4000 chars).");
 
-    // honeypot (two fields — legacy company_website + Web3Forms `botcheck`)
+    // honeypot (two fields: legacy company_website + Web3Forms `botcheck`)
     if ((data.get("company_website") as string)?.length) return; // silent drop
     if ((data.get("botcheck") as string)?.length) return; // silent drop
 
@@ -108,17 +108,17 @@ function ContactPage() {
     // Compose a labeled block so the resulting ClickUp task email is readable.
     const composed = [
       `Name: ${name}`,
-      `Company: ${company || "—"}`,
+      `Company: ${company || "Not provided"}`,
       `Email: ${email}`,
-      `Phone: ${phone || "—"}`,
-      `Location: ${location || "—"}`,
+      `Phone: ${phone || "Not provided"}`,
+      `Location: ${location || "Not provided"}`,
       ``,
       `Needs:`,
       message,
     ].join("\n");
 
     data.set("access_key", WEB3FORMS_ACCESS_KEY);
-    data.set("subject", "New enquiry — Novo Reperio website");
+    data.set("subject", "New enquiry: Novo Reperio website");
     data.set("from_name", name);
     data.set("replyto", email);
     data.set("message", composed);
@@ -158,7 +158,7 @@ function ContactPage() {
         <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
           Share a few details about your space, launch or venue. We'll come back
           within one working day with a recommended capture, production and
-          delivery plan — tailored to your audience and timeline.
+          delivery plan, tailored to your audience and timeline.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <a
@@ -225,7 +225,7 @@ function ContactPage() {
             <h3 className="text-xl text-white font-light">Brief received.</h3>
             <p className="mt-3 text-neutral-400 leading-relaxed text-sm">
               We'll come back within one working day with a recommended capture and
-              delivery plan. For urgent enquiries, WhatsApp is fastest —{" "}
+              delivery plan. For urgent enquiries, WhatsApp is fastest:{" "}
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-cyan-300 hover:text-cyan-200">
                 {WHATSAPP_PHONE}
               </a>.
@@ -240,7 +240,7 @@ function ContactPage() {
           </div>
         ) : (
           <form onSubmit={onSubmit} noValidate className="space-y-4">
-            {/* honeypots — must remain empty; bots fill them */}
+            {/* honeypots - must remain empty; bots fill them */}
             <input
               type="text"
               name="company_website"

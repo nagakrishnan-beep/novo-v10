@@ -4,15 +4,15 @@ import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/s
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 
-const TITLE = "Urban & Masterplan Digital Twins Malaysia | City-Scale 3D with Data Overlay — Novo Reperio";
+const TITLE = "Urban & Masterplan Digital Twins Malaysia | City-Scale 3D with Data Overlay | Novo Reperio";
 const DESCRIPTION =
-  "Digital twins at building, township, city and state scale — real-time visualisation with GIS, planning, traffic and public-safety overlays.";
+  "Digital twins at building, township, city and state scale: real-time visualisation with GIS, planning, traffic and public-safety overlays.";
 const URL = abs("/services/urban-digital-twins");
 
 const FAQ = [
   { q: "What is a city-scale digital twin?", a: "A city-scale digital twin is a real-time 3D model of a township, city or state that combines reality capture (LiDAR, aerial, photogrammetry) with data layers (GIS, planning, traffic, utilities). Authorities, developers and planners use it to visualise upcoming projects in their true surroundings and to compare scenarios before committing." },
-  { q: "How are digital twins used in urban planning?", a: "They let planners see phasing, density, zoning, sun/shadow and traffic impact of a proposal in the actual context of the surrounding city — not on a flat plan. Stakeholders review the same shared model, and Plan A vs Plan B can be compared side-by-side in real time." },
-  { q: "Can digital twins support fire and emergency planning?", a: "Yes. Public-safety and resilience overlays — fire and rescue access, hydrant and asset positions, evacuation routes, and flood or utility layers — turn the twin into a shared operational picture for emergency planning and response drills." },
+  { q: "How are digital twins used in urban planning?", a: "They let planners see phasing, density, zoning, sun/shadow and traffic impact of a proposal in the actual context of the surrounding city, not on a flat plan. Stakeholders review the same shared model, and Plan A vs Plan B can be compared side-by-side in real time." },
+  { q: "Can digital twins support fire and emergency planning?", a: "Yes. Public-safety and resilience overlays (fire and rescue access, hydrant and asset positions, evacuation routes, and flood or utility layers) turn the twin into a shared operational picture for emergency planning and response drills." },
 ];
 
 const CAPABILITIES = [
@@ -71,11 +71,11 @@ function Page() {
           PLAN IT · Urban & Masterplan Digital Twins
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
-          From a single building to an entire city — visualised, before it's built.
+          From a single building to an entire city, visualised, before it's built.
         </h1>
         <p className="mt-6 max-w-3xl text-sm md:text-base text-neutral-300 leading-relaxed">
-          Novo Reperio builds digital twins at every scale — building, township, city
-          and state — combining reality capture with real-time 3D so planners,
+          Novo Reperio builds digital twins at every scale (building, township, city
+          and state), combining reality capture with real-time 3D so planners,
           authorities and developers can visualise upcoming projects in context and
           overlay the data that matters.
         </p>
@@ -98,7 +98,7 @@ function Page() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <MediaSlot label="UE5 MASTERPLAN CLIP — PENDING" />
+        <MediaSlot label="UE5 MASTERPLAN CLIP: PENDING" />
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
@@ -115,7 +115,7 @@ function Page() {
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
-          Our most advanced engagement — scoped per project
+          Our most advanced engagement: scoped per project
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {CAPABILITIES.map((c) => (
@@ -139,7 +139,7 @@ function Page() {
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
-          Urban digital twins — common questions
+          Urban digital twins: common questions
         </h2>
         <div className="space-y-6 max-w-4xl">
           {FAQ.map((f) => (

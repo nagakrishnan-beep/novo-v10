@@ -1,11 +1,11 @@
 // Novo Reperio published pricing bands (MYR).
-// Do not invent values — every number below is fixed by Phase B brief.
+// Do not invent values. Every number below is fixed by Phase B brief.
 
 export const SUBSCRIPTION_MYR = 499;
 export const SUBSCRIPTION_LINE =
   "Keep it live: hosting & virtual-tour subscription from RM499/month";
 export const TC_LINE =
-  "Indicative only — final quote after a free scoping consultation. Terms & conditions apply.";
+  "Indicative only, final quote after a free scoping consultation. Terms & conditions apply.";
 
 export type SpaceType =
   | "airbnb"
@@ -46,17 +46,17 @@ export const BASE_PRICING: Record<
   hotel: {
     kind: "custom",
     label:
-      "Custom scope — sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
+      "Custom scope, sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
   },
   office: {
     kind: "custom",
     label:
-      "Custom scope — sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
+      "Custom scope, sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
   },
   "large-venue": {
     kind: "custom",
     label:
-      "Custom scope — sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
+      "Custom scope, sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
   },
 };
 
@@ -72,7 +72,7 @@ export function estimate(type: SpaceType, size: SizeBand): EstimateResult {
   if (size === "10000-plus") {
     return {
       headline:
-        "Custom scope — sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
+        "Custom scope, sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
       fromPrice: null,
       isCustom: true,
     };
@@ -86,7 +86,7 @@ export function estimate(type: SpaceType, size: SizeBand): EstimateResult {
       headline: base.label,
       fromPrice: base.from ?? null,
       isCustom: false,
-      note: "Larger areas scoped per sqm — final band confirmed after a walkthrough.",
+      note: "Larger areas scoped per sqm, final band confirmed after a walkthrough.",
     };
   }
   return { headline: base.label, fromPrice: base.from ?? null, isCustom: false };
@@ -98,25 +98,25 @@ export const PUBLISHED_BANDS = [
     key: "airbnb",
     title: "Airbnb / Homestay",
     price: "from RM988",
-    body: "Matterport capture for short-stay listings — one visit, hosted twin, embed-ready link.",
+    body: "Matterport capture for short-stay listings: one visit, hosted twin, embed-ready link.",
   },
   {
     key: "residential",
     title: "Residential or Show Unit",
     price: "from RM2,599",
-    body: "Show units, condos and landed homes — walkable twin with measurement and floorplan.",
+    body: "Show units, condos and landed homes: walkable twin with measurement and floorplan.",
   },
   {
     key: "commercial",
     title: "Commercial / Showroom",
     price: "from RM2,599",
-    body: "Retail, showrooms and small commercial floors — capture, host and embed on your site.",
+    body: "Retail, showrooms and small commercial floors: capture, host and embed on your site.",
   },
   {
     key: "event-space",
     title: "Small Event Space / F&B",
     price: "from RM5,999",
-    body: "Restaurants, cafés, function rooms and boutique venues — planner-ready twin with prefunction coverage.",
+    body: "Restaurants, cafés, function rooms and boutique venues: planner-ready twin with prefunction coverage.",
   },
   {
     key: "custom",
@@ -135,9 +135,9 @@ export const PUBLISHED_BANDS = [
 /** Emit Offer objects for Service schema. */
 export function offersForServiceSchema() {
   return [
-    offer(988, "Matterport capture — Airbnb / Homestay"),
-    offer(2599, "Matterport capture — Residential or Show Unit / Commercial or Showroom"),
-    offer(5999, "Matterport capture — Small Event Space / F&B"),
+    offer(988, "Matterport capture: Airbnb / Homestay"),
+    offer(2599, "Matterport capture: Residential or Show Unit / Commercial or Showroom"),
+    offer(5999, "Matterport capture: Small Event Space / F&B"),
     subscriptionOffer(),
   ];
 }
@@ -163,7 +163,7 @@ function subscriptionOffer() {
     priceCurrency: "MYR",
     price: 499,
     availability: "https://schema.org/InStock",
-    description: "Hosting & virtual-tour subscription — keeps the twin live, embeddable and analytics-tracked.",
+    description: "Hosting & virtual-tour subscription, keeps the twin live, embeddable and analytics-tracked.",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
       priceCurrency: "MYR",
@@ -190,7 +190,7 @@ export function whatsappEstimateUrl(
       ? `${result.headline}`
       : result.headline;
   const text = [
-    "Hi Novo Reperio — I just used the scope estimator.",
+    "Hi Novo Reperio, I just used the scope estimator.",
     `Space: ${typeLabel}`,
     `Size: ${sizeLabel}`,
     `Result: ${line}`,

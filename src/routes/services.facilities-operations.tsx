@@ -6,15 +6,15 @@ import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
-const TITLE = "Facilities Management Digital Twins Malaysia | Asset-Tagged 3D Operations — Novo Reperio";
+const TITLE = "Facilities Management Digital Twins Malaysia | Asset-Tagged 3D Operations | Novo Reperio";
 const DESCRIPTION =
-  "Operational digital twins for facilities teams — asset registers, room-by-room documentation, and remote contractor briefing without a site visit.";
+  "Operational digital twins for facilities teams: asset registers, room-by-room documentation, and remote contractor briefing without a site visit.";
 const URL = abs("/services/facilities-operations");
 
 const SECTIONS = [
   { t: "Asset-tagged twins", b: "Every piece of equipment tagged in place, linked to manuals, contracts and inspection history." },
   { t: "Space & inventory registers", b: "Room-by-room documentation that stays in sync with the physical building." },
-  { t: "Remote contractor & vendor briefing", b: "Quote and brief works without a site visit — measurable twin, hotspots, references." },
+  { t: "Remote contractor & vendor briefing", b: "Quote and brief works without a site visit, measurable twin, hotspots, references." },
   { t: "Insurance-grade condition documentation", b: "A dated, walkable record you can hand to insurers, auditors, or new owners." },
   { t: "Virtual onboarding for new FM staff", b: "New team members walk the building on day one, from anywhere." },
 ];
@@ -71,7 +71,7 @@ function Page() {
         </h1>
         <p className="mt-6 max-w-3xl text-sm md:text-base text-neutral-300 leading-relaxed">
           An operational digital twin gives facilities teams a live, navigable model of
-          their building — asset registers, room-by-room documentation, and contractor
+          their building: asset registers, room-by-room documentation, and contractor
           briefing without a site visit.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
@@ -93,7 +93,7 @@ function Page() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <MediaSlot label="FACILITIES DIGITAL TWIN — PENDING" />
+        <MediaSlot label="FACILITIES DIGITAL TWIN: PENDING" />
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
@@ -146,12 +146,12 @@ function Page() {
       </section>
 
       <MonthlyValue
-        intro="An FM twin is a living record — most of the value shows up month after month."
+        intro="An FM twin is a living record; most of the value shows up month after month."
         bullets={[
-          "Hosted, embed-ready twin — asset registers, room documentation and contractor brief packs from one link.",
-          "Usage analytics — see how often assets and rooms are inspected remotely by FM and contractors.",
-          "Scheduled recapture — refit and tenant-change captures keep the twin aligned with the physical building.",
-          "FM integrations — asset registers, inspection history and vendor contracts wired to each tagged asset.",
+          "Hosted, embed-ready twin, asset registers, room documentation and contractor brief packs from one link.",
+          "Usage analytics, see how often assets and rooms are inspected remotely by FM and contractors.",
+          "Scheduled recapture, refit and tenant-change captures keep the twin aligned with the physical building.",
+          "FM integrations, asset registers, inspection history and vendor contracts wired to each tagged asset.",
         ]}
       />
 

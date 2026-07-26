@@ -36,7 +36,7 @@ export function LaserTrail() {
   const gy = useSpring(y, { damping: 40, stiffness: 140, mass: 0.8 });
 
   const ringScale = useTransform([] as never, () => 1);
-  // (ringScale unused — we use CSS class scale via `hovered` instead for crisp toggling.)
+  // (ringScale unused - we use CSS class scale via `hovered` instead for crisp toggling.)
 
   useEffect(() => {
     if (reduced) return;

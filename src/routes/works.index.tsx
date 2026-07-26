@@ -5,7 +5,7 @@ import { WORKS, SPACE_TYPES, WORK_CATEGORIES, type Work } from "@/lib/works";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs } from "@/lib/site";
 
-const TITLE = "Selected Projects — Novo Reperio";
+const TITLE = "Selected Projects | Novo Reperio";
 const DESCRIPTION =
   "Immersive work for venues, ballrooms, showrooms, destinations and workplaces. Matterport, 360°, CGI and UE5 visualisation projects across Malaysia and beyond.";
 
@@ -120,7 +120,7 @@ function WorksPage() {
         </section>
       )}
 
-      {/* Category pillars — primary browse path */}
+      {/* Category pillars - primary browse path */}
       <section className="px-6 md:px-24 pt-20 md:pt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Browse by category
@@ -242,7 +242,7 @@ function WorkThumb({ work }: { work: Work }) {
       <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-900">
         <img
           src={work.image}
-          alt={`${work.title} — ${work.categories.join(", ")}`}
+          alt={`${work.title}: ${work.categories.join(", ")}`}
           loading="lazy"
           className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
         />

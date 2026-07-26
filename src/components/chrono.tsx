@@ -28,7 +28,7 @@ type IntensityCtx = {
   /** raw absolute velocity (0 - ~5) */
   velocity: MotionValue<number>;
   scrollY: MotionValue<number>;
-  /** 0-1, time-of-day (0=dawn, .33=day, .66=dusk, 1=night) — client-set */
+  /** 0-1, time-of-day (0=dawn, .33=day, .66=dusk, 1=night) - client-set */
   chrono: number;
   reduced: boolean;
 };

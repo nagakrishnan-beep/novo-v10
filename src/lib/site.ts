@@ -1,11 +1,11 @@
-// Global site constants — used everywhere for consistency & SEO.
+// Global site constants: used everywhere for consistency & SEO.
 export const SITE_NAME = "Novo Reperio";
 export const LEGAL_NAME = "Novo Reperio Sdn Bhd";
 export const BASE_URL = "https://novo-v10.lovable.app";
 
 export const PHONE = "+603 6200 0685";
 export const PHONE_TEL = "+60362000685";
-/** Mobile line used for WhatsApp only — different from the office direct line. */
+/** Mobile line used for WhatsApp only, different from the office direct line. */
 export const WHATSAPP_PHONE = "+60 17-202 9996";
 export const WHATSAPP_URL = "https://wa.me/60172029996";
 export const EMAIL = "hello@novoreperio.com";
@@ -28,19 +28,19 @@ export const SOCIALS = {
 export const abs = (path: string) =>
   path.startsWith("http") ? path : `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 
-/** Web3Forms access key — public access key, safe to ship in the client bundle.
+/** Web3Forms access key, public access key, safe to ship in the client bundle.
  *  ClickUp destination = set the Web3Forms email recipient (in the Web3Forms
  *  dashboard) to the ClickUp list's email-to-task inbox address. No token here. */
 export const WEB3FORMS_ACCESS_KEY = "dcf1882e-da1a-4dec-b8e3-6d8c2e783b7a";
 export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
-/** GA4 measurement ID — replace TODO placeholder in production. */
+/** GA4 measurement ID, replace TODO placeholder in production. */
 export const GA4_MEASUREMENT_ID = "G-PRMCVHTCGZ";
 
 /** Meta (Facebook) Pixel ID. */
 export const META_PIXEL_ID = "1196186000412033";
 
-/** Founder / principal author. Bio TODO — pending client-supplied copy. */
+/** Founder / principal author. Bio TODO, pending client-supplied copy. */
 export const FOUNDER = {
   name: "Naga R. Krishnan",
   jobTitle: "Founder & Chief Executive Officer",

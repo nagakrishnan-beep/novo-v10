@@ -6,7 +6,7 @@ import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome"
 import { BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
-const TITLE = "Insights — Digital Twin, LiDAR & Virtual Tour Articles | Novo Reperio";
+const TITLE = "Insights: Digital Twin, LiDAR & Virtual Tour Articles | Novo Reperio";
 const DESCRIPTION =
   "Practical articles on digital twins, virtual tours, LiDAR scanning, Scan to BIM, and spatial presentation for properties, venues, and facilities.";
 const CANONICAL = `${BASE_URL}/insights`;

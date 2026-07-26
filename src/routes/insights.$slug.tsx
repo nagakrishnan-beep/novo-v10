@@ -19,14 +19,14 @@ export const Route = createFileRoute("/insights/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Insight not found — Novo Reperio" },
+          { title: "Insight not found | Novo Reperio" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { post } = loaderData;
     const url = `${BASE_URL}/insights/${post.slug}`;
-    const title = `${post.title} — Novo Reperio`;
+    const title = `${post.title} | Novo Reperio`;
     return {
       meta: [
         { title },
