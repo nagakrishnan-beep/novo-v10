@@ -303,10 +303,11 @@ export const INSIGHTS: Insight[] = [
 ];
 
 import { MIGRATED_INSIGHTS } from "./insights-migrated";
+import { wpPostImage } from "./wp-content";
 
-export const ALL_INSIGHTS: Insight[] = [...INSIGHTS, ...MIGRATED_INSIGHTS].sort(
-  (a, b) => (a.datePublished < b.datePublished ? 1 : -1),
-);
+export const ALL_INSIGHTS: Insight[] = [...INSIGHTS, ...MIGRATED_INSIGHTS]
+  .map((i) => ({ ...i, image: wpPostImage(i.slug) ?? i.image }))
+  .sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1));
 
 export const INSIGHT_CATEGORIES = [
   "Digital Twins & Matterport",

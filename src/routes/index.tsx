@@ -184,7 +184,7 @@ function ScanRealitySection() {
         <div className="relative z-10 h-full flex items-end md:items-center px-6 md:px-24 pb-10 md:pb-0">
           <div className="max-w-2xl">
             <div className="text-xs font-mono uppercase tracking-[0.4em] text-emerald-300 mb-6">
-              [ Scan-verified geometry · 150,000 points ]
+              [ Scan-verified geometry · 77,399 points ]
             </div>
             <h2 className="text-4xl md:text-6xl font-light text-white leading-[1.05] tracking-tight">
               This is measured reality.

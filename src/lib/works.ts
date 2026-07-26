@@ -1,3 +1,5 @@
+import { wpWorkImage, wpWorkTour } from "./wp-content";
+
 export type Work = {
   slug: string;
   title: string;
@@ -58,7 +60,7 @@ export type WorkCategoryKey = keyof typeof WORK_CATEGORIES;
 
 const img = (name: string) => `/images/works/${name}`;
 
-export const WORKS: Work[] = [
+const RAW_WORKS: Work[] = [
   {
     slug: "hyatt-kuantan-ballroom",
     title: "Hyatt Kuantan — Kempas Ballroom & Prefunction",
@@ -79,7 +81,7 @@ export const WORKS: Work[] = [
       "Reusable across OTAs, RFP responses and live video calls",
     ],
     impact: "Reduces uncertainty and shortlisting time — planners commit before travelling.",
-    tourUrl: "https://novoreperio.com/portfolio-item/hotel/3d-matterport-virtual-tour/hyatt-kuantan-ballroom/",
+    tourUrl: "https://my.matterport.com/show/?m=V4ViihFfjzk",
     relatedService: "hospitality-digital-twins",
     relatedServiceLabel: "Hospitality Digital Twins",
   },
@@ -636,6 +638,12 @@ export const WORKS: Work[] = [
     impact: "Member acquisition without repeat viewings.",
   },
 ];
+
+export const WORKS: Work[] = RAW_WORKS.map((w) => ({
+  ...w,
+  image: wpWorkImage(w.slug) ?? w.image,
+  tourUrl: wpWorkTour(w.slug) ?? w.tourUrl,
+}));
 
 export const SPACE_TYPES = [
   "All Spaces",
