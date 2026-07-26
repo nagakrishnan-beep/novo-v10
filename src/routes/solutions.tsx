@@ -38,7 +38,7 @@ export const Route = createFileRoute("/solutions")({
       },
     ],
   }),
-  component: SolutionsPage;
+  component: SolutionsPage,
 });
 
 type Block = {
