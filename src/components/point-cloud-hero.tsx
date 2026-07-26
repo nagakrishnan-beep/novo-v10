@@ -194,7 +194,6 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
         const tmpGeo = new THREE.BufferGeometry();
         tmpGeo.setAttribute("position", new THREE.BufferAttribute(target.slice(), 3));
         tmpGeo.computeBoundingSphere();
-        const R = tmpGeo.boundingSphere ? tmpGeo.boundingSphere.radius : 1;
         const c = tmpGeo.boundingSphere ? tmpGeo.boundingSphere.center : new THREE.Vector3();
         // translate all buffers
         for (let i = 0; i < N; i++) {
@@ -205,13 +204,36 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
         posAttr.needsUpdate = true;
         tmpGeo.dispose();
 
-        const fov = 45;
-        const dist = (R / Math.sin((fov * Math.PI) / 180 / 2)) * 1.25;
-        const camera = new THREE.PerspectiveCamera(fov, rect.width / rect.height, 0.01, dist * 10);
-        camera.position.set(dist * 0.5, dist * 0.3, dist * 0.9);
-        camera.lookAt(0, 0, 0);
+        // --- inside-out framing: place the camera INSIDE the cabin, looking down its length ---
+        let mnx = Infinity, mny = Infinity, mnz = Infinity, mxx = -Infinity, mxy = -Infinity, mxz = -Infinity;
+        for (let i = 0; i < N; i++) {
+          const x = target[i * 3], y = target[i * 3 + 1], z = target[i * 3 + 2];
+          if (x < mnx) mnx = x; if (x > mxx) mxx = x;
+          if (y < mny) mny = y; if (y > mxy) mxy = y;
+          if (z < mnz) mnz = z; if (z > mxz) mxz = z;
+        }
+        const mins = [mnx, mny, mnz];
+        const maxs = [mxx, mxy, mxz];
+        const mids = [(mnx + mxx) / 2, (mny + mxy) / 2, (mnz + mxz) / 2];
+        const ext = [mxx - mnx, mxy - mny, mxz - mnz];
+        const longIdx = ext[0] >= ext[1] && ext[0] >= ext[2] ? 0 : ext[1] >= ext[2] ? 1 : 2;
+        const others = [0, 1, 2].filter((k) => k !== longIdx);
 
-        const baseSize = 0.011 * sizeScale;
+        const fov = 64;
+        const camera = new THREE.PerspectiveCamera(fov, rect.width / rect.height, 0.001, 100);
+        // eye just inside the far end, centered in the cross-section, at seated-eye height
+        const eye = [mids[0], mids[1], mids[2]];
+        eye[longIdx] = maxs[longIdx] * 0.98;
+        if (longIdx !== 1) eye[1] = mids[1] + ext[1] * 0.12;
+        eye[others[1]] += offsetX * ext[others[1]] * 0.15; // slight lateral bias so the text side stays clearer
+        const eyeO0 = eye[others[0]];
+        const eyeO1 = eye[others[1]];
+        camera.position.set(eye[0], eye[1], eye[2]);
+        const look0 = [mids[0], mids[1], mids[2]];
+        look0[longIdx] = mins[longIdx];
+        camera.lookAt(look0[0], look0[1], look0[2]);
+
+        const baseSize = 0.008 * sizeScale;
         const mat = new THREE.PointsMaterial({
           size: baseSize,
           vertexColors: true,
@@ -222,7 +244,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
         });
 
         const points = new THREE.Points(geo, mat);
-        points.position.x = isSmall ? 0 : offsetX * R;
+        points.position.set(0, 0, 0);
         scene.add(points);
         renderer.render(scene, camera);
         console.log("[PointCloud] mounted, points:", N);
@@ -276,9 +298,18 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
           }
 
           const iv = intensitySpring.get();
-          mat.size = baseSize * (1 + iv * 0.8);
-          mat.opacity = 0.95 - iv * 0.35;
-          points.rotation.y = t * (0.06 + iv * 0.25);
+          mat.size = baseSize * (1 + iv * 0.5);
+          mat.opacity = 0.95 - iv * 0.25;
+          // alive eye-sway inside the cabin + a slow dolly down the aisle as you scroll
+          const swayA = ext[longIdx] * 0.02;
+          const dolly = iv * ext[longIdx] * 0.4;
+          camera.position.setComponent(longIdx, maxs[longIdx] * 0.98 - dolly);
+          camera.position.setComponent(others[0], eyeO0 + Math.sin(t * 0.5) * swayA);
+          camera.position.setComponent(others[1], eyeO1 + Math.cos(t * 0.4) * swayA);
+          const lk2 = [mids[0], mids[1], mids[2]];
+          lk2[longIdx] = mins[longIdx];
+          lk2[others[0]] += Math.sin(t * 0.5) * swayA * 2;
+          camera.lookAt(lk2[0], lk2[1], lk2[2]);
 
           renderer.render(scene, camera);
           rafId = requestAnimationFrame(loop);
@@ -335,7 +366,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        Live preview · placeholder scan — real capture drops in on launch
+        Private jet cabin · Falcon 7X · scan-verified geometry
       </motion.div>
     </div>
   );
