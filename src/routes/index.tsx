@@ -320,7 +320,7 @@ function SideRail() {
     <aside
       role="complementary"
       aria-label="On this page"
-      className={`hidden lg:block fixed right-5 top-1/2 -translate-y-1/2 z-30 transition-opacity duration-500 ${
+      className={`hidden lg:block fixed right-5 top-1/2 -translate-y-1/2 z-[80] transition-opacity duration-500 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
@@ -394,7 +394,7 @@ const QUICK_LINKS: { label: string; href: string }[] = [
   { label: "Outcomes", href: "#outcomes" },
   { label: "Sectors", href: "#industries" },
   { label: "Services", href: "#integrations" },
-  { label: "Client Work", href: "#stories" },
+  { label: "Works", href: "#stories" },
   { label: "Scope", href: "#pricing" },
 ];
 
