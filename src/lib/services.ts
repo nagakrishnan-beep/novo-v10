@@ -9,6 +9,8 @@ export type Service = {
   track: ServiceTrack;
   cluster: ServiceCluster;
   tagline: string;
+  problem: string;
+  outcome: string;
   description: string;
   bestFor: string;
   benefits: string[];
@@ -22,6 +24,8 @@ export const SERVICES: Service[] = [
   /* ---------- MARKET IT: existing (Track A) ---------- */
   {
     slug: "spatial-capture-digital-twins",
+    problem: "Clients cannot judge scale, flow or finish from photos, so they insist on a site visit before deciding.",
+    outcome: "Buyers and planners self-qualify remotely and arrive ready to commit.",
     title: "Matterport Digital Twin",
     tier: "core",
     track: "have",
@@ -43,6 +47,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "ground-level-360",
+    problem: "A full twin is more than a quick listing needs, but flat photos undersell the space.",
+    outcome: "A light, shareable tour that lifts listings on OTAs, Google and WhatsApp.",
     title: "Ground-Level 360° Tour",
     tier: "core",
     track: "have",
@@ -61,6 +67,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "aerial-context-intelligence",
+    problem: "Ground-level media cannot show arrival, scale or the surroundings that sell a location.",
+    outcome: "Buyers understand the site and its context before they visit.",
     title: "Drone Aerial 360° & Cinematic Video",
     tier: "core",
     track: "have",
@@ -79,6 +87,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "cinematic-video",
+    problem: "Launches need motion and story, but multi-channel video usually means multiple shoots.",
+    outcome: "One production run fuels the launch film, social cuts and reels.",
     title: "Cinematic Video",
     tier: "core",
     track: "have",
@@ -98,6 +108,8 @@ export const SERVICES: Service[] = [
   /* ---------- MARKET IT: unbuilt (Track B) ---------- */
   {
     slug: "3d-rendered-walkthrough-tours",
+    problem: "Off-plan buyers cannot picture a unit that is not built, and the physical show unit is not ready.",
+    outcome: "Buyers walk the unit online months before handover, and commit sooner.",
     title: "3D Rendered Walkthrough Tours",
     tier: "core",
     track: "unbuilt",
@@ -116,6 +128,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "cgi-360-panorama-tours",
+    problem: "Renders alone are static, and buyers want to look around a space that does not exist yet.",
+    outcome: "Interactive 360° previews that turn pre-launch interest into bookings.",
     title: "CGI 360° Panorama Tours",
     tier: "core",
     track: "unbuilt",
@@ -134,6 +148,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "photoreal-cgi-stills",
+    problem: "Campaigns need hero imagery for spaces that are unbuilt or mid-construction.",
+    outcome: "Print-ready hero visuals for billboards, portals and brochures, before completion.",
     title: "Photoreal CGI Stills",
     tier: "core",
     track: "unbuilt",
@@ -152,6 +168,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "property-walkthrough-films",
+    problem: "A launch needs a centrepiece film, but the building is not ready to shoot.",
+    outcome: "A cinematic walkthrough that anchors the campaign across every channel.",
     title: "Property Walkthrough Films",
     tier: "core",
     track: "unbuilt",
@@ -170,6 +188,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "ue5-masterplan-experience",
+    problem: "Township buyers cannot grasp a phased masterplan from boards and brochures.",
+    outcome: "Buyers explore the whole development, phase by phase, and see availability live.",
     title: "UE5 Masterplan Experience",
     tier: "core",
     track: "unbuilt",
@@ -190,6 +210,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "ue5-interactive-web-platform",
+    problem: "Interactive 3D usually means heavy downloads that lose remote buyers.",
+    outcome: "Console-quality exploration in the browser, with a live unit selector, from anywhere.",
     title: "UE5 Interactive Web Platform",
     tier: "core",
     track: "unbuilt",
@@ -208,6 +230,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "ai-assisted-visualization",
+    problem: "Concept exploration is slow and costly, so teams test fewer directions than they should.",
+    outcome: "More directions per budget, delivered in hours, finished to a photoreal standard.",
     title: "AI-Assisted Visualization",
     tier: "core",
     track: "unbuilt",
@@ -228,6 +252,8 @@ export const SERVICES: Service[] = [
   /* ---------- BUILD IT ---------- */
   {
     slug: "scan-to-bim",
+    problem: "As-built drawings drift from reality, leaving design and FM teams to work from guesswork.",
+    outcome: "Accurate as-built BIM and CAD, up to LOD 400, that teams can build and plan against.",
     title: "Scan-to-BIM & LiDAR Point Cloud Services",
     tier: "core",
     track: "have",
@@ -240,7 +266,7 @@ export const SERVICES: Service[] = [
       "Architects, engineers, quantity surveyors, renovation & retrofit, MEP coordination, facility handover.",
     benefits: [
       "Registered LiDAR point clouds",
-      "Scan-to-BIM models at LOD 200–350",
+      "Scan-to-BIM models up to LOD 400",
       "2D CAD floor plans, elevations, sections",
       "As-built vs design verification",
       "Measurable 3D twin alongside the point cloud",
@@ -249,6 +275,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "construction-progress",
+    problem: "Progress and variation disputes hinge on whoever took photos that day.",
+    outcome: "A dated, walkable record that verifies progress and settles claims with evidence.",
     title: "Construction Progress Capture & Remote Inspection",
     tier: "core",
     track: "have",
@@ -269,6 +297,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "facilities-operations",
+    problem: "Building knowledge lives in one person's head and outdated drawings.",
+    outcome: "One shared, asset-tagged twin the whole operations team runs the building from.",
     title: "Facilities Management Digital Twins",
     tier: "core",
     track: "have",
@@ -291,6 +321,8 @@ export const SERVICES: Service[] = [
   /* ---------- TRAIN IN IT ---------- */
   {
     slug: "immersive-training",
+    problem: "Site-based training pulls staff off the floor and cannot scale across locations.",
+    outcome: "Consistent, measurable training staff complete from anywhere, on any device.",
     title: "Immersive & Virtual Training",
     tier: "core",
     track: "have",
@@ -314,6 +346,8 @@ export const SERVICES: Service[] = [
   /* ---------- PLAN IT ---------- */
   {
     slug: "urban-digital-twins",
+    problem: "City-scale decisions get made from slides, without shared spatial context.",
+    outcome: "Planners and authorities walk proposals in context and compare scenarios.",
     title: "Urban & Masterplan Digital Twins",
     tier: "flagship",
     track: "unbuilt",
@@ -337,6 +371,8 @@ export const SERVICES: Service[] = [
   /* ---------- Supporting ---------- */
   {
     slug: "web-development",
+    problem: "Tours, films and renders end up scattered across links and platforms.",
+    outcome: "One shareable launch site that hosts every asset and captures leads.",
     title: "Launch Microsites & Project Websites",
     tier: "supporting",
     track: "supporting",
@@ -356,6 +392,8 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "commercial-photography",
+    problem: "Immersive capture still needs a polished still layer for print and PR.",
+    outcome: "Editorial-grade stills that match the tour's visual language across every channel.",
     title: "Commercial Photography",
     tier: "supporting",
     track: "supporting",
@@ -384,25 +422,25 @@ export type ClusterDef = {
 export const CLUSTERS: ClusterDef[] = [
   {
     key: "market",
-    label: "MARKET IT",
+    label: "Sell",
     outcome: "Property marketing, hospitality, staging, CGI, video, launch microsites.",
     href: "/services#market",
   },
   {
     key: "build",
-    label: "BUILD IT",
+    label: "Build",
     outcome: "Scan-to-BIM, construction progress capture, facilities operations twins.",
     href: "/services#build",
   },
   {
     key: "train",
-    label: "TRAIN IN IT",
+    label: "Train",
     outcome: "360° interactive, gamified and simulation training environments.",
     href: "/services/immersive-training",
   },
   {
     key: "plan",
-    label: "PLAN IT",
+    label: "Plan",
     outcome: "City & masterplan-scale digital twins with data overlay for planning.",
     href: "/services/urban-digital-twins",
   },
@@ -474,7 +512,7 @@ export const SERVICES_HUB_FAQ = [
   },
   {
     q: "Where do you operate?",
-    a: "We are based in Kuala Lumpur and serve Malaysia, Singapore, Indonesia, the Middle East and worldwide on request.",
+    a: "We are based in Kuala Lumpur and serve Malaysia, with regional deployment across Indonesia and the Philippines.",
   },
 ];
 

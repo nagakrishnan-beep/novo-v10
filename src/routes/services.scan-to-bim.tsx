@@ -8,18 +8,18 @@ import { WORKS } from "@/lib/works";
 
 const TITLE = "Scan-to-BIM & LiDAR Point Cloud Services Malaysia | As-Built CAD & Revit | Novo Reperio";
 const DESCRIPTION =
-  "LiDAR point clouds converted into accurate as-built BIM (LOD 200–350), 2D CAD, and measurable digital twins for architects, engineers and facility teams in Malaysia.";
+  "LiDAR point clouds converted into accurate as-built BIM (up to LOD 400), 2D CAD, and measurable digital twins for architects, engineers and facility teams in Malaysia.";
 const URL = abs("/services/scan-to-bim");
 
 const FAQ = [
   { q: "What is Scan-to-BIM?", a: "Scan-to-BIM is the process of capturing an existing building with LiDAR or 3D scanning, then converting the resulting point cloud into an accurate as-built BIM model. It replaces guesswork and outdated drawings with a reliable digital record of what is actually on site, used by architects for renovation, MEP engineers for coordination, and facility owners for handover." },
-  { q: "What accuracy does LiDAR scanning provide?", a: "Centimetre-grade LiDAR point clouds captured with fast walk-and-scan coverage, paired with millimetre-grade measurement inside the 3D twin. That is enough for LOD 200–350 BIM, MEP coordination, and quantity surveying without a second visit." },
+  { q: "What accuracy does LiDAR scanning provide?", a: "Centimetre-grade LiDAR point clouds captured with fast walk-and-scan coverage, paired with millimetre-grade measurement inside the 3D twin. That is enough for up to LOD 400 BIM, MEP coordination, and quantity surveying without a second visit." },
   { q: "Can you produce AutoCAD drawings from a 3D scan?", a: "Yes. Once a building is scanned we can deliver 2D CAD floor plans, elevations and sections extracted from the point cloud, alongside the BIM model and the measurable 3D twin, one capture, multiple deliverables." },
 ];
 
 const DELIVERABLES = [
   "Registered LiDAR point clouds",
-  "Scan-to-BIM models at agreed LOD (LOD 200–350)",
+  "Scan-to-BIM models up to LOD 400",
   "2D CAD floor plans, elevations, sections",
   "As-built vs design verification",
   "Measurable 3D twin alongside the point cloud",
@@ -208,7 +208,7 @@ function ScanToBimPage() {
           "Hosted measurable twin alongside the BIM model, architects, MEP and QS teams share one live link.",
           "Usage analytics on twin access, see who inside the design team is inspecting what.",
           "Scheduled recapture, resurvey at fit-out, defects liability and post-occupation to track drift from as-designed.",
-          "BIM handover integrations, LOD 200–350 model feeds straight into the FM asset register.",
+          "BIM handover integrations, up to LOD 400 model feeds straight into the FM asset register.",
         ]}
       />
 
