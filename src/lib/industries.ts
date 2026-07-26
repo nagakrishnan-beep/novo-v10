@@ -316,7 +316,7 @@ export const INDUSTRIES: Industry[] = [
     metaDesc:
       "Operational digital twins, asset registers and space audits for facility managers: one shared record for maintenance, moves, safety and audits.",
     intro:
-      "Facility managers use Novo Reperio's operational digital twins to build a single, walkable record of every floor — powering maintenance planning, moves and changes, safety audits and asset registers without a physical walk.",
+      "Facility managers use Novo Reperio's operational digital twins to build a single, walkable record of every floor, powering maintenance planning, moves and changes, safety audits and asset registers without a physical walk.",
     problems: [
       {
         title: "Space knowledge lives in one person's head",
