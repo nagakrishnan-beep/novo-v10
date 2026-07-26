@@ -236,7 +236,16 @@ function AboutPage() {
             easier to act on. Novo's role is to make that understanding happen
             with more confidence.
           </p>
+          <div className="mt-10 max-w-3xl">
+            <YouTubeEmbed
+              videoId="7-rw_vOPd3g"
+              title="Novo Reperio product launch"
+              description="A look at how Novo Reperio brings spatial capture products to market."
+              caption="Product launch"
+            />
+          </div>
         </div>
+
       </section>
 
       {/* How Novo works */}
