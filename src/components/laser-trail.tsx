@@ -54,10 +54,11 @@ export function LaserTrail() {
     const onMove = (e: PointerEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
-      setCoords({
-        x: Math.round(e.clientX + window.scrollX),
-        y: Math.round(e.clientY + window.scrollY),
-      });
+      if (coordRef.current) {
+        coordRef.current.textContent = `LDR_IDX // X:${Math.round(
+          e.clientX + window.scrollX
+        )} Y:${Math.round(e.clientY + window.scrollY)}`;
+      }
     };
     const onOver = (e: PointerEvent) => {
       if (isTarget(e.target)) setHovered(true);
