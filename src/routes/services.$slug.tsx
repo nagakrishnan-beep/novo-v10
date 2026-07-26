@@ -4,6 +4,50 @@ import { LaserTrail } from "@/components/laser-trail";
 import { getService, getNextService, SERVICES } from "@/lib/services";
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
+const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
+
+const SERVICE_VIDEOS: Record<string, { videoId: string; title: string }> = {
+  "spatial-capture-digital-twins": {
+    videoId: "U-VXk6MdxSI",
+    title: "Matterport measurement tool — measure any space from the twin",
+  },
+};
+
+const SERVICE_GALLERIES: Record<string, { title: string; files: string[] }> = {
+  "photoreal-cgi-stills": {
+    title: "3D Rendering Showcase",
+    files: [
+      "3D-Rendering-balcony-view-scaled.webp",
+      "3D-Rendering-common-area-scaled.webp",
+      "3D-Rendering-entrance-sunset-scaled.webp",
+      "3D-Rendering-exterior-facade-scaled.jpeg",
+      "3D-Rendering-exterior-facade2-scaled.webp",
+      "3D-Rendering-facade-klcc-scaled.webp",
+      "3D-Rendering-liftlobby-scaled.webp",
+      "3D-Rendering-piazza-scaled.webp",
+      "3D-Rendering-pool-facade-scaled.webp",
+      "3D-Rendering-pool-nightview.jpeg",
+    ],
+  },
+  "commercial-photography": {
+    title: "Interior Photography Gallery",
+    files: [1, 2, 3, 4, 5].map(
+      (n) => `Interior-Photography-${n}-scaled.webp`,
+    ),
+  },
+};
+
+/** Turns "3D-Rendering-pool-nightview.jpeg" into descriptive alt text. */
+function altFromFilename(file: string): string {
+  const base = file
+    .replace(/\.[a-z]+$/i, "")
+    .replace(/-scaled$/i, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b(\d)\b/g, "$1")
+    .trim();
+  return `${base.charAt(0).toUpperCase()}${base.slice(1)} — Novo Reperio`;
+}
+
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
