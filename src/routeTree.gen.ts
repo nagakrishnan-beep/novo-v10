@@ -15,6 +15,7 @@ import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as EstimateRouteImport } from './routes/estimate'
+import { Route as DigitalTwinsRouteImport } from './routes/digital-twins'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -63,6 +64,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const EstimateRoute = EstimateRouteImport.update({
   id: '/estimate',
   path: '/estimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalTwinsRoute = DigitalTwinsRouteImport.update({
+  id: '/digital-twins',
+  path: '/digital-twins',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -171,6 +177,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
@@ -198,6 +205,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/methodology': typeof MethodologyRoute
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/digital-twins'
     | '/estimate'
     | '/industries'
     | '/insights'
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/digital-twins'
     | '/estimate'
     | '/methodology'
     | '/industries/$slug'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/digital-twins'
     | '/estimate'
     | '/industries'
     | '/insights'
@@ -329,6 +341,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DigitalTwinsRoute: typeof DigitalTwinsRoute
   EstimateRoute: typeof EstimateRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   InsightsRoute: typeof InsightsRouteWithChildren
@@ -379,6 +392,13 @@ declare module '@tanstack/react-router' {
       path: '/estimate'
       fullPath: '/estimate'
       preLoaderRoute: typeof EstimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-twins': {
+      id: '/digital-twins'
+      path: '/digital-twins'
+      fullPath: '/digital-twins'
+      preLoaderRoute: typeof DigitalTwinsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -591,6 +611,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DigitalTwinsRoute: DigitalTwinsRoute,
   EstimateRoute: EstimateRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   InsightsRoute: InsightsRouteWithChildren,
