@@ -129,7 +129,49 @@ function ServiceDetail() {
         </div>
       </section>
 
+      {/* Service video */}
+      {SERVICE_VIDEOS[service.slug] && (
+        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+            Watch it work
+          </div>
+          <div className="max-w-4xl">
+            <YouTubeEmbed
+              videoId={SERVICE_VIDEOS[service.slug].videoId}
+              title={SERVICE_VIDEOS[service.slug].title}
+              description={service.tagline}
+              caption={SERVICE_VIDEOS[service.slug].title}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Image gallery */}
+      {SERVICE_GALLERIES[service.slug] && (
+        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+            {SERVICE_GALLERIES[service.slug].title}
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICE_GALLERIES[service.slug].files.map((f) => (
+              <figure
+                key={f}
+                className="aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-neutral-950"
+              >
+                <img
+                  src={`${WP_MEDIA}${f}`}
+                  alt={altFromFilename(f)}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
+                />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Other services */}
+
       <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           Other services
