@@ -83,7 +83,7 @@ function ScanToBimPage() {
 
       <section className="px-6 md:px-24 pt-6 pb-16 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-6 font-mono">
-          BUILD IT · Scan-to-BIM & LiDAR
+          Build · Scan-to-BIM & LiDAR
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
           From site scan to as-built intelligence.
@@ -94,12 +94,20 @@ function ScanToBimPage() {
           2D CAD drawings, and measurable digital twins, so architects, engineers
           and facility teams design and plan from reality, not guesswork.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-2 font-mono">
+            The problem
+          </div>
+          <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+            As-built drawings drift from reality, leaving design and FM teams to work from guesswork.
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
-            to="/contact"
+            to="/estimate"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
           >
-            Request a quote <ArrowRight size={14} />
+            Get an assessment <ArrowRight size={14} />
           </Link>
           <a
             href={WHATSAPP_URL}
@@ -130,12 +138,24 @@ function ScanToBimPage() {
               Accuracy
             </div>
             <p className="text-sm text-neutral-300 leading-relaxed">
-              Centimetre-grade LiDAR point clouds captured with fast walk-and-scan
-              coverage, paired with millimetre-grade measurement inside the 3D twin.
+              We capture with Matterport Pro3 LiDAR (per Matterport's published spec,
+              range up to roughly 100 m with point accuracy in the ±20 mm class) and
+              terrestrial LiDAR for larger or survey-grade work. For geodetic accuracy
+              we tie the scan to survey control points.
             </p>
           </div>
         </div>
       </section>
+
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          Accurate as-built BIM and CAD, up to LOD 400, that teams can build and plan against.
+        </p>
+      </section>
+
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
