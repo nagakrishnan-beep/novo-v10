@@ -3,7 +3,6 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
-import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Scan-to-BIM & LiDAR Point Cloud Services Malaysia | As-Built CAD & Revit | Novo Reperio";
@@ -15,7 +14,13 @@ const FAQ = [
   { q: "What is Scan-to-BIM?", a: "Scan-to-BIM is the process of capturing an existing building with LiDAR or 3D scanning, then converting the resulting point cloud into an accurate as-built BIM model. It replaces guesswork and outdated drawings with a reliable digital record of what is actually on site, used by architects for renovation, MEP engineers for coordination, and facility owners for handover." },
   { q: "What accuracy does LiDAR scanning provide?", a: "Centimetre-grade LiDAR point clouds captured with fast walk-and-scan coverage, paired with millimetre-grade measurement inside the 3D twin. That is enough for up to LOD 400 BIM, MEP coordination, and quantity surveying without a second visit." },
   { q: "Can you produce AutoCAD drawings from a 3D scan?", a: "Yes. Once a building is scanned we can deliver 2D CAD floor plans, elevations and sections extracted from the point cloud, alongside the BIM model and the measurable 3D twin, one capture, multiple deliverables." },
+  { q: "What is a point cloud?", a: "A point cloud is a dense set of measured 3D points captured by LiDAR, each with a real position in space. It is the raw survey of the building that we register and then model into BIM or CAD." },
+  { q: "What do LOD 200, 300 and 400 mean?", a: "Level of Development describes how much detail and reliability a BIM element carries. LOD 200 is generalised geometry, LOD 300 is accurate geometry and dimensions, and LOD 400 adds fabrication and assembly detail. We deliver up to LOD 400 where the project needs it." },
+  { q: "Can you scan an occupied building?", a: "Yes. We schedule around operating hours and occupied zones, and capture is non-invasive, so business continues while we scan." },
+  { q: "How long does a Scan-to-BIM project take?", a: "On-site capture is usually a day or two for a typical building. Point cloud registration and BIM authoring depend on size and target LOD, and are scoped after a walkthrough." },
+  { q: "Can the model integrate with Revit or IFC?", a: "Yes. We deliver native Revit models and IFC exports, so the as-built drops straight into your existing BIM workflow." },
 ];
+
 
 const DELIVERABLES = [
   "Registered LiDAR point clouds",
