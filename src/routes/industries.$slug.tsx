@@ -6,6 +6,7 @@ import {
   BreadcrumbNav,
   MediaSlot,
 } from "@/components/site-chrome";
+import { YouTubeEmbed, YouTubeReel } from "@/components/youtube-embed";
 import { getIndustry, INDUSTRIES, type Industry } from "@/lib/industries";
 import { getWork } from "@/lib/works";
 import { getInsight } from "@/lib/insights";
