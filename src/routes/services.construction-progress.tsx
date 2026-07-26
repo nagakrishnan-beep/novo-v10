@@ -5,14 +5,14 @@ import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { MonthlyValue } from "@/components/service-extras";
 
-const TITLE = "Construction Progress Capture & Remote Site Inspection Malaysia — Novo Reperio";
+const TITLE = "Construction Progress Capture & Remote Site Inspection Malaysia | Novo Reperio";
 const DESCRIPTION =
-  "Scheduled 3D and 360° construction progress capture — dated, walkable records for remote inspection, claims, and dispute-proof as-built history.";
+  "Scheduled 3D and 360° construction progress capture: dated, walkable records for remote inspection, claims, and dispute-proof as-built history.";
 const URL = abs("/services/construction-progress");
 
 const SECTIONS = [
   { t: "Scheduled progress twins", b: "Weekly or monthly 3D capture aligned to your programme." },
-  { t: "Remote inspection walkthroughs", b: "Site walks from your desk — auditable and shareable with the whole project team." },
+  { t: "Remote inspection walkthroughs", b: "Site walks from your desk, auditable and shareable with the whole project team." },
   { t: "Milestone & claim records", b: "Dated evidence for progress claims, variations and RFIs." },
   { t: "Dispute-proof as-built history", b: "A defensible record of what was on site, and when." },
   { t: "Handover twin at completion", b: "The final capture becomes the operational digital twin for FM." },
@@ -76,7 +76,7 @@ function Page() {
         </h1>
         <p className="mt-6 max-w-3xl text-sm md:text-base text-neutral-300 leading-relaxed">
           Scheduled 3D and 360° capture turns your construction site into a dated,
-          walkable record — so project teams inspect remotely, verify progress
+          walkable record, so project teams inspect remotely, verify progress
           against programme, and settle disputes with evidence instead of memory.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
@@ -98,7 +98,7 @@ function Page() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <MediaSlot label="CONSTRUCTION PROGRESS CAPTURE — PENDING" />
+        <MediaSlot label="CONSTRUCTION PROGRESS CAPTURE: PENDING" />
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
@@ -151,10 +151,10 @@ function Page() {
       <MonthlyValue
         intro="Progress capture is a recurring product, not a one-off shoot."
         bullets={[
-          "Hosted, embed-ready progress twin — one link for consultants, PMCs, developer and end client.",
-          "Usage analytics — which packages and floors are being reviewed remotely, and by whom.",
-          "Scheduled recapture aligned to your programme — weekly or monthly, tied to milestone claims.",
-          "Handover integration — the final progress twin converts directly into the operational FM twin.",
+          "Hosted, embed-ready progress twin, one link for consultants, PMCs, developer and end client.",
+          "Usage analytics, which packages and floors are being reviewed remotely, and by whom.",
+          "Scheduled recapture aligned to your programme, weekly or monthly, tied to milestone claims.",
+          "Handover integration, the final progress twin converts directly into the operational FM twin.",
         ]}
       />
 

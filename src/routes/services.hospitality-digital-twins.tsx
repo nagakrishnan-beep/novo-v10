@@ -9,7 +9,7 @@ import { offersForServiceSchema } from "@/lib/pricing";
 import { WORKS } from "@/lib/works";
 import { SERVICES } from "@/lib/services";
 
-const TITLE = "Hospitality Digital Twins — Novo Reperio";
+const TITLE = "Hospitality Digital Twins | Novo Reperio";
 const DESCRIPTION =
   "Matterport digital twins, 360° virtual tours, aerial capture and cinematic video for hotels, ballrooms, resorts and event venues across Malaysia and beyond.";
 const URL = abs("/services/hospitality-digital-twins");
@@ -17,8 +17,8 @@ const URL = abs("/services/hospitality-digital-twins");
 const FAQ = [
   { q: "How long does a hotel or ballroom capture take?", a: "A ballroom or single venue capture typically shoots in one day, with the twin published within a week. A full property (suites, F&B, MICE) usually takes 2–3 days on site and 1–2 weeks to publish." },
   { q: "Do you host the tour, or do we host it?", a: "We host the Matterport twin as standard, so you get a shareable link, embed code and analytics without infrastructure work. Self-hosting or brand-owned hosting is available on request." },
-  { q: "Can we embed the tour in our booking flow or RFP responses?", a: "Yes — the tour is a single URL that embeds into your website, OTA extranet, RFP replies, sales decks and Google Business Profile." },
-  { q: "How do we measure ROI?", a: "We wire up tour analytics (visits, dwell time, room-by-room engagement). Clients like WTCKL track 8,000+ visits and ~37/week — a direct signal of pre-booking interest." },
+  { q: "Can we embed the tour in our booking flow or RFP responses?", a: "Yes. The tour is a single URL that embeds into your website, OTA extranet, RFP replies, sales decks and Google Business Profile." },
+  { q: "How do we measure ROI?", a: "We wire up tour analytics (visits, dwell time, room-by-room engagement). Clients like WTCKL track 8,000+ visits and ~37/week, a direct signal of pre-booking interest." },
 ];
 
 export const Route = createFileRoute("/services/hospitality-digital-twins")({
@@ -68,7 +68,7 @@ function HospitalityPage() {
         <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
           Matterport digital twins, 360° virtual tours, drone aerial and cinematic
           video that let planners, guests and MICE buyers walk your property before
-          they arrive — cutting shortlist time and boosting booking confidence.
+          they arrive, cutting shortlist time and boosting booking confidence.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
@@ -90,7 +90,7 @@ function HospitalityPage() {
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
-          Source: Matterport industry research —
+          Source: Matterport industry research
         </div>
         <ul className="grid md:grid-cols-3 gap-6 max-w-6xl">
           <li className="border-l-2 border-emerald-400/50 pl-4">
@@ -176,7 +176,7 @@ function HospitalityPage() {
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
-          Hospitality — common questions
+          Hospitality: common questions
         </h2>
         <div className="space-y-6 max-w-4xl">
           {FAQ.map((f) => (
@@ -191,10 +191,10 @@ function HospitalityPage() {
       <MonthlyValue
         intro="Every hospitality twin at Novo Reperio is designed to keep working long after launch day."
         bullets={[
-          "Hosted, embed-ready and shareable as one link — property site, OTA extranet, RFP replies, GMB and sales decks.",
-          "Usage analytics for your sales team — visits, dwell time and room-by-room engagement piped into your monthly review.",
-          "Scheduled recapture programs — refreshes for renovations, seasonal setups and new suite categories.",
-          "Integrations — embed into OTA listings and stitch tours into your booking or MICE enquiry flow.",
+          "Hosted, embed-ready and shareable as one link, property site, OTA extranet, RFP replies, GMB and sales decks.",
+          "Usage analytics for your sales team, visits, dwell time and room-by-room engagement piped into your monthly review.",
+          "Scheduled recapture programs, refreshes for renovations, seasonal setups and new suite categories.",
+          "Integrations, embed into OTA listings and stitch tours into your booking or MICE enquiry flow.",
         ]}
       />
 
