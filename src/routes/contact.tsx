@@ -9,7 +9,6 @@ import {
   PHONE_TEL,
   EMAIL,
   ADDRESS_FULL,
-  HOURS,
   LEGAL_NAME,
   WEB3FORMS_ACCESS_KEY,
   WEB3FORMS_ENDPOINT,
@@ -32,7 +31,7 @@ const METHODS = [
   { icon: MessageCircle, label: "WhatsApp", value: WHATSAPP_PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day." },
   { icon: Phone, label: "Call the studio", value: PHONE, href: `tel:${PHONE_TEL}`, hint: "Office direct line, weekdays 9:00–18:00 MYT." },
   { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, hint: "For scoping, quotes and briefing documents." },
-  { icon: MapPin, label: "Studio", value: "Solaris Mont Kiara, KL", href: "https://maps.google.com/?q=Solaris+Mont+Kiara", hint: ADDRESS_FULL },
+  { icon: MapPin, label: "Nerve Center", value: "Solaris Mont Kiara, KL", href: "https://maps.google.com/?q=Solaris+Mont+Kiara", hint: ADDRESS_FULL },
 ];
 
 export const Route = createFileRoute("/contact")({
@@ -325,17 +324,11 @@ function ContactPage() {
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
         <div>
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">Studio</div>
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">Nerve Center</div>
           <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
             {LEGAL_NAME}
           </h2>
           <p className="mt-4 text-neutral-400 leading-relaxed">{ADDRESS_FULL}</p>
-          <div className="mt-6 space-y-2 font-mono text-sm text-neutral-300">
-            <div>P · {PHONE}</div>
-            <div>WhatsApp · {WHATSAPP_PHONE}</div>
-            <div>E · {EMAIL}</div>
-            <div>Hours · {HOURS}</div>
-          </div>
         </div>
         <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10">
           <iframe
