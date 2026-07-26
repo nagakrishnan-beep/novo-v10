@@ -102,7 +102,7 @@ function InsightDetail() {
       <SiteHeader active="insights" />
 
       <main>
-        <article className="px-6 md:px-24 pt-16 pb-16 max-w-5xl">
+        <article className="px-6 md:px-24 pt-16 pb-20 md:pb-24 max-w-5xl">
           <BreadcrumbNav
             items={[
               { label: "Home", to: "/" },
@@ -113,7 +113,7 @@ function InsightDetail() {
           <div className="mt-6 text-xs font-mono uppercase tracking-[0.35em] text-emerald-400">
             {post.category}
           </div>
-          <h1 className="mt-4 text-3xl md:text-5xl font-light text-white leading-[1.1]">
+          <h1 className="mt-4 text-[clamp(30px,5vw,56px)] font-light text-white leading-[1.05]">
             {post.title}
           </h1>
           <div className="mt-4 text-xs font-mono text-neutral-400">
@@ -126,7 +126,7 @@ function InsightDetail() {
 
           <div className="mt-10 space-y-6 max-w-3xl">
             {paras.map((p, i) => (
-              <p key={i} className="text-base text-neutral-300 leading-relaxed">
+              <p key={i} className="text-[15px] md:text-base text-neutral-300 leading-relaxed">
                 {p}
               </p>
             ))}
@@ -139,7 +139,7 @@ function InsightDetail() {
               </div>
               <ul className="mt-4 space-y-2">
                 {post.keyPoints.map((k, i) => (
-                  <li key={i} className="text-sm text-neutral-300 flex gap-2">
+                  <li key={i} className="text-[15px] md:text-base text-neutral-300 flex gap-2">
                     <span className="text-emerald-400">·</span>
                     <span>{k}</span>
                   </li>
@@ -206,7 +206,7 @@ function InsightDetail() {
               <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-2">
                 {next.category}
               </div>
-              <div className="text-white text-xl font-light group-hover:text-emerald-200">
+              <div className="text-lg md:text-xl font-medium text-white group-hover:text-emerald-200">
                 {next.title}
               </div>
             </div>

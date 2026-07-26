@@ -112,10 +112,10 @@ function ServiceDetail() {
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           {service.tier === "core" ? "Core service" : "Supporting service"}
         </div>
-        <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
+        <h1 className="text-[clamp(30px,5vw,56px)] font-light leading-[1.05] text-white max-w-5xl">
           {service.title}
         </h1>
-        <p className="mt-6 text-neutral-400 max-w-3xl leading-relaxed text-lg">
+        <p className="mt-6 text-[15px] md:text-base text-neutral-400 max-w-3xl leading-relaxed">
           {service.tagline}
         </p>
         <div className="mt-6 inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 text-[11px] font-mono uppercase tracking-widest text-neutral-400">
@@ -135,12 +135,12 @@ function ServiceDetail() {
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
             What we deliver
           </div>
-          <p className="text-neutral-300 leading-relaxed">
+          <p className="text-[15px] md:text-base text-neutral-300 leading-relaxed">
             {service.description}
           </p>
           <ul className="mt-6 space-y-3">
             {service.benefits.map((b: string) => (
-              <li key={b} className="flex items-start gap-3 text-neutral-300 text-sm">
+              <li key={b} className="flex items-start gap-3 text-[15px] md:text-base text-neutral-300">
                 <span className="text-cyan-400">+</span> {b}
               </li>
             ))}
@@ -247,7 +247,7 @@ function ServiceDetail() {
             Next service
           </div>
           <div className="flex items-center justify-between gap-6">
-            <h3 className="text-2xl md:text-4xl font-light text-white group-hover:text-cyan-300 transition">
+            <h3 className="text-2xl md:text-4xl font-light text-white group-hover:text-emerald-300 transition">
               {next.title}
             </h3>
             <ArrowRight className="text-cyan-300" />
