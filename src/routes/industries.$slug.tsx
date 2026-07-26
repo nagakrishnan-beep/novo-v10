@@ -122,10 +122,10 @@ function IndustryDetail() {
           <div className="mt-6 text-xs tracking-[0.4em] uppercase text-emerald-400">
             {industry.name}
           </div>
-          <h1 className="mt-4 text-3xl md:text-5xl font-light leading-[1.1] max-w-4xl text-white">
+          <h1 className="mt-4 text-[clamp(30px,5vw,56px)] font-light leading-[1.05] max-w-4xl text-white">
             {industry.h1}
           </h1>
-          <p className="mt-6 text-neutral-300 max-w-3xl text-base leading-relaxed">
+          <p className="mt-6 text-[15px] md:text-base text-neutral-300 max-w-3xl leading-relaxed">
             {industry.intro}
           </p>
           {industry.note && (
@@ -140,7 +140,7 @@ function IndustryDetail() {
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             The problem
           </div>
-          <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
+          <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
             Where {industry.name.toLowerCase()} teams lose time and trust today.
           </h2>
           <div className="mt-10 grid md:grid-cols-3 gap-5">
@@ -150,8 +150,8 @@ function IndustryDetail() {
                 className="border border-white/10 rounded-xl p-6 bg-white/[0.02]"
               >
                 <AlertTriangle size={16} className="text-emerald-300/70 mb-3" />
-                <div className="text-white text-base font-light">{p.title}</div>
-                <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+                <div className="text-lg md:text-xl font-medium text-white">{p.title}</div>
+                <p className="mt-3 text-[15px] md:text-base text-neutral-400 leading-relaxed">
                   {p.body}
                 </p>
               </div>
@@ -164,7 +164,7 @@ function IndustryDetail() {
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             How spatial capture solves it
           </div>
-          <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
+          <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
             What changes when {industry.name.toLowerCase()} runs on a spatial record.
           </h2>
           <div className="mt-10 grid md:grid-cols-2 gap-5">
@@ -174,8 +174,8 @@ function IndustryDetail() {
                 className="border border-emerald-500/20 rounded-xl p-6 bg-emerald-500/[0.03]"
               >
                 <CheckCircle2 size={16} className="text-emerald-300 mb-3" />
-                <div className="text-white text-lg font-light">{b.title}</div>
-                <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
+                <div className="text-lg md:text-xl font-medium text-white">{b.title}</div>
+                <p className="mt-3 text-[15px] md:text-base text-neutral-300 leading-relaxed">
                   {b.body}
                 </p>
               </div>
@@ -206,7 +206,7 @@ function IndustryDetail() {
             <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
               Related case studies
             </div>
-            <h2 className="text-2xl md:text-3xl font-light text-white">
+            <h2 className="text-2xl md:text-4xl font-light text-white">
               Projects we've delivered in this space.
             </h2>
             <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -257,7 +257,7 @@ function IndustryDetail() {
             <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-2">
               Showcase reel
             </div>
-            <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
+            <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
               Residential launches we've visualised.
             </h2>
             <YouTubeReel
@@ -342,14 +342,14 @@ function IndustryDetail() {
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             FAQ
           </div>
-          <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
+          <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
             Questions {industry.name.toLowerCase()} teams ask before they engage.
           </h2>
           <div className="mt-10 space-y-6 max-w-3xl">
             {industry.faqs.map((f) => (
               <div key={f.q}>
                 <div className="text-white font-light">{f.q}</div>
-                <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{f.a}</p>
+                <p className="mt-2 text-[15px] md:text-base text-neutral-400 leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>
@@ -358,10 +358,10 @@ function IndustryDetail() {
         {/* CTA */}
         <section className="px-6 md:px-24 py-20 md:py-24">
           <div className="border border-emerald-500/25 rounded-xl p-8 md:p-12 bg-emerald-500/[0.04]">
-            <h2 className="text-2xl md:text-3xl font-light text-white max-w-2xl">
+            <h2 className="text-2xl md:text-4xl font-light text-white max-w-2xl">
               Book a scoping consultation.
             </h2>
-            <p className="mt-3 text-sm text-neutral-300 max-w-2xl">
+            <p className="mt-3 text-[15px] md:text-base text-neutral-300 max-w-2xl leading-relaxed">
               We'll map your {industry.name.toLowerCase()} outcomes to the right
               capture technology, timeline and deliverable.
             </p>
