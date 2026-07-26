@@ -6,15 +6,15 @@ import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
-const TITLE = "Immersive & Virtual Training Malaysia | 360° Interactive, Gamified & Simulation — Novo Reperio";
+const TITLE = "Immersive & Virtual Training Malaysia | 360° Interactive, Gamified & Simulation | Novo Reperio";
 const DESCRIPTION =
-  "Interactive 360° training tours, gamified digital twins, and game-engine simulations — turn real workplaces into hands-on training on any device.";
+  "Interactive 360° training tours, gamified digital twins, and game-engine simulations. Turn real workplaces into hands-on training on any device.";
 const URL = abs("/services/immersive-training");
 
 const FAQ = [
   { q: "Can virtual tours be used for employee training?", a: "Yes. A guided 360° tour with info-tags, step navigation, embedded checklists, media at each station and quiz gates lets staff run through a real workplace procedure hands-on, from anywhere, with consistent content every time." },
-  { q: "What is gamified safety training?", a: "Gamified safety training turns a digital twin of the workplace into an interactive exercise — hazard hunts, timed procedure runs, branching decisions and scoring with cohort leaderboards. It rewards good behaviour, measures competency, and issues completion certification." },
-  { q: "How do companies train staff without site visits?", a: "By replacing the site with an immersive twin. Novo Reperio captures the real workplace once, wraps it in the training UI (360° tour, gamified twin, or game-engine simulation), and delivers it to staff on mobile, tablet or VR — no travel, no downtime, no exposure to live hazards." },
+  { q: "What is gamified safety training?", a: "Gamified safety training turns a digital twin of the workplace into an interactive exercise, hazard hunts, timed procedure runs, branching decisions and scoring with cohort leaderboards. It rewards good behaviour, measures competency, and issues completion certification." },
+  { q: "How do companies train staff without site visits?", a: "By replacing the site with an immersive twin. Novo Reperio captures the real workplace once, wraps it in the training UI (360° tour, gamified twin, or game-engine simulation), and delivers it to staff on mobile, tablet or VR, with no travel, no downtime, no exposure to live hazards." },
 ];
 
 const TIERS = [
@@ -24,7 +24,7 @@ const TIERS = [
     title: "Interactive 360° Training Tours",
     body: "Info-tags, guided step navigation, embedded checklists, media at each station, quiz gates.",
     proof: "Shell PDP 360 Learning Experience",
-    media: "SHELL PDP TRAINING VIDEO — PENDING",
+    media: "SHELL PDP TRAINING VIDEO: PENDING",
   },
   {
     tag: "AVAILABLE",
@@ -40,15 +40,15 @@ const TIERS = [
     title: "Game-Engine Simulation Training",
     body: "Full simulation of high-risk or unbuilt environments; consequence-free repetition.",
     proof: null,
-    media: "GAME-ENGINE SIMULATION — PENDING",
+    media: "GAME-ENGINE SIMULATION: PENDING",
   },
 ];
 
 const BENEFITS = [
   { t: "Consistency at global scale", b: "Every learner gets the same content, in every location." },
-  { t: "Travel & downtime eliminated", b: "Train wherever the learner is — no flights, no shut-downs." },
+  { t: "Travel & downtime eliminated", b: "Train wherever the learner is, with no flights, no shut-downs." },
   { t: "Safety without exposure", b: "Practice high-risk procedures with zero live-hazard risk." },
-  { t: "Measurable", b: "Completion, scores, time analytics — audit-ready reporting." },
+  { t: "Measurable", b: "Completion, scores, time analytics, audit-ready reporting." },
   { t: "Greener training", b: "Quantifiable carbon saved per avoided flight or site visit." },
   { t: "Always-on, multilingual", b: "Mobile, tablet and VR-headset-ready, in the languages you operate in." },
 ];
@@ -106,9 +106,9 @@ function Page() {
           Turn training into an experience. Not a slideshow.
         </h1>
         <p className="mt-6 max-w-3xl text-sm md:text-base text-neutral-300 leading-relaxed">
-          Novo Reperio converts real workplaces into interactive training environments —
+          Novo Reperio converts real workplaces into interactive training environments,
           360° guided walkthroughs, gamified digital twins, and game-engine simulations
-          on engagement — so staff learn procedures hands-on, from anywhere, on any device.
+          on engagement, so staff learn procedures hands-on, from anywhere, on any device.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
@@ -196,7 +196,7 @@ function Page() {
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
-          Immersive training — common questions
+          Immersive training: common questions
         </h2>
         <div className="space-y-6 max-w-4xl">
           {FAQ.map((f) => (
@@ -209,12 +209,12 @@ function Page() {
       </section>
 
       <MonthlyValue
-        intro="Immersive training is a live product — it should evolve with the workplace it mirrors."
+        intro="Immersive training is a live product; it should evolve with the workplace it mirrors."
         bullets={[
-          "Hosted, embed-ready training environments — LMS embeds, mobile, tablet and headset access.",
-          "Usage & assessment analytics — completion rates, hazard-hunt scores and cohort leaderboards.",
-          "Scheduled recapture — training twins stay aligned with real workplace layout changes.",
-          "Integrations — quiz gates, checklists and certification records exportable to your HRIS or LMS.",
+          "Hosted, embed-ready training environments, LMS embeds, mobile, tablet and headset access.",
+          "Usage & assessment analytics, completion rates, hazard-hunt scores and cohort leaderboards.",
+          "Scheduled recapture, training twins stay aligned with real workplace layout changes.",
+          "Integrations, quiz gates, checklists and certification records exportable to your HRIS or LMS.",
         ]}
       />
 
