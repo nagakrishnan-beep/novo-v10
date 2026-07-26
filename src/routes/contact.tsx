@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
-import { ArrowRight, Mail, MapPin, MessageCircle, Check } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Check } from "lucide-react";
 import { SiteHeader, SiteFooter, trackEvent } from "@/components/site-chrome";
 import {
   WHATSAPP_URL,
+  WHATSAPP_PHONE,
   PHONE,
+  PHONE_TEL,
   EMAIL,
   ADDRESS_FULL,
   HOURS,
@@ -27,7 +29,8 @@ const STEPS = [
 ];
 
 const METHODS = [
-  { icon: MessageCircle, label: "WhatsApp or call", value: PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day. Also callable weekdays 9:00–18:00 MYT." },
+  { icon: MessageCircle, label: "WhatsApp", value: WHATSAPP_PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day." },
+  { icon: Phone, label: "Call the studio", value: PHONE, href: `tel:${PHONE_TEL}`, hint: "Office direct line, weekdays 9:00–18:00 MYT." },
   { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, hint: "For scoping, quotes and briefing documents." },
   { icon: MapPin, label: "Studio", value: "Solaris Mont Kiara, KL", href: "https://maps.google.com/?q=Solaris+Mont+Kiara", hint: ADDRESS_FULL },
 ];
