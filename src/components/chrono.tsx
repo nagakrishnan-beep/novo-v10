@@ -248,7 +248,6 @@ export function KineticHeadline({
   const { intensity } = useIntensity();
   const letterSpacing = useTransform(intensity, [0, 1], ["-0.02em", "-0.06em"]);
   const scaleY = useTransform(intensity, [0, 1], [1, 0.82]);
-  const filter = useTransform(intensity, (v) => `blur(${v * 2}px)`);
   const skewY = useTransform(intensity, [0, 1], [0, -1.5]);
 
   return (
@@ -257,7 +256,6 @@ export function KineticHeadline({
         letterSpacing,
         scaleY,
         skewY,
-        filter,
         transformOrigin: "left top",
       }}
       className={className}
