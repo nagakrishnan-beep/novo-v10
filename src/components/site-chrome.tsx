@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import { WHATSAPP_URL, LEGAL_NAME, SOCIALS } from "@/lib/site";
+import { LEGAL_NAME, SOCIALS } from "@/lib/site";
 
 
 type ActiveKey =
@@ -31,10 +31,6 @@ const FOOTER_NAV: { key: string; label: string; to: any }[] = [
   ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
   { key: "contact", label: "Contact", to: "/contact" },
 ];
-
-function trackWhatsApp() {
-  trackEvent("whatsapp_click", { event_category: "engagement" });
-}
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
   return (
@@ -86,7 +82,7 @@ export function SiteFooter() {
         <div>
           <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">Explore</div>
           <ul className="space-y-2 text-sm text-neutral-300">
-            {NAV.filter((n) => n.key !== "home").map((n) => (
+            {FOOTER_NAV.map((n) => (
               <li key={n.key}>
                 <Link to={n.to} className="hover:text-emerald-300">{n.label}</Link>
               </li>
