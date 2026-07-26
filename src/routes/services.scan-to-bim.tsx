@@ -3,7 +3,6 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
-import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Scan-to-BIM & LiDAR Point Cloud Services Malaysia | As-Built CAD & Revit | Novo Reperio";
@@ -15,7 +14,13 @@ const FAQ = [
   { q: "What is Scan-to-BIM?", a: "Scan-to-BIM is the process of capturing an existing building with LiDAR or 3D scanning, then converting the resulting point cloud into an accurate as-built BIM model. It replaces guesswork and outdated drawings with a reliable digital record of what is actually on site, used by architects for renovation, MEP engineers for coordination, and facility owners for handover." },
   { q: "What accuracy does LiDAR scanning provide?", a: "Centimetre-grade LiDAR point clouds captured with fast walk-and-scan coverage, paired with millimetre-grade measurement inside the 3D twin. That is enough for up to LOD 400 BIM, MEP coordination, and quantity surveying without a second visit." },
   { q: "Can you produce AutoCAD drawings from a 3D scan?", a: "Yes. Once a building is scanned we can deliver 2D CAD floor plans, elevations and sections extracted from the point cloud, alongside the BIM model and the measurable 3D twin, one capture, multiple deliverables." },
+  { q: "What is a point cloud?", a: "A point cloud is a dense set of measured 3D points captured by LiDAR, each with a real position in space. It is the raw survey of the building that we register and then model into BIM or CAD." },
+  { q: "What do LOD 200, 300 and 400 mean?", a: "Level of Development describes how much detail and reliability a BIM element carries. LOD 200 is generalised geometry, LOD 300 is accurate geometry and dimensions, and LOD 400 adds fabrication and assembly detail. We deliver up to LOD 400 where the project needs it." },
+  { q: "Can you scan an occupied building?", a: "Yes. We schedule around operating hours and occupied zones, and capture is non-invasive, so business continues while we scan." },
+  { q: "How long does a Scan-to-BIM project take?", a: "On-site capture is usually a day or two for a typical building. Point cloud registration and BIM authoring depend on size and target LOD, and are scoped after a walkthrough." },
+  { q: "Can the model integrate with Revit or IFC?", a: "Yes. We deliver native Revit models and IFC exports, so the as-built drops straight into your existing BIM workflow." },
 ];
+
 
 const DELIVERABLES = [
   "Registered LiDAR point clouds",
@@ -78,7 +83,7 @@ function ScanToBimPage() {
 
       <section className="px-6 md:px-24 pt-6 pb-16 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-6 font-mono">
-          BUILD IT · Scan-to-BIM & LiDAR
+          Build · Scan-to-BIM & LiDAR
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
           From site scan to as-built intelligence.
@@ -89,12 +94,20 @@ function ScanToBimPage() {
           2D CAD drawings, and measurable digital twins, so architects, engineers
           and facility teams design and plan from reality, not guesswork.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-2 font-mono">
+            The problem
+          </div>
+          <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+            As-built drawings drift from reality, leaving design and FM teams to work from guesswork.
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
-            to="/contact"
+            to="/estimate"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-emerald-400 text-black text-xs font-mono uppercase tracking-widest hover:bg-emerald-300"
           >
-            Request a quote <ArrowRight size={14} />
+            Get an assessment <ArrowRight size={14} />
           </Link>
           <a
             href={WHATSAPP_URL}
@@ -125,12 +138,24 @@ function ScanToBimPage() {
               Accuracy
             </div>
             <p className="text-sm text-neutral-300 leading-relaxed">
-              Centimetre-grade LiDAR point clouds captured with fast walk-and-scan
-              coverage, paired with millimetre-grade measurement inside the 3D twin.
+              We capture with Matterport Pro3 LiDAR (per Matterport's published spec,
+              range up to roughly 100 m with point accuracy in the ±20 mm class) and
+              terrestrial LiDAR for larger or survey-grade work. For geodetic accuracy
+              we tie the scan to survey control points.
             </p>
           </div>
         </div>
       </section>
+
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          Accurate as-built BIM and CAD, up to LOD 400, that teams can build and plan against.
+        </p>
+      </section>
+
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
@@ -182,7 +207,7 @@ function ScanToBimPage() {
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
-          Related BUILD IT services
+          Related build services
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           <Link
@@ -199,18 +224,32 @@ function ScanToBimPage() {
             <div className="text-white text-base font-light">Facilities Operations Twins</div>
             <p className="mt-2 text-sm text-neutral-400">Run the building from anywhere.</p>
           </Link>
+          <Link
+            to="/reality-capture"
+            className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition"
+          >
+            <div className="text-white text-base font-light">Reality Capture</div>
+            <p className="mt-2 text-sm text-neutral-400">LiDAR, Matterport, 360° and drone capture, matched to the accuracy your project needs.</p>
+          </Link>
+          <Link
+            to="/industries/$slug"
+            params={{ slug: "construction" }}
+            className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition"
+          >
+            <div className="text-white text-base font-light">Construction</div>
+            <p className="mt-2 text-sm text-neutral-400">How contractors and consultants use scan data through delivery and handover.</p>
+          </Link>
+          <Link
+            to="/industries/$slug"
+            params={{ slug: "facilities-management" }}
+            className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition"
+          >
+            <div className="text-white text-base font-light">Facilities Management</div>
+            <p className="mt-2 text-sm text-neutral-400">As-built data that keeps working long after handover.</p>
+          </Link>
         </div>
       </section>
 
-      <MonthlyValue
-        intro="Scan deliverables don't have to end when the point cloud is handed over."
-        bullets={[
-          "Hosted measurable twin alongside the BIM model, architects, MEP and QS teams share one live link.",
-          "Usage analytics on twin access, see who inside the design team is inspecting what.",
-          "Scheduled recapture, resurvey at fit-out, defects liability and post-occupation to track drift from as-designed.",
-          "BIM handover integrations, up to LOD 400 model feeds straight into the FM asset register.",
-        ]}
-      />
 
       <SiteFooter />
     </div>

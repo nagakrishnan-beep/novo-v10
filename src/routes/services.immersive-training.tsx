@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
+import { getService } from "@/lib/services";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 import { MonthlyValue } from "@/components/service-extras";
@@ -84,6 +85,7 @@ export const Route = createFileRoute("/services/immersive-training")({
 });
 
 function Page() {
+  const service = getService("immersive-training")!;
   const shell = WORKS.find((w) => w.slug === "shell-360-training");
   const henkel = WORKS.find((w) => w.slug === "henkel-malaysia-kuala-lumpur");
   return (
@@ -100,7 +102,7 @@ function Page() {
 
       <section className="px-6 md:px-24 pt-6 pb-16 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-6 font-mono">
-          TRAIN IN IT · Immersive & Virtual Training
+          Train · Immersive & Virtual Training
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
           Turn training into an experience. Not a slideshow.
@@ -110,6 +112,14 @@ function Page() {
           360° guided walkthroughs, gamified digital twins, and game-engine simulations
           on engagement, so staff learn procedures hands-on, from anywhere, on any device.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-2 font-mono">
+            The problem
+          </div>
+          <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+            {service.problem}
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             to="/contact"
@@ -151,6 +161,15 @@ function Page() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          {service.outcome}
+        </p>
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
