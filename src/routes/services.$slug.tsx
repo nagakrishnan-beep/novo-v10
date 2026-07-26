@@ -118,6 +118,14 @@ function ServiceDetail() {
         <p className="mt-6 text-[15px] md:text-base text-neutral-400 max-w-3xl leading-relaxed">
           {service.tagline}
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-2">
+            The problem
+          </div>
+          <p className="text-[15px] md:text-base text-neutral-400 leading-relaxed">
+            {service.problem}
+          </p>
+        </div>
         <div className="mt-6 inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-2 text-[11px] font-mono uppercase tracking-widest text-neutral-400">
           Best for · {service.bestFor}
         </div>
