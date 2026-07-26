@@ -19,6 +19,9 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksIndexRouteImport } from './routes/works.index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
 import { Route as ServicesUrbanDigitalTwinsRouteImport } from './routes/services.urban-digital-twins'
 import { Route as ServicesScanToBimRouteImport } from './routes/services.scan-to-bim'
@@ -81,6 +84,21 @@ const WorksIndexRoute = WorksIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => WorksRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InsightsRoute,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
 } as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
@@ -170,6 +188,9 @@ export interface FileRoutesByFullPath {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/works/': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -178,10 +199,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/estimate': typeof EstimateRoute
-  '/industries': typeof IndustriesRouteWithChildren
-  '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
-  '/services': typeof ServicesRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -193,6 +211,9 @@ export interface FileRoutesByTo {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/insights': typeof InsightsIndexRoute
+  '/services': typeof ServicesIndexRoute
   '/works': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -218,6 +239,9 @@ export interface FileRoutesById {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/works/': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -244,6 +268,9 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/industries/'
+    | '/insights/'
+    | '/services/'
     | '/works/'
     | '/works/category/$cat'
   fileRoutesByTo: FileRoutesByTo
@@ -252,10 +279,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/estimate'
-    | '/industries'
-    | '/insights'
     | '/methodology'
-    | '/services'
     | '/industries/$slug'
     | '/insights/$slug'
     | '/services/$slug'
@@ -267,6 +291,9 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/industries'
+    | '/insights'
+    | '/services'
     | '/works'
     | '/works/category/$cat'
   id:
@@ -291,6 +318,9 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/industries/'
+    | '/insights/'
+    | '/services/'
     | '/works/'
     | '/works/category/$cat'
   fileRoutesById: FileRoutesById
@@ -378,6 +408,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/works/'
       preLoaderRoute: typeof WorksIndexRouteImport
       parentRoute: typeof WorksRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof InsightsRoute
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
     }
     '/works/$slug': {
       id: '/works/$slug'
@@ -468,10 +519,12 @@ declare module '@tanstack/react-router' {
 
 interface IndustriesRouteChildren {
   IndustriesSlugRoute: typeof IndustriesSlugRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
 }
 
 const IndustriesRouteChildren: IndustriesRouteChildren = {
   IndustriesSlugRoute: IndustriesSlugRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
 }
 
 const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
@@ -480,10 +533,12 @@ const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
 
 interface InsightsRouteChildren {
   InsightsSlugRoute: typeof InsightsSlugRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
 }
 
 const InsightsRouteChildren: InsightsRouteChildren = {
   InsightsSlugRoute: InsightsSlugRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
 }
 
 const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
@@ -499,6 +554,7 @@ interface ServicesRouteChildren {
   ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
   ServicesScanToBimRoute: typeof ServicesScanToBimRoute
   ServicesUrbanDigitalTwinsRoute: typeof ServicesUrbanDigitalTwinsRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
@@ -510,6 +566,7 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
   ServicesScanToBimRoute: ServicesScanToBimRoute,
   ServicesUrbanDigitalTwinsRoute: ServicesUrbanDigitalTwinsRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
