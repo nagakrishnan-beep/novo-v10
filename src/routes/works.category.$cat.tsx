@@ -79,7 +79,7 @@ function CategoryPage() {
         <p className="mt-6 max-w-2xl text-neutral-400 leading-relaxed">{cat.metaDesc}</p>
       </section>
 
-      <section className="px-6 md:px-24 py-16">
+      <section className="px-6 md:px-24 py-20 md:py-24">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {works.map((w: any) => (
             <Link

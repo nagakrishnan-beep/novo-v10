@@ -1,15 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, Mail, MapPin, Phone, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import {
-  WHATSAPP_URL,
-  PHONE,
-  EMAIL,
-  ADDRESS_FULL,
-  HOURS,
-  LEGAL_NAME,
-  SOCIALS,
-} from "@/lib/site";
+import { WHATSAPP_URL, LEGAL_NAME, SOCIALS } from "@/lib/site";
+
 
 type ActiveKey =
   | "home"
@@ -82,29 +75,6 @@ export function SiteFooter() {
             digital twins, 360° tours, drone capture, CGI and UE5 experiences for venues,
             developers and enterprises worldwide.
           </p>
-          <address className="mt-6 not-italic text-sm text-neutral-400 leading-relaxed">
-            {ADDRESS_FULL}
-          </address>
-          <ul className="mt-4 space-y-1 text-sm text-neutral-300 font-mono">
-            <li className="flex items-center gap-2">
-              <Phone size={12} className="text-emerald-300" />
-              <a href={`tel:${PHONE.replace(/\s|-/g, "")}`} className="hover:text-emerald-300">{PHONE}</a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail size={12} className="text-emerald-300" />
-              <a href={`mailto:${EMAIL}`} className="hover:text-emerald-300">{EMAIL}</a>
-            </li>
-            <li className="flex items-center gap-2">
-              <MessageCircle size={12} className="text-emerald-300" />
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={trackWhatsApp} className="hover:text-emerald-300">
-                WhatsApp {PHONE}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <MapPin size={12} className="text-emerald-300" />
-              <span className="text-neutral-400 text-xs">{HOURS}</span>
-            </li>
-          </ul>
         </div>
 
         <div>

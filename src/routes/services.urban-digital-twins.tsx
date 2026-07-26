@@ -97,11 +97,11 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <MediaSlot label="UE5 MASTERPLAN CLIP — PENDING" />
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-6 font-mono">Scale ladder</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {["Building", "Township", "City / State"].map((step, i) => (
@@ -113,7 +113,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Our most advanced engagement — scoped per project
         </div>
@@ -127,7 +127,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Best for</div>
         <div className="flex flex-wrap gap-2 font-mono text-xs">
           {BEST_FOR.map((b) => (
@@ -136,7 +136,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
           Urban digital twins — common questions

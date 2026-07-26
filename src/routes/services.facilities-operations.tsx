@@ -92,11 +92,11 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <MediaSlot label="FACILITIES DIGITAL TWIN — PENDING" />
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">What we deliver</div>
         <div className="grid md:grid-cols-2 gap-4">
           {SECTIONS.map((s) => (
@@ -108,7 +108,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Best for</div>
         <div className="flex flex-wrap gap-2 font-mono text-xs">
           {BEST_FOR.map((b) => (
@@ -118,7 +118,7 @@ function Page() {
       </section>
 
       {proof && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Proof</div>
           <Link
             to="/works/$slug"
@@ -131,7 +131,7 @@ function Page() {
         </section>
       )}
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">Related BUILD IT services</div>
         <div className="grid md:grid-cols-2 gap-4">
           <Link to="/services/scan-to-bim" className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition">

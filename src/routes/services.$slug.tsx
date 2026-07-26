@@ -108,7 +108,7 @@ function ServiceDetail() {
       </section>
 
       {/* Nameplate + hero */}
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           {service.tier === "core" ? "Core service" : "Supporting service"}
         </div>
@@ -123,7 +123,7 @@ function ServiceDetail() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
         <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-black/40">
           <img
             src={service.image}
@@ -177,7 +177,7 @@ function ServiceDetail() {
 
       {/* Service video */}
       {SERVICE_VIDEOS[service.slug] && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
             Watch it work
           </div>
@@ -194,7 +194,7 @@ function ServiceDetail() {
 
       {/* Image gallery */}
       {SERVICE_GALLERIES[service.slug] && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
             {SERVICE_GALLERIES[service.slug].title}
           </div>
@@ -218,7 +218,7 @@ function ServiceDetail() {
 
       {/* Other services */}
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           Other services
         </div>
@@ -237,7 +237,7 @@ function ServiceDetail() {
       </section>
 
       {/* Next */}
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <Link
           to="/services/$slug"
           params={{ slug: next.slug }}

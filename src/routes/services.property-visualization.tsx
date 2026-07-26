@@ -81,11 +81,11 @@ function PropertyVizPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <MediaSlot ratio="16/9" label="Cover · Property Visualization" />
       </section>
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
           What's included
         </div>
@@ -115,7 +115,7 @@ function PropertyVizPage() {
       </section>
 
       {relatedWorks.length > 0 && (
-        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
             Selected work
           </div>
@@ -138,7 +138,7 @@ function PropertyVizPage() {
         </section>
       )}
 
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
           Property Visualization — common questions
@@ -164,7 +164,7 @@ function PropertyVizPage() {
       />
 
       {/* Instant scope estimator */}
-      <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <ScopeEstimator />
       </section>
 

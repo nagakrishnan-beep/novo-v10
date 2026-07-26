@@ -81,7 +81,7 @@ function WorksPage() {
 
       {/* Featured hero project */}
       {hero && (
-        <section className="px-6 md:px-24 pt-16">
+        <section className="px-6 md:px-24 pt-20 md:pt-24">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
             Featured project
           </div>
@@ -121,7 +121,7 @@ function WorksPage() {
       )}
 
       {/* Category pillars — primary browse path */}
-      <section className="px-6 md:px-24 pt-16">
+      <section className="px-6 md:px-24 pt-20 md:pt-24">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
           Browse by category
         </div>
@@ -145,7 +145,7 @@ function WorksPage() {
       </section>
 
       {/* Filter */}
-      <section className="px-6 md:px-24 pt-14">
+      <section className="px-6 md:px-24 pt-20 md:pt-24">
         <div className="flex items-baseline justify-between flex-wrap gap-4 mb-6">
           <h2 className="text-2xl font-light">Selected Projects</h2>
           <span className="text-xs tracking-[0.3em] uppercase text-neutral-500 font-mono">
@@ -176,7 +176,7 @@ function WorksPage() {
       </section>
 
       {/* Grid */}
-      <section className="px-6 md:px-24 pb-24">
+      <section className="px-6 md:px-24 py-20 md:py-24">
         {filtered.length === 0 ? (
           <p className="text-neutral-500 text-sm">
             No projects match this filter yet. Try another category.
