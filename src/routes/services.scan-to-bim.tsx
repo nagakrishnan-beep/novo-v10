@@ -187,7 +187,7 @@ function ScanToBimPage() {
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
-          Related BUILD IT services
+          Related build services
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           <Link
@@ -204,18 +204,32 @@ function ScanToBimPage() {
             <div className="text-white text-base font-light">Facilities Operations Twins</div>
             <p className="mt-2 text-sm text-neutral-400">Run the building from anywhere.</p>
           </Link>
+          <Link
+            to="/reality-capture"
+            className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition"
+          >
+            <div className="text-white text-base font-light">Reality Capture</div>
+            <p className="mt-2 text-sm text-neutral-400">LiDAR, Matterport, 360° and drone capture, matched to the accuracy your project needs.</p>
+          </Link>
+          <Link
+            to="/industries/$slug"
+            params={{ slug: "construction" }}
+            className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition"
+          >
+            <div className="text-white text-base font-light">Construction</div>
+            <p className="mt-2 text-sm text-neutral-400">How contractors and consultants use scan data through delivery and handover.</p>
+          </Link>
+          <Link
+            to="/industries/$slug"
+            params={{ slug: "facilities-management" }}
+            className="border border-white/10 rounded-lg p-6 hover:border-emerald-400/40 transition"
+          >
+            <div className="text-white text-base font-light">Facilities Management</div>
+            <p className="mt-2 text-sm text-neutral-400">As-built data that keeps working long after handover.</p>
+          </Link>
         </div>
       </section>
 
-      <MonthlyValue
-        intro="Scan deliverables don't have to end when the point cloud is handed over."
-        bullets={[
-          "Hosted measurable twin alongside the BIM model, architects, MEP and QS teams share one live link.",
-          "Usage analytics on twin access, see who inside the design team is inspecting what.",
-          "Scheduled recapture, resurvey at fit-out, defects liability and post-occupation to track drift from as-designed.",
-          "BIM handover integrations, up to LOD 400 model feeds straight into the FM asset register.",
-        ]}
-      />
 
       <SiteFooter />
     </div>
