@@ -131,7 +131,7 @@ export function AuroraBackdrop() {
             radial-gradient(50% 50% at 80% 20%, ${palette.c}44 0%, transparent 60%),
             radial-gradient(55% 45% at 60% 80%, ${palette.d}3a 0%, transparent 70%)
           `,
-          filter: "blur(40px)",
+          filter: "blur(24px)",
         }}
         animate={
           reduced
@@ -248,7 +248,6 @@ export function KineticHeadline({
   const { intensity } = useIntensity();
   const letterSpacing = useTransform(intensity, [0, 1], ["-0.02em", "-0.06em"]);
   const scaleY = useTransform(intensity, [0, 1], [1, 0.82]);
-  const filter = useTransform(intensity, (v) => `blur(${v * 2}px)`);
   const skewY = useTransform(intensity, [0, 1], [0, -1.5]);
 
   return (
@@ -257,7 +256,6 @@ export function KineticHeadline({
         letterSpacing,
         scaleY,
         skewY,
-        filter,
         transformOrigin: "left top",
       }}
       className={className}
@@ -277,9 +275,8 @@ export function KineticBody({
 }) {
   const { intensity } = useIntensity();
   const opacity = useTransform(intensity, [0, 1], [1, 0.35]);
-  const filter = useTransform(intensity, (v) => `blur(${v * 4}px)`);
   return (
-    <motion.p style={{ opacity, filter }} className={className}>
+    <motion.p style={{ opacity }} className={className}>
       {children}
     </motion.p>
   );
