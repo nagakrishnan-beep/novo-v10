@@ -15,9 +15,22 @@ export type Work = {
   impact: string;
   tourUrl?: string;
   externalUrl?: string;
+  featured?: boolean;
+  videoId?: string;
   relatedService?: string; // service slug
   relatedServiceLabel?: string;
 };
+
+/**
+ * Manual tour overrides. These always win over the WordPress auto-fetch.
+ */
+export const TOUR_OVERRIDES: Record<string, string> = {
+  "kuala-lumpur-convention-centre":
+    "https://my.treedis.com/tour/kuala-lumpur-convention-centre-may-2026",
+  "world-trade-centre-kuala-lumpur": "https://worldtradecentrekl.com/tour-2/",
+  "lexis-hibiscus-port-dickson": "https://lexis.novoreperio.com/",
+};
+
 
 export const WORK_CATEGORIES = {
   hospitality: {
