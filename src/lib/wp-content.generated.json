@@ -1,5 +1,601 @@
 {
-  "generatedAt": "",
-  "posts": {},
-  "portfolio": {}
+  "generatedAt": "2026-07-26T02:12:16.228Z",
+  "posts": {
+    "spatial-computing-for-real-estate": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/how-spatial-computing-for-real-estate-drives-sales-featured.webp",
+      "alt": "How Spatial Computing for Real Estate Drives Sales"
+    },
+    "how-to-reduce-site-visits": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/how-to-reduce-site-visits-without-losing-control-featured.webp",
+      "alt": "How to Reduce Site Visits Without Losing Control"
+    },
+    "guide-to-3d-spatial-data": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/a-business-guide-to-3d-spatial-data-capture-featured.webp",
+      "alt": "A Business Guide to 3D Spatial Data Capture"
+    },
+    "best-tools-for-digital-twins": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/best-tools-for-digital-twins-by-business-use-featured.webp",
+      "alt": "Best Tools for Digital Twins by Business Use"
+    },
+    "3d-rendering-for-pre-sales": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/how-3d-rendering-for-pre-sales-drives-demand-featured.webp",
+      "alt": "How 3D Rendering for Pre Sales Drives Demand"
+    },
+    "bim-ready-point-cloud-workflow-existing-buildings": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/bim-ready-point-cloud-workflow-for-existing-buildi-featured.webp",
+      "alt": "BIM Ready Point Cloud Workflow for Existing Buildings"
+    },
+    "can-virtual-tours-increase-bookings": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/can-virtual-tours-increase-bookings-the-evidence-featured.webp",
+      "alt": "Can Virtual Tours Increase Bookings? The Evidence"
+    },
+    "how-to-capture-as-built-data": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/how-to-capture-as-built-data-without-rework-featured.webp",
+      "alt": "How to Capture As-Built Data Without Rework"
+    },
+    "guide-to-reality-capture-workflows": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/a-guide-to-reality-capture-workflows-featured.webp",
+      "alt": "A Guide to Reality Capture Workflows"
+    },
+    "best-property-visualization-tools": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/10-best-property-visualization-tools-featured.webp",
+      "alt": "10 Best Property Visualization Tools"
+    },
+    "singapore-scan-to-bim-consultant": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/singapore-scan-to-bim-consultant-what-matters-featured.webp",
+      "alt": "Singapore Scan to BIM Consultant: What Matters"
+    },
+    "remote-property-viewing-malaysia": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/remote-property-viewing-malaysia-what-works-featured.webp",
+      "alt": "Remote Property Viewing Malaysia: What Works"
+    },
+    "drone-mapping-vs-surveying": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/07/drone-mapping-vs-surveying-what-fits-best-featured.webp",
+      "alt": "Drone Mapping vs Surveying: What Fits Best?"
+    },
+    "how-to-present-unbuilt-developments": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/how-to-present-unbuilt-developments-well-featured.webp",
+      "alt": "How to Present Unbuilt Developments Well"
+    },
+    "digital-twin-case-study-hotel-results": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/digital-twin-case-study-hotel-results-featured.webp",
+      "alt": "Digital Twin Case Study Hotel Results"
+    },
+    "virtual-staging-vs-physical-staging": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/virtual-staging-vs-physical-staging-featured.webp",
+      "alt": "Virtual Staging vs Physical Staging"
+    },
+    "is-lidar-accurate-for-construction": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/is-lidar-accurate-for-construction-featured.webp",
+      "alt": "Is LiDAR Accurate for Construction?"
+    },
+    "drone-mapping-vs-lidar": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/drone-mapping-vs-lidar-which-fits-best-featured.webp",
+      "alt": "Drone Mapping vs LiDAR: Which Fits Best?"
+    },
+    "matterport-for-commercial-leasing": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/matterport-for-commercial-leasing-works-featured.webp",
+      "alt": "Matterport for Commercial Leasing Works"
+    },
+    "what-is-a-digital-twin": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/what-is-a-digital-twin-and-why-it-matters-featured.webp",
+      "alt": "What Is a Digital Twin and Why It Matters"
+    },
+    "future-of-digital-twins-in-business": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/future-of-digital-twins-in-business-featured.webp",
+      "alt": "Future of Digital Twins in Business"
+    },
+    "how-to-market-luxury-property-that-sells": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/how-to-market-luxury-property-that-sells-featured.webp",
+      "alt": "How to Market Luxury Property That Sells"
+    },
+    "what-is-as-built-documentation": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/what-is-as-built-documentation-featured.webp",
+      "alt": "What Is As Built Documentation?"
+    },
+    "virtual-tour-for-event-venues-that-converts": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/virtual-tour-for-event-venues-that-converts-featured.webp",
+      "alt": "Virtual Tour for Event Venues That Converts"
+    },
+    "why-use-lidar-for-renovation-projects": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/why-use-lidar-for-renovation-projects-featured.webp",
+      "alt": "Why Use LiDAR for Renovation Projects"
+    },
+    "matterport-vs-cgi-walkthrough": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/matterport-vs-cgi-walkthrough-which-fits-featured.webp",
+      "alt": "Matterport vs CGI Walkthrough: Which Fits?"
+    },
+    "how-to-create-digital-showroom-that-sells": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/how-to-create-digital-showroom-that-sells-featured.webp",
+      "alt": "How to Create Digital Showroom That Sells"
+    },
+    "best-digital-twin-platforms": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/06/8-best-digital-twin-platforms-featured.webp",
+      "alt": "8 Best Digital Twin Platforms"
+    },
+    "digital-twin-for-hotels-guide": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/digital-twin-for-hotels-guide-featured.webp",
+      "alt": "Digital Twin for Hotels Guide"
+    },
+    "malaysia-digital-twin-for-facilities": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/malaysia-digital-twin-for-facilities-explained-featured.webp",
+      "alt": "Malaysia Digital Twin for Facilities Explained"
+    },
+    "how-to-document-construction-progress-right": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/how-to-document-construction-progress-right-featured.webp",
+      "alt": "How to Document Construction Progress Right"
+    },
+    "lidar-vs-tape-measure": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/lidar-vs-tape-measure-which-one-wins-featured.webp",
+      "alt": "LiDAR vs Tape Measure: Which One Wins?"
+    },
+    "matterport-vs-360-tour": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/matterport-vs-360-tour-which-fits-best-featured.webp",
+      "alt": "Matterport vs 360 Tour: Which Fits Best?"
+    },
+    "digital-twin-implementation-guide-for-teams": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/digital-twin-implementation-guide-for-teams-featured.webp",
+      "alt": "Digital Twin Implementation Guide for Teams"
+    },
+    "kuala-lumpur-property-visualization-that-sells": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/kuala-lumpur-property-visualization-that-sells-featured.webp",
+      "alt": "Kuala Lumpur Property Visualization That Sells"
+    },
+    "digital-twin-marketing-guide-better-roi": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/digital-twin-marketing-guide-for-better-roi-featured.webp",
+      "alt": "Digital Twin Marketing Guide for Better ROI"
+    },
+    "how-to-use-matterport-for-hotels": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/how-to-use-matterport-for-hotels-featured.webp",
+      "alt": "How to Use Matterport for Hotels"
+    },
+    "choosing-museum-virtual-tour-solution": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/choosing-a-museum-virtual-tour-solution-featured.webp",
+      "alt": "Choosing a Museum Virtual Tour Solution"
+    },
+    "how-digital-twins-improve-property-sales": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/how-digital-twins-improve-property-sales-featured.webp",
+      "alt": "How Digital Twins Improve Property Sales"
+    },
+    "cgi-walkthrough-for-unbuilt-projects": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/cgi-walkthrough-for-unbuilt-projects-featured.webp",
+      "alt": "CGI Walkthrough for Unbuilt Projects"
+    },
+    "commercial-real-estate-virtual-tours-that-sell": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/commercial-real-estate-virtual-tours-that-sell-featured.webp",
+      "alt": "Commercial Real Estate Virtual Tours That Sell"
+    },
+    "virtual-staging-for-vacant-homes": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/virtual-staging-for-vacant-homes-that-sells-featured.webp",
+      "alt": "Virtual Staging for Vacant Homes That Sells"
+    },
+    "3d-rendering-for-property-developers": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/3d-rendering-for-property-developers-featured.webp",
+      "alt": "3D Rendering for Property Developers"
+    },
+    "virtual-showroom-for-retail-brands": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/virtual-showroom-for-retail-brands-that-sells-featured.webp",
+      "alt": "Virtual Showroom for Retail Brands That Sells"
+    },
+    "as-built-documentation-services-explained": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/as-built-documentation-services-explained-featured.webp",
+      "alt": "As Built Documentation Services Explained"
+    },
+    "drone-mapping-services-for-construction-sites": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/drone-mapping-services-for-construction-sites-featured.webp",
+      "alt": "Drone Mapping Services for Construction Sites"
+    },
+    "360-virtual-tour-for-hotels-that-converts": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/360-virtual-tour-for-hotels-that-converts-featured.webp",
+      "alt": "360 Virtual Tour for Hotels That Converts"
+    },
+    "digital-twin-for-facility-management": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/digital-twin-for-facility-management-featured.webp",
+      "alt": "Digital Twin for Facility Management"
+    },
+    "matterport-virtual-tour-for-real-estate": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/matterport-virtual-tour-for-real-estate-featured.webp",
+      "alt": "Matterport Virtual Tour for Real Estate"
+    },
+    "lidar-scanning-for-buildings-that-pays-off": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/lidar-scanning-for-buildings-that-pays-off-featured.webp",
+      "alt": "LiDAR Scanning for Buildings That Pays Off"
+    },
+    "scan-to-bim-services-that-reduce-risk": {
+      "image": "https://novoreperio.com/wp-content/uploads/2026/05/scan-to-bim-services-that-reduce-risk-featured.webp",
+      "alt": "Scan to BIM Services That Reduce Risk"
+    },
+    "green-smart-tech-powering-the-next-wave-of-sustainable-cities": {
+      "image": "https://novoreperio.com/wp-content/uploads/2025/11/Nanyang-Property-1-copy.png"
+    },
+    "matterport-digital-twins-in-hospitality-unpacking-the-visiting-media": {
+      "image": "https://novoreperio.com/wp-content/uploads/2024/08/1004-novo-reperio-large-scale-spaces_1.jpg",
+      "alt": "Grand ballroom with ornate chandeliers and multiple levels, an example of a large-scale hospitality space"
+    },
+    "event-venues-brought-to-life-with-novo-reperio": {
+      "image": "https://novoreperio.com/wp-content/uploads/2024/08/1004-novo-reperio-large-scale-spaces_1.jpg",
+      "alt": "Grand ballroom with ornate chandeliers and multiple levels, an example of a large-scale hospitality space"
+    },
+    "future-proofing-large-scale-spaces-the-role-of-virtual-tours-in-modern-architecture": {
+      "image": "https://novoreperio.com/wp-content/uploads/2024/08/1004-novo-reperio-large-scale-spaces_1.jpg",
+      "alt": "Grand ballroom with ornate chandeliers and multiple levels, an example of a large-scale hospitality space"
+    },
+    "interactive-360-virtual-tours-in-asia": {
+      "image": "https://novoreperio.com/wp-content/uploads/2024/06/1003-novo-reperio-interactive-360-virtual-tours-asia-wtckl.jpg",
+      "alt": "A 360-degree view of the ornate, geometric dome ceiling of the World Trade Centre Kuala Lumpur, an example of an interactive virtual tour in Asia"
+    },
+    "how-virtual-tours-are-changing-our-world": {
+      "image": "https://novoreperio.com/wp-content/uploads/2021/11/Kuala-Lumpur-Craft-Museum-10112021_132953.jpg"
+    }
+  },
+  "portfolio": {
+    "360-virtual-tour-dickson-dragon-2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/03.20.2022_18.36.37.webp",
+      "alt": "Frontdesk of Kuala Lumpur Craft Museum in Kuala Lumpur Malaysia",
+      "tourUrl": "https://novoreperio.com/360tour/bwm/"
+    },
+    "3d-rendering-360-virtual-tour-enya-on9": {
+      "image": "https://novoreperio.com/wp-content/uploads/2025/02/img3-e1738834003665.jpg",
+      "alt": "3D Rendering and 360° Virtual Tour of Guacoland Emerald 9"
+    },
+    "virtual-walk-through-dhalona": {
+      "image": "https://novoreperio.com/wp-content/uploads/2025/02/Final-version.jpg",
+      "alt": "3D Rendering and 360° Virtual Tour of Majestic Residence Scaled Model Acacia"
+    },
+    "property-website-wtc": {
+      "image": "https://novoreperio.com/wp-content/uploads/2025/02/ishan-seefromthesky-X6Muh-l_XG0-unsplash.jpg",
+      "alt": "Property Website image thumbnail used for Novo Reperio website"
+    },
+    "property-website-lexis": {
+      "image": "https://novoreperio.com/wp-content/uploads/2025/02/1-e1742622677688.jpg",
+      "alt": "Property Website for Lexis Hibiscus Port Dickson Hotel"
+    },
+    "property-website-henkel": {
+      "image": "https://novoreperio.com/wp-content/uploads/2025/02/Henkel-Shah-Alam-office-Office1.jpg",
+      "alt": "Property Website for Henkel Shah Alam Workspace"
+    },
+    "matterport-3d-virtual-tour-eastin-ballroom": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Eastin-Ballroom.webp",
+      "alt": "3D Virtual Tour of the Eastin Hotel at Kuala Lumpur.",
+      "tourUrl": "https://my.matterport.com/show/?m=2Vob21d356g"
+    },
+    "matterport-3d-virtual-tour-maxis": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/3.webp",
+      "alt": "3D Virtual Tour of the Maxis office",
+      "tourUrl": "https://my.matterport.com/show/?m=78BrTVvt3JC"
+    },
+    "worq": {
+      "tourUrl": "https://my.matterport.com/show/?m=TeoNFanbJTt"
+    },
+    "muzium-negara-gallery-a": {
+      "tourUrl": "https://my.matterport.com/show/?m=UtCAdXaExuc"
+    },
+    "dickson-dragon-2": {
+      "tourUrl": "https://my.matterport.com/show/?m=tTioag29Xdp"
+    },
+    "bbq-smokehouse-bar": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/BBQ-SMOKEHOUSE-BAR.webp",
+      "alt": "360 tour, interactive tour, virtual tours asia, virtual tour, virtual tours, virtual tour malaysia, virtual tour singapore, dihgital twins, walkthrough",
+      "tourUrl": "https://my.matterport.com/show/?m=roaNU3Eisg8"
+    },
+    "pixo-the-astronomy-observatory-penang": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/PIXo-The-Astronomy-Observatory-Penang.webp",
+      "alt": "3D Virtual Tour of the Dickson Dragon luxury yacht",
+      "tourUrl": "https://my.matterport.com/show/?m=zQak3uYTF1X"
+    },
+    "sga-ballroom": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/SGA-Ballroom.webp",
+      "alt": "3D Virtual Tour of the SGA Ballroom"
+    },
+    "sga-kitchen": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/SGA-Kitchen.webp",
+      "alt": "3D Virtual Tour of the SGA professional kitchen",
+      "tourUrl": "https://my.matterport.com/show/?m=5hb57Xm5YMt"
+    },
+    "compass-offices-kl": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/COMPASS-OFFICES-SERVICED-OFFICES-IN-KUALA-LUMPUR.webp",
+      "alt": "3D Virtual Tour of Compass Offices in Kuala Lumpur.",
+      "tourUrl": "https://my.matterport.com/show/?m=aacfCBNmBfQ"
+    },
+    "inspace-international-sdn-bhd": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Inspace-International-Sdn-Bhd.webp",
+      "alt": "3D Virtual Tour of Inspace International's serviced office",
+      "tourUrl": "https://my.matterport.com/show/?m=3HN1i38P7D2"
+    },
+    "malaysia-autoshow-2019": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Malaysia-Autoshow-2019-Mobility-for-All.webp",
+      "alt": "3D Virtual Tour of the Malaysia Autoshow 2019",
+      "tourUrl": "https://my.matterport.com/show/?m=PtRbz98cU84"
+    },
+    "mega-metropolitan-sdn-bhd": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/MEGA-METROPOLITAN-SDN-BHD.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=Q47rudt4Lc5"
+    },
+    "type-b-upper-unit": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Type-B-Upper-Unit.webp",
+      "alt": "3D Virtual Tour of the Type B Upper Unit property",
+      "tourUrl": "https://my.matterport.com/show/?m=mTcbSWUVBFR"
+    },
+    "type-b-lower-unit": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Type-B-Lower-Unit.webp",
+      "alt": "3D Virtual Tour of the Type B Lower Unit property",
+      "tourUrl": "https://my.matterport.com/show/?m=pGuu9EZV9ze"
+    },
+    "eastin-ballroom": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Eastin-Ballroom.webp",
+      "alt": "3D Virtual Tour of the Eastin Hotel at Kuala Lumpur."
+    },
+    "private-jet-bombardier-challenger-850er": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Private-Jet-Bombardier-Challenger-850ER.webp",
+      "alt": "3D Virtual Tour of a Bombardier Challenger 850ER private jet",
+      "tourUrl": "https://my.matterport.com/show/?m=GCf88WnrkrB"
+    },
+    "the-9-to-5": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/The-9-to-5.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=8LrVYvYL5T7"
+    },
+    "moutai": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Moutai-让世界爱上茅台.webp",
+      "alt": "3D Virtual Tour of the Kweichow Moutai showcase",
+      "tourUrl": "https://my.matterport.com/show/?m=uX17YTLcF9x"
+    },
+    "porsche-center-sungai-besi": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Porsche-Center-Sungai-Besi.webp",
+      "alt": "3D Virtual Tour of Porsche Center Sungai Besi",
+      "tourUrl": "https://my.matterport.com/show/?m=4wyPSn1AbEG"
+    },
+    "taman-tugu-nursery": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/Taman-Tugu-Nursery.webp",
+      "alt": "3D Virtual Tour of the Taman Tugu Nursery",
+      "tourUrl": "https://my.matterport.com/show/?m=VJ796LeFQZU"
+    },
+    "porsche-ara-damansara-2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/q1fWi2Ek7Sr-Living_Room.webp",
+      "alt": "3D Virtual Tour of Porsche Center Ara Damansara",
+      "tourUrl": "https://my.matterport.com/show/?m=dcXh5ZSQmc5"
+    },
+    "astoria-ampang-sky-bridge": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/02.09.2021_15.12.19.webp",
+      "alt": "3D Virtual Tour of the Astoria Ampang Sky Bridge",
+      "tourUrl": "https://my.matterport.com/show/?m=1SnARRG8yAx"
+    },
+    "kuala-lumpur-convention-centre-2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/03.31.2021_11.07.06.webp",
+      "alt": "3D Virtual Tour of the Kuala Lumpur Convention Centre.",
+      "tourUrl": "https://my.matterport.com/show/?m=A2Kas9XcAMc"
+    },
+    "1-bedroom-premier-room-43sqm": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/05.10.2021_17.24.46.webp",
+      "alt": "3D Virtual Tour of Oasis Suites Kuala Lumpur",
+      "tourUrl": "https://my.matterport.com/show/?m=VizMtzh9Sh2"
+    },
+    "maxis-3": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/3.webp",
+      "alt": "3D Virtual Tour of the Maxis office",
+      "tourUrl": "https://my.matterport.com/show/?m=78BrTVvt3JC"
+    },
+    "maxis-2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/2.webp",
+      "alt": "3D Virtual Tour of the Maxis office",
+      "tourUrl": "https://my.matterport.com/show/?m=kuNU8TnTmzn"
+    },
+    "maxis": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/BKh6iLU6Drs-Living_Room.webp",
+      "alt": "3D Virtual Tour of the Maxis office.",
+      "tourUrl": "https://my.matterport.com/show/?m=WSfEQzvhCG8"
+    },
+    "parkland-residence-kj2-929sqft": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/04.30.2021_15.40.39.webp",
+      "alt": "3D Virtual Tour of Parkland Residence KJ2",
+      "tourUrl": "https://my.matterport.com/show/?m=g6vAiYMmUo5"
+    },
+    "swarovski-marina-bay-sands-singapore": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/05.27.2021_13.51.31.webp",
+      "alt": "3D Virtual Tour of the Swarovski store at Marina Bay Sands, Singapore",
+      "tourUrl": "https://my.matterport.com/show/?m=GD8wawjsjyj"
+    },
+    "lot-91-fixed-by-scott": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/07.08.2021_17.33.24.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=vNzGKmbmEBt"
+    },
+    "trans-elevator": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/uX3qFEifNoY-Lobby.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=TSxFJbTAUUC"
+    },
+    "empty-shopping-slot-sample": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/RRXDo6A5saD-Photo_08.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=WNirQhQipVP"
+    },
+    "pnb-cimb-hub": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/PKD2oMWjHwU-Living_Room.webp",
+      "alt": "3D Virtual Tour of the PNB CIMB Hub",
+      "tourUrl": "https://my.matterport.com/show/?m=sFCiB4wHnRV"
+    },
+    "nozi-batik-shop": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/11.22.2021_15.45.55.webp",
+      "alt": "3D Virtual Tour of the Nozi Batik Shop",
+      "tourUrl": "https://my.matterport.com/show/?m=YaDisJKoo31"
+    },
+    "huawei-enterprise-business-malaysia-tac": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/11.30.2021_11.32.43.webp",
+      "alt": "3D Virtual Tour of Huawei Enterprise Business Malaysia TAC at The Icon",
+      "tourUrl": "https://my.matterport.com/show/?m=RT67E3PUqMh"
+    },
+    "mahkota-level-7": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/12.24.2021_11.19.06.webp",
+      "alt": "3D Virtual Tour of Mahkota Medical Centre, Level 7",
+      "tourUrl": "https://my.matterport.com/show/?m=nU8teSr5GzW"
+    },
+    "green-lagoon-technology-2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/09.10.2022_12.50.26.webp",
+      "alt": "3D Virtual Tour of the Green Lagoon Technology facility",
+      "tourUrl": "https://my.matterport.com/show/?m=qSrcAiDXHbd"
+    },
+    "malaysia-batik-crafted-for-the-world": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/12.03.2021_12.29.05.webp",
+      "alt": "3D Virtual Tour of the Malaysia Batik Crafted For The World exhibition",
+      "tourUrl": "https://my.matterport.com/show/?m=g5jt4Mo4Kvx"
+    },
+    "yamaha-lifestyle-station": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/12.14.2021_21.13.18.webp",
+      "alt": "3D Virtual Tour of the Yamaha Lifestyle Station",
+      "tourUrl": "https://my.matterport.com/show/?m=xzH3pqE1fMX"
+    },
+    "kuala-lumpur-craft-museum-2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/03.20.2022_18.36.37.webp",
+      "alt": "Frontdesk of Kuala Lumpur Craft Museum in Kuala Lumpur Malaysia",
+      "tourUrl": "https://my.matterport.com/show/?m=5LChD5mu9Gu"
+    },
+    "sutra-house-sutra-dance-theatre": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/01.28.2022_17.51.32.webp",
+      "alt": "3D Virtual Tour of Sutra House and Sutra Dance Theatre",
+      "tourUrl": "https://my.matterport.com/show/?m=kuc1Qtzj2NA"
+    },
+    "forestry-timber": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/03.09.2022_17.28.28.webp",
+      "alt": "3D Virtual Tour of the Forestry Timber showroom",
+      "tourUrl": "https://my.matterport.com/show/?m=8Y9wBj4b8Ry"
+    },
+    "mrcs-exhibition-gallery": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/ajuZndv4MFC-Photo_01.webp",
+      "alt": "3D Virtual Tour of the MRCS Exhibition Gallery",
+      "tourUrl": "https://my.matterport.com/show/?m=RHjzPEiNwkX"
+    },
+    "henkel-philippines-makati-floor-25": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/05.23.2022_15.55.52.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=7TpALe46bBh"
+    },
+    "henkel-philippines-makati-22nd-floor": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/05.23.2022_16.30.33.webp",
+      "alt": "3D Virtual Tour of the Henkel Philippines office, Makati 22nd Floor",
+      "tourUrl": "https://my.matterport.com/show/?m=hzc5bNUNgCc"
+    },
+    "henkel-malaysia-kuala-lumpur": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/08.29.2022_17.44.33.webp",
+      "alt": "3D Virtual Tour of the Henkel Malaysia office in Kuala Lumpur",
+      "tourUrl": "https://my.matterport.com/show/?m=9UgqofRzfhH"
+    },
+    "muzium-adat-istiadat-perkahwinan-langkawi": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/11.25.2022_12.01.56.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=JMD2ajGFV9R"
+    },
+    "jerry-coworking-space-sri-hartamas": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/10.28.2022_18.13.16.webp",
+      "alt": "3D Virtual Tour of Jerry Coworking Space in Sri Hartamas",
+      "tourUrl": "https://my.matterport.com/show/?m=tpeEELuWrFP"
+    },
+    "casa-bayu": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/09.06.2022_14.33.46.webp",
+      "alt": "3D Virtual Tour of the Casa Bayu property",
+      "tourUrl": "https://my.matterport.com/show/?m=M21un6Jv3GQ"
+    },
+    "hyatt-kuantan-regency-executive-suite": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/VpiK155GUVy-Bedroom.webp",
+      "alt": "3D Virtual Tour of the Hyatt Kuantan Regency Executive Suite",
+      "tourUrl": "https://my.matterport.com/show/?m=EJR1Cx1PJLJ"
+    },
+    "hyatt-kuantan-ballroom": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/02.22.2023_11.25.06.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=V4ViihFfjzk"
+    },
+    "hyatt-kuantan-royal-suite": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/nakWa6B4gtS-Living_Room-1.webp",
+      "tourUrl": "https://my.matterport.com/show/?m=ZjtBhr9PbJr"
+    },
+    "hyatt-kuantan-twins-beds-deluxe": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/jFWJAXTF2jj-Bedroom.webp",
+      "alt": "3D Virtual Tour of the Hyatt Kuantan Twins Beds Deluxe room",
+      "tourUrl": "https://my.matterport.com/show/?m=JM9AdPCi2Fk"
+    },
+    "hyatt-kuantan-kempas-prefunction-hall": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/02.22.2023_11.38.28.webp",
+      "alt": "3D Virtual Tour of the Hyatt Kuantan Kempas and Prefunction Hall",
+      "tourUrl": "https://my.matterport.com/show/?m=Up1hfCXSPoY"
+    },
+    "jerry-coworking-space-ss2": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/CBiD7q5jLgy-Office.webp",
+      "alt": "3D Virtual Tour of Jerry Coworking Space in SS2",
+      "tourUrl": "https://my.matterport.com/show/?m=yewYnTAHWV6"
+    },
+    "porsche-jb": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/01.06.2023_16.06.00.webp",
+      "alt": "3D Virtual Tour of the Porsche JB Center",
+      "tourUrl": "https://my.matterport.com/show/?m=Jh8cvm8pHW2"
+    },
+    "electro-chlorination-system-indonesia": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/12.06.2022_13.55.13.webp",
+      "alt": "3D Virtual Tour of the Electro-Chlorination System in Pontianak, Indonesia",
+      "tourUrl": "https://my.matterport.com/show/?m=wTirSJ2mzYu"
+    },
+    "jerry-coworking-space-uptown": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/oZMUYQN9CUv-Office.webp",
+      "alt": "3D Virtual Tour of Jerry Coworking Space in Uptown",
+      "tourUrl": "https://my.matterport.com/show/?m=A9BNxman9BE"
+    },
+    "majestic-scaled-model": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/03.16.2023_17.36.37.webp",
+      "alt": "360° Virtual Tour of the Majestic Residence Scaled Model",
+      "tourUrl": "https://my.matterport.com/show/?m=kh5U2cAA4as"
+    },
+    "worq-kl-sentral": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/aFzmpMoRq9c-Living_Room.webp",
+      "alt": "3D Virtual Tour of WORQ Coworking Space in KL Sentral",
+      "tourUrl": "https://my.matterport.com/show/?m=kUwY9xxgkdH"
+    },
+    "coway-experience-centre": {
+      "image": "https://novoreperio.com/wp-content/uploads/2023/10/07.05.2023_14.10.23.webp",
+      "alt": "3D Virtual Tour of the Coway Experience Centre",
+      "tourUrl": "https://my.matterport.com/show/?m=XWVJmJogyKQ"
+    },
+    "aerial-360-port-dickson": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/pd.jpg",
+      "alt": "360° Virtual Tour of Port Dickson."
+    },
+    "cgi-360-enya-on9": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/on9.jpg",
+      "alt": "3D Virtual Tour of the Guocoland Emerald-9 property"
+    },
+    "cgi-360-glomac": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/glomac.jpg",
+      "alt": "360° Virtual Tour of the Glomac Primrose property"
+    },
+    "virtual-staging-dsara": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/dsara-1-e1742625340594.png",
+      "alt": "Virtual Staging tour of the D'sara property"
+    },
+    "cgi-walkthrough-dhalona": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/image3.jpg",
+      "alt": "Interactive 3D visualization of D'Halona Place, Type A."
+    },
+    "aerial-360-mmc": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/mmc.jpg",
+      "alt": "360 Virtual Tour of Mahkota Medical Centre"
+    },
+    "kuala-lumpur-craft-museum": {
+      "image": "https://novoreperio.com/wp-content/uploads/2021/12/Kuala-Lumpur-Craft-Museum-10112021_132953.jpg",
+      "alt": "3D Virtual Tour of the Kuala Lumpur Craft Museum"
+    },
+    "de-wan-1958-by-chef-wan": {
+      "image": "https://novoreperio.com/wp-content/uploads/2021/12/DEWAN-1958-BY-CHEF-WAN-11092019_104909.jpg",
+      "tourUrl": "https://my.matterport.com/show/?m=5tA2aAqT86N"
+    },
+    "klcc": {
+      "image": "https://novoreperio.com/wp-content/uploads/2021/11/Kuala-Lumpur-Convention-Centre-03312021_110706.jpg"
+    },
+    "cgi-walkthrough-la-casa-lunas": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/la-casa-lunas-model.jpg"
+    },
+    "virtual-office": {
+      "image": "https://novoreperio.com/wp-content/uploads/2020/04/COMPASS-OFFICES-SERVICED-OFFICES-IN-KUALA-LUMPUR-11252018_193855.jpg"
+    },
+    "private-jet": {
+      "image": "https://novoreperio.com/wp-content/uploads/2020/04/FALCON-7X-05072019_154952.jpg",
+      "alt": "3D Virtual Tour of a Falcon 7X private jet",
+      "tourUrl": "https://my.matterport.com/show/?m=US3LrSgkLwk"
+    },
+    "klcc-aerial-360": {
+      "image": "https://novoreperio.com/wp-content/uploads/2022/03/klcc-e1738833919147.jpg",
+      "alt": "360 Virtual Tour of the Kuala Lumpur Convention Centre"
+    }
+  }
 }
