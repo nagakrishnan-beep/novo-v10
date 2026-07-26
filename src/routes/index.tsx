@@ -52,6 +52,15 @@ const HOMEPAGE_FAQ = [
   { q: "How do I book?", a: "WhatsApp us for the fastest reply, email hello@novoreperio.com, or use the contact form. We'll respond within one business day with next steps and a scoping call." },
 ];
 
+const HOMEPAGE_FAQ_DISPLAY = [
+  { q: "What exactly is a digital twin?", a: "A measured 3D copy of a real space you can walk, measure and share from anywhere. It is captured with LiDAR and photography, so the geometry matches the building, not a render." },
+  { q: "Matterport, LiDAR, 360° or drone: which do I need?", a: "It depends on the job, and most projects mix a few. Matterport for a measurable twin, LiDAR for engineering accuracy, 360° for light marketing tours, drone for scale and context. The project assessment recommends the right mix in about a minute." },
+  { q: "What does it cost?", a: "A Matterport 3D scan starts from RM 2,599, scoped per property by size and complexity. Run the project assessment for an indicative band before you even talk to us." },
+  { q: "Can you deliver point clouds and Scan-to-BIM?", a: "Yes. We convert LiDAR point clouds into as-built BIM up to LOD 400, plus 2D CAD drawings and a measurable twin, from a single capture." },
+  { q: "How do I get the tour onto my website or listing?", a: "Every tour ships with an embed snippet and a shareable link. It drops into your website, an OTA listing, your Google Business Profile or an email, with no plugins on your side." },
+  { q: "Where do you work?", a: "We are based in Kuala Lumpur and cover Malaysia, with regional deployment across Indonesia and the Philippines." },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [

@@ -71,7 +71,7 @@ export function SiteFooter() {
     <footer className="border-t border-neutral-900 bg-[#020203] mt-0">
       <div className="px-6 md:px-24 py-16 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
-          <img src="/novo-logo.png" alt="Novo Reperio" className="h-9 w-auto opacity-90" />
+          <img src="/novo-logo.png" alt="Novo Reperio" className="h-12 md:h-14 w-auto opacity-90" />
           <p className="mt-4 text-sm text-neutral-400 max-w-md leading-relaxed">
             {LEGAL_NAME}, spatial capture studio in Kuala Lumpur since 2014. Matterport
             digital twins, 360° tours, drone capture, CGI and UE5 experiences for venues,
