@@ -568,51 +568,6 @@ const RAW_WORKS: Work[] = [
     impact: "Standardised training delivered without repeated trainer deployment.",
   },
   {
-    slug: "flora-hijauan-gombak",
-    title: "Flora Hijauan Gombak: Type A / B / C Units",
-    format: "3D 360° Rendered Tour",
-    categories: ["Real Estate", "Residential", "CGI"],
-    spaceType: "Residential",
-    category: "real-estate",
-    image: img("flora_hijauan.jpg"),
-    summary:
-      "3D 360° rendered tours of unbuilt Type A/B/C units plus aerial 360° context, enabling pre-sales without physical visits.",
-    helps: "Enables pre-sales for developments that don't yet exist physically.",
-    body:
-      "Flora Hijauan Gombak's Type A, B and C unit layouts were rendered as immersive 3D 360° tours before construction, paired with aerial 360° site context, letting the developer take pre-sales enquiries with a fully explorable virtual show unit in place of a costly physical gallery.",
-    features: [
-      "Type A, B and C units rendered in 3D 360°",
-      "Aerial 360° site context included",
-      "Pre-sales without physical visits",
-      "Reusable across web, WhatsApp and gallery displays",
-    ],
-    impact: "Pre-sales pipeline warmed months before the show unit opens.",
-    relatedService: "property-visualization",
-    relatedServiceLabel: "Property Visualization",
-  },
-  {
-    slug: "royal-lexis-kl",
-    title: "Royal Lexis Kuala Lumpur",
-    format: "360° Virtual Tour",
-    categories: ["Hospitality"],
-    spaceType: "Hospitality",
-    category: "hospitality",
-    image: img("royal_lexis_kl.jpg"),
-    summary:
-      "360° tour of suites and amenities, for stronger online engagement and booking confidence.",
-    helps: "Boosts online engagement and booking confidence.",
-    body:
-      "Royal Lexis KL uses a 360° virtual tour of its suites and shared amenities to drive stronger online engagement, and to give bookers the confidence to lock premium rooms without physical inspection.",
-    features: [
-      "Suites and amenities in 360°",
-      "Higher online engagement",
-      "Premium bookings converted remotely",
-    ],
-    impact: "Stronger conversion on premium suite bookings.",
-    relatedService: "hospitality-digital-twins",
-    relatedServiceLabel: "Hospitality Digital Twins",
-  },
-  {
     slug: "meshtech",
     title: "Meshtech: HD 360° Corporate Showroom",
     format: "HD 360° Tour",
@@ -713,7 +668,7 @@ const RAW_WORKS: Work[] = [
     categories: ["Residential", "Property Developer"],
     spaceType: "Residential",
     category: "real-estate",
-    image: "",
+    image: img("flora_hijauan.jpg"),
     featured: true,
     location: "Melati East, Kuala Lumpur",
     summary:
