@@ -70,6 +70,14 @@ function HospitalityPage() {
           video that let planners, guests and MICE buyers walk your property before
           they arrive, cutting shortlist time and boosting booking confidence.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-2">
+            The problem
+          </div>
+          <p className="text-[15px] md:text-base text-neutral-400 leading-relaxed">
+            Planners and guests cannot judge a venue or room remotely, so bookings stall on a site inspection.
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             to="/contact"
@@ -147,6 +155,15 @@ function HospitalityPage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          A walkable twin that turns remote interest into confirmed bookings.
+        </p>
       </section>
 
       {relatedWorks.length > 0 && (
