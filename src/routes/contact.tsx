@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
-import { ArrowRight, Mail, MapPin, MessageCircle, Check } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone, Check } from "lucide-react";
 import { SiteHeader, SiteFooter, trackEvent } from "@/components/site-chrome";
 import {
   WHATSAPP_URL,
+  WHATSAPP_PHONE,
   PHONE,
+  PHONE_TEL,
   EMAIL,
   ADDRESS_FULL,
   HOURS,
@@ -27,7 +29,8 @@ const STEPS = [
 ];
 
 const METHODS = [
-  { icon: MessageCircle, label: "WhatsApp or call", value: PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day. Also callable weekdays 9:00–18:00 MYT." },
+  { icon: MessageCircle, label: "WhatsApp", value: WHATSAPP_PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day." },
+  { icon: Phone, label: "Call the studio", value: PHONE, href: `tel:${PHONE_TEL}`, hint: "Office direct line, weekdays 9:00–18:00 MYT." },
   { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, hint: "For scoping, quotes and briefing documents." },
   { icon: MapPin, label: "Studio", value: "Solaris Mont Kiara, KL", href: "https://maps.google.com/?q=Solaris+Mont+Kiara", hint: ADDRESS_FULL },
 ];
@@ -178,7 +181,7 @@ function ContactPage() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {METHODS.map((m) => (
             <a
               key={m.label}
@@ -225,7 +228,7 @@ function ContactPage() {
               We'll come back within one working day with a recommended capture and
               delivery plan. For urgent enquiries, WhatsApp is fastest —{" "}
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-cyan-300 hover:text-cyan-200">
-                {PHONE}
+                {WHATSAPP_PHONE}
               </a>.
             </p>
             <button
@@ -329,6 +332,7 @@ function ContactPage() {
           <p className="mt-4 text-neutral-400 leading-relaxed">{ADDRESS_FULL}</p>
           <div className="mt-6 space-y-2 font-mono text-sm text-neutral-300">
             <div>P · {PHONE}</div>
+            <div>WhatsApp · {WHATSAPP_PHONE}</div>
             <div>E · {EMAIL}</div>
             <div>Hours · {HOURS}</div>
           </div>

@@ -3,8 +3,10 @@ export const SITE_NAME = "Novo Reperio";
 export const LEGAL_NAME = "Novo Reperio Sdn Bhd";
 export const BASE_URL = "https://novo-v10.lovable.app";
 
-export const PHONE = "+60 17-202 9996";
-export const PHONE_TEL = "+60172029996";
+export const PHONE = "+603 6200 0685";
+export const PHONE_TEL = "+60362000685";
+/** Mobile line used for WhatsApp only — different from the office direct line. */
+export const WHATSAPP_PHONE = "+60 17-202 9996";
 export const WHATSAPP_URL = "https://wa.me/60172029996";
 export const EMAIL = "hello@novoreperio.com";
 export const ADDRESS_LINE_1 = "Solaris Mont Kiara, Jalan Solaris";
