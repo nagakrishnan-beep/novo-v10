@@ -135,7 +135,9 @@ function Index() {
       <ClientOnly fallback={null}>
         <AuroraBackdrop />
         <LaserTrail />
+        <TelemetryHUD />
       </ClientOnly>
+
       <PageContent />
     </IntensityProvider>
   );
