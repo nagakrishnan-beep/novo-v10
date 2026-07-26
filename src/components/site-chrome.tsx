@@ -57,15 +57,13 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
               {n.label}
             </Link>
           ))}
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            onClick={trackWhatsApp}
+          <Link
+            to="/estimate"
+            onClick={() => trackEvent("cta_click", { label: "Get an assessment" })}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 text-emerald-300 text-sm hover:bg-emerald-500/10"
           >
-            <MessageCircle size={14} /> WhatsApp Us
-          </a>
+            Get an assessment
+          </Link>
         </nav>
       </div>
     </header>
