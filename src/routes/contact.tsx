@@ -181,7 +181,7 @@ function ContactPage() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {METHODS.map((m) => (
             <a
               key={m.label}
@@ -228,7 +228,7 @@ function ContactPage() {
               We'll come back within one working day with a recommended capture and
               delivery plan. For urgent enquiries, WhatsApp is fastest —{" "}
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-cyan-300 hover:text-cyan-200">
-                {PHONE}
+                {WHATSAPP_PHONE}
               </a>.
             </p>
             <button
@@ -332,6 +332,7 @@ function ContactPage() {
           <p className="mt-4 text-neutral-400 leading-relaxed">{ADDRESS_FULL}</p>
           <div className="mt-6 space-y-2 font-mono text-sm text-neutral-300">
             <div>P · {PHONE}</div>
+            <div>WhatsApp · {WHATSAPP_PHONE}</div>
             <div>E · {EMAIL}</div>
             <div>Hours · {HOURS}</div>
           </div>
