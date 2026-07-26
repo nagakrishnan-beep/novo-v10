@@ -1047,7 +1047,7 @@ function FaqSection() {
           Questions we get before every scan
         </h2>
         <div className="divide-y divide-white/10 border-y border-white/10">
-          {HOMEPAGE_FAQ.map((f, i) => {
+          {HOMEPAGE_FAQ_DISPLAY.map((f, i) => {
             const open = openIndex === i;
             return (
               <div key={f.q}>
@@ -1079,6 +1079,17 @@ function FaqSection() {
               </div>
             );
           })}
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+          <p className="text-sm text-neutral-500 font-light">
+            Still have a question?
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200 transition"
+          >
+            Talk to a specialist <ArrowRight size={14} />
+          </Link>
         </div>
       </div>
     </section>
