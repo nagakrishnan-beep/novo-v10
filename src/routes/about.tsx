@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { FOUNDER } from "@/lib/site";
@@ -100,7 +101,7 @@ const HOW = [
 function AboutPage() {
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 font-sans antialiased">
-      <SiteHeader />
+      <SiteHeader active="about" />
 
       {/* Hero */}
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
@@ -404,44 +405,3 @@ function AboutPage() {
   );
 }
 
-function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
-      <div className="flex items-center justify-between px-6 md:px-12 py-4">
-        <Link to="/" className="flex items-center gap-3">
-          <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
-          <span className="sr-only">Novo Reperio</span>
-        </Link>
-        <nav className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-neutral-500">
-          <Link to="/works" className="hover:text-cyan-300">Work</Link>
-          <Link to="/services" className="hover:text-cyan-300">Services</Link>
-          <Link to="/about" className="text-cyan-300">About</Link>
-          <Link to="/insights" className="hover:text-cyan-300">Insights</Link>
-          <Link to="/contact" className="hover:text-cyan-300">Contact</Link>
-        </nav>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/40 text-cyan-300 text-xs hover:bg-cyan-500/10"
-        >
-          <MessageCircle size={14} /> WhatsApp Us
-        </a>
-      </div>
-    </header>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="px-6 md:px-24 py-10 text-[11px] font-mono text-neutral-500 flex flex-wrap items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <img src="/novo-logo.png" alt="Novo Reperio" className="h-7 w-auto opacity-70" />
-        <span>© {new Date().getFullYear()} Novo Reperio Sdn Bhd</span>
-      </div>
-      <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-cyan-300">
-        WhatsApp +60 17-202 9996
-      </a>
-    </footer>
-  );
-}
