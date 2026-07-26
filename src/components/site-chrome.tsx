@@ -1,15 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, Mail, MapPin, Phone, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import {
-  WHATSAPP_URL,
-  PHONE,
-  EMAIL,
-  ADDRESS_FULL,
-  HOURS,
-  LEGAL_NAME,
-  SOCIALS,
-} from "@/lib/site";
+import { WHATSAPP_URL, LEGAL_NAME, SOCIALS } from "@/lib/site";
+
 
 type ActiveKey =
   | "home"
