@@ -57,13 +57,15 @@ function ContactPage() {
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [prefill, setPrefill] = useState<string>("");
 
-  // Read ?type= & ?size= URL params and prefill the message textarea.
+  // Read ?goal= &type= &size= &outputs= URL params and prefill the message textarea.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
+    const goal = params.get("goal");
     const type = params.get("type");
     const size = params.get("size");
-    if (type || size) {
+    const outputs = params.get("outputs");
+    if (goal || type || size || outputs) {
       const sizeLabel =
         size === "under-1000"
           ? "under 1,000"
@@ -75,9 +77,18 @@ function ContactPage() {
                 ? "10,000+"
                 : size ?? "";
       const typeLabel = (type ?? "").replace(/-/g, " ");
-      setPrefill(
-        `Scope estimate request: ${typeLabel || "space"}, ${sizeLabel || "size TBD"} sq ft.`,
-      );
+      const outputsLabel = (outputs ?? "")
+        .split(",")
+        .map((o) => o.trim())
+        .filter(Boolean)
+        .join(", ");
+      const lines = [
+        "Project assessment request.",
+        goal ? `Goal: ${goal}.` : "",
+        `Space: ${typeLabel || "space"}, ${sizeLabel || "size TBD"} sq ft.`,
+        outputsLabel ? `Outputs: ${outputsLabel}.` : "",
+      ].filter(Boolean);
+      setPrefill(lines.join(" "));
     }
   }, []);
 

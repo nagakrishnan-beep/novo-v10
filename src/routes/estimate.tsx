@@ -44,15 +44,16 @@ function EstimatePage() {
         <section className="px-6 md:px-24 pt-20 pb-10 border-b border-neutral-900">
           <BreadcrumbNav items={[{ label: "Home", to: "/" }, { label: "Estimate" }]} />
           <div className="mt-6 text-[10px] tracking-[0.4em] uppercase text-emerald-400">
-            Instant scope estimator
+            Project assessment
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-light leading-[1.05] max-w-4xl text-white">
-            What would your space cost to capture?
+            What does your project need?
           </h1>
           <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
-            Pick a space type and an approximate size, and we return an indicative
-            band from our published Malaysia pricing. No email, no forms. When
-            you're ready, book a free scoping consultation for a final quote.
+            Answer four short questions about your goal, your space, the outputs you need
+            and the approximate size. We return a recommended capture workflow and an
+            indicative scope band from our published Malaysia pricing. No email, no forms.
+            When you are ready, book a free project assessment for a final quote.
           </p>
         </section>
 

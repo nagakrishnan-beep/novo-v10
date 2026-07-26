@@ -228,8 +228,8 @@ export function trackEvent(name: string, params?: Record<string, unknown>) {
     // Map select events to Meta standard events
     if (name === "form_submit_success") {
       w.fbq("track", "Lead", params ?? {});
-    } else if (name === "estimator_complete") {
-      w.fbq("track", "Lead", { content_name: "scope_estimator", ...(params ?? {}) });
+    } else if (name === "assessment_complete") {
+      w.fbq("track", "Lead", { content_name: "project_assessment", ...(params ?? {}) });
     } else if (name === "whatsapp_click") {
       w.fbq("track", "Contact", params ?? {});
     } else {
