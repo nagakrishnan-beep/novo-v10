@@ -17,6 +17,8 @@ export type Work = {
   externalUrl?: string;
   featured?: boolean;
   videoId?: string;
+  location?: string;
+
   relatedService?: string; // service slug
   relatedServiceLabel?: string;
 };
