@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { FOUNDER } from "@/lib/site";
+import { YouTubeEmbed } from "@/components/youtube-embed";
 
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
