@@ -111,17 +111,61 @@ function WorkDetail() {
         </p>
       </section>
 
-      {/* Image or MediaSlot placeholder */}
+      {/* Cover image or placeholder */}
       <section className="px-6 md:px-24">
-        <MediaSlot
-          ratio="16/9"
-          label={
-            work.tourUrl
-              ? "Scan-verified capture — explore the real geometry"
-              : `Cover · ${work.title}`
-          }
-        />
+        {/^https?:\/\//.test(work.image) ? (
+          <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-950">
+            <img
+              src={work.image}
+              alt={`${work.title} — ${work.format}`}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        ) : (
+          <MediaSlot
+            ratio="aspect-video"
+            label={
+              work.tourUrl
+                ? "Scan-verified capture — explore the real geometry"
+                : `Cover · ${work.title}`
+            }
+          />
+        )}
       </section>
+
+      {/* Live tour embed */}
+      {work.tourUrl && (
+        <section className="px-6 md:px-24 pt-10">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+            Live tour
+          </div>
+          <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black">
+            <iframe
+              src={work.tourUrl}
+              title={`${work.title} — live 360° tour`}
+              className="h-full w-full"
+              loading="lazy"
+              allow="xr-spatial-tracking; fullscreen; accelerometer; gyroscope"
+              allowFullScreen
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Video */}
+      {WORK_VIDEOS[work.slug] && (
+        <section className="px-6 md:px-24 pt-10">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+            Watch
+          </div>
+          <YouTubeEmbed
+            videoId={WORK_VIDEOS[work.slug].videoId}
+            title={WORK_VIDEOS[work.slug].title}
+            description={work.summary}
+          />
+        </section>
+      )}
+
 
       {/* Body content */}
       <section className="px-6 md:px-24 py-16 grid gap-10 md:grid-cols-3">
