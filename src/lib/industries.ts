@@ -17,6 +17,7 @@ export type Industry = {
   intro: string;
   problems: { title: string; body: string }[];
   benefits: { title: string; body: string }[];
+  outcome: { headline: string; points: string[] };
   tech: IndustryTech[];
   workSlugs: string[];
   serviceSlugs: { slug: string; label: string }[];
@@ -68,6 +69,14 @@ export const INDUSTRIES: Industry[] = [
         body: "One asset base fuels stills, walkthroughs, social cuts, WhatsApp shareables and the sales portal.",
       },
     ],
+    outcome: {
+      headline: "Sell more, sooner, to buyers who never visit.",
+      points: [
+        "Buyers self-qualify on the twin before booking a site visit.",
+        "Overseas and out-of-state buyers commit without flying in.",
+        "The asset keeps selling remaining stock after the gallery closes.",
+      ],
+    },
     tech: ["Matterport twins", "CGI & UE5", "360° virtual tours", "Drone / aerial capture"],
     workSlugs: ["flora-hijauan-gombak", "glomac-primrose", "parkland-residence-kj2", "dsara"],
     serviceSlugs: [
@@ -136,6 +145,14 @@ export const INDUSTRIES: Industry[] = [
         body: "Immutable, timestamped captures back up variation claims, EOT submissions and defect close-out with visual evidence.",
       },
     ],
+    outcome: {
+      headline: "Hand over with defensible, accurate as-built data.",
+      points: [
+        "Variation and delay claims backed by timestamped spatial evidence.",
+        "Downstream fit-out and FM teams inherit reliable geometry, not drift.",
+        "Fewer disputes and less rework at close-out.",
+      ],
+    },
     tech: ["Matterport twins", "LiDAR / Scan-to-BIM", "Drone / aerial capture", "360° virtual tours"],
     workSlugs: ["pnb-cimb-hub", "world-trade-centre-kuala-lumpur", "henkel-malaysia-kuala-lumpur"],
     serviceSlugs: [
@@ -204,6 +221,14 @@ export const INDUSTRIES: Industry[] = [
         body: "One twin fuels the direct site, OTA thumbnails, sales collateral, MICE proposals and Google listing.",
       },
     ],
+    outcome: {
+      headline: "Turn indecisive planners and travellers into confirmed bookings.",
+      points: [
+        "Event planners confirm without a physical site inspection.",
+        "Guests self-select the right room and arrive with fewer complaints.",
+        "One twin works across your direct site, OTAs and Google.",
+      ],
+    },
     tech: ["Matterport twins", "360° virtual tours", "Drone / aerial capture", "CGI & UE5"],
     workSlugs: [
       "hyatt-kuantan-ballroom",
@@ -277,6 +302,14 @@ export const INDUSTRIES: Industry[] = [
         body: "One well-produced twin equips every sales conversation; the venue is on every laptop, in every WhatsApp thread.",
       },
     ],
+    outcome: {
+      headline: "More qualified enquiries, fewer wasted site visits.",
+      points: [
+        "Planners verify capacity, sightlines and load-in remotely.",
+        "Sales teams qualify enquiries before booking a walkthrough.",
+        "The WTCKL twin has drawn 8,000+ visits, averaging 37 a week.",
+      ],
+    },
     tech: ["Matterport twins", "Drone / aerial capture", "360° virtual tours"],
     workSlugs: [
       "world-trade-centre-kuala-lumpur",
@@ -349,6 +382,14 @@ export const INDUSTRIES: Industry[] = [
         body: "External auditors and HQ stakeholders walk the space without disrupting the site team.",
       },
     ],
+    outcome: {
+      headline: "Faster decisions from one shared spatial record.",
+      points: [
+        "Space knowledge survives staff turnover.",
+        "Moves and fit-outs are planned from the twin before a physical survey.",
+        "Audits and inspections run remotely, without pulling the site team off work.",
+      ],
+    },
     tech: ["Matterport twins", "LiDAR / Scan-to-BIM", "360° virtual tours"],
     workSlugs: ["pnb-cimb-hub", "henkel-malaysia-kuala-lumpur", "worq-kl-sentral"],
     serviceSlugs: [
@@ -417,6 +458,14 @@ export const INDUSTRIES: Industry[] = [
         body: "Product, design and manufacturing teams review line changes and layout scenarios in a shared spatial record.",
       },
     ],
+    outcome: {
+      headline: "Brief global teams and onboard operators without stopping the line.",
+      points: [
+        "Remote HQ and R&D teams make decisions with real spatial context.",
+        "New hires and contractors orient before they touch the floor.",
+        "External audits get shorter and more focused.",
+      ],
+    },
     tech: ["Matterport twins", "360° virtual tours", "LiDAR / Scan-to-BIM", "CGI & UE5"],
     workSlugs: ["shell-360-training", "coway-experience-centre", "meshtech"],
     serviceSlugs: [
@@ -485,6 +534,14 @@ export const INDUSTRIES: Industry[] = [
         body: "Medical-tourism patients preview facilities from abroad, bridging the trust gap for premium procedures.",
       },
     ],
+    outcome: {
+      headline: "Calmer patients, faster onboarding, cleaner documentation.",
+      points: [
+        "Patients arrive familiar with the space, with less anxiety.",
+        "New and rotating staff self-serve orientation before day one.",
+        "Accurate spatial records support accreditation submissions.",
+      ],
+    },
     tech: ["Matterport twins", "360° virtual tours", "LiDAR / Scan-to-BIM"],
     workSlugs: ["pnb-cimb-hub", "worq-kl-sentral", "henkel-malaysia-kuala-lumpur"],
     serviceSlugs: [
@@ -554,6 +611,14 @@ export const INDUSTRIES: Industry[] = [
         body: "Novo Reperio operates through ePerolehan and holds MDEC Malaysia Digital recognition, clean procurement pathways for public-sector projects.",
       },
     ],
+    outcome: {
+      headline: "Public spaces documented, and open to everyone.",
+      points: [
+        "Museums and heritage reach audiences who cannot attend in person.",
+        "Durable spatial records for conservation, FM and security planning.",
+        "Procurement-ready via ePerolehan and Malaysia Digital recognition.",
+      ],
+    },
     tech: ["Matterport twins", "LiDAR / Scan-to-BIM", "Drone / aerial capture", "CGI & UE5"],
     workSlugs: ["muzium-negara-gallery-a-pre-history", "kuala-lumpur-convention-centre"],
     serviceSlugs: [

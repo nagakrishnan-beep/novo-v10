@@ -162,8 +162,9 @@ function IndustryDetail() {
         {/* Benefits */}
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
-            How spatial capture solves it
+            The solution
           </div>
+
           <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
             What changes when {industry.name.toLowerCase()} runs on a spatial record.
           </h2>
@@ -182,6 +183,30 @@ function IndustryDetail() {
             ))}
           </div>
         </section>
+
+        {/* Outcome */}
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+          <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
+            The outcome
+          </div>
+          <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
+            {industry.outcome.headline}
+          </h2>
+          <div className="mt-10 grid md:grid-cols-3 gap-5">
+            {industry.outcome.points.map((pt) => (
+              <div
+                key={pt}
+                className="border border-white/10 rounded-xl p-6 bg-white/[0.02]"
+              >
+                <CheckCircle2 size={16} className="text-emerald-300 mb-3" />
+                <p className="text-[15px] md:text-base text-neutral-300 leading-relaxed">
+                  {pt}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
 
         {/* Tech row */}
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
