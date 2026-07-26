@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, Ruler, Repeat, LineChart } from "lucide-react";
-import { PUBLISHED_BANDS, SUBSCRIPTION_LINE, TC_LINE } from "@/lib/pricing";
+import { PUBLISHED_BANDS, TC_LINE } from "@/lib/pricing";
 
 /** "What your twin does every month": recurring-value reframe. */
 export function MonthlyValue({
@@ -34,10 +34,6 @@ export function MonthlyValue({
           </li>
         ))}
       </ul>
-      <p className="mt-6 text-sm text-emerald-200">
-        Capture once. Keep it working, hosting &amp; subscription from
-        <span className="text-emerald-300"> RM499/month</span>.
-      </p>
     </section>
   );
 }
@@ -76,7 +72,6 @@ export function PricingBands({ id = "pricing" }: { id?: string }) {
         ))}
       </div>
       <p className="mt-6 text-xs font-mono text-neutral-500">{TC_LINE}</p>
-      <p className="mt-2 text-xs font-mono text-neutral-500">➕ {SUBSCRIPTION_LINE}</p>
     </section>
   );
 }
@@ -118,8 +113,7 @@ export function FreeOpenLayer() {
           Explore any live sample tour · scoping consultations · our guides and
           insights.{" "}
           <span className="text-neutral-400">
-            You pay for capture, production and the subscription that keeps your
-            twin alive.
+            You pay for capture and production.
           </span>
         </p>
       </div>
