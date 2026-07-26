@@ -162,8 +162,9 @@ function IndustryDetail() {
         {/* Benefits */}
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
-            How spatial capture solves it
+            The solution
           </div>
+
           <h2 className="text-2xl md:text-4xl font-light text-white max-w-3xl">
             What changes when {industry.name.toLowerCase()} runs on a spatial record.
           </h2>
