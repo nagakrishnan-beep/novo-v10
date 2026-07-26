@@ -605,7 +605,7 @@ function CaptureSection() {
   return (
     <section
       id="capture"
-      className="relative z-20 px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="relative z-20 px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 space-y-10">
@@ -684,7 +684,7 @@ function OutcomesSection() {
   return (
     <section
       id="outcomes"
-      className="px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <div className="max-w-5xl mx-auto space-y-10">
         <SectionHeader
@@ -714,7 +714,7 @@ function IndustriesSection() {
   return (
     <section
       id="industries"
-      className="px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <div className="max-w-5xl mx-auto space-y-10">
         <SectionHeader
@@ -743,7 +743,7 @@ function ServicesSection() {
   return (
     <section
       id="integrations"
-      className="px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto space-y-10">
         <SectionHeader
@@ -802,7 +802,7 @@ function StoriesSection() {
   return (
     <section
       id="stories"
-      className="px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto space-y-10">
         <SectionHeader
@@ -930,7 +930,7 @@ function ScopeSection() {
   return (
     <section
       id="pricing"
-      className="px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto space-y-10">
         <SectionHeader
@@ -975,7 +975,7 @@ function CtaSection() {
   return (
     <section
       id="demo"
-      className="px-6 md:px-24 py-32 border-t border-white/5 scroll-mt-24"
+      className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <Reveal className="max-w-4xl mx-auto text-center space-y-6">
         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
