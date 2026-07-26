@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
 import { ScopeEstimator } from "@/components/scope-estimator";
-import { MonthlyValue } from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import { WORKS } from "@/lib/works";
@@ -153,15 +152,6 @@ function PropertyVizPage() {
         </div>
       </section>
 
-      <MonthlyValue
-        intro="A launch tour or CGI package doesn't have to end when the campaign does."
-        bullets={[
-          "Hosted, embed-ready and shareable as one link, launch microsite, sales gallery kiosks, agent tools and OTA listings.",
-          "Usage analytics, see which units, layouts and finishes prospects explore before they book a viewing.",
-          "Scheduled refresh, swap finishes, colourways and staged furniture without a full reshoot.",
-          "Integrations, plug straight into your sales CRM and gallery iPads.",
-        ]}
-      />
 
       {/* Instant scope estimator */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
