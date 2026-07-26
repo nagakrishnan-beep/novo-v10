@@ -191,7 +191,7 @@ function WorksPage() {
                   params={{ slug: w.slug }}
                   className="group border border-neutral-900 rounded-xl overflow-hidden bg-neutral-950 hover:border-emerald-500/40 transition"
                 >
-                  <MediaSlot ratio="aspect-[4/3]" label={w.title} className="rounded-none border-none" />
+                  <WorkThumb work={w} />
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="text-xs tracking-widest uppercase text-emerald-300 font-mono">
