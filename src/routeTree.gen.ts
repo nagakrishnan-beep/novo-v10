@@ -10,11 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RealityCaptureRouteImport } from './routes/reality-capture'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as EstimateRouteImport } from './routes/estimate'
+import { Route as DigitalTwinsRouteImport } from './routes/digital-twins'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -40,9 +43,19 @@ const WorksRoute = WorksRouteImport.update({
   path: '/works',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealityCaptureRoute = RealityCaptureRouteImport.update({
+  id: '/reality-capture',
+  path: '/reality-capture',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MethodologyRoute = MethodologyRouteImport.update({
@@ -63,6 +76,11 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const EstimateRoute = EstimateRouteImport.update({
   id: '/estimate',
   path: '/estimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalTwinsRoute = DigitalTwinsRouteImport.update({
+  id: '/digital-twins',
+  path: '/digital-twins',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -171,11 +189,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/reality-capture': typeof RealityCaptureRoute
   '/services': typeof ServicesRouteWithChildren
+  '/solutions': typeof SolutionsRoute
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -198,8 +219,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/methodology': typeof MethodologyRoute
+  '/reality-capture': typeof RealityCaptureRoute
+  '/solutions': typeof SolutionsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -222,11 +246,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/reality-capture': typeof RealityCaptureRoute
   '/services': typeof ServicesRouteWithChildren
+  '/solutions': typeof SolutionsRoute
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -251,11 +278,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/digital-twins'
     | '/estimate'
     | '/industries'
     | '/insights'
     | '/methodology'
+    | '/reality-capture'
     | '/services'
+    | '/solutions'
     | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
@@ -278,8 +308,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/digital-twins'
     | '/estimate'
     | '/methodology'
+    | '/reality-capture'
+    | '/solutions'
     | '/industries/$slug'
     | '/insights/$slug'
     | '/services/$slug'
@@ -301,11 +334,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/digital-twins'
     | '/estimate'
     | '/industries'
     | '/insights'
     | '/methodology'
+    | '/reality-capture'
     | '/services'
+    | '/solutions'
     | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
@@ -329,11 +365,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DigitalTwinsRoute: typeof DigitalTwinsRoute
   EstimateRoute: typeof EstimateRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   InsightsRoute: typeof InsightsRouteWithChildren
   MethodologyRoute: typeof MethodologyRoute
+  RealityCaptureRoute: typeof RealityCaptureRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SolutionsRoute: typeof SolutionsRoute
   WorksRoute: typeof WorksRouteWithChildren
 }
 
@@ -346,11 +385,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reality-capture': {
+      id: '/reality-capture'
+      path: '/reality-capture'
+      fullPath: '/reality-capture'
+      preLoaderRoute: typeof RealityCaptureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/methodology': {
@@ -379,6 +432,13 @@ declare module '@tanstack/react-router' {
       path: '/estimate'
       fullPath: '/estimate'
       preLoaderRoute: typeof EstimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-twins': {
+      id: '/digital-twins'
+      path: '/digital-twins'
+      fullPath: '/digital-twins'
+      preLoaderRoute: typeof DigitalTwinsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -591,11 +651,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DigitalTwinsRoute: DigitalTwinsRoute,
   EstimateRoute: EstimateRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   InsightsRoute: InsightsRouteWithChildren,
   MethodologyRoute: MethodologyRoute,
+  RealityCaptureRoute: RealityCaptureRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SolutionsRoute: SolutionsRoute,
   WorksRoute: WorksRouteWithChildren,
 }
 export const routeTree = rootRouteImport

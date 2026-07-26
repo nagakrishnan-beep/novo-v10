@@ -1,11 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { MessageCircle, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import { WHATSAPP_URL, LEGAL_NAME, SOCIALS } from "@/lib/site";
+import { LEGAL_NAME, SOCIALS } from "@/lib/site";
 
 
 type ActiveKey =
   | "home"
+  | "digital-twins"
+  | "reality-capture"
+  | "solutions"
   | "services"
   | "industries"
   | "works"
@@ -15,18 +18,19 @@ type ActiveKey =
   | null;
 
 const NAV: { key: ActiveKey; label: string; to: any }[] = [
-  { key: "home", label: "Home", to: "/" },
-  { key: "services", label: "Services", to: "/services" },
+  { key: "digital-twins", label: "Digital Twins", to: "/digital-twins" },
+  { key: "reality-capture", label: "Reality Capture", to: "/reality-capture" },
+  { key: "solutions", label: "Solutions", to: "/solutions" },
   { key: "industries", label: "Industries", to: "/industries" },
   { key: "works", label: "Works", to: "/works" },
-  { key: "about", label: "About", to: "/about" },
   { key: "insights", label: "Insights", to: "/insights" },
-  { key: "contact", label: "Contact", to: "/contact" },
+  { key: "about", label: "About", to: "/about" },
 ];
 
-function trackWhatsApp() {
-  trackEvent("whatsapp_click", { event_category: "engagement" });
-}
+const FOOTER_NAV: { key: string; label: string; to: any }[] = [
+  ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
+  { key: "contact", label: "Contact", to: "/contact" },
+];
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
   return (
@@ -49,15 +53,13 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
               {n.label}
             </Link>
           ))}
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
-            onClick={trackWhatsApp}
+          <Link
+            to="/estimate"
+            onClick={() => trackEvent("cta_click", { label: "Get an assessment" })}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 text-emerald-300 text-sm hover:bg-emerald-500/10"
           >
-            <MessageCircle size={14} /> WhatsApp Us
-          </a>
+            Get an assessment
+          </Link>
         </nav>
       </div>
     </header>
@@ -80,7 +82,7 @@ export function SiteFooter() {
         <div>
           <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">Explore</div>
           <ul className="space-y-2 text-sm text-neutral-300">
-            {NAV.filter((n) => n.key !== "home").map((n) => (
+            {FOOTER_NAV.map((n) => (
               <li key={n.key}>
                 <Link to={n.to} className="hover:text-emerald-300">{n.label}</Link>
               </li>
