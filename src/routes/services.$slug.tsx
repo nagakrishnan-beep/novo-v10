@@ -183,6 +183,17 @@ function ServiceDetail() {
         </div>
       </section>
 
+      {/* The outcome */}
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          {service.outcome}
+        </p>
+      </section>
+
+
       {/* Service video */}
       {SERVICE_VIDEOS[service.slug] && (
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
