@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Play,
   ChevronRight,
+  ChevronDown,
   ChevronLeft,
   MessageCircle,
   Building2,
@@ -164,8 +165,8 @@ function PageContent() {
         <LogosSection />
         <ReviewsSection />
         <ScopeSection />
-        <CtaSection />
         <FaqSection />
+        <CtaSection />
       </main>
       <SiteFooter />
     </div>
