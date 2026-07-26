@@ -86,9 +86,9 @@ const WHATSAPP_URL = "https://wa.me/60172029996";
 
 
 const CAPTURE_FEATURES = [
-  { title: "LiDAR-Powered Accuracy", body: "Capture every measurement, corner, and detail with professional-grade depth sensors." },
-  { title: "Pro-Level Fidelity", body: "4K-resolution walkthroughs that hold clarity even when zooming in on fine textures." },
-  { title: "Frictionless Integration", body: "Your digital twin is fully hosted and ready for website embedding or BIM software." },
+  { title: "LiDAR-powered accuracy", body: "Capture every measurement, corner, and detail with professional-grade depth sensors." },
+  { title: "Pro-level fidelity", body: "4K-resolution walkthroughs that hold clarity even when zooming in on fine textures." },
+  { title: "Frictionless integration", body: "Your digital twin is fully hosted and ready for website embedding or BIM software." },
 ];
 
 const OUTCOMES = [
@@ -104,8 +104,8 @@ const SECTORS = ["Hospitality", "Venues", "Property", "Facilities & More"];
 const SERVICES = [
   { kicker: "Core delivery layer", title: "Matterport + 360", body: "Main hosted tour. Shows flow, size, and layout as your primary asset." },
   { kicker: "Lightweight share format", title: "360 Tours", body: "Lighter tour formats for web, QR, and quick review flows." },
-  { kicker: "Context and arrival", title: "Drone & Aerial", body: "Show scale, access, and the surroundings around the venue." },
-  { kicker: "Launch wrapper", title: "Project Websites", body: "Package the final experience for sharing and sales-ready launch pages." },
+  { kicker: "Context and arrival", title: "Drone and aerial", body: "Show scale, access, and the surroundings around the venue." },
+  { kicker: "Launch wrapper", title: "Project websites", body: "Package the final experience for sharing and sales-ready launch pages." },
 ];
 
 const WORKFLOW = ["Capture", "Package", "Publish"];
@@ -117,7 +117,7 @@ const STORIES = [
 ];
 
 const SCOPE_STEPS = [
-  { n: "01", title: "Define the Objective", body: "We start with the ‘Why.’ We analyze your space, your target audience, and the specific decision you want them to make after viewing the tour.", bullets: ["Single vs. multi-site strategy", "Conversion-focused UX", "Operational vs. marketing use cases"] },
+  { n: "01", title: "Define the objective", body: "We start with the ‘Why.’ We analyze your space, your target audience, and the specific decision you want them to make after viewing the tour.", bullets: ["Single vs. multi-site strategy", "Conversion-focused UX", "Operational vs. marketing use cases"] },
   { n: "02", title: "Engineer the Experience", body: "We select the perfect combination of capture technology and interactive layers to match your brand's standards and technical requirements.", bullets: ["Precision LiDAR vs. 360° walkthroughs", "Custom branding & infotags", "Interactive floorplans & media"] },
   { n: "03", title: "Seamless Launch", body: "We don't just send a link. We provide a launch-ready package, integrated into your website, ads, or pitch decks.", bullets: ["Quick turnaround", "Campaign-ready assets", "Dedicated integration support"] },
 ];
@@ -436,8 +436,8 @@ function Hero() {
           NOVO REPERIO — SPACE CAPTURE STUDIO
         </KineticEyebrow>
 
-        <KineticHeadline className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.95] text-white">
-          Turn Your Space Into a 24/7 Sales Engine
+        <KineticHeadline className="text-[clamp(30px,5vw,56px)] font-light leading-[1.05] text-white">
+          Turn your space into a 24/7 sales engine
         </KineticHeadline>
 
         <div className="mt-8 max-w-3xl">
@@ -589,11 +589,11 @@ function SectionHeader({
       <KineticEyebrow className="text-[11px] font-mono uppercase block">
         [ {kicker} ]
       </KineticEyebrow>
-      <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">
+      <h2 className="text-2xl md:text-4xl font-light text-white">
         {title}
       </h2>
       {body && (
-        <KineticBody className="text-neutral-400 font-light max-w-3xl leading-relaxed text-base">
+        <KineticBody className="text-[15px] md:text-base text-neutral-400 font-light max-w-3xl leading-relaxed">
           {body}
         </KineticBody>
       )}
@@ -625,10 +625,10 @@ function CaptureSection() {
                     0{idx + 1}
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm uppercase text-white tracking-wide">
+                    <h3 className="text-lg md:text-xl font-medium text-white">
                       {f.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-light">
+                    <p className="text-[15px] md:text-base text-neutral-400 mt-2 leading-relaxed font-light">
                       {f.body}
                     </p>
                   </div>
@@ -783,10 +783,10 @@ function ServicesSection() {
                 <div className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest">
                   {s.kicker}
                 </div>
-                <h3 className="text-sm font-bold uppercase text-white tracking-wide mt-2">
+                <h3 className="text-lg md:text-xl font-medium text-white mt-2">
                   {s.title}
                 </h3>
-                <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-light">
+                <p className="text-[15px] md:text-base text-neutral-400 mt-2 leading-relaxed font-light">
                   {s.body}
                 </p>
               </MagneticCard>
@@ -825,10 +825,10 @@ function StoriesSection() {
                     <div className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest">
                       {s.tag}
                     </div>
-                    <h3 className="text-base font-bold uppercase text-white tracking-wide mt-2">
+                    <h3 className="text-lg md:text-xl font-medium text-white mt-2">
                       {s.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 mt-3 leading-relaxed font-light">
+                    <p className="text-[15px] md:text-base text-neutral-400 mt-3 leading-relaxed font-light">
                       {s.body}
                     </p>
                   </div>
@@ -872,7 +872,7 @@ function LogosSection() {
           <KineticEyebrow className="text-[11px] font-mono uppercase tracking-widest block">
             [ CLIENTS & PARTNERS ]
           </KineticEyebrow>
-          <h2 className="text-xl md:text-2xl font-bold uppercase tracking-tight">
+          <h2 className="text-lg md:text-xl font-light text-white">
             Trusted by clients, partners, and industry bodies.
           </h2>
         </Reveal>
@@ -948,10 +948,10 @@ function ScopeSection() {
                 <div className="text-cyan-300 font-mono text-xs font-bold tracking-widest">
                   {s.n}
                 </div>
-                <h3 className="text-lg font-bold uppercase text-white tracking-tight mt-2">
+                <h3 className="text-lg md:text-xl font-medium text-white mt-2">
                   {s.title}
                 </h3>
-                <p className="text-xs text-neutral-400 mt-3 leading-relaxed font-light">
+                <p className="text-[15px] md:text-base text-neutral-400 mt-3 leading-relaxed font-light">
                   {s.body}
                 </p>
                 <ul className="mt-4 space-y-2 font-mono text-[11px] text-neutral-400">
@@ -978,10 +978,10 @@ function CtaSection() {
       className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
       <Reveal className="max-w-4xl mx-auto text-center space-y-6">
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
+        <h2 className="text-2xl md:text-4xl font-light text-white">
           Stop letting geography limit your sales.
         </h2>
-        <p className="text-neutral-400 font-light leading-relaxed">
+        <p className="text-[15px] md:text-base text-neutral-400 font-light leading-relaxed">
           Launch high-performance digital experiences that remove site-visit
           friction, build instant buyer trust, and accelerate your sales cycle.
         </p>
