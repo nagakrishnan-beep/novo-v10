@@ -118,8 +118,8 @@ const STORIES = [
 
 const SCOPE_STEPS = [
   { n: "01", title: "Define the objective", body: "We start with the ‘Why.’ We analyze your space, your target audience, and the specific decision you want them to make after viewing the tour.", bullets: ["Single vs. multi-site strategy", "Conversion-focused UX", "Operational vs. marketing use cases"] },
-  { n: "02", title: "Engineer the Experience", body: "We select the perfect combination of capture technology and interactive layers to match your brand's standards and technical requirements.", bullets: ["Precision LiDAR vs. 360° walkthroughs", "Custom branding & infotags", "Interactive floorplans & media"] },
-  { n: "03", title: "Seamless Launch", body: "We don't just send a link. We provide a launch-ready package, integrated into your website, ads, or pitch decks.", bullets: ["Quick turnaround", "Campaign-ready assets", "Dedicated integration support"] },
+  { n: "02", title: "Engineer the experience", body: "We select the perfect combination of capture technology and interactive layers to match your brand's standards and technical requirements.", bullets: ["Precision LiDAR vs. 360° walkthroughs", "Custom branding & infotags", "Interactive floorplans & media"] },
+  { n: "03", title: "Seamless launch", body: "We don't just send a link. We provide a launch-ready package, integrated into your website, ads, or pitch decks.", bullets: ["Quick turnaround", "Campaign-ready assets", "Dedicated integration support"] },
 ];
 
 
