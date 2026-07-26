@@ -275,9 +275,8 @@ export function KineticBody({
 }) {
   const { intensity } = useIntensity();
   const opacity = useTransform(intensity, [0, 1], [1, 0.35]);
-  const filter = useTransform(intensity, (v) => `blur(${v * 4}px)`);
   return (
-    <motion.p style={{ opacity, filter }} className={className}>
+    <motion.p style={{ opacity }} className={className}>
       {children}
     </motion.p>
   );
