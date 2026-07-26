@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 
 export type TourEmbedProps = {
   url: string;
@@ -19,6 +19,14 @@ export function TourEmbed({ url, title, poster }: TourEmbedProps) {
 
   return (
     <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-[#04060a] aspect-video md:aspect-auto md:h-[60vh] md:min-h-[420px]">
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        className="pointer-events-auto absolute right-3 top-3 z-20 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/70 px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-300 backdrop-blur transition hover:border-emerald-400/60 hover:text-emerald-300"
+      >
+        <ExternalLink size={12} /> Open full screen
+      </a>
       {live ? (
         <iframe
           src={url}

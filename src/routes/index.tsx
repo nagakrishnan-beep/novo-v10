@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Play,
   ChevronRight,
+  ChevronDown,
   ChevronLeft,
   MessageCircle,
   Building2,
@@ -164,8 +165,8 @@ function PageContent() {
         <LogosSection />
         <ReviewsSection />
         <ScopeSection />
-        <CtaSection />
         <FaqSection />
+        <CtaSection />
       </main>
       <SiteFooter />
     </div>
@@ -1006,27 +1007,51 @@ function CtaSection() {
 }
 
 function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
     <section className="px-6 md:px-24 py-32 border-t border-white/5">
       <div className="max-w-4xl mx-auto space-y-8">
-        <div className="flex items-center gap-3 text-xs font-mono text-neutral-500">
+        <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.3em] text-neutral-500">
           <HelpCircle className="w-4 h-4 text-emerald-400" />
-          <span>Frequently Asked</span>
+          <span>Frequently asked</span>
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">
-          FAQ
+        <h2 className="text-2xl md:text-4xl font-light text-white">
+          Questions we get before every scan
         </h2>
-        <div className="border-t border-white/10 pt-4 space-y-6">
-          {HOMEPAGE_FAQ.map((f) => (
-            <Reveal key={f.q} className="space-y-2">
-              <h3 className="text-sm font-bold uppercase text-neutral-200">
-                {f.q}
-              </h3>
-              <p className="text-sm text-neutral-400 leading-relaxed font-light">
-                {f.a}
-              </p>
-            </Reveal>
-          ))}
+        <div className="divide-y divide-white/10 border-y border-white/10">
+          {HOMEPAGE_FAQ.map((f, i) => {
+            const open = openIndex === i;
+            return (
+              <div key={f.q}>
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  onClick={() => setOpenIndex(open ? null : i)}
+                  className="flex w-full items-start justify-between gap-6 py-5 text-left transition hover:text-emerald-300"
+                >
+                  <span
+                    className={`text-sm md:text-base font-light ${open ? "text-emerald-300" : "text-neutral-200"}`}
+                  >
+                    {f.q}
+                  </span>
+                  <ChevronDown
+                    size={18}
+                    className={`mt-0.5 shrink-0 text-neutral-500 transition-transform duration-300 ${open ? "rotate-180 text-emerald-300" : ""}`}
+                  />
+                </button>
+                <div
+                  className={`grid transition-all duration-300 ease-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="pb-6 pr-10 text-sm leading-relaxed font-light text-neutral-400">
+                      {f.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
