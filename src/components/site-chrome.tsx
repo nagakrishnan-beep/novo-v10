@@ -30,6 +30,7 @@ const NAV: { key: ActiveKey; label: string; to: any }[] = [
 const FOOTER_NAV: { key: string; label: string; to: any }[] = [
   ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
   { key: "contact", label: "Contact", to: "/contact" },
+  { key: "faq", label: "FAQ", to: "/faq" },
 ];
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
@@ -37,7 +38,7 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
     <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
       <div className="flex items-center px-6 md:px-12 py-4 gap-6">
         <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Novo Reperio home">
-          <img src="/novo-logo.png" alt="Novo Reperio" className="h-8 w-auto" />
+          <img src="/novo-logo.png" alt="Novo Reperio" className="h-12 md:h-14 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400 ml-auto">
           {NAV.map((n) => (

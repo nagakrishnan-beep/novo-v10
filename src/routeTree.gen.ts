@@ -16,6 +16,7 @@ import { Route as RealityCaptureRouteImport } from './routes/reality-capture'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EstimateRouteImport } from './routes/estimate'
 import { Route as DigitalTwinsRouteImport } from './routes/digital-twins'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -71,6 +72,11 @@ const InsightsRoute = InsightsRouteImport.update({
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EstimateRoute = EstimateRouteImport.update({
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
@@ -221,6 +228,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
+  '/faq': typeof FaqRoute
   '/methodology': typeof MethodologyRoute
   '/reality-capture': typeof RealityCaptureRoute
   '/solutions': typeof SolutionsRoute
@@ -248,6 +256,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
@@ -280,6 +289,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digital-twins'
     | '/estimate'
+    | '/faq'
     | '/industries'
     | '/insights'
     | '/methodology'
@@ -310,6 +320,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digital-twins'
     | '/estimate'
+    | '/faq'
     | '/methodology'
     | '/reality-capture'
     | '/solutions'
@@ -336,6 +347,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digital-twins'
     | '/estimate'
+    | '/faq'
     | '/industries'
     | '/insights'
     | '/methodology'
@@ -367,6 +379,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DigitalTwinsRoute: typeof DigitalTwinsRoute
   EstimateRoute: typeof EstimateRoute
+  FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   InsightsRoute: typeof InsightsRouteWithChildren
   MethodologyRoute: typeof MethodologyRoute
@@ -425,6 +438,13 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/estimate': {
@@ -653,6 +673,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DigitalTwinsRoute: DigitalTwinsRoute,
   EstimateRoute: EstimateRoute,
+  FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   InsightsRoute: InsightsRouteWithChildren,
   MethodologyRoute: MethodologyRoute,
@@ -664,13 +685,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

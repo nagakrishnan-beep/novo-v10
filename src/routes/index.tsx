@@ -1084,12 +1084,20 @@ function FaqSection() {
           <p className="text-sm text-neutral-500 font-light">
             Still have a question?
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200 transition"
-          >
-            Talk to a specialist <ArrowRight size={14} />
-          </Link>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200 transition"
+            >
+              Talk to a specialist <ArrowRight size={14} />
+            </Link>
+            <Link
+              to="/faq"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200 transition"
+            >
+              See all FAQs <ArrowRight size={14} />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
