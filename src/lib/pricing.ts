@@ -1,9 +1,6 @@
 // Novo Reperio published pricing bands (MYR).
 // Do not invent values. Every number below is fixed by Phase B brief.
 
-export const SUBSCRIPTION_MYR = 499;
-export const SUBSCRIPTION_LINE =
-  "Keep it live: hosting & virtual-tour subscription from RM499/month";
 export const TC_LINE =
   "Indicative only, final quote after a free scoping consultation. Terms & conditions apply.";
 
@@ -124,12 +121,6 @@ export const PUBLISHED_BANDS = [
     price: "Custom scope",
     body: "Sized by area and complexity. Typical engagements are quoted after a scoping walkthrough.",
   },
-  {
-    key: "subscription",
-    title: "Hosting & Subscription",
-    price: "from RM499/month",
-    body: "Keeps your twin live: hosting, embeds everywhere, usage analytics and scheduled refreshes.",
-  },
 ] as const;
 
 /** Emit Offer objects for Service schema. */
@@ -138,7 +129,6 @@ export function offersForServiceSchema() {
     offer(988, "Matterport capture: Airbnb / Homestay"),
     offer(2599, "Matterport capture: Residential or Show Unit / Commercial or Showroom"),
     offer(5999, "Matterport capture: Small Event Space / F&B"),
-    subscriptionOffer(),
   ];
 }
 
@@ -153,24 +143,6 @@ function offer(minPrice: number, description: string) {
       "@type": "PriceSpecification",
       priceCurrency: "MYR",
       minPrice,
-    },
-  };
-}
-
-function subscriptionOffer() {
-  return {
-    "@type": "Offer",
-    priceCurrency: "MYR",
-    price: 499,
-    availability: "https://schema.org/InStock",
-    description: "Hosting & virtual-tour subscription, keeps the twin live, embeddable and analytics-tracked.",
-    priceSpecification: {
-      "@type": "UnitPriceSpecification",
-      priceCurrency: "MYR",
-      minPrice: 499,
-      billingIncrement: 1,
-      unitCode: "MON",
-      unitText: "month",
     },
   };
 }

@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
 import { ScopeEstimator } from "@/components/scope-estimator";
-import { MonthlyValue } from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/schema";
 import { WORKS } from "@/lib/works";
@@ -63,6 +62,14 @@ function PropertyVizPage() {
           rendered walkthroughs, CGI 360° tours, photoreal stills, launch films,
           UE5 masterplan platforms and AI-assisted concept iteration.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-2">
+            The problem
+          </div>
+          <p className="text-[15px] md:text-base text-neutral-400 leading-relaxed">
+            Buyers and marketers cannot picture a property from floor plans and stills alone.
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             to="/contact"
@@ -114,6 +121,15 @@ function PropertyVizPage() {
         </div>
       </section>
 
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          Immersive property visuals that help buyers decide before they ever visit.
+        </p>
+      </section>
+
       {relatedWorks.length > 0 && (
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
@@ -153,15 +169,6 @@ function PropertyVizPage() {
         </div>
       </section>
 
-      <MonthlyValue
-        intro="A launch tour or CGI package doesn't have to end when the campaign does."
-        bullets={[
-          "Hosted, embed-ready and shareable as one link, launch microsite, sales gallery kiosks, agent tools and OTA listings.",
-          "Usage analytics, see which units, layouts and finishes prospects explore before they book a viewing.",
-          "Scheduled refresh, swap finishes, colourways and staged furniture without a full reshoot.",
-          "Integrations, plug straight into your sales CRM and gallery iPads.",
-        ]}
-      />
 
       {/* Instant scope estimator */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">

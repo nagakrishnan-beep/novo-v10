@@ -4,7 +4,6 @@ import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/s
 import { getService } from "@/lib/services";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
-import { MonthlyValue } from "@/components/service-extras";
 import { WORKS } from "@/lib/works";
 
 const TITLE = "Facilities Management Digital Twins Malaysia | Asset-Tagged 3D Operations | Novo Reperio";
@@ -164,15 +163,6 @@ function Page() {
         </div>
       </section>
 
-      <MonthlyValue
-        intro="An FM twin is a living record; most of the value shows up month after month."
-        bullets={[
-          "Hosted, embed-ready twin, asset registers, room documentation and contractor brief packs from one link.",
-          "Usage analytics, see how often assets and rooms are inspected remotely by FM and contractors.",
-          "Scheduled recapture, refit and tenant-change captures keep the twin aligned with the physical building.",
-          "FM integrations, asset registers, inspection history and vendor contracts wired to each tagged asset.",
-        ]}
-      />
 
       <SiteFooter />
     </div>

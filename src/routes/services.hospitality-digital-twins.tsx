@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
 import { ScopeEstimator } from "@/components/scope-estimator";
-import { MonthlyValue, PricingBands } from "@/components/service-extras";
+import { PricingBands } from "@/components/service-extras";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 import { offersForServiceSchema } from "@/lib/pricing";
@@ -70,6 +70,14 @@ function HospitalityPage() {
           video that let planners, guests and MICE buyers walk your property before
           they arrive, cutting shortlist time and boosting booking confidence.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-2">
+            The problem
+          </div>
+          <p className="text-[15px] md:text-base text-neutral-400 leading-relaxed">
+            Planners and guests cannot judge a venue or room remotely, so bookings stall on a site inspection.
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             to="/contact"
@@ -149,6 +157,15 @@ function HospitalityPage() {
         </div>
       </section>
 
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          A walkable twin that turns remote interest into confirmed bookings.
+        </p>
+      </section>
+
       {relatedWorks.length > 0 && (
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
@@ -188,15 +205,6 @@ function HospitalityPage() {
         </div>
       </section>
 
-      <MonthlyValue
-        intro="Every hospitality twin at Novo Reperio is designed to keep working long after launch day."
-        bullets={[
-          "Hosted, embed-ready and shareable as one link, property site, OTA extranet, RFP replies, GMB and sales decks.",
-          "Usage analytics for your sales team, visits, dwell time and room-by-room engagement piped into your monthly review.",
-          "Scheduled recapture programs, refreshes for renovations, seasonal setups and new suite categories.",
-          "Integrations, embed into OTA listings and stitch tours into your booking or MICE enquiry flow.",
-        ]}
-      />
 
       {/* Instant scope estimator */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
