@@ -52,33 +52,34 @@ const TIMELINE = [
   },
 ];
 
+const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
+
+export const FOUNDER_PHOTO = `${WP_MEDIA}Naga.webp`;
+
 const TEAM = [
+  { name: "Naga", role: "Founder & CEO", img: FOUNDER_PHOTO },
   {
-    name: "Naga",
-    role: "Chief Executive Officer & Business Development",
-    img: "https://development.novoreperio.com/images/mr%20naga.png",
+    name: "Kairudin",
+    role: "Technical Sales & 3D Scanning Specialist",
+    img: `${WP_MEDIA}kairudin.webp`,
   },
   {
     name: "Kasthuri",
     role: "Operations & Project Management",
-    img: "https://development.novoreperio.com/images/kas%20transparent.png",
-  },
-  {
-    name: "Kairudin",
-    role: "Technical Sales & 3D Scanning Specialist",
-    img: "https://development.novoreperio.com/images/kai.png",
-  },
-  {
-    name: "Tatasha",
-    role: "Graphic & Multimedia Designer",
-    img: "https://development.novoreperio.com/images/tammy.png",
+    img: `${WP_MEDIA}Kasthuri.webp`,
   },
   {
     name: "Shobak",
     role: "Interactive Content Developer",
-    img: "https://development.novoreperio.com/images/shobak.png",
+    img: `${WP_MEDIA}shobak.webp`,
+  },
+  {
+    name: "Tatasha",
+    role: "Graphic & Multimedia Designer",
+    img: `${WP_MEDIA}Tatasha.webp`,
   },
 ];
+
 
 const HOW = [
   {
