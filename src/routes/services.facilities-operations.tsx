@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteHeader, SiteFooter, MediaSlot, BreadcrumbNav } from "@/components/site-chrome";
+import { getService } from "@/lib/services";
 import { WHATSAPP_URL, abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/schema";
 import { MonthlyValue } from "@/components/service-extras";
@@ -49,6 +50,7 @@ export const Route = createFileRoute("/services/facilities-operations")({
 });
 
 function Page() {
+  const service = getService("facilities-operations")!;
   const proof = WORKS.find((w) => w.slug === "pnb-cimb-hub");
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 font-sans antialiased">
@@ -64,7 +66,7 @@ function Page() {
 
       <section className="px-6 md:px-24 pt-6 pb-16 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-6 font-mono">
-          BUILD IT · Facilities Operations
+          Build · Facilities Operations
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
           Run the building from anywhere.
@@ -74,6 +76,14 @@ function Page() {
           their building: asset registers, room-by-room documentation, and contractor
           briefing without a site visit.
         </p>
+        <div className="mt-8 max-w-3xl">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-2 font-mono">
+            The problem
+          </div>
+          <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+            {service.problem}
+          </p>
+        </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             to="/contact"
@@ -106,6 +116,15 @@ function Page() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-300 mb-4 font-mono">
+          The outcome
+        </div>
+        <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
+          {service.outcome}
+        </p>
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
