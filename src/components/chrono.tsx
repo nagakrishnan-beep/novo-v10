@@ -131,7 +131,7 @@ export function AuroraBackdrop() {
             radial-gradient(50% 50% at 80% 20%, ${palette.c}44 0%, transparent 60%),
             radial-gradient(55% 45% at 60% 80%, ${palette.d}3a 0%, transparent 70%)
           `,
-          filter: "blur(40px)",
+          filter: "blur(24px)",
         }}
         animate={
           reduced
