@@ -91,7 +91,7 @@ function WorksPage() {
             className="group block border border-neutral-900 rounded-2xl overflow-hidden bg-neutral-950 hover:border-emerald-500/40 transition"
           >
             <div className="grid md:grid-cols-2 gap-0">
-              <MediaSlot ratio="aspect-[4/3]" label={hero.title} className="rounded-none border-none" />
+              <WorkThumb work={hero} />
               <div className="p-8 md:p-10 flex flex-col justify-center">
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="text-xs tracking-widest uppercase text-emerald-300 font-mono">
