@@ -5,9 +5,9 @@ import { PricingBands } from "@/components/service-extras";
 import { abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
-const TITLE = "Get an instant scope estimate — Novo Reperio";
+const TITLE = "Get an instant scope estimate | Novo Reperio";
 const DESCRIPTION =
-  "Tell us the kind of space and its size — we return an indicative scope band in 60 seconds, based on our published Malaysia pricing.";
+  "Tell us the kind of space and its size, and we return an indicative scope band in 60 seconds, based on our published Malaysia pricing.";
 const URL = abs("/estimate");
 
 export const Route = createFileRoute("/estimate")({
@@ -50,7 +50,7 @@ function EstimatePage() {
             What would your space cost to capture?
           </h1>
           <p className="mt-6 max-w-3xl text-neutral-400 leading-relaxed">
-            Pick a space type and an approximate size — we return an indicative
+            Pick a space type and an approximate size, and we return an indicative
             band from our published Malaysia pricing. No email, no forms. When
             you're ready, book a free scoping consultation for a final quote.
           </p>

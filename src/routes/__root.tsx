@@ -113,7 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify(LOCALBUSINESS_JSONLD),
       },
-      // GA4 loader — TODO replace G-XXXXXXXXXX in src/lib/site.ts
+      // GA4 loader - TODO replace G-XXXXXXXXXX in src/lib/site.ts
       {
         src: `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`,
         async: true,

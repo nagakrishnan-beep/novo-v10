@@ -28,7 +28,7 @@ export const Route = createFileRoute("/industries/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Industry not found — Novo Reperio" },
+          { title: "Industry not found | Novo Reperio" },
           { name: "robots", content: "noindex" },
         ],
       };
@@ -244,7 +244,7 @@ function IndustryDetail() {
             <div className="max-w-4xl">
               <YouTubeEmbed
                 videoId="OPXZbLjafEs"
-                title="EventSpace 360 — event venues explored remotely"
+                title="EventSpace 360: event venues explored remotely"
                 description="How EventSpace 360 lets organisers walk a venue and plan a layout without travelling."
                 caption="EventSpace 360"
               />
@@ -265,12 +265,12 @@ function IndustryDetail() {
               videos={[
                 {
                   videoId: "NlxXBjDPOrI",
-                  title: "M Nova, Kepong — Mah Sing",
+                  title: "M Nova, Kepong: Mah Sing",
                   caption: "M Nova, Kepong · Mah Sing",
                 },
                 {
                   videoId: "S9gs7AQ6zNg",
-                  title: "Queensberry, Mahkota Hills — UMLand, Semenyih",
+                  title: "Queensberry, Mahkota Hills: UMLand, Semenyih",
                   caption: "Queensberry, Mahkota Hills · UMLand, Semenyih",
                 },
                 {

@@ -7,9 +7,9 @@ import { BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
 const TITLE =
-  "Industries We Serve | Digital Twins & Virtual Tours Malaysia — Novo Reperio";
+  "Industries We Serve | Digital Twins & Virtual Tours Malaysia | Novo Reperio";
 const DESCRIPTION =
-  "Novo Reperio delivers digital twins, virtual tours and reality capture across eight industries in Malaysia and Southeast Asia — property, construction, hospitality, events, facilities, manufacturing, healthcare and government.";
+  "Novo Reperio delivers digital twins, virtual tours and reality capture across eight industries in Malaysia and Southeast Asia: property, construction, hospitality, events, facilities, manufacturing, healthcare and government.";
 const CANONICAL = `${BASE_URL}/industries`;
 
 export const Route = createFileRoute("/industries/")({
@@ -60,7 +60,7 @@ function IndustriesHub() {
           </h1>
           <p className="mt-6 text-neutral-400 max-w-3xl text-sm md:text-base leading-relaxed">
             Novo Reperio delivers digital twins, virtual tours and reality
-            capture across eight industries in Malaysia and Southeast Asia — from
+            capture across eight industries in Malaysia and Southeast Asia, from
             property launches and hotel bookings to construction documentation,
             facilities operations and government planning.
           </p>

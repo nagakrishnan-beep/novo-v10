@@ -71,7 +71,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <img src="/novo-logo.png" alt="Novo Reperio" className="h-9 w-auto opacity-90" />
           <p className="mt-4 text-sm text-neutral-400 max-w-md leading-relaxed">
-            {LEGAL_NAME} — spatial capture studio in Kuala Lumpur since 2014. Matterport
+            {LEGAL_NAME}, spatial capture studio in Kuala Lumpur since 2014. Matterport
             digital twins, 360° tours, drone capture, CGI and UE5 experiences for venues,
             developers and enterprises worldwide.
           </p>
@@ -106,7 +106,7 @@ export function SiteFooter() {
   );
 }
 
-/** Empty media placeholder — used everywhere marked [PENDING-DECISION]. */
+/** Empty media placeholder - used everywhere marked [PENDING-DECISION]. */
 export function MediaSlot({
   label = "MEDIA PENDING",
   ratio = "aspect-video",
@@ -138,7 +138,7 @@ export function MediaSlot({
   );
 }
 
-/** Lazy click-to-activate iframe (Matterport, YouTube) — protects Core Web Vitals. */
+/** Lazy click-to-activate iframe (Matterport, YouTube) - protects Core Web Vitals. */
 export function LazyEmbed({
   src,
   title,

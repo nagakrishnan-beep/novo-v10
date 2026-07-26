@@ -7,9 +7,9 @@ import { YouTubeEmbed } from "@/components/youtube-embed";
 
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
-const TITLE = "About Novo Reperio — Spatial capture studio in Kuala Lumpur";
+const TITLE = "About Novo Reperio: Spatial capture studio in Kuala Lumpur";
 const DESCRIPTION =
-  "Since 2014, Novo Reperio has helped venues, developers, and facilities present space with more clarity — through Matterport, 360°, LiDAR, aerial, and launch-ready web assets.";
+  "Since 2014, Novo Reperio has helped venues, developers, and facilities present space with more clarity, through Matterport, 360°, LiDAR, aerial, and launch-ready web assets.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -94,7 +94,7 @@ const HOW = [
   },
   {
     kicker: "Present",
-    body: "The final asset is packaged for the real commercial moment — enquiry, review, shortlist, approval, or booking.",
+    body: "The final asset is packaged for the real commercial moment: enquiry, review, shortlist, approval, or booking.",
   },
 ];
 

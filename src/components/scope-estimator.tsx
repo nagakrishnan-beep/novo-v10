@@ -15,7 +15,7 @@ import {
 } from "@/lib/pricing";
 
 /**
- * ScopeEstimator — 3-step client-side estimator.
+ * ScopeEstimator - 3-step client-side estimator.
  * Fires GA4 events: estimator_start, estimator_complete, estimator_cta_click.
  */
 export function ScopeEstimator({ variant = "full" }: { variant?: "full" | "compact" }) {
@@ -74,7 +74,7 @@ export function ScopeEstimator({ variant = "full" }: { variant?: "full" | "compa
         Get an instant scope estimate.
       </h2>
       <p className="mt-3 text-sm text-neutral-400 leading-relaxed max-w-2xl">
-        Pick a space and a size — we'll show you an indicative band from our
+        Pick a space and a size, and we'll show you an indicative band from our
         published pricing. No email required.
       </p>
 
@@ -143,7 +143,7 @@ export function ScopeEstimator({ variant = "full" }: { variant?: "full" | "compa
         </fieldset>
       )}
 
-      {/* Step 3 — Result */}
+      {/* Step 3: Result */}
       {step === 3 && result && (
         <div className="mt-6 border-t border-white/10 pt-6">
           <div className="text-xs font-mono uppercase tracking-[0.3em] text-emerald-300">

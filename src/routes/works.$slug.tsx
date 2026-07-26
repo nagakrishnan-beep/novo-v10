@@ -30,13 +30,13 @@ export const Route = createFileRoute("/works/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Project not found — Novo Reperio" },
+          { title: "Project not found | Novo Reperio" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { work } = loaderData;
-    const title = `${work.title} — Novo Reperio`;
+    const title = `${work.title} | Novo Reperio`;
     const url = abs(`/works/${params.slug}`);
     const img = abs(work.image);
     return {
