@@ -27,6 +27,9 @@ import { LaserTrail } from "@/components/laser-trail";
 import { PointCloudHero } from "@/components/point-cloud-hero";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { YouTubeEmbed } from "@/components/youtube-embed";
+import { TelemetryHUD } from "@/components/telemetry-hud";
+
 
 const TITLE = "360° Virtual Tour & Digital Twin Experts Malaysia | Novo Reperio";
 const DESCRIPTION =
@@ -132,7 +135,9 @@ function Index() {
       <ClientOnly fallback={null}>
         <AuroraBackdrop />
         <LaserTrail />
+        <TelemetryHUD />
       </ClientOnly>
+
       <PageContent />
     </IntensityProvider>
   );
@@ -842,8 +847,19 @@ function StoriesSection() {
             View all projects <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
+        <Reveal className="pt-8">
+          <div className="max-w-4xl mx-auto">
+            <YouTubeEmbed
+              videoId="OV1JOrpUx5w"
+              title="The Power of Digital Twins"
+              description="How digital twins turn a physical space into an always-available, measurable sales asset."
+              caption="The Power of Digital Twins"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
+
   );
 }
 

@@ -15,9 +15,24 @@ export type Work = {
   impact: string;
   tourUrl?: string;
   externalUrl?: string;
+  featured?: boolean;
+  videoId?: string;
+  location?: string;
+
   relatedService?: string; // service slug
   relatedServiceLabel?: string;
 };
+
+/**
+ * Manual tour overrides. These always win over the WordPress auto-fetch.
+ */
+export const TOUR_OVERRIDES: Record<string, string> = {
+  "kuala-lumpur-convention-centre":
+    "https://my.treedis.com/tour/kuala-lumpur-convention-centre-may-2026",
+  "world-trade-centre-kuala-lumpur": "https://worldtradecentrekl.com/tour-2/",
+  "lexis-hibiscus-port-dickson": "https://lexis.novoreperio.com/",
+};
+
 
 export const WORK_CATEGORIES = {
   hospitality: {
@@ -637,21 +652,155 @@ const RAW_WORKS: Work[] = [
     ],
     impact: "Member acquisition without repeat viewings.",
   },
+  {
+    slug: "royal-lexis",
+    title: "Royal Lexis",
+    format: "360° Virtual Tour + Drone 360°",
+    categories: ["Property Developer", "Residential"],
+    spaceType: "Residential",
+    category: "real-estate",
+    image:
+      "https://novoreperio.com/wp-content/uploads/2026/07/360-PanoramicRoyal-Lexis-Drone-3D-360-Day-View-scaled.jpg",
+    featured: true,
+    videoId: "3XjFnvJUWMo",
+    location: "Malaysia",
+    summary:
+      "A property-developer 360° virtual tour paired with drone 360° panoramas, so buyers read the unit and the surrounding context in one session.",
+    helps: "Buyers understand unit, view and surroundings before a site visit.",
+    body:
+      "Royal Lexis was captured as a full 360° virtual tour for the developer's sales funnel, combined with drone 360° panoramas that place the development in its real surroundings. Prospects move from the aerial day view straight into the unit interiors, which answers the two questions buyers ask first: what does it look like, and what is around it.",
+    features: [
+      "360° virtual tour of the development",
+      "Drone 360° day-view panoramas for context",
+      "Video walkthrough embedded alongside the tour",
+      "One shareable link for agents and buyers",
+    ],
+    impact: "Fewer speculative site visits — buyers arrive already convinced.",
+    tourUrl: "https://virtualproperty.my/360tour/royallexis/",
+    relatedService: "cgi-360-panorama-tours",
+    relatedServiceLabel: "CGI 360° Panorama Tours",
+  },
+  {
+    slug: "maeps",
+    title: "MAEPS — Malaysia Agro Exposition Park",
+    format: "360° Virtual Tour",
+    categories: ["Exhibition & Events"],
+    spaceType: "Exhibition & Events",
+    category: "hospitality",
+    image: "",
+    featured: true,
+    location: "Serdang, Selangor",
+    summary:
+      "Event-space visualization and remote site visits for one of Malaysia's largest exhibition venues.",
+    helps: "Organisers run remote site visits before committing to a hall.",
+    body:
+      "MAEPS is a large multi-hall exhibition venue where organisers historically had to travel for a physical site visit before committing. The 360° tour lets event planners, exhibitors and stand builders walk the halls remotely, judge scale and access, and plan floor layouts without a trip to Serdang.",
+    features: [
+      "360° capture across exhibition halls",
+      "Remote site visits for organisers and exhibitors",
+      "Supports floor-plan and stand-build planning",
+      "Shared as one link in RFP responses",
+    ],
+    impact: "Remote site visits replace travel in the shortlisting stage.",
+    tourUrl: "https://novoreperio.com/360tour/maeps/",
+    relatedService: "hospitality-digital-twins",
+    relatedServiceLabel: "Event Venue Digital Twins",
+  },
+  {
+    slug: "flora-hijauan-melati-east",
+    title: "Flora Hijauan Melati East",
+    format: "360° Property Visualization",
+    categories: ["Residential", "Property Developer"],
+    spaceType: "Residential",
+    category: "real-estate",
+    image: "",
+    featured: true,
+    location: "Melati East, Kuala Lumpur",
+    summary:
+      "360° property visualization for a transit-oriented residential development off the MRR2.",
+    helps: "Explains layout and connectivity for a transit-oriented launch.",
+    body:
+      "Flora Hijauan Melati East is a transit-oriented residential development near the MRR2. The 360° property visualization gives buyers a clear read of unit layouts and the connectivity story that drives the launch, delivered as a link agents can send instantly.",
+    features: [
+      "360° visualization of unit types",
+      "Transit-oriented context communicated visually",
+      "Agent-ready shareable link",
+      "Works on mobile for on-the-go buyers",
+    ],
+    impact: "Layout and connectivity are understood before the showroom visit.",
+    tourUrl: "https://virtualproperty.my/360tour/hijauan/",
+    relatedService: "cgi-360-panorama-tours",
+    relatedServiceLabel: "CGI 360° Panorama Tours",
+  },
+  {
+    slug: "majlis-bandaraya-seremban",
+    title: "Majlis Bandaraya Seremban",
+    format: "City Digital Twin",
+    categories: ["Government & Tourism"],
+    spaceType: "Government & Tourism",
+    category: "aerial",
+    image: "",
+    featured: true,
+    location: "Seremban, Negeri Sembilan",
+    summary:
+      "A city and local-tourism digital twin for the Seremban city council, opening the destination to remote visitors.",
+    helps: "Puts the city's landmarks online for tourism and civic promotion.",
+    body:
+      "Majlis Bandaraya Seremban commissioned a city digital twin that presents key civic and tourism landmarks as an explorable online destination. It serves both citizens and visitors — a single, always-available window into the city.",
+    features: [
+      "Digital twin of civic and tourism landmarks",
+      "Public-facing, always available",
+      "Supports destination and investment promotion",
+      "Hosted and shareable as one link",
+    ],
+    impact: "The destination is discoverable long before anyone travels.",
+    tourUrl: "https://mbs.novoreperio.com/",
+    relatedService: "urban-digital-twins",
+    relatedServiceLabel: "Urban Digital Twins",
+  },
+  {
+    slug: "peel-lane",
+    title: "Peel Lane",
+    format: "360° Virtual Tour",
+    categories: ["Residential", "Property Developer"],
+    spaceType: "Residential",
+    category: "real-estate",
+    image: "",
+    featured: true,
+    location: "Maluri, Cheras, Kuala Lumpur",
+    summary:
+      "A 40-storey, 406-unit residence in Maluri presented as a 360° virtual tour for the developer, Kukuh Dinamik Ekspres.",
+    helps: "Buyers preview unit types across a 406-unit tower remotely.",
+    body:
+      "Peel Lane is a 40-storey residence of 406 units in Maluri, Cheras, developed by Kukuh Dinamik Ekspres. The 360° virtual tour lets buyers preview unit types and finishes from anywhere, keeping the sales conversation moving between showroom appointments.",
+    features: [
+      "360° virtual tour of unit types",
+      "40 storeys, 406 units presented online",
+      "Developer: Kukuh Dinamik Ekspres",
+      "Mobile-first shareable link for agents",
+    ],
+    impact: "Sales conversations continue between showroom appointments.",
+    tourUrl: "https://novoreperio.com/360tour/peel-lane/",
+    relatedService: "cgi-360-panorama-tours",
+    relatedServiceLabel: "CGI 360° Panorama Tours",
+  },
 ];
 
 export const WORKS: Work[] = RAW_WORKS.map((w) => ({
   ...w,
   image: wpWorkImage(w.slug) ?? w.image,
-  tourUrl: wpWorkTour(w.slug) ?? w.tourUrl,
-}));
+  tourUrl: TOUR_OVERRIDES[w.slug] ?? wpWorkTour(w.slug) ?? w.tourUrl,
+})).sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
 
 export const SPACE_TYPES = [
   "All Spaces",
   "Convention Centre",
   "Hospitality",
+  "Exhibition & Events",
   "Museum",
   "Showroom",
   "Residential",
+  "Government & Tourism",
   "Retail Showroom",
   "Workspace",
   "Performance Venue",
@@ -659,6 +808,7 @@ export const SPACE_TYPES = [
   "Private Jet",
   "Training Platform",
 ] as const;
+
 
 export function getWork(slug: string) {
   return WORKS.find((w) => w.slug === slug);

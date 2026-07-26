@@ -6,6 +6,7 @@ import {
   BreadcrumbNav,
   MediaSlot,
 } from "@/components/site-chrome";
+import { YouTubeEmbed, YouTubeReel } from "@/components/youtube-embed";
 import { getIndustry, INDUSTRIES, type Industry } from "@/lib/industries";
 import { getWork } from "@/lib/works";
 import { getInsight } from "@/lib/insights";
@@ -234,7 +235,56 @@ function IndustryDetail() {
           </section>
         )}
 
+        {/* Industry video / showcase reel */}
+        {industry.slug === "events-venues" && (
+          <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
+              Watch
+            </div>
+            <div className="max-w-4xl">
+              <YouTubeEmbed
+                videoId="OPXZbLjafEs"
+                title="EventSpace 360 — event venues explored remotely"
+                description="How EventSpace 360 lets organisers walk a venue and plan a layout without travelling."
+                caption="EventSpace 360"
+              />
+            </div>
+          </section>
+        )}
+
+        {industry.slug === "property-development" && (
+          <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-2">
+              Showcase reel
+            </div>
+            <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
+              Residential launches we've visualised.
+            </h2>
+            <YouTubeReel
+              className="mt-10"
+              videos={[
+                {
+                  videoId: "NlxXBjDPOrI",
+                  title: "M Nova, Kepong — Mah Sing",
+                  caption: "M Nova, Kepong · Mah Sing",
+                },
+                {
+                  videoId: "S9gs7AQ6zNg",
+                  title: "Queensberry, Mahkota Hills — UMLand, Semenyih",
+                  caption: "Queensberry, Mahkota Hills · UMLand, Semenyih",
+                },
+                {
+                  videoId: "yO6OCFnb12c",
+                  title: "Mahogany Residences, Kota Damansara",
+                  caption: "Mahogany Residences · Kota Damansara",
+                },
+              ]}
+            />
+          </section>
+        )}
+
         {/* Related services */}
+
         <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
           <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-4">
             Related services

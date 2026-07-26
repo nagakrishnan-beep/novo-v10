@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { FOUNDER } from "@/lib/site";
+import { YouTubeEmbed } from "@/components/youtube-embed";
 
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
@@ -52,33 +53,34 @@ const TIMELINE = [
   },
 ];
 
+const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
+
+export const FOUNDER_PHOTO = `${WP_MEDIA}Naga.webp`;
+
 const TEAM = [
+  { name: "Naga", role: "Founder & CEO", img: FOUNDER_PHOTO },
   {
-    name: "Naga",
-    role: "Chief Executive Officer & Business Development",
-    img: "https://development.novoreperio.com/images/mr%20naga.png",
+    name: "Kairudin",
+    role: "Technical Sales & 3D Scanning Specialist",
+    img: `${WP_MEDIA}kairudin.webp`,
   },
   {
     name: "Kasthuri",
     role: "Operations & Project Management",
-    img: "https://development.novoreperio.com/images/kas%20transparent.png",
-  },
-  {
-    name: "Kairudin",
-    role: "Technical Sales & 3D Scanning Specialist",
-    img: "https://development.novoreperio.com/images/kai.png",
-  },
-  {
-    name: "Tatasha",
-    role: "Graphic & Multimedia Designer",
-    img: "https://development.novoreperio.com/images/tammy.png",
+    img: `${WP_MEDIA}Kasthuri.webp`,
   },
   {
     name: "Shobak",
     role: "Interactive Content Developer",
-    img: "https://development.novoreperio.com/images/shobak.png",
+    img: `${WP_MEDIA}shobak.webp`,
+  },
+  {
+    name: "Tatasha",
+    role: "Graphic & Multimedia Designer",
+    img: `${WP_MEDIA}Tatasha.webp`,
   },
 ];
+
 
 const HOW = [
   {
@@ -152,9 +154,19 @@ function AboutPage() {
           Led by
         </div>
         <div className="max-w-3xl border border-white/10 rounded-xl p-6 bg-white/[0.02]">
-          <div className="text-white text-2xl font-light">{FOUNDER.name}</div>
-          <div className="mt-1 text-sm text-emerald-300">
-            {FOUNDER.jobTitle}
+          <div className="flex items-start gap-5">
+            <img
+              src={FOUNDER_PHOTO}
+              alt={`${FOUNDER.name}, ${FOUNDER.jobTitle} at Novo Reperio`}
+              loading="lazy"
+              className="h-20 w-20 shrink-0 rounded-full border border-white/10 object-cover bg-white/[0.04]"
+            />
+            <div>
+              <div className="text-white text-2xl font-light">{FOUNDER.name}</div>
+              <div className="mt-1 text-sm text-emerald-300">
+                {FOUNDER.jobTitle}
+              </div>
+            </div>
           </div>
           <p className="mt-4 text-sm text-neutral-300 leading-relaxed">
             {FOUNDER.bio}
@@ -172,7 +184,16 @@ function AboutPage() {
           </ul>
         </div>
 
+        <div className="mt-10 max-w-3xl">
+          <YouTubeEmbed
+            videoId="Q0I65mvTm28"
+            title="Novo Reperio founder introduces the 360° virtual tour"
+            description="Naga R. Krishnan explains how a 360° virtual tour makes a space easier to understand and act on."
+            caption="Founder introduction · 360° virtual tour"
+          />
+        </div>
       </section>
+
 
 
       {/* Trust strip */}
@@ -215,7 +236,16 @@ function AboutPage() {
             easier to act on. Novo's role is to make that understanding happen
             with more confidence.
           </p>
+          <div className="mt-10 max-w-3xl">
+            <YouTubeEmbed
+              videoId="7-rw_vOPd3g"
+              title="Novo Reperio product launch"
+              description="A look at how Novo Reperio brings spatial capture products to market."
+              caption="Product launch"
+            />
+          </div>
         </div>
+
       </section>
 
       {/* How Novo works */}

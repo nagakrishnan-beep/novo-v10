@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { WORKS, SPACE_TYPES, WORK_CATEGORIES } from "@/lib/works";
-import { SiteHeader, SiteFooter, MediaSlot } from "@/components/site-chrome";
+import { WORKS, SPACE_TYPES, WORK_CATEGORIES, type Work } from "@/lib/works";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { WHATSAPP_URL, abs } from "@/lib/site";
 
 const TITLE = "Selected Projects — Novo Reperio";
@@ -91,7 +91,7 @@ function WorksPage() {
             className="group block border border-neutral-900 rounded-2xl overflow-hidden bg-neutral-950 hover:border-emerald-500/40 transition"
           >
             <div className="grid md:grid-cols-2 gap-0">
-              <MediaSlot ratio="aspect-[4/3]" label={hero.title} className="rounded-none border-none" />
+              <WorkThumb work={hero} />
               <div className="p-8 md:p-10 flex flex-col justify-center">
                 <div className="flex flex-wrap gap-2 mb-3">
                   <span className="text-xs tracking-widest uppercase text-emerald-300 font-mono">
@@ -191,7 +191,7 @@ function WorksPage() {
                   params={{ slug: w.slug }}
                   className="group border border-neutral-900 rounded-xl overflow-hidden bg-neutral-950 hover:border-emerald-500/40 transition"
                 >
-                  <MediaSlot ratio="aspect-[4/3]" label={w.title} className="rounded-none border-none" />
+                  <WorkThumb work={w} />
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="text-xs tracking-widest uppercase text-emerald-300 font-mono">
@@ -230,6 +230,49 @@ function WorksPage() {
       </section>
 
       <SiteFooter />
+    </div>
+  );
+}
+
+/** Thumbnail: real image when we have one, else a branded placeholder card. */
+function WorkThumb({ work }: { work: Work }) {
+  const hasImage = /^https?:\/\//.test(work.image);
+  if (hasImage) {
+    return (
+      <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-900">
+        <img
+          src={work.image}
+          alt={`${work.title} — ${work.categories.join(", ")}`}
+          loading="lazy"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-950 flex flex-col justify-end p-6">
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(52,211,153,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(52,211,153,0.07) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div className="relative">
+        <div className="text-[10px] font-mono uppercase tracking-[0.35em] text-neutral-500">
+          {work.categories.join(" · ")}
+        </div>
+        <div className="mt-2 text-lg font-light leading-tight text-white">
+          {work.title}
+        </div>
+        {work.tourUrl && (
+          <span className="mt-4 inline-block rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[10px] font-mono uppercase tracking-widest text-emerald-300">
+            Live 360° Tour
+          </span>
+        )}
+      </div>
     </div>
   );
 }

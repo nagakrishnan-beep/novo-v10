@@ -2,8 +2,53 @@ import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-rout
 import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import { LaserTrail } from "@/components/laser-trail";
 import { getService, getNextService, SERVICES } from "@/lib/services";
+import { YouTubeEmbed } from "@/components/youtube-embed";
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
+const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
+
+const SERVICE_VIDEOS: Record<string, { videoId: string; title: string }> = {
+  "spatial-capture-digital-twins": {
+    videoId: "U-VXk6MdxSI",
+    title: "Matterport measurement tool — measure any space from the twin",
+  },
+};
+
+const SERVICE_GALLERIES: Record<string, { title: string; files: string[] }> = {
+  "photoreal-cgi-stills": {
+    title: "3D Rendering Showcase",
+    files: [
+      "3D-Rendering-balcony-view-scaled.webp",
+      "3D-Rendering-common-area-scaled.webp",
+      "3D-Rendering-entrance-sunset-scaled.webp",
+      "3D-Rendering-exterior-facade-scaled.jpeg",
+      "3D-Rendering-exterior-facade2-scaled.webp",
+      "3D-Rendering-facade-klcc-scaled.webp",
+      "3D-Rendering-liftlobby-scaled.webp",
+      "3D-Rendering-piazza-scaled.webp",
+      "3D-Rendering-pool-facade-scaled.webp",
+      "3D-Rendering-pool-nightview.jpeg",
+    ],
+  },
+  "commercial-photography": {
+    title: "Interior Photography Gallery",
+    files: [1, 2, 3, 4, 5].map(
+      (n) => `Interior-Photography-${n}-scaled.webp`,
+    ),
+  },
+};
+
+/** Turns "3D-Rendering-pool-nightview.jpeg" into descriptive alt text. */
+function altFromFilename(file: string): string {
+  const base = file
+    .replace(/\.[a-z]+$/i, "")
+    .replace(/-scaled$/i, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b(\d)\b/g, "$1")
+    .trim();
+  return `${base.charAt(0).toUpperCase()}${base.slice(1)} — Novo Reperio`;
+}
+
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -129,7 +174,49 @@ function ServiceDetail() {
         </div>
       </section>
 
+      {/* Service video */}
+      {SERVICE_VIDEOS[service.slug] && (
+        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+            Watch it work
+          </div>
+          <div className="max-w-4xl">
+            <YouTubeEmbed
+              videoId={SERVICE_VIDEOS[service.slug].videoId}
+              title={SERVICE_VIDEOS[service.slug].title}
+              description={service.tagline}
+              caption={SERVICE_VIDEOS[service.slug].title}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* Image gallery */}
+      {SERVICE_GALLERIES[service.slug] && (
+        <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
+          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+            {SERVICE_GALLERIES[service.slug].title}
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICE_GALLERIES[service.slug].files.map((f) => (
+              <figure
+                key={f}
+                className="aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-neutral-950"
+              >
+                <img
+                  src={`${WP_MEDIA}${f}`}
+                  alt={altFromFilename(f)}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
+                />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Other services */}
+
       <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
         <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
           Other services
