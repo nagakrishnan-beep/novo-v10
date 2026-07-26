@@ -842,8 +842,19 @@ function StoriesSection() {
             View all projects <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
+        <Reveal className="pt-8">
+          <div className="max-w-4xl mx-auto">
+            <YouTubeEmbed
+              videoId="OV1JOrpUx5w"
+              title="The Power of Digital Twins"
+              description="How digital twins turn a physical space into an always-available, measurable sales asset."
+              caption="The Power of Digital Twins"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
+
   );
 }
 
