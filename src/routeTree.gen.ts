@@ -18,6 +18,7 @@ import { Route as EstimateRouteImport } from './routes/estimate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorksIndexRouteImport } from './routes/works.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
 import { Route as ServicesUrbanDigitalTwinsRouteImport } from './routes/services.urban-digital-twins'
 import { Route as ServicesScanToBimRouteImport } from './routes/services.scan-to-bim'
@@ -75,6 +76,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const WorksIndexRoute = WorksIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => WorksRoute,
 } as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/works/': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
 export interface FileRoutesByTo {
@@ -175,7 +182,6 @@ export interface FileRoutesByTo {
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
   '/services': typeof ServicesRouteWithChildren
-  '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -187,6 +193,7 @@ export interface FileRoutesByTo {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/works': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
 export interface FileRoutesById {
@@ -211,6 +218,7 @@ export interface FileRoutesById {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/works/': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
 export interface FileRouteTypes {
@@ -236,6 +244,7 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/works/'
     | '/works/category/$cat'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -247,7 +256,6 @@ export interface FileRouteTypes {
     | '/insights'
     | '/methodology'
     | '/services'
-    | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
     | '/services/$slug'
@@ -259,6 +267,7 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/works'
     | '/works/category/$cat'
   id:
     | '__root__'
@@ -282,6 +291,7 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/works/'
     | '/works/category/$cat'
   fileRoutesById: FileRoutesById
 }
@@ -361,6 +371,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/works/': {
+      id: '/works/'
+      path: '/'
+      fullPath: '/works/'
+      preLoaderRoute: typeof WorksIndexRouteImport
+      parentRoute: typeof WorksRoute
     }
     '/works/$slug': {
       id: '/works/$slug'
@@ -501,11 +518,13 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
+  WorksIndexRoute: typeof WorksIndexRoute
   WorksCategoryCatRoute: typeof WorksCategoryCatRoute
 }
 
 const WorksRouteChildren: WorksRouteChildren = {
   WorksSlugRoute: WorksSlugRoute,
+  WorksIndexRoute: WorksIndexRoute,
   WorksCategoryCatRoute: WorksCategoryCatRoute,
 }
 
@@ -525,13 +544,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
