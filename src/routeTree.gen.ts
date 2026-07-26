@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RealityCaptureRouteImport } from './routes/reality-capture'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as IndustriesRouteImport } from './routes/industries'
@@ -44,6 +45,11 @@ const WorksRoute = WorksRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealityCaptureRoute = RealityCaptureRouteImport.update({
+  id: '/reality-capture',
+  path: '/reality-capture',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MethodologyRoute = MethodologyRouteImport.update({
@@ -182,6 +188,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/reality-capture': typeof RealityCaptureRoute
   '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -208,6 +215,7 @@ export interface FileRoutesByTo {
   '/digital-twins': typeof DigitalTwinsRoute
   '/estimate': typeof EstimateRoute
   '/methodology': typeof MethodologyRoute
+  '/reality-capture': typeof RealityCaptureRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -235,6 +243,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/reality-capture': typeof RealityCaptureRoute
   '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
@@ -265,6 +274,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/insights'
     | '/methodology'
+    | '/reality-capture'
     | '/services'
     | '/works'
     | '/industries/$slug'
@@ -291,6 +301,7 @@ export interface FileRouteTypes {
     | '/digital-twins'
     | '/estimate'
     | '/methodology'
+    | '/reality-capture'
     | '/industries/$slug'
     | '/insights/$slug'
     | '/services/$slug'
@@ -317,6 +328,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/insights'
     | '/methodology'
+    | '/reality-capture'
     | '/services'
     | '/works'
     | '/industries/$slug'
@@ -346,6 +358,7 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRouteWithChildren
   InsightsRoute: typeof InsightsRouteWithChildren
   MethodologyRoute: typeof MethodologyRoute
+  RealityCaptureRoute: typeof RealityCaptureRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   WorksRoute: typeof WorksRouteWithChildren
 }
@@ -364,6 +377,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reality-capture': {
+      id: '/reality-capture'
+      path: '/reality-capture'
+      fullPath: '/reality-capture'
+      preLoaderRoute: typeof RealityCaptureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/methodology': {
@@ -616,6 +636,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRouteWithChildren,
   InsightsRoute: InsightsRouteWithChildren,
   MethodologyRoute: MethodologyRoute,
+  RealityCaptureRoute: RealityCaptureRoute,
   ServicesRoute: ServicesRouteWithChildren,
   WorksRoute: WorksRouteWithChildren,
 }
