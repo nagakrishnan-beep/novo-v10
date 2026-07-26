@@ -476,10 +476,10 @@ function Hero() {
         >
           <div>
             <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-emerald-300">
-              60-second estimate
+              Project assessment
             </div>
             <div className="mt-2 text-base md:text-lg font-light text-white">
-              What would your space cost to capture?
+              What does your project need?
             </div>
           </div>
           <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300">
