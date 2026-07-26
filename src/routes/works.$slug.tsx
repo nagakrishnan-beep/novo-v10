@@ -3,6 +3,15 @@ import { ArrowLeft, ArrowRight, ExternalLink, MessageCircle } from "lucide-react
 import { getWork, getRelatedWorks } from "@/lib/works";
 import { SiteHeader, SiteFooter, BreadcrumbNav, MediaSlot } from "@/components/site-chrome";
 import { PointCloudHero } from "@/components/point-cloud-hero";
+import { YouTubeEmbed } from "@/components/youtube-embed";
+
+/** Per-work YouTube features. */
+const WORK_VIDEOS: Record<string, { videoId: string; title: string }> = {
+  "royal-lexis": { videoId: "3XjFnvJUWMo", title: "Royal Lexis — 360° virtual tour walkthrough" },
+  "confetti-kuala-lumpur": { videoId: "CpHh3ENsXhQ", title: "Confetti Kuala Lumpur — immersive venue tour" },
+  "worq-kl-sentral": { videoId: "CypbA0e-hSU", title: "WORQ KL Sentral — workspace digital twin" },
+};
+
 import { abs, WHATSAPP_URL, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd } from "@/lib/schema";
 
