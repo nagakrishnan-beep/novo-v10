@@ -147,7 +147,7 @@ export function LaserTrail() {
           transition: "color 200ms ease, border-color 200ms ease",
         }}
       >
-        LDR_IDX // X:{coords.x} Y:{coords.y}
+        <span ref={coordRef}>LDR_IDX // X:0 Y:0</span>
       </motion.div>
     </>
   );
