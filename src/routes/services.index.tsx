@@ -38,7 +38,7 @@ const DOORS: {
   { key: "plan", label: "PLAN IT", outcome: "City & masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", anchor: "plan", icon: Map },
 ];
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: TITLE },

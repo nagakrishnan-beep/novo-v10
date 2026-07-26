@@ -11,7 +11,7 @@ const DESCRIPTION =
   "Practical articles on digital twins, virtual tours, LiDAR scanning, Scan to BIM, and spatial presentation for properties, venues, and facilities.";
 const CANONICAL = `${BASE_URL}/insights`;
 
-export const Route = createFileRoute("/insights")({
+export const Route = createFileRoute("/insights/")({
   head: () => ({
     meta: [
       { title: TITLE },

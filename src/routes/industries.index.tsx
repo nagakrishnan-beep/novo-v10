@@ -12,7 +12,7 @@ const DESCRIPTION =
   "Novo Reperio delivers digital twins, virtual tours and reality capture across eight industries in Malaysia and Southeast Asia — property, construction, hospitality, events, facilities, manufacturing, healthcare and government.";
 const CANONICAL = `${BASE_URL}/industries`;
 
-export const Route = createFileRoute("/industries")({
+export const Route = createFileRoute("/industries/")({
   head: () => ({
     meta: [
       { title: TITLE },
