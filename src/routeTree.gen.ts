@@ -10,15 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
-import { Route as ServicesRouteImport } from './routes/services'
 import { Route as MethodologyRouteImport } from './routes/methodology'
-import { Route as InsightsRouteImport } from './routes/insights'
-import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as EstimateRouteImport } from './routes/estimate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksIndexRouteImport } from './routes/works.index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
 import { Route as ServicesUrbanDigitalTwinsRouteImport } from './routes/services.urban-digital-twins'
 import { Route as ServicesScanToBimRouteImport } from './routes/services.scan-to-bim'
@@ -37,24 +37,9 @@ const WorksRoute = WorksRouteImport.update({
   path: '/works',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const MethodologyRoute = MethodologyRouteImport.update({
   id: '/methodology',
   path: '/methodology',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InsightsRoute = InsightsRouteImport.update({
-  id: '/insights',
-  path: '/insights',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EstimateRoute = EstimateRouteImport.update({
@@ -82,6 +67,21 @@ const WorksIndexRoute = WorksIndexRouteImport.update({
   path: '/',
   getParentRoute: () => WorksRoute,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -89,59 +89,59 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
 } as any)
 const ServicesUrbanDigitalTwinsRoute =
   ServicesUrbanDigitalTwinsRouteImport.update({
-    id: '/urban-digital-twins',
-    path: '/urban-digital-twins',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/urban-digital-twins',
+    path: '/services/urban-digital-twins',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesScanToBimRoute = ServicesScanToBimRouteImport.update({
-  id: '/scan-to-bim',
-  path: '/scan-to-bim',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/scan-to-bim',
+  path: '/services/scan-to-bim',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesPropertyVisualizationRoute =
   ServicesPropertyVisualizationRouteImport.update({
-    id: '/property-visualization',
-    path: '/property-visualization',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/property-visualization',
+    path: '/services/property-visualization',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesImmersiveTrainingRoute =
   ServicesImmersiveTrainingRouteImport.update({
-    id: '/immersive-training',
-    path: '/immersive-training',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/immersive-training',
+    path: '/services/immersive-training',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesHospitalityDigitalTwinsRoute =
   ServicesHospitalityDigitalTwinsRouteImport.update({
-    id: '/hospitality-digital-twins',
-    path: '/hospitality-digital-twins',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/hospitality-digital-twins',
+    path: '/services/hospitality-digital-twins',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesFacilitiesOperationsRoute =
   ServicesFacilitiesOperationsRouteImport.update({
-    id: '/facilities-operations',
-    path: '/facilities-operations',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/facilities-operations',
+    path: '/services/facilities-operations',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesConstructionProgressRoute =
   ServicesConstructionProgressRouteImport.update({
-    id: '/construction-progress',
-    path: '/construction-progress',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/construction-progress',
+    path: '/services/construction-progress',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => InsightsRoute,
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => IndustriesRoute,
+  id: '/industries/$slug',
+  path: '/industries/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const WorksCategoryCatRoute = WorksCategoryCatRouteImport.update({
   id: '/category/$cat',
@@ -154,10 +154,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/estimate': typeof EstimateRoute
-  '/industries': typeof IndustriesRouteWithChildren
-  '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
-  '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -170,6 +167,9 @@ export interface FileRoutesByFullPath {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/works/': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -178,10 +178,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/estimate': typeof EstimateRoute
-  '/industries': typeof IndustriesRouteWithChildren
-  '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
-  '/services': typeof ServicesRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -193,6 +190,9 @@ export interface FileRoutesByTo {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/insights': typeof InsightsIndexRoute
+  '/services': typeof ServicesIndexRoute
   '/works': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -202,10 +202,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/estimate': typeof EstimateRoute
-  '/industries': typeof IndustriesRouteWithChildren
-  '/insights': typeof InsightsRouteWithChildren
   '/methodology': typeof MethodologyRoute
-  '/services': typeof ServicesRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/industries/$slug': typeof IndustriesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -218,6 +215,9 @@ export interface FileRoutesById {
   '/services/scan-to-bim': typeof ServicesScanToBimRoute
   '/services/urban-digital-twins': typeof ServicesUrbanDigitalTwinsRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/services/': typeof ServicesIndexRoute
   '/works/': typeof WorksIndexRoute
   '/works/category/$cat': typeof WorksCategoryCatRoute
 }
@@ -228,10 +228,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/estimate'
-    | '/industries'
-    | '/insights'
     | '/methodology'
-    | '/services'
     | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
@@ -244,6 +241,9 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/industries/'
+    | '/insights/'
+    | '/services/'
     | '/works/'
     | '/works/category/$cat'
   fileRoutesByTo: FileRoutesByTo
@@ -252,10 +252,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/estimate'
-    | '/industries'
-    | '/insights'
     | '/methodology'
-    | '/services'
     | '/industries/$slug'
     | '/insights/$slug'
     | '/services/$slug'
@@ -267,6 +264,9 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/industries'
+    | '/insights'
+    | '/services'
     | '/works'
     | '/works/category/$cat'
   id:
@@ -275,10 +275,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/estimate'
-    | '/industries'
-    | '/insights'
     | '/methodology'
-    | '/services'
     | '/works'
     | '/industries/$slug'
     | '/insights/$slug'
@@ -291,6 +288,9 @@ export interface FileRouteTypes {
     | '/services/scan-to-bim'
     | '/services/urban-digital-twins'
     | '/works/$slug'
+    | '/industries/'
+    | '/insights/'
+    | '/services/'
     | '/works/'
     | '/works/category/$cat'
   fileRoutesById: FileRoutesById
@@ -300,11 +300,21 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   EstimateRoute: typeof EstimateRoute
-  IndustriesRoute: typeof IndustriesRouteWithChildren
-  InsightsRoute: typeof InsightsRouteWithChildren
   MethodologyRoute: typeof MethodologyRoute
-  ServicesRoute: typeof ServicesRouteWithChildren
   WorksRoute: typeof WorksRouteWithChildren
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesConstructionProgressRoute: typeof ServicesConstructionProgressRoute
+  ServicesFacilitiesOperationsRoute: typeof ServicesFacilitiesOperationsRoute
+  ServicesHospitalityDigitalTwinsRoute: typeof ServicesHospitalityDigitalTwinsRoute
+  ServicesImmersiveTrainingRoute: typeof ServicesImmersiveTrainingRoute
+  ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
+  ServicesScanToBimRoute: typeof ServicesScanToBimRoute
+  ServicesUrbanDigitalTwinsRoute: typeof ServicesUrbanDigitalTwinsRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -316,32 +326,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/methodology': {
       id: '/methodology'
       path: '/methodology'
       fullPath: '/methodology'
       preLoaderRoute: typeof MethodologyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/insights': {
-      id: '/insights'
-      path: '/insights'
-      fullPath: '/insights'
-      preLoaderRoute: typeof InsightsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/estimate': {
@@ -379,6 +368,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksIndexRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/works/$slug': {
       id: '/works/$slug'
       path: '/$slug'
@@ -388,73 +398,73 @@ declare module '@tanstack/react-router' {
     }
     '/services/urban-digital-twins': {
       id: '/services/urban-digital-twins'
-      path: '/urban-digital-twins'
+      path: '/services/urban-digital-twins'
       fullPath: '/services/urban-digital-twins'
       preLoaderRoute: typeof ServicesUrbanDigitalTwinsRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/scan-to-bim': {
       id: '/services/scan-to-bim'
-      path: '/scan-to-bim'
+      path: '/services/scan-to-bim'
       fullPath: '/services/scan-to-bim'
       preLoaderRoute: typeof ServicesScanToBimRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/property-visualization': {
       id: '/services/property-visualization'
-      path: '/property-visualization'
+      path: '/services/property-visualization'
       fullPath: '/services/property-visualization'
       preLoaderRoute: typeof ServicesPropertyVisualizationRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/immersive-training': {
       id: '/services/immersive-training'
-      path: '/immersive-training'
+      path: '/services/immersive-training'
       fullPath: '/services/immersive-training'
       preLoaderRoute: typeof ServicesImmersiveTrainingRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/hospitality-digital-twins': {
       id: '/services/hospitality-digital-twins'
-      path: '/hospitality-digital-twins'
+      path: '/services/hospitality-digital-twins'
       fullPath: '/services/hospitality-digital-twins'
       preLoaderRoute: typeof ServicesHospitalityDigitalTwinsRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/facilities-operations': {
       id: '/services/facilities-operations'
-      path: '/facilities-operations'
+      path: '/services/facilities-operations'
       fullPath: '/services/facilities-operations'
       preLoaderRoute: typeof ServicesFacilitiesOperationsRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/construction-progress': {
       id: '/services/construction-progress'
-      path: '/construction-progress'
+      path: '/services/construction-progress'
       fullPath: '/services/construction-progress'
       preLoaderRoute: typeof ServicesConstructionProgressRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/$slug': {
       id: '/services/$slug'
-      path: '/$slug'
+      path: '/services/$slug'
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/insights/$slug': {
       id: '/insights/$slug'
-      path: '/$slug'
+      path: '/insights/$slug'
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof InsightsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/industries/$slug': {
       id: '/industries/$slug'
-      path: '/$slug'
+      path: '/industries/$slug'
       fullPath: '/industries/$slug'
       preLoaderRoute: typeof IndustriesSlugRouteImport
-      parentRoute: typeof IndustriesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/works/category/$cat': {
       id: '/works/category/$cat'
@@ -465,56 +475,6 @@ declare module '@tanstack/react-router' {
     }
   }
 }
-
-interface IndustriesRouteChildren {
-  IndustriesSlugRoute: typeof IndustriesSlugRoute
-}
-
-const IndustriesRouteChildren: IndustriesRouteChildren = {
-  IndustriesSlugRoute: IndustriesSlugRoute,
-}
-
-const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
-  IndustriesRouteChildren,
-)
-
-interface InsightsRouteChildren {
-  InsightsSlugRoute: typeof InsightsSlugRoute
-}
-
-const InsightsRouteChildren: InsightsRouteChildren = {
-  InsightsSlugRoute: InsightsSlugRoute,
-}
-
-const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
-  InsightsRouteChildren,
-)
-
-interface ServicesRouteChildren {
-  ServicesSlugRoute: typeof ServicesSlugRoute
-  ServicesConstructionProgressRoute: typeof ServicesConstructionProgressRoute
-  ServicesFacilitiesOperationsRoute: typeof ServicesFacilitiesOperationsRoute
-  ServicesHospitalityDigitalTwinsRoute: typeof ServicesHospitalityDigitalTwinsRoute
-  ServicesImmersiveTrainingRoute: typeof ServicesImmersiveTrainingRoute
-  ServicesPropertyVisualizationRoute: typeof ServicesPropertyVisualizationRoute
-  ServicesScanToBimRoute: typeof ServicesScanToBimRoute
-  ServicesUrbanDigitalTwinsRoute: typeof ServicesUrbanDigitalTwinsRoute
-}
-
-const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesSlugRoute: ServicesSlugRoute,
-  ServicesConstructionProgressRoute: ServicesConstructionProgressRoute,
-  ServicesFacilitiesOperationsRoute: ServicesFacilitiesOperationsRoute,
-  ServicesHospitalityDigitalTwinsRoute: ServicesHospitalityDigitalTwinsRoute,
-  ServicesImmersiveTrainingRoute: ServicesImmersiveTrainingRoute,
-  ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
-  ServicesScanToBimRoute: ServicesScanToBimRoute,
-  ServicesUrbanDigitalTwinsRoute: ServicesUrbanDigitalTwinsRoute,
-}
-
-const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
-  ServicesRouteChildren,
-)
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
@@ -535,22 +495,22 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   EstimateRoute: EstimateRoute,
-  IndustriesRoute: IndustriesRouteWithChildren,
-  InsightsRoute: InsightsRouteWithChildren,
   MethodologyRoute: MethodologyRoute,
-  ServicesRoute: ServicesRouteWithChildren,
   WorksRoute: WorksRouteWithChildren,
+  IndustriesSlugRoute: IndustriesSlugRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesConstructionProgressRoute: ServicesConstructionProgressRoute,
+  ServicesFacilitiesOperationsRoute: ServicesFacilitiesOperationsRoute,
+  ServicesHospitalityDigitalTwinsRoute: ServicesHospitalityDigitalTwinsRoute,
+  ServicesImmersiveTrainingRoute: ServicesImmersiveTrainingRoute,
+  ServicesPropertyVisualizationRoute: ServicesPropertyVisualizationRoute,
+  ServicesScanToBimRoute: ServicesScanToBimRoute,
+  ServicesUrbanDigitalTwinsRoute: ServicesUrbanDigitalTwinsRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
