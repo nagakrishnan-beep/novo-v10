@@ -19,7 +19,7 @@ export type Service = {
 const img = (name: string) => `/images/services/${name}`;
 
 export const SERVICES: Service[] = [
-  /* ---------- MARKET IT — existing (Track A) ---------- */
+  /* ---------- MARKET IT: existing (Track A) ---------- */
   {
     slug: "spatial-capture-digital-twins",
     title: "Matterport Digital Twin",
@@ -49,7 +49,7 @@ export const SERVICES: Service[] = [
     cluster: "market",
     tagline: "Lightweight 360° tours for web, OTAs, WhatsApp and rapid distribution.",
     description:
-      "Ground-level 360° panoramic capture stitched into interactive tours — lighter than a full digital twin, ideal for social, OTA listings and quick sales replies.",
+      "Ground-level 360° panoramic capture stitched into interactive tours, lighter than a full digital twin, ideal for social, OTA listings and quick sales replies.",
     bestFor: "Hotels, restaurants, retail and destinations that need fast, wide distribution.",
     benefits: [
       "Fast to capture and publish",
@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     cluster: "market",
     tagline: "60–90s launch films and 15–30s social cuts, colour-graded and delivery-ready.",
     description:
-      "Cinematic ground and aerial video edited into launch films, brand suites, social cuts and 9:16 reels — one production run powers every channel.",
+      "Cinematic ground and aerial video edited into launch films, brand suites, social cuts and 9:16 reels. One production run powers every channel.",
     bestFor: "Launches, brand refreshes, RFP responses and social campaigns.",
     benefits: [
       "60–90s hero launch films",
@@ -95,7 +95,7 @@ export const SERVICES: Service[] = [
     ],
     image: img("cinematic-video.jpg"),
   },
-  /* ---------- MARKET IT — unbuilt (Track B) ---------- */
+  /* ---------- MARKET IT: unbuilt (Track B) ---------- */
   {
     slug: "3d-rendered-walkthrough-tours",
     title: "3D Rendered Walkthrough Tours",
@@ -104,7 +104,7 @@ export const SERVICES: Service[] = [
     cluster: "market",
     tagline: "Dollhouse-style virtual show units generated from CAD, BIM, SketchUp or PDF at any stage.",
     description:
-      "Rendered walkthrough tours of unbuilt units — dollhouse and floorplan views, room-by-room navigation, measurement tool where applicable. Perfect pre-sales asset when the physical show unit isn't ready.",
+      "Rendered walkthrough tours of unbuilt units, dollhouse and floorplan views, room-by-room navigation, measurement tool where applicable. Perfect pre-sales asset when the physical show unit isn't ready.",
     bestFor: "Property developers pre-launch, sales galleries, remote buyers.",
     benefits: [
       "Full walkthrough of unbuilt units",
@@ -120,9 +120,9 @@ export const SERVICES: Service[] = [
     tier: "core",
     track: "unbuilt",
     cluster: "market",
-    tagline: "Rendered 360° panoramas — light enough for portals, WhatsApp and interactive campaign pages.",
+    tagline: "Rendered 360° panoramas, light enough for portals, WhatsApp and interactive campaign pages.",
     description:
-      "Photoreal 360° panoramas rendered from architectural intent — buyers can look around a proposed space long before it exists.",
+      "Photoreal 360° panoramas rendered from architectural intent. Buyers can look around a proposed space long before it exists.",
     bestFor: "Sales galleries, pre-launch previews, interactive campaign microsites.",
     benefits: [
       "Photoreal 360° panoramic renders",
@@ -138,9 +138,9 @@ export const SERVICES: Service[] = [
     tier: "core",
     track: "unbuilt",
     cluster: "market",
-    tagline: "Magazine-grade exteriors, interiors, aerials and dusk hero shots — print-ready for billboards.",
+    tagline: "Magazine-grade exteriors, interiors, aerials and dusk hero shots, print-ready for billboards.",
     description:
-      "Still CGI at the highest fidelity — exteriors, interiors, aerials and dusk hero shots ready for print, campaign pages, billboards and portal listings.",
+      "Still CGI at the highest fidelity, exteriors, interiors, aerials and dusk hero shots ready for print, campaign pages, billboards and portal listings.",
     bestFor: "Property developers, interior brands, marketing teams needing hero visuals.",
     benefits: [
       "Photoreal interior and exterior CGI",
@@ -158,7 +158,7 @@ export const SERVICES: Service[] = [
     cluster: "market",
     tagline: "60–90s launch films, 15–30s social cuts and drone-CGI hybrids for portal, gallery and social.",
     description:
-      "Cinematic films that combine CGI walkthroughs, drone hybrids and lifestyle vignettes — the launch centrepiece for property developments.",
+      "Cinematic films that combine CGI walkthroughs, drone hybrids and lifestyle vignettes, the launch centrepiece for property developments.",
     bestFor: "Property launches, campaign pushes and portal hero placements.",
     benefits: [
       "60–90s launch films",
@@ -175,9 +175,9 @@ export const SERVICES: Service[] = [
     track: "unbuilt",
     cluster: "market",
     tagline:
-      "SIGNATURE — a fully explorable township in Unreal Engine 5: free-roam, phase timeline, live availability, day/night, POI hotspots.",
+      "SIGNATURE: a fully explorable township in Unreal Engine 5: free-roam, phase timeline, live availability, day/night, POI hotspots.",
     description:
-      "The signature Novo Reperio deliverable — a fully explorable township built in Unreal Engine 5. Free-roam navigation, phase-timeline scrubbing, live unit availability, day/night/seasons and POI hotspots. Runs in the sales gallery, on touchscreens and in browsers.",
+      "The signature Novo Reperio deliverable, a fully explorable township built in Unreal Engine 5. Free-roam navigation, phase-timeline scrubbing, live unit availability, day/night/seasons and POI hotspots. Runs in the sales gallery, on touchscreens and in browsers.",
     bestFor: "Township-scale masterplans, phased developments, signature sales galleries.",
     benefits: [
       "Free-roam exploration of the whole masterplan",
@@ -194,9 +194,9 @@ export const SERVICES: Service[] = [
     tier: "core",
     track: "unbuilt",
     cluster: "market",
-    tagline: "Console-quality 3D pixel-streamed from the cloud, no downloads — live unit selector, real-time finish switching.",
+    tagline: "Console-quality 3D pixel-streamed from the cloud, no downloads, live unit selector, real-time finish switching.",
     description:
-      "Cloud pixel-streamed UE5 experiences — buyers explore console-quality 3D in the browser with zero download. Live unit selector, real-time finish switching, shareable agent links and buyer-behaviour analytics.",
+      "Cloud pixel-streamed UE5 experiences. Buyers explore console-quality 3D in the browser with zero download. Live unit selector, real-time finish switching, shareable agent links and buyer-behaviour analytics.",
     bestFor: "Digital-first launches, agent-driven remote selling, international campaigns.",
     benefits: [
       "Zero-download console-quality 3D in browser",
@@ -212,9 +212,9 @@ export const SERVICES: Service[] = [
     tier: "core",
     track: "unbuilt",
     cluster: "market",
-    tagline: "Concepts in hours not weeks, more directions per budget — every final frame finished by human artists.",
+    tagline: "Concepts in hours not weeks, more directions per budget; every final frame finished by human artists.",
     description:
-      "AI-assisted iteration during concept development — more directions per budget, faster feedback loops. Every final frame is finished by human artists to preserve consistency and photoreal quality.",
+      "AI-assisted iteration during concept development, more directions per budget, faster feedback loops. Every final frame is finished by human artists to preserve consistency and photoreal quality.",
     bestFor: "Concept and mood exploration, campaign iterations, moodboards.",
     benefits: [
       "More directions per budget",
@@ -235,7 +235,7 @@ export const SERVICES: Service[] = [
     tagline:
       "LiDAR point clouds converted into accurate as-built BIM, 2D CAD and measurable digital twins.",
     description:
-      "Novo Reperio captures existing buildings with LiDAR and 3D scanning, then converts the point cloud into accurate as-built deliverables — BIM models, 2D CAD drawings, and measurable digital twins — so architects, engineers and facility teams design and plan from reality, not guesswork.",
+      "Novo Reperio captures existing buildings with LiDAR and 3D scanning, then converts the point cloud into accurate as-built deliverables (BIM models, 2D CAD drawings, and measurable digital twins) so architects, engineers and facility teams design and plan from reality, not guesswork.",
     bestFor:
       "Architects, engineers, quantity surveyors, renovation & retrofit, MEP coordination, facility handover.",
     benefits: [
@@ -256,7 +256,7 @@ export const SERVICES: Service[] = [
     tagline:
       "Scheduled 3D and 360° capture turns your site into a dated, walkable record.",
     description:
-      "Scheduled 3D and 360° capture turns your construction site into a dated, walkable record — so project teams inspect remotely, verify progress against programme, and settle disputes with evidence instead of memory.",
+      "Scheduled 3D and 360° capture turns your construction site into a dated, walkable record, so project teams inspect remotely, verify progress against programme, and settle disputes with evidence instead of memory.",
     bestFor: "Developers, main contractors, project consultants, PMCs.",
     benefits: [
       "Scheduled progress twins (weekly/monthly)",
@@ -274,9 +274,9 @@ export const SERVICES: Service[] = [
     track: "have",
     cluster: "build",
     tagline:
-      "Asset-tagged 3D operations — run the building from anywhere.",
+      "Asset-tagged 3D operations. Run the building from anywhere.",
     description:
-      "An operational digital twin gives facilities teams a live, navigable model of their building — asset registers, room-by-room documentation, and contractor briefing without a site visit.",
+      "An operational digital twin gives facilities teams a live, navigable model of their building, asset registers, room-by-room documentation, and contractor briefing without a site visit.",
     bestFor: "Building owners, FM companies, corporate real estate, REITs.",
     benefits: [
       "Asset-tagged twins",
@@ -298,14 +298,14 @@ export const SERVICES: Service[] = [
     tagline:
       "360° interactive, gamified digital twins, and game-engine simulation training.",
     description:
-      "Novo Reperio converts real workplaces into interactive training environments — 360° guided walkthroughs, gamified digital twins, and game-engine simulations on engagement — so staff learn procedures hands-on, from anywhere, on any device.",
+      "Novo Reperio converts real workplaces into interactive training environments (360° guided walkthroughs, gamified digital twins, and game-engine simulations on engagement) so staff learn procedures hands-on, from anywhere, on any device.",
     bestFor:
-      "HSE/safety, L&D, operations, HR onboarding — oil & gas, manufacturing, plants, distributed corporates.",
+      "HSE/safety, L&D, operations, HR onboarding: oil & gas, manufacturing, plants, distributed corporates.",
     benefits: [
       "Consistency at global scale",
       "Travel & downtime eliminated",
       "Safety without exposure",
-      "Measurable — completion, scores, time",
+      "Measurable: completion, scores, time",
       "Always-on, multilingual, mobile/VR-ready",
     ],
     image: img("immersive-training.jpg"),
@@ -319,9 +319,9 @@ export const SERVICES: Service[] = [
     track: "unbuilt",
     cluster: "plan",
     tagline:
-      "City-scale 3D with data overlay — visualise upcoming projects in their real surroundings.",
+      "City-scale 3D with data overlay, visualise upcoming projects in their real surroundings.",
     description:
-      "Novo Reperio builds digital twins at every scale — building, township, city and state — combining reality capture with real-time 3D so planners, authorities and developers can visualise upcoming projects in context and overlay the data that matters.",
+      "Novo Reperio builds digital twins at every scale (building, township, city and state), combining reality capture with real-time 3D so planners, authorities and developers can visualise upcoming projects in context and overlay the data that matters.",
     bestFor:
       "Master developers, state/municipal planning, GLCs, large landowners, authorities.",
     benefits: [
@@ -362,7 +362,7 @@ export const SERVICES: Service[] = [
     cluster: "supporting",
     tagline: "Premium interior, exterior and architectural stills that complement immersive capture.",
     description:
-      "High-end interior, exterior and architectural photography — the still hero layer that complements immersive capture with editorial and campaign imagery.",
+      "High-end interior, exterior and architectural photography, the still hero layer that complements immersive capture with editorial and campaign imagery.",
     bestFor: "Websites, brochures, PR campaigns and property presentations.",
     benefits: [
       "Interior, exterior and detail coverage",
@@ -412,7 +412,7 @@ export const APPROACH = [
   {
     step: "01",
     title: "Understand your goals",
-    body: "We begin with what your audience needs to understand most clearly — layout, finish, arrival, flow, or overall setting.",
+    body: "We begin with what your audience needs to understand most clearly: layout, finish, arrival, flow, or overall setting.",
   },
   {
     step: "02",
@@ -422,7 +422,7 @@ export const APPROACH = [
   {
     step: "03",
     title: "Deliver it where it matters",
-    body: "We prepare the final output for the place it will have the most impact — your website, a QR code, a sales deck, or a client presentation.",
+    body: "We prepare the final output for the place it will have the most impact: your website, a QR code, a sales deck, or a client presentation.",
   },
 ];
 
@@ -462,15 +462,15 @@ export const SERVICE_INDUSTRIES = [
 export const SERVICES_HUB_FAQ = [
   {
     q: "What's the difference between Matterport and a 360° tour?",
-    a: "Matterport is a measurable 3D digital twin — dollhouse and floorplan views, room-to-room navigation, and a measurement tool. A 360° tour is a series of linked panoramas, lighter and cheaper. Most venues benefit from both: Matterport for signature spaces, 360° for wider distribution.",
+    a: "Matterport is a measurable 3D digital twin: dollhouse and floorplan views, room-to-room navigation, and a measurement tool. A 360° tour is a series of linked panoramas, lighter and cheaper. Most venues benefit from both: Matterport for signature spaces, 360° for wider distribution.",
   },
   {
     q: "Can you produce a tour for a building that isn't built yet?",
-    a: "Yes — from CAD, BIM, SketchUp or PDF at any stage. We render 3D walkthrough tours and CGI 360° panoramas for pre-sales, then re-capture the completed building as a Matterport twin after construction.",
+    a: "Yes, from CAD, BIM, SketchUp or PDF at any stage. We render 3D walkthrough tours and CGI 360° panoramas for pre-sales, then re-capture the completed building as a Matterport twin after construction.",
   },
   {
     q: "How long does delivery take?",
-    a: "Most capture projects deliver within days of the shoot. Larger CGI, UE5 masterplans and launch films are scoped per project — typically two to eight weeks depending on scale.",
+    a: "Most capture projects deliver within days of the shoot. Larger CGI, UE5 masterplans and launch films are scoped per project, typically two to eight weeks depending on scale.",
   },
   {
     q: "Where do you operate?",

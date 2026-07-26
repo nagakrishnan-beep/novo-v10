@@ -31,11 +31,11 @@ export const INDUSTRIES: Industry[] = [
     name: "Property Development",
     h1: "Sell off-plan units before ground breaks.",
     metaTitle:
-      "Property Development Digital Twins & Virtual Tours Malaysia — Novo Reperio",
+      "Property Development Digital Twins & Virtual Tours Malaysia | Novo Reperio",
     metaDesc:
-      "Virtual show units, CGI walkthroughs and 360° panoramas for Malaysian property developers — help buyers commit before construction completes.",
+      "Virtual show units, CGI walkthroughs and 360° panoramas for Malaysian property developers; help buyers commit before construction completes.",
     intro:
-      "Property developers use Novo Reperio's CGI walkthroughs, virtual show units and 360° panoramas to let buyers experience unbuilt homes online — shortening the trust gap between launch day and physical show unit.",
+      "Property developers use Novo Reperio's CGI walkthroughs, virtual show units and 360° panoramas to let buyers experience unbuilt homes online, shortening the trust gap between launch day and physical show unit.",
     problems: [
       {
         title: "Buyers hesitate on unbuilt units",
@@ -47,7 +47,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Sales galleries close early in the launch cycle",
-        body: "Once units sell down, physical galleries close — but marketing still needs remaining stock to move.",
+        body: "Once units sell down, physical galleries close, but marketing still needs remaining stock to move.",
       },
     ],
     benefits: [
@@ -61,7 +61,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Faster remote buyer conversion",
-        body: "Overseas Malaysians and Singapore buyers commit without flying in — closing loops that used to take weeks in one call.",
+        body: "Overseas Malaysians and Singapore buyers commit without flying in, closing loops that used to take weeks in one call.",
       },
       {
         title: "Reusable across marketing channels",
@@ -82,7 +82,7 @@ export const INDUSTRIES: Industry[] = [
     faqs: [
       {
         q: "Can you produce virtual tours before the building is built?",
-        a: "Yes. We render photorealistic CGI walkthroughs and 360° panoramas from architectural drawings — buyers explore unbuilt units months before handover.",
+        a: "Yes. We render photorealistic CGI walkthroughs and 360° panoramas from architectural drawings; buyers explore unbuilt units months before handover.",
       },
       {
         q: "Do virtual show units replace physical galleries?",
@@ -99,9 +99,9 @@ export const INDUSTRIES: Industry[] = [
     name: "Construction",
     h1: "Document every stage, defend every claim.",
     metaTitle:
-      "Construction Digital Twins & Scan-to-BIM Malaysia — Novo Reperio",
+      "Construction Digital Twins & Scan-to-BIM Malaysia | Novo Reperio",
     metaDesc:
-      "Progress documentation, as-built LiDAR capture and Scan-to-BIM for contractors and developers — protect claims, reduce rework, close projects cleanly.",
+      "Progress documentation, as-built LiDAR capture and Scan-to-BIM for contractors and developers: protect claims, reduce rework, close projects cleanly.",
     intro:
       "Contractors and PMCs use Novo Reperio's Matterport progress records and LiDAR Scan-to-BIM deliverables to document works accurately, defend variation claims, and hand over buildings with reliable as-built data.",
     problems: [
@@ -111,11 +111,11 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Progress disputes hinge on memory",
-        body: "Variation claims and delay disputes rely on photos taken by whoever was on site — inconsistent, incomplete, contested.",
+        body: "Variation claims and delay disputes rely on photos taken by whoever was on site: inconsistent, incomplete, contested.",
       },
       {
         title: "Coordination breakdowns cost days",
-        body: "Without shared spatial reference, RFIs and clashes get resolved by phone, WhatsApp and site walks — slowly.",
+        body: "Without shared spatial reference, RFIs and clashes get resolved by phone, WhatsApp and site walks, slowly.",
       },
     ],
     benefits: [
@@ -125,7 +125,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "LiDAR as-built accuracy",
-        body: "Centimetre-grade point clouds capture the building as it actually is — the source of truth for handover and future works.",
+        body: "Centimetre-grade point clouds capture the building as it actually is, the source of truth for handover and future works.",
       },
       {
         title: "Scan-to-BIM for downstream teams",
@@ -150,7 +150,7 @@ export const INDUSTRIES: Industry[] = [
     faqs: [
       {
         q: "How often should we capture construction progress?",
-        a: "Most projects benefit from monthly or milestone-based captures — structure completion, MEP rough-in, ceiling closure, and pre-handover. Sensitive phases can be weekly.",
+        a: "Most projects benefit from monthly or milestone-based captures: structure completion, MEP rough-in, ceiling closure, and pre-handover. Sensitive phases can be weekly.",
       },
       {
         q: "What accuracy do LiDAR scans deliver?",
@@ -158,7 +158,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         q: "Can the same capture feed both marketing and BIM?",
-        a: "Yes. A single site visit can produce a Matterport twin for stakeholder walkthroughs and a LiDAR scan for BIM — same day, same site.",
+        a: "Yes. A single site visit can produce a Matterport twin for stakeholder walkthroughs and a LiDAR scan for BIM, same day, same site.",
       },
     ],
   },
@@ -167,15 +167,15 @@ export const INDUSTRIES: Industry[] = [
     name: "Hospitality",
     h1: "Let guests book confidently before they land.",
     metaTitle:
-      "Hotel & Hospitality Digital Twins Malaysia — Novo Reperio",
+      "Hotel & Hospitality Digital Twins Malaysia | Novo Reperio",
     metaDesc:
-      "Matterport digital twins, virtual event tours and 360° room previews for hotels, resorts and F&B venues — turn indecisive planners and travellers into confirmed bookings.",
+      "Matterport digital twins, virtual event tours and 360° room previews for hotels, resorts and F&B venues: turn indecisive planners and travellers into confirmed bookings.",
     intro:
-      "Hotels, resorts and F&B venues use Novo Reperio's Matterport digital twins to let event planners and travellers walk the space online — closing bookings before the first site inspection, from anywhere in the world.",
+      "Hotels, resorts and F&B venues use Novo Reperio's Matterport digital twins to let event planners and travellers walk the space online, closing bookings before the first site inspection, from anywhere in the world.",
     problems: [
       {
         title: "Static galleries lose to indecision",
-        body: "Curated stills flatter the space but planners still ask for a site inspection — losing days per opportunity.",
+        body: "Curated stills flatter the space but planners still ask for a site inspection, losing days per opportunity.",
       },
       {
         title: "International bookings stall on trust",
@@ -189,7 +189,7 @@ export const INDUSTRIES: Industry[] = [
     benefits: [
       {
         title: "Digital twin of every function space",
-        body: "Ballrooms, breakout rooms and lawns — planners walk, measure and screenshot their event layout without visiting.",
+        body: "Ballrooms, breakout rooms and lawns: planners walk, measure and screenshot their event layout without visiting.",
       },
       {
         title: "OTA-ready 360° room previews",
@@ -197,7 +197,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "F&B private-dining previews",
-        body: "Private-dining hosts pick venues on the spot — the tour answers 'does it fit our group?' in one visit to the page.",
+        body: "Private-dining hosts pick venues on the spot; the tour answers 'does it fit our group?' in one visit to the page.",
       },
       {
         title: "Cross-channel reuse",
@@ -223,7 +223,7 @@ export const INDUSTRIES: Industry[] = [
     faqs: [
       {
         q: "Does a hotel digital twin actually increase bookings?",
-        a: "For event spaces and premium rooms, yes — planners and guests who explore the twin convert faster because the site-inspection question is answered on the page.",
+        a: "For event spaces and premium rooms, yes: planners and guests who explore the twin convert faster because the site-inspection question is answered on the page.",
       },
       {
         q: "Can the tour be embedded in Booking.com and Agoda?",
@@ -240,19 +240,19 @@ export const INDUSTRIES: Industry[] = [
     name: "Events & Venues",
     h1: "Let planners verify capacity, flow and sightlines remotely.",
     metaTitle:
-      "Event Venue Virtual Tours & Digital Twins Malaysia — Novo Reperio",
+      "Event Venue Virtual Tours & Digital Twins Malaysia | Novo Reperio",
     metaDesc:
-      "Matterport digital twins for convention centres, exhibition halls and event venues — planners walk the space, measure booths and confirm bookings without a site inspection.",
+      "Matterport digital twins for convention centres, exhibition halls and event venues: planners walk the space, measure booths and confirm bookings without a site inspection.",
     intro:
-      "Convention centres, exhibition halls and event venues use Novo Reperio's Matterport digital twins to let planners walk the space online — measure booth footprints, verify sightlines, and confirm bookings without flying in.",
+      "Convention centres, exhibition halls and event venues use Novo Reperio's Matterport digital twins to let planners walk the space online: measure booth footprints, verify sightlines, and confirm bookings without flying in.",
     problems: [
       {
         title: "Every enquiry needs a site inspection",
-        body: "Sales teams spend the week on repeat venue walkthroughs — for enquiries that often don't convert.",
+        body: "Sales teams spend the week on repeat venue walkthroughs, for enquiries that often don't convert.",
       },
       {
         title: "Floor plans lose to spatial questions",
-        body: "Planners ask about ceiling height, column spacing and load-in access — questions floor plans cannot answer.",
+        body: "Planners ask about ceiling height, column spacing and load-in access, questions floor plans cannot answer.",
       },
       {
         title: "International planners cannot preview",
@@ -274,7 +274,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Sales team leverage",
-        body: "One well-produced twin equips every sales conversation — the venue is on every laptop, in every WhatsApp thread.",
+        body: "One well-produced twin equips every sales conversation; the venue is on every laptop, in every WhatsApp thread.",
       },
     ],
     tech: ["Matterport twins", "Drone / aerial capture", "360° virtual tours"],
@@ -295,11 +295,11 @@ export const INDUSTRIES: Industry[] = [
     faqs: [
       {
         q: "Can planners measure booth sizes inside the tour?",
-        a: "Yes. Matterport's measurement tool works directly in the browser — planners drag between any two points to confirm distance.",
+        a: "Yes. Matterport's measurement tool works directly in the browser; planners drag between any two points to confirm distance.",
       },
       {
         q: "How does the WTCKL twin perform in practice?",
-        a: "The WTCKL digital twin has received 8,000+ visits averaging 37 per week — a real load of planners self-serving between site visits.",
+        a: "The WTCKL digital twin has received 8,000+ visits averaging 37 per week, a real load of planners self-serving between site visits.",
       },
       {
         q: "Can we integrate the tour with our enquiry form?",
@@ -312,9 +312,9 @@ export const INDUSTRIES: Industry[] = [
     name: "Facilities Management",
     h1: "One shared spatial record for every operations team.",
     metaTitle:
-      "Facilities Digital Twin & Asset Documentation Malaysia — Novo Reperio",
+      "Facilities Digital Twin & Asset Documentation Malaysia | Novo Reperio",
     metaDesc:
-      "Operational digital twins, asset registers and space audits for facility managers — one shared record for maintenance, moves, safety and audits.",
+      "Operational digital twins, asset registers and space audits for facility managers: one shared record for maintenance, moves, safety and audits.",
     intro:
       "Facility managers use Novo Reperio's operational digital twins to build a single, walkable record of every floor — powering maintenance planning, moves and changes, safety audits and asset registers without a physical walk.",
     problems: [
@@ -328,13 +328,13 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Safety and compliance audits are disruptive",
-        body: "Every audit requires escorted walks — pulling FMs off higher-value work every time.",
+        body: "Every audit requires escorted walks, pulling FMs off higher-value work every time.",
       },
     ],
     benefits: [
       {
         title: "Walkable operational twin",
-        body: "Every floor, every room, every plant space — captured once and shared across the operations team.",
+        body: "Every floor, every room, every plant space, captured once and shared across the operations team.",
       },
       {
         title: "Asset hotspots and registers",
@@ -342,7 +342,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Faster space planning",
-        body: "Fit-out designers and workplace teams sketch layouts from the twin — before a physical survey is needed.",
+        body: "Fit-out designers and workplace teams sketch layouts from the twin before a physical survey is needed.",
       },
       {
         title: "Remote audit capability",
@@ -380,19 +380,19 @@ export const INDUSTRIES: Industry[] = [
     name: "Manufacturing",
     h1: "Document plants, brief teams, train remotely.",
     metaTitle:
-      "Manufacturing Plant Digital Twins Malaysia — Novo Reperio",
+      "Manufacturing Plant Digital Twins Malaysia | Novo Reperio",
     metaDesc:
-      "Plant digital twins, line documentation and 360° safety training for manufacturing sites — brief remote teams, audit operations, onboard faster.",
+      "Plant digital twins, line documentation and 360° safety training for manufacturing sites: brief remote teams, audit operations, onboard faster.",
     intro:
       "Manufacturers and R&D operators use Novo Reperio's plant digital twins and 360° training modules to document facilities, brief global stakeholders remotely, and onboard operators without disrupting production.",
     problems: [
       {
         title: "Remote HQ teams don't understand the plant",
-        body: "Corporate stakeholders base decisions on photos and reports — missing the spatial context that changes conclusions.",
+        body: "Corporate stakeholders base decisions on photos and reports, missing the spatial context that changes conclusions.",
       },
       {
         title: "Safety training pulls people off the line",
-        body: "New hires and contractors need site orientation before they touch the floor — but every session interrupts production.",
+        body: "New hires and contractors need site orientation before they touch the floor, but every session interrupts production.",
       },
       {
         title: "Audits and inspections are logistically heavy",
@@ -402,7 +402,7 @@ export const INDUSTRIES: Industry[] = [
     benefits: [
       {
         title: "Walkable plant twin",
-        body: "Every line, cleanroom and warehouse zone — captured once and reused for briefings, audits and training.",
+        body: "Every line, cleanroom and warehouse zone, captured once and reused for briefings, audits and training.",
       },
       {
         title: "360° gamified safety training",
@@ -410,7 +410,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Remote inspection and audit",
-        body: "External stakeholders walk the site online — physical audits get shorter and more focused.",
+        body: "External stakeholders walk the site online, so physical audits get shorter and more focused.",
       },
       {
         title: "R&D and NPD alignment",
@@ -431,11 +431,11 @@ export const INDUSTRIES: Industry[] = [
     faqs: [
       {
         q: "Can we capture a plant without stopping production?",
-        a: "Yes. We schedule captures around production runs and cleanroom protocols — most plant twins are built during scheduled maintenance windows.",
+        a: "Yes. We schedule captures around production runs and cleanroom protocols; most plant twins are built during scheduled maintenance windows.",
       },
       {
         q: "Is 360° safety training accepted for compliance?",
-        a: "It supplements — not replaces — required physical training. It excels at pre-work orientation and hazard-recognition refreshers.",
+        a: "It supplements (not replaces) required physical training. It excels at pre-work orientation and hazard-recognition refreshers.",
       },
       {
         q: "Can we restrict the twin to authorised viewers?",
@@ -448,19 +448,19 @@ export const INDUSTRIES: Industry[] = [
     name: "Healthcare",
     h1: "Familiarise patients and staff with the space before they arrive.",
     metaTitle:
-      "Healthcare Facility Digital Twins Malaysia — Novo Reperio",
+      "Healthcare Facility Digital Twins Malaysia | Novo Reperio",
     metaDesc:
-      "Hospital and clinic digital twins for patient orientation, staff training and facility documentation — reduce anxiety, brief remote teams, capture as-built.",
+      "Hospital and clinic digital twins for patient orientation, staff training and facility documentation: reduce anxiety, brief remote teams, capture as-built.",
     intro:
       "Hospitals and clinics use Novo Reperio's digital twins to virtually orient patients before appointments, train new staff on ward layouts, and document facilities for planning, insurance and accreditation.",
     problems: [
       {
         title: "Patient anxiety is highest before arrival",
-        body: "First-time patients — especially oncology, paediatrics and international — arrive unfamiliar with the space, adding stress to already difficult visits.",
+        body: "First-time patients (especially oncology, paediatrics and international) arrive unfamiliar with the space, adding stress to already difficult visits.",
       },
       {
         title: "Staff onboarding depends on physical shadowing",
-        body: "New nurses and support staff learn ward layouts by walking them — slow, and repeats every rotation.",
+        body: "New nurses and support staff learn ward layouts by walking them, slow, and repeats every rotation.",
       },
       {
         title: "Accreditation audits are documentation-heavy",
@@ -470,7 +470,7 @@ export const INDUSTRIES: Industry[] = [
     benefits: [
       {
         title: "Patient-facing virtual walkthrough",
-        body: "Patients preview the ward, day-care suite or clinic online — the space is familiar before check-in.",
+        body: "Patients preview the ward, day-care suite or clinic online; the space is familiar before check-in.",
       },
       {
         title: "Staff orientation on-demand",
@@ -482,7 +482,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "International patient enablement",
-        body: "Medical-tourism patients preview facilities from abroad — bridging the trust gap for premium procedures.",
+        body: "Medical-tourism patients preview facilities from abroad, bridging the trust gap for premium procedures.",
       },
     ],
     tech: ["Matterport twins", "360° virtual tours", "LiDAR / Scan-to-BIM"],
@@ -496,19 +496,19 @@ export const INDUSTRIES: Industry[] = [
       "digital-twin-implementation-guide-for-teams",
       "how-virtual-tours-are-changing-our-world",
     ],
-    note: "Mahkota Medical Centre case study is pending — MediaSlot placeholders in use.",
+    note: "Mahkota Medical Centre case study is pending; MediaSlot placeholders in use.",
     faqs: [
       {
         q: "Are healthcare digital twins compliant with patient privacy?",
-        a: "Yes — captures are scheduled during non-clinical hours or in patient-free zones. Any incidental identifiable elements are redacted before publication.",
+        a: "Yes, captures are scheduled during non-clinical hours or in patient-free zones. Any incidental identifiable elements are redacted before publication.",
       },
       {
         q: "Can twins support telemedicine or remote consultations?",
-        a: "For facility orientation, yes. For clinical care itself, twins are supplementary — they help patients and families understand the physical journey.",
+        a: "For facility orientation, yes. For clinical care itself, twins are supplementary; they help patients and families understand the physical journey.",
       },
       {
         q: "Do you cover clinics as well as hospitals?",
-        a: "Yes. Smaller clinics benefit especially — patients on premium procedures preview the whole space in one browser session.",
+        a: "Yes. Smaller clinics benefit especially; patients on premium procedures preview the whole space in one browser session.",
       },
     ],
   },
@@ -517,7 +517,7 @@ export const INDUSTRIES: Industry[] = [
     name: "Government & Heritage",
     h1: "Public-sector spaces, documented and open to the world.",
     metaTitle:
-      "Government & Heritage Digital Twins Malaysia — Novo Reperio",
+      "Government & Heritage Digital Twins Malaysia | Novo Reperio",
     metaDesc:
       "Digital twins for museums, heritage sites and public-sector facilities in Malaysia. MDEC Malaysia Digital recognised. ePerolehan registered. Urban twins for city planning.",
     intro:
@@ -525,7 +525,7 @@ export const INDUSTRIES: Industry[] = [
     problems: [
       {
         title: "Public-sector spaces are under-documented online",
-        body: "Museums, galleries and civic buildings often exist only as static websites — reach is capped at visitors who can physically attend.",
+        body: "Museums, galleries and civic buildings often exist only as static websites, so reach is capped at visitors who can physically attend.",
       },
       {
         title: "Heritage assets need durable records",
@@ -539,7 +539,7 @@ export const INDUSTRIES: Industry[] = [
     benefits: [
       {
         title: "Museum & heritage twins",
-        body: "Muzium Negara, KL Craft Museum and similar spaces become globally accessible — school groups, researchers and diaspora audiences all reach the collection.",
+        body: "Muzium Negara, KL Craft Museum and similar spaces become globally accessible: school groups, researchers and diaspora audiences all reach the collection.",
       },
       {
         title: "Public-facility documentation",
@@ -551,7 +551,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         title: "Compliant procurement",
-        body: "Novo Reperio operates through ePerolehan and holds MDEC Malaysia Digital recognition — clean procurement pathways for public-sector projects.",
+        body: "Novo Reperio operates through ePerolehan and holds MDEC Malaysia Digital recognition, clean procurement pathways for public-sector projects.",
       },
     ],
     tech: ["Matterport twins", "LiDAR / Scan-to-BIM", "Drone / aerial capture", "CGI & UE5"],
@@ -572,7 +572,7 @@ export const INDUSTRIES: Industry[] = [
       },
       {
         q: "Do you cover heritage sites outside Klang Valley?",
-        a: "Yes. Our team travels nationwide — capture crews have documented sites across Peninsular and East Malaysia.",
+        a: "Yes. Our team travels nationwide; capture crews have documented sites across Peninsular and East Malaysia.",
       },
       {
         q: "Can twins support urban planning workshops?",
