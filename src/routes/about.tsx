@@ -153,9 +153,19 @@ function AboutPage() {
           Led by
         </div>
         <div className="max-w-3xl border border-white/10 rounded-xl p-6 bg-white/[0.02]">
-          <div className="text-white text-2xl font-light">{FOUNDER.name}</div>
-          <div className="mt-1 text-sm text-emerald-300">
-            {FOUNDER.jobTitle}
+          <div className="flex items-start gap-5">
+            <img
+              src={FOUNDER_PHOTO}
+              alt={`${FOUNDER.name}, ${FOUNDER.jobTitle} at Novo Reperio`}
+              loading="lazy"
+              className="h-20 w-20 shrink-0 rounded-full border border-white/10 object-cover bg-white/[0.04]"
+            />
+            <div>
+              <div className="text-white text-2xl font-light">{FOUNDER.name}</div>
+              <div className="mt-1 text-sm text-emerald-300">
+                {FOUNDER.jobTitle}
+              </div>
+            </div>
           </div>
           <p className="mt-4 text-sm text-neutral-300 leading-relaxed">
             {FOUNDER.bio}
@@ -173,7 +183,16 @@ function AboutPage() {
           </ul>
         </div>
 
+        <div className="mt-10 max-w-3xl">
+          <YouTubeEmbed
+            videoId="Q0I65mvTm28"
+            title="Novo Reperio founder introduces the 360° virtual tour"
+            description="Naga R. Krishnan explains how a 360° virtual tour makes a space easier to understand and act on."
+            caption="Founder introduction · 360° virtual tour"
+          />
+        </div>
       </section>
+
 
 
       {/* Trust strip */}
