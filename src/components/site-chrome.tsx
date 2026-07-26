@@ -6,6 +6,9 @@ import { WHATSAPP_URL, LEGAL_NAME, SOCIALS } from "@/lib/site";
 
 type ActiveKey =
   | "home"
+  | "digital-twins"
+  | "reality-capture"
+  | "solutions"
   | "services"
   | "industries"
   | "works"
@@ -15,12 +18,17 @@ type ActiveKey =
   | null;
 
 const NAV: { key: ActiveKey; label: string; to: any }[] = [
-  { key: "home", label: "Home", to: "/" },
-  { key: "services", label: "Services", to: "/services" },
+  { key: "digital-twins", label: "Digital Twins", to: "/digital-twins" },
+  { key: "reality-capture", label: "Reality Capture", to: "/reality-capture" },
+  { key: "solutions", label: "Solutions", to: "/solutions" },
   { key: "industries", label: "Industries", to: "/industries" },
   { key: "works", label: "Works", to: "/works" },
-  { key: "about", label: "About", to: "/about" },
   { key: "insights", label: "Insights", to: "/insights" },
+  { key: "about", label: "About", to: "/about" },
+];
+
+const FOOTER_NAV: { key: string; label: string; to: any }[] = [
+  ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
   { key: "contact", label: "Contact", to: "/contact" },
 ];
 
