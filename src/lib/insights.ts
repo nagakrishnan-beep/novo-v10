@@ -303,9 +303,10 @@ export const INSIGHTS: Insight[] = [
 ];
 
 import { MIGRATED_INSIGHTS } from "./insights-migrated";
+import { NEW_INSIGHTS } from "./insights-new";
 import { wpPostImage } from "./wp-content";
 
-export const ALL_INSIGHTS: Insight[] = [...INSIGHTS, ...MIGRATED_INSIGHTS]
+export const ALL_INSIGHTS: Insight[] = [...INSIGHTS, ...MIGRATED_INSIGHTS, ...NEW_INSIGHTS]
   .map((i) => ({ ...i, image: wpPostImage(i.slug) ?? i.image }))
   .sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1));
 
