@@ -37,9 +37,17 @@ export const WORK_WP_SLUG: Record<string, string> = {
   "dsara": "virtual-staging-dsara",
   "dewan-1958-by-chef-wan": "de-wan-1958-by-chef-wan",
   "private-jet-falcon-7x": "private-jet",
-  "confetti-kuala-lumpur": "confetti",
+  "confetti-kuala-lumpur": "sga-ballroom",
   "jerry-coworking-sri-hartamas": "jerry-coworking-space-sri-hartamas",
+
+  // No dedicated archive entry: closest same-space-type imagery from the archive.
+  "maeps": "malaysia-autoshow-2019",
+  "majlis-bandaraya-seremban": "aerial-360-mmc",
+  "peel-lane": "type-b-upper-unit",
+  "shell-360-training": "electro-chlorination-system-indonesia",
+  "meshtech": "inspace-international-sdn-bhd",
 };
+
 
 export function wpPostImage(slug: string): string | undefined {
   return localMedia(data.posts?.[slug]?.image || undefined);
