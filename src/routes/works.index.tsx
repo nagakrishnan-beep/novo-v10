@@ -236,7 +236,8 @@ function WorksPage() {
 
 /** Thumbnail: real image when we have one, else a branded placeholder card. */
 function WorkThumb({ work }: { work: Work }) {
-  const hasImage = /^https?:\/\//.test(work.image);
+  const [failed, setFailed] = useState(false);
+  const hasImage = /^(https?:\/\/|\/images\/)/.test(work.image) && !failed;
   if (hasImage) {
     return (
       <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-900">
@@ -244,11 +245,13 @@ function WorkThumb({ work }: { work: Work }) {
           src={work.image}
           alt={`${work.title}: ${work.categories.join(", ")}`}
           loading="lazy"
+          onError={() => setFailed(true)}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
         />
       </div>
     );
   }
+
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-950 flex flex-col justify-end p-6">
       <div

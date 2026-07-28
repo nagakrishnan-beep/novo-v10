@@ -1,4 +1,7 @@
-const wp = (p: string) => `https://novoreperio.com/wp-content/uploads/${p}`;
+import { localMedia } from "./wp-content";
+
+const wp = (p: string) => localMedia(`https://novoreperio.com/wp-content/uploads/${p}`);
+
 export const CLIENT_LOGOS = [
   { alt: "Mahkota", src: wp("2022/02/mmc-final-1.png") },
   { alt: "Matterport", src: wp("2025/01/mp-logo-v-lock-rgb-color-black.png") },
@@ -11,6 +14,7 @@ export const CLIENT_LOGOS = [
   { alt: "UEM", src: wp("2022/02/uem-1.png") },
   { alt: "SP Setia", src: wp("2022/02/setia-1.png") },
 ] as const;
+
 export const AFFILIATION_LOGOS = [
   { alt: "PROPTECH", src: wp("2022/02/prop.png") },
   { alt: "MDEC / Malaysia Digital", src: wp("2022/02/mdec.png") },

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { ALL_INSIGHTS, INSIGHT_CATEGORIES } from "@/lib/insights";
-import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, BreadcrumbNav, SmartImage } from "@/components/site-chrome";
 import { BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
@@ -155,17 +155,17 @@ function InsightsIndex() {
                 params={{ slug: post.slug }}
                 className="group flex gap-4 md:gap-7 py-5 md:py-6 focus-visible:outline-none"
               >
-                <div className="w-24 h-16 md:w-40 md:h-24 shrink-0 overflow-hidden rounded-lg bg-neutral-900 border border-white/5">
-                  <img
+                <div className="w-24 h-16 md:w-40 md:h-24 shrink-0">
+                  <SmartImage
                     src={post.image}
                     alt=""
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500"
-                    loading="lazy"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-                    }}
+                    label={post.category}
+                    ratio="h-full"
+                    className="rounded-lg h-full"
+                    imgClassName="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500"
                   />
                 </div>
+
                 <div className="min-w-0 flex flex-col">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono uppercase tracking-widest text-emerald-400/80">
                     <span>{post.category}</span>

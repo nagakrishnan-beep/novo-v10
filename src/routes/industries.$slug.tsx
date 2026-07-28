@@ -5,6 +5,8 @@ import {
   SiteFooter,
   BreadcrumbNav,
   MediaSlot,
+  SmartImage,
+
 } from "@/components/site-chrome";
 import { YouTubeEmbed, YouTubeReel } from "@/components/youtube-embed";
 import { getIndustry, INDUSTRIES, type Industry } from "@/lib/industries";
@@ -242,7 +244,14 @@ function IndustryDetail() {
                   params={{ slug: w.slug }}
                   className="group border border-white/10 rounded-xl overflow-hidden bg-white/[0.02] hover:border-emerald-400/40 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60"
                 >
-                  <MediaSlot label={w.slug.toUpperCase()} />
+                  <SmartImage
+                    src={w.image}
+                    alt={w.title}
+                    label={w.title}
+                    ratio="aspect-[4/3]"
+                    className="rounded-none border-0 border-b border-white/10"
+                  />
+
                   <div className="p-5">
                     <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/70">
                       {w.format}

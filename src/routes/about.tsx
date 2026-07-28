@@ -4,6 +4,8 @@ import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { FOUNDER } from "@/lib/site";
 import { YouTubeEmbed } from "@/components/youtube-embed";
+import { localMedia } from "@/lib/wp-content";
+
 
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
@@ -56,31 +58,33 @@ const TIMELINE = [
 
 const WP_MEDIA = "https://novoreperio.com/wp-content/uploads/2026/07/";
 
-export const FOUNDER_PHOTO = `${WP_MEDIA}Naga.webp`;
+export const FOUNDER_PHOTO = localMedia(`${WP_MEDIA}Naga.webp`);
+
 
 const TEAM = [
   { name: "Naga", role: "Founder & CEO", img: FOUNDER_PHOTO },
   {
     name: "Kairudin",
     role: "Technical Sales & 3D Scanning Specialist",
-    img: `${WP_MEDIA}kairudin.webp`,
+    img: localMedia(`${WP_MEDIA}kairudin.webp`),
   },
   {
     name: "Kasthuri",
     role: "Operations & Project Management",
-    img: `${WP_MEDIA}Kasthuri.webp`,
+    img: localMedia(`${WP_MEDIA}Kasthuri.webp`),
   },
   {
     name: "Shobak",
     role: "Interactive Content Developer",
-    img: `${WP_MEDIA}shobak.webp`,
+    img: localMedia(`${WP_MEDIA}shobak.webp`),
   },
   {
     name: "Tatasha",
     role: "Graphic & Multimedia Designer",
-    img: `${WP_MEDIA}Tatasha.webp`,
+    img: localMedia(`${WP_MEDIA}Tatasha.webp`),
   },
 ];
+
 
 
 const HOW = [

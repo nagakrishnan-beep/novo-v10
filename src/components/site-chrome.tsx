@@ -237,6 +237,48 @@ export function MediaSlot({
   );
 }
 
+/**
+ * Image that degrades to the branded MediaSlot grid when the source is
+ * missing, empty, or fails to load. Keeps every card visually complete.
+ */
+export function SmartImage({
+  src,
+  alt,
+  label,
+  ratio = "aspect-video",
+  className = "",
+  imgClassName = "",
+  loading = "lazy",
+}: {
+  src?: string;
+  alt: string;
+  label?: string;
+  ratio?: string;
+  className?: string;
+  imgClassName?: string;
+  loading?: "lazy" | "eager";
+}) {
+  const [failed, setFailed] = useState(false);
+  const usable = !!src && /^(https?:\/\/|\/)/.test(src);
+
+  if (!usable || failed) {
+    return <MediaSlot label={label ?? alt} ratio={ratio} className={className} />;
+  }
+
+  return (
+    <div className={`${ratio} w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-950 ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        loading={loading}
+        onError={() => setFailed(true)}
+        className={`h-full w-full object-cover ${imgClassName}`}
+      />
+    </div>
+  );
+}
+
+
 /** Lazy click-to-activate iframe (Matterport, YouTube) - protects Core Web Vitals. */
 export function LazyEmbed({
   src,

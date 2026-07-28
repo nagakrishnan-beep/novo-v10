@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
-import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, SmartImage } from "@/components/site-chrome";
+import { localMedia } from "@/lib/wp-content";
+
 import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import { LaserTrail } from "@/components/laser-trail";
 import { getService, getNextService, SERVICES } from "@/lib/services";
@@ -132,13 +134,14 @@ function ServiceDetail() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
-        <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-black/40">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <SmartImage
+          src={service.image}
+          alt={service.title}
+          label={service.title}
+          ratio="aspect-[4/3]"
+          loading="eager"
+        />
+
         <div>
           <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
             What we deliver
@@ -224,8 +227,9 @@ function ServiceDetail() {
                 className="aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-neutral-950"
               >
                 <img
-                  src={`${WP_MEDIA}${f}`}
+                  src={localMedia(`${WP_MEDIA}${f}`)}
                   alt={altFromFilename(f)}
+
                   loading="lazy"
                   className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
                 />
