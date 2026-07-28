@@ -76,13 +76,20 @@ function MethodologyPage() {
         </section>
 
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 space-y-10 max-w-4xl">
-          {STEPS.map((s) => (
-            <div key={s.title} className="border-l-2 border-emerald-400/40 pl-5">
-              <h2 className="text-2xl font-light text-white">{s.title}</h2>
-              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">{s.body}</p>
-            </div>
-          ))}
+          {STEPS.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div key={s.title} className="border-l-2 border-emerald-400/40 pl-5">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-400/25 bg-emerald-400/[0.06] text-emerald-300">
+                  <Icon size={20} />
+                </span>
+                <h2 className="mt-4 text-2xl font-light text-white">{s.title}</h2>
+                <p className="mt-3 text-sm text-neutral-400 leading-relaxed">{s.body}</p>
+              </div>
+            );
+          })}
         </section>
+
 
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
