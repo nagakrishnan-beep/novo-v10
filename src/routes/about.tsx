@@ -105,7 +105,7 @@ function AboutPage() {
 
       {/* Hero */}
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">
           About
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] max-w-5xl text-white">
@@ -199,7 +199,7 @@ function AboutPage() {
 
       {/* Trust strip */}
       <section className="px-6 md:px-24 py-10 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-neutral-500 mb-6">
+        <div className="text-xs tracking-[0.4em] uppercase text-neutral-500 mb-6">
           Trusted by clients across
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
@@ -217,7 +217,7 @@ function AboutPage() {
 
       {/* Our story */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-[1fr_2fr] gap-10">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400">
           Our story
         </div>
         <div>
@@ -251,7 +251,7 @@ function AboutPage() {
 
       {/* How Novo works */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
           How Novo works
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-3xl leading-tight">
@@ -276,7 +276,7 @@ function AboutPage() {
 
       {/* Timeline */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
           Studio trajectory
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-3xl leading-tight">
@@ -289,7 +289,7 @@ function AboutPage() {
               className="grid md:grid-cols-[160px_140px_1fr] gap-6 md:gap-10 items-start border-t border-white/5 pt-8"
             >
               <div className="font-mono text-white text-lg">{t.year}</div>
-              <div className="text-[10px] tracking-[0.3em] uppercase text-cyan-400/80">
+              <div className="text-xs tracking-[0.3em] uppercase text-cyan-400/80">
                 {t.tag}
               </div>
               <div>
@@ -305,7 +305,7 @@ function AboutPage() {
 
       {/* Team */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
           The team
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-3xl leading-tight">
@@ -333,7 +333,7 @@ function AboutPage() {
 
       {/* Next step */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
           Next step
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-3xl leading-tight">
@@ -357,7 +357,7 @@ function AboutPage() {
             className="border border-white/10 rounded-lg p-6 hover:border-cyan-400/50 transition"
           >
             <Mail size={16} className="text-cyan-300 mb-3" />
-            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">
+            <div className="text-xs uppercase tracking-widest text-neutral-500 mb-1">
               Email
             </div>
             <div className="text-white text-sm">hello@novoreperio.com</div>
@@ -372,7 +372,7 @@ function AboutPage() {
             className="border border-white/10 rounded-lg p-6 hover:border-cyan-400/50 transition"
           >
             <MessageCircle size={16} className="text-cyan-300 mb-3" />
-            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">
+            <div className="text-xs uppercase tracking-widest text-neutral-500 mb-1">
               WhatsApp
             </div>
             <div className="text-white text-sm">+60 17-202 9996</div>
@@ -387,7 +387,7 @@ function AboutPage() {
             className="border border-white/10 rounded-lg p-6 hover:border-cyan-400/50 transition"
           >
             <MapPin size={16} className="text-cyan-300 mb-3" />
-            <div className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">
+            <div className="text-xs uppercase tracking-widest text-neutral-500 mb-1">
               Studio Base
             </div>
             <div className="text-white text-sm leading-snug">

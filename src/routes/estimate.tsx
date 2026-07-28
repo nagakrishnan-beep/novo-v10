@@ -43,7 +43,7 @@ function EstimatePage() {
       <main>
         <section className="px-6 md:px-24 pt-20 pb-10 border-b border-neutral-900">
           <BreadcrumbNav items={[{ label: "Home", to: "/" }, { label: "Estimate" }]} />
-          <div className="mt-6 text-[10px] tracking-[0.4em] uppercase text-emerald-400">
+          <div className="mt-6 text-xs tracking-[0.4em] uppercase text-emerald-400">
             Project assessment
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-light leading-[1.05] max-w-4xl text-white">

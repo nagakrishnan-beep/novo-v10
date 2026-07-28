@@ -109,7 +109,7 @@ function ServiceDetail() {
 
       {/* Nameplate + hero */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">
           {service.tier === "core" ? "Core service" : "Supporting service"}
         </div>
         <h1 className="text-[clamp(30px,5vw,56px)] font-light leading-[1.05] text-white max-w-5xl">
@@ -119,7 +119,7 @@ function ServiceDetail() {
           {service.tagline}
         </p>
         <div className="mt-8 max-w-3xl">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-2">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-2">
             The problem
           </div>
           <p className="text-[15px] md:text-base text-neutral-400 leading-relaxed">
@@ -140,7 +140,7 @@ function ServiceDetail() {
           />
         </div>
         <div>
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
             What we deliver
           </div>
           <p className="text-[15px] md:text-base text-neutral-300 leading-relaxed">
@@ -185,7 +185,7 @@ function ServiceDetail() {
 
       {/* The outcome */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
           The outcome
         </div>
         <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
@@ -197,7 +197,7 @@ function ServiceDetail() {
       {/* Service video */}
       {SERVICE_VIDEOS[service.slug] && (
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">
             Watch it work
           </div>
           <div className="max-w-4xl">
@@ -214,7 +214,7 @@ function ServiceDetail() {
       {/* Image gallery */}
       {SERVICE_GALLERIES[service.slug] && (
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">
             {SERVICE_GALLERIES[service.slug].title}
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -238,7 +238,7 @@ function ServiceDetail() {
       {/* Other services */}
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">
           Other services
         </div>
         <div className="flex flex-wrap gap-2">
@@ -262,7 +262,7 @@ function ServiceDetail() {
           params={{ slug: next.slug }}
           className="group block"
         >
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-3">
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-3">
             Next service
           </div>
           <div className="flex items-center justify-between gap-6">
@@ -284,7 +284,7 @@ function ServiceNotFound() {
   const params = Route.useParams();
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 flex flex-col items-center justify-center px-6 text-center">
-      <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+      <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
         404
       </div>
       <h1 className="text-3xl md:text-4xl font-light text-white max-w-2xl">
@@ -304,7 +304,7 @@ function ServiceError({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   return (
     <div className="min-h-screen bg-[#020203] text-neutral-200 flex flex-col items-center justify-center px-6 text-center">
-      <div className="text-[10px] tracking-[0.4em] uppercase text-red-400 mb-4">
+      <div className="text-xs tracking-[0.4em] uppercase text-red-400 mb-4">
         Error
       </div>
       <h1 className="text-2xl font-light text-white max-w-2xl">

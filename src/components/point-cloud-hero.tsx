@@ -361,7 +361,7 @@ export function PointCloudHero({ className, decimate, sizeScale = 1, offsetX = 0
         style={{ opacity: failed ? 0 : 1 }}
       />
       <motion.div
-        className="absolute left-4 md:left-8 bottom-4 md:bottom-6 font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase text-emerald-300/80 pointer-events-none"
+        className="absolute left-4 md:left-8 bottom-4 md:bottom-6 font-mono text-xs md:text-xs tracking-[0.3em] uppercase text-emerald-300/80 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}

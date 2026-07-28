@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -22,7 +22,6 @@ export function LaserTrail() {
   const reduced = !!useReducedMotion();
   const [enabled, setEnabled] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const coordRef = useRef<HTMLSpanElement>(null);
 
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
@@ -54,11 +53,6 @@ export function LaserTrail() {
     const onMove = (e: PointerEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
-      if (coordRef.current) {
-        coordRef.current.textContent = `LDR_IDX // X:${Math.round(
-          e.clientX + window.scrollX
-        )} Y:${Math.round(e.clientY + window.scrollY)}`;
-      }
     };
     const onOver = (e: PointerEvent) => {
       if (isTarget(e.target)) setHovered(true);
@@ -131,24 +125,6 @@ export function LaserTrail() {
         />
       </motion.div>
 
-      {/* Telemetry chip */}
-      <motion.div
-        aria-hidden
-        className="fixed top-0 left-0 z-[62] pointer-events-none font-mono text-[9px] tracking-wider uppercase text-emerald-300/80 bg-neutral-950/80 border border-white/10 px-2 py-1 rounded hidden md:block"
-        style={{
-          x: fx,
-          y: fy,
-          translateX: 22,
-          translateY: -28,
-          color: hovered ? "rgb(103 232 249)" : undefined,
-          borderColor: hovered
-            ? "rgba(34,211,238,0.35)"
-            : "rgba(255,255,255,0.08)",
-          transition: "color 200ms ease, border-color 200ms ease",
-        }}
-      >
-        <span ref={coordRef}>LDR_IDX // X:0 Y:0</span>
-      </motion.div>
     </>
   );
 }

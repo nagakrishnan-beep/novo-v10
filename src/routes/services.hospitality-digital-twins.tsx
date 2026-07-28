@@ -59,7 +59,7 @@ function HospitalityPage() {
       <SiteHeader active="services" />
 
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">
           Track A · Hospitality Digital Twins
         </div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
@@ -71,7 +71,7 @@ function HospitalityPage() {
           they arrive, cutting shortlist time and boosting booking confidence.
         </p>
         <div className="mt-8 max-w-3xl">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-2">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-2">
             The problem
           </div>
           <p className="text-[15px] md:text-base text-neutral-400 leading-relaxed">
@@ -129,7 +129,7 @@ function HospitalityPage() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
           What's included
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -140,7 +140,7 @@ function HospitalityPage() {
               params={{ slug: s.slug }}
               className="group border border-white/10 rounded-lg p-6 bg-white/[0.02] hover:border-cyan-400/40 transition h-full flex flex-col"
             >
-              <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-cyan-300">
+              <div className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
                 Track A
               </div>
               <h3 className="text-white text-base font-light mt-2 leading-snug">
@@ -158,7 +158,7 @@ function HospitalityPage() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
           The outcome
         </div>
         <p className="text-xl md:text-2xl font-light text-white max-w-4xl leading-snug">
@@ -168,7 +168,7 @@ function HospitalityPage() {
 
       {relatedWorks.length > 0 && (
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
             Selected work
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -191,7 +191,7 @@ function HospitalityPage() {
       )}
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">FAQ</div>
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">FAQ</div>
         <h2 className="text-3xl md:text-4xl font-light text-white mb-10">
           Hospitality: common questions
         </h2>

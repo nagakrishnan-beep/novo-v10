@@ -90,7 +90,7 @@ function CategoryPage() {
             >
               <MediaSlot ratio="4/3" label={w.title} className="rounded-none border-none" />
               <div className="p-5">
-                <div className="text-[10px] tracking-widest uppercase text-cyan-400 mb-2">
+                <div className="text-xs tracking-widest uppercase text-cyan-400 mb-2">
                   {w.format}
                 </div>
                 <h3 className="text-lg font-light text-white group-hover:text-cyan-300">

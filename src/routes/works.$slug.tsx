@@ -295,7 +295,7 @@ function WorkDetail() {
                     />
                   )}
                   {r.tourUrl && (
-                    <span className="absolute left-3 top-3 rounded-full border border-emerald-400/40 bg-black/60 px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.25em] text-emerald-300">
+                    <span className="absolute left-3 top-3 rounded-full border border-emerald-400/40 bg-black/60 px-2.5 py-1 text-xs font-mono uppercase tracking-[0.25em] text-emerald-300">
                       Live 360° tour
                     </span>
                   )}
@@ -323,7 +323,7 @@ function WorkDetail() {
 function Fact({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
     <div className="p-5">
-      <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-neutral-500">
+      <div className="text-xs font-mono uppercase tracking-[0.3em] text-neutral-500">
         {label}
       </div>
       <div
