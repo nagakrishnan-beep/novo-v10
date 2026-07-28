@@ -163,6 +163,8 @@ function PageContent() {
       <SideRail />
       <main>
         <Hero />
+        <FeaturedWorkStrip />
+
         <ByTheNumbers />
         <DefinedTerms />
         <FourDoorRouter />
