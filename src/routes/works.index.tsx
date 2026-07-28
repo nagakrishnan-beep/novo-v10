@@ -236,7 +236,7 @@ function WorksPage() {
 
 /** Thumbnail: real image when we have one, else a branded placeholder card. */
 function WorkThumb({ work }: { work: Work }) {
-  const hasImage = /^https?:\/\//.test(work.image);
+  const hasImage = /^(https?:\/\/|\/images\/)/.test(work.image);
   if (hasImage) {
     return (
       <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-900">

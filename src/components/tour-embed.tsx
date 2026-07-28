@@ -43,7 +43,7 @@ export function TourEmbed({ url, title, poster }: TourEmbedProps) {
           aria-label={`Enter the interactive tour: ${title}`}
           className="group absolute inset-0 h-full w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60"
         >
-          {poster && /^https?:\/\//.test(poster) && (
+          {poster && /^(https?:\/\/|\/images\/)/.test(poster) && (
             <img
               src={poster}
               alt=""

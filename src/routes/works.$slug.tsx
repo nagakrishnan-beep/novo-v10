@@ -89,7 +89,7 @@ export const Route = createFileRoute("/works/$slug")({
 
 function WorkDetail() {
   const { work, related } = Route.useLoaderData();
-  const hasImage = /^https?:\/\//.test(work.image);
+  const hasImage = /^(https?:\/\/|\/images\/)/.test(work.image);
   const video = WORK_VIDEOS[work.slug];
 
   return (
@@ -280,7 +280,7 @@ function WorkDetail() {
                 className="group overflow-hidden rounded-2xl border border-neutral-900 transition hover:border-emerald-400/50"
               >
                 <div className="relative aspect-video w-full overflow-hidden bg-[#04060a]">
-                  {/^https?:\/\//.test(r.image) ? (
+                  {/^(https?:\/\/|\/images\/)/.test(r.image) ? (
                     <img
                       src={r.image}
                       alt={`${r.title}, ${r.format}`}
