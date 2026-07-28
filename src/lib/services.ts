@@ -20,7 +20,8 @@ export type Service = {
 
 const img = (name: string) => `/images/services/${name}`;
 
-export const SERVICES: Service[] = [
+const RAW_SERVICES: Service[] = [
+
   /* ---------- MARKET IT: existing (Track A) ---------- */
   {
     slug: "spatial-capture-digital-twins",
