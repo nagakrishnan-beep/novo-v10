@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
 import { VerifiedByScanStrip } from "@/components/service-extras";
 import { INDUSTRIES } from "@/lib/industries";
+import { industryIcon } from "@/lib/industry-icons";
+
 import { BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
@@ -96,7 +98,9 @@ function IndustriesHub() {
                   Explore <ArrowRight size={12} />
                 </div>
               </Link>
-            ))}
+              );
+            })}
+
           </div>
         </section>
       </main>
