@@ -1,34 +1,19 @@
-## What's actually wrong
+## Goal
 
-Verified against the running site:
+Make the homepage line up with every other page: full-width sections with `px-6 md:px-24` gutters, no narrower centered column.
 
-- **Homepage renders no photography.** Of 23 image tags, only the logo and one YouTube poster load. The four-track cards, definitions, by-the-numbers and FAQ sections are pure text on a dark gradient. The previous pass edited works, insights, services and industries, but never `src/routes/index.tsx`.
-- **A large empty gap sits under the hero** (roughly 600px of blank canvas between the proof line and "By the numbers").
-- **Roughly a third of `/works` cards are still blank.** MAEPS, Majlis Bandaraya Seremban and Peel Lane render the branded grid placeholder because no local image is mapped to their slugs, even though 148 images are downloaded and serving correctly.
+## Changes (only `src/routes/index.tsx`)
 
-## Plan
+1. **Remove the inner width caps.** Every `max-w-7xl mx-auto` and `max-w-5xl mx-auto` wrapper inside homepage sections (lines ~254, 572, 764, 843, 873, 902, 961, 1027, 1061, 1092) becomes a plain container that keeps its `space-y-*` / `grid` classes but no longer caps or centers the column.
 
-### 1. Homepage visual layer (`src/routes/index.tsx`)
+2. **Normalize the hero padding.** The hero uses `px-6 md:px-16 lg:px-24`; change to `px-6 md:px-24` so its left edge matches the sections below it and the header/footer.
 
-- **Featured work strip.** Insert a horizontal 3-up (desktop) / scroll-snap (mobile) band of real project photography after the four-track section, pulled from the existing works library via `SmartImage`. Each tile: image, project name, one-line outcome, link to the detail page.
-- **Four-track cards get imagery.** Each of SELL / BUILD / OPERATE / PLAN gets a representative photo as a dimmed background layer behind the existing icon and copy, so the grid reads as a visual choice rather than four text boxes.
-- **Client logo wall.** The logos already downloaded to `public/images/logos` (KLCC, Maxis, Mah Sing, Glomac, Setia, UEM, Yamaha, MMC and more) become a quiet monochrome strip under the proof line, brightening on hover.
-- **Close the hero gap.** Tighten the spacing so the point-cloud canvas and the following section sit at the standard `py-20 md:py-24` rhythm instead of leaving a void.
-- **Definition cards get a visual anchor** — a small emerald line icon each, matching the industry icon treatment already shipped.
-
-### 2. Fill the blank work thumbnails (`src/lib/wp-content.ts`)
-
-- Enumerate every work slug that currently resolves to no image, then map each to the closest correct photo already downloaded. Where the WordPress archive genuinely has nothing for a project, map to a representative image from the same space type rather than leaving a placeholder.
-- Re-verify with a headless pass that every card on `/works` renders a real photo at every filter setting.
-
-### 3. Methodology page icons (`src/routes/methodology.tsx`)
-
-Add the emerald line-icon treatment to the process steps, finishing the iconographic layer started on `/industries`.
+3. **Keep intentional text measures.** Paragraph-level constraints like `max-w-3xl` / `max-w-4xl` on headlines and lead copy stay as-is: those control reading line-length, not page alignment, and the rest of the site uses the same pattern.
 
 ## Out of scope
 
-No copy changes, no new routes, no typography or navigation changes. Purely additive imagery and spacing within the existing structure.
+No copy, imagery, section-order, typography, or spacing-rhythm changes. No edits to other routes.
 
-## Technical notes
+## Verification
 
-Uses the already-built `SmartImage` component (graceful fallback to the branded `MediaSlot`), the `localMedia` helper in `src/lib/wp-content.ts`, and the 148 images already downloaded to `public/images/`. No new downloads or AI-generated assets required for this pass. Verification via headless Chromium counting loaded vs. total images per route.
+Headless pass at 1440, 1362, 1024 and 390 px comparing the left content edge of `/` against `/works` and `/services` to confirm they match, plus a visual check that no section looks overly wide on large screens.
