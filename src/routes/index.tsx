@@ -237,13 +237,15 @@ type Door = {
   href: string;
   routeTo?: "/services/facilities-operations" | "/services/urban-digital-twins";
   icon: React.ComponentType<{ className?: string; size?: number }>;
+  /** work slug whose photography represents this track */
+  imageFrom: string;
 };
 
 const DOORS: Door[] = [
-  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2 },
-  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler },
-  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench },
-  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon },
+  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2, imageFrom: "royal-lexis" },
+  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler, imageFrom: "pnb-cimb-hub" },
+  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench, imageFrom: "kuala-lumpur-convention-centre" },
+  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon, imageFrom: "majlis-bandaraya-seremban" },
 ];
 
 function FourDoorRouter() {
@@ -259,18 +261,31 @@ function FourDoorRouter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {DOORS.map((d, i) => {
             const Icon = d.icon;
+            const bg = WORKS.find((w) => w.slug === d.imageFrom)?.image;
             const inner = (
               <MagneticCard
                 strength={10}
-                className="h-full p-6 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
+                className="group relative h-full overflow-hidden bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
               >
-                <Icon className="text-emerald-300" size={22} />
-                <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
-                  {d.label}
-                </div>
-                <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
-                <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
-                  Open <ArrowRight size={12} />
+                {bg && (
+                  <img
+                    src={bg}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-35 transition duration-500 scale-105"
+                  />
+                )}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
+                <div className="relative z-10 p-6 flex flex-col h-full">
+                  <Icon className="text-emerald-300" size={22} />
+                  <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
+                    {d.label}
+                  </div>
+                  <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
+                  <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
+                    Open <ArrowRight size={12} />
+                  </div>
                 </div>
               </MagneticCard>
             );
@@ -288,6 +303,7 @@ function FourDoorRouter() {
       </div>
     </section>
   );
+
 }
 
 /* ---------- side rail (desktop only, scroll-spy over in-page sections) ---------- */
