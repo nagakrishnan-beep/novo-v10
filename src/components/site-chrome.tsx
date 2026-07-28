@@ -18,6 +18,7 @@ type ActiveKey =
   | null;
 
 const NAV: { key: ActiveKey; label: string; to: any }[] = [
+  { key: "home", label: "Home", to: "/" },
   { key: "digital-twins", label: "Digital Twins", to: "/digital-twins" },
   { key: "reality-capture", label: "Reality Capture", to: "/reality-capture" },
   { key: "solutions", label: "Solutions", to: "/solutions" },
