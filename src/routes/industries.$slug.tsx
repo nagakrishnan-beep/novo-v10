@@ -5,6 +5,8 @@ import {
   SiteFooter,
   BreadcrumbNav,
   MediaSlot,
+  SmartImage,
+
 } from "@/components/site-chrome";
 import { YouTubeEmbed, YouTubeReel } from "@/components/youtube-embed";
 import { getIndustry, INDUSTRIES, type Industry } from "@/lib/industries";
