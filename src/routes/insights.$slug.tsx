@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { getInsight, ALL_INSIGHTS } from "@/lib/insights";
-import { SiteHeader, SiteFooter, BreadcrumbNav, MediaSlot } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, BreadcrumbNav, SmartImage } from "@/components/site-chrome";
 import { BASE_URL } from "@/lib/site";
 import {
   articleJsonLd,
@@ -121,8 +121,15 @@ function InsightDetail() {
           </div>
 
           <div className="mt-10">
-            <MediaSlot label={post.slug.toUpperCase()} />
+            <SmartImage
+              src={post.image}
+              alt={post.title}
+              label={post.category}
+              ratio="aspect-[16/9]"
+              loading="eager"
+            />
           </div>
+
 
           <div className="mt-10 space-y-6 max-w-3xl">
             {paras.map((p, i) => (
