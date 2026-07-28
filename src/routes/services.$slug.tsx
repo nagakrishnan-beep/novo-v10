@@ -227,8 +227,9 @@ function ServiceDetail() {
                 className="aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-neutral-950"
               >
                 <img
-                  src={`${WP_MEDIA}${f}`}
+                  src={localMedia(`${WP_MEDIA}${f}`)}
                   alt={altFromFilename(f)}
+
                   loading="lazy"
                   className="h-full w-full object-cover transition duration-500 hover:scale-[1.03]"
                 />
