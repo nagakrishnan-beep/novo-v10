@@ -657,26 +657,35 @@ function ByTheNumbers() {
 /* ---------- Defined terms ---------- */
 function DefinedTerms() {
   const terms = [
-    { term: "Digital Twin", def: "A photorealistic, walkable 3D replica of a physical space, measurable, shareable and always up to date." },
-    { term: "Scan-to-BIM", def: "The process of converting a LiDAR point cloud into an accurate BIM model that design and FM teams can trust." },
-    { term: "LiDAR", def: "Light Detection and Ranging: laser scanning that captures a building's true geometry at centimetre-grade accuracy." },
+    { term: "Digital Twin", icon: Box, def: "A photorealistic, walkable 3D replica of a physical space, measurable, shareable and always up to date." },
+    { term: "Scan-to-BIM", icon: Ruler, def: "The process of converting a LiDAR point cloud into an accurate BIM model that design and FM teams can trust." },
+    { term: "LiDAR", icon: ScanLine, def: "Light Detection and Ranging: laser scanning that captures a building's true geometry at centimetre-grade accuracy." },
   ];
   return (
     <section className="px-6 md:px-24 pb-14">
       <div className="grid md:grid-cols-3 gap-4">
-        {terms.map((t) => (
-          <div key={t.term} className="border border-white/10 rounded-xl p-5 bg-white/[0.02]">
-            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
-              Definition
+        {terms.map((t) => {
+          const Icon = t.icon;
+          return (
+            <div key={t.term} className="border border-white/10 rounded-xl p-5 bg-white/[0.02]">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-400/25 bg-emerald-400/[0.06] text-emerald-300">
+                  <Icon size={18} />
+                </span>
+                <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
+                  Definition
+                </div>
+              </div>
+              <div className="mt-3 text-white text-lg font-light">{t.term}</div>
+              <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                <span className="text-emerald-300">{t.term}:</span> {t.def.replace(/^[^:]*:\s*/,"")}
+              </p>
             </div>
-            <div className="mt-2 text-white text-lg font-light">{t.term}</div>
-            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              <span className="text-emerald-300">{t.term}:</span> {t.def.replace(/^[^:]*:\s*/,"")}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
+
   );
 }
 
