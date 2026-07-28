@@ -532,6 +532,88 @@ function Hero() {
   );
 }
 
+/* ---------- featured work strip ---------- */
+
+const FEATURED_SLUGS = [
+  "world-trade-centre-kuala-lumpur",
+  "kuala-lumpur-convention-centre",
+  "porsche-center-ara-damansara",
+  "hyatt-kuantan-ballroom",
+  "lexis-hibiscus-port-dickson",
+  "royal-lexis",
+];
+
+function FeaturedWorkStrip() {
+  const items = FEATURED_SLUGS.map((s) => WORKS.find((w) => w.slug === s)).filter(
+    (w): w is NonNullable<typeof w> => !!w,
+  );
+
+  return (
+    <section
+      aria-label="Selected projects"
+      className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5"
+    >
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="space-y-2">
+            <KineticEyebrow className="text-xs font-mono uppercase block">
+              [ SELECTED WORK ]
+            </KineticEyebrow>
+            <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">
+              Real spaces we have already captured.
+            </h2>
+          </div>
+          <Link
+            to="/works"
+            className="text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200"
+          >
+            All projects →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {items.map((w, i) => (
+            <Reveal key={w.slug} delay={i * 0.05}>
+              <Link
+                to="/works/$slug"
+                params={{ slug: w.slug }}
+                className="group block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] hover:border-emerald-400/40 transition"
+              >
+                <div className="relative">
+                  <SmartImage
+                    src={w.image}
+                    alt={w.title}
+                    ratio="aspect-[4/3]"
+                    className="!rounded-none !border-0"
+                    imgClassName="transition duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute left-4 bottom-4 right-4">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-emerald-300">
+                      {w.format}
+                    </div>
+                    <div className="mt-1 text-base md:text-lg font-light text-white leading-snug">
+                      {w.title}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-sm text-neutral-300 leading-relaxed">{w.helps}</p>
+                  <div className="mt-4 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white group-hover:text-emerald-300 transition">
+                    View project <ArrowRight size={12} />
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
 /* ---------- By the numbers strip ---------- */
 function ByTheNumbers() {
   const stats = [
