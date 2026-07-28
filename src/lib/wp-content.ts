@@ -1,7 +1,17 @@
 import generated from "./wp-content.generated.json";
+import media from "./wp-media.generated.json";
+
 type Rec = { image?: string; alt?: string; tourUrl?: string };
 type Generated = { generatedAt?: string; posts?: Record<string, Rec>; portfolio?: Record<string, Rec> };
 const data = generated as Generated;
+
+const LOCAL_MEDIA = (media as { files?: Record<string, string> }).files ?? {};
+
+/** Remote WordPress URL -> locally downloaded path (falls back to the URL). */
+export function localMedia<T extends string | undefined>(url: T): T {
+  if (!url) return url;
+  return (LOCAL_MEDIA[url] ?? url) as T;
+}
 
 export const WORK_WP_SLUG: Record<string, string> = {
   "hyatt-kuantan-ballroom": "hyatt-kuantan-ballroom",
@@ -29,6 +39,14 @@ export const WORK_WP_SLUG: Record<string, string> = {
   "jerry-coworking-sri-hartamas": "jerry-coworking-space-sri-hartamas",
 };
 
-export function wpPostImage(slug: string): string | undefined { return data.posts?.[slug]?.image || undefined; }
-export function wpWorkImage(workSlug: string): string | undefined { const wp = WORK_WP_SLUG[workSlug]; return (wp && data.portfolio?.[wp]?.image) || undefined; }
-export function wpWorkTour(workSlug: string): string | undefined { const wp = WORK_WP_SLUG[workSlug]; return (wp && data.portfolio?.[wp]?.tourUrl) || undefined; }
+export function wpPostImage(slug: string): string | undefined {
+  return localMedia(data.posts?.[slug]?.image || undefined);
+}
+export function wpWorkImage(workSlug: string): string | undefined {
+  const wp = WORK_WP_SLUG[workSlug];
+  return localMedia((wp && data.portfolio?.[wp]?.image) || undefined);
+}
+export function wpWorkTour(workSlug: string): string | undefined {
+  const wp = WORK_WP_SLUG[workSlug];
+  return (wp && data.portfolio?.[wp]?.tourUrl) || undefined;
+}
