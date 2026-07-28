@@ -251,7 +251,7 @@ const DOORS: Door[] = [
 function FourDoorRouter() {
   return (
     <section id="doors" className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="space-y-8">
         <Reveal className="max-w-3xl space-y-3">
           <KineticEyebrow className="text-xs font-mono uppercase block">[ FOUR TRACKS ]</KineticEyebrow>
           <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">
@@ -458,7 +458,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-16 pb-16"
+      className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-24 pt-16 pb-16"
     >
       <div className="max-w-5xl origin-left">
         <KineticEyebrow className="text-xs font-mono block mb-6 uppercase tracking-widest">
@@ -569,7 +569,7 @@ function FeaturedWorkStrip() {
       aria-label="Selected projects"
       className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5"
     >
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="space-y-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="space-y-2">
             <KineticEyebrow className="text-xs font-mono uppercase block">
@@ -761,7 +761,7 @@ function CaptureSection() {
       id="capture"
       className="relative z-20 px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 space-y-10">
           <SectionHeader
             kicker="DIGITAL TWIN"
@@ -840,7 +840,7 @@ function OutcomesSection() {
       id="outcomes"
       className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="space-y-10">
         <SectionHeader
           kicker="THE COMPETITIVE EDGE"
           title="Your space isn't just a location. It's your best sales tool."
@@ -870,7 +870,7 @@ function IndustriesSection() {
       id="industries"
       className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="space-y-10">
         <SectionHeader
           kicker="SECTORS"
           title="Strategy-first capture. Built for business goals."
@@ -899,7 +899,7 @@ function ServicesSection() {
       id="integrations"
       className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto space-y-10">
+      <div className="space-y-10">
         <SectionHeader
           kicker="SERVICES"
           title="One capture, many ways to use it."
@@ -958,7 +958,7 @@ function StoriesSection() {
       id="stories"
       className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto space-y-10">
+      <div className="space-y-10">
         <SectionHeader
           kicker="CLIENT WORK"
           title="See how spaces are easier to trust before a visit."
@@ -1024,7 +1024,7 @@ function StoriesSection() {
 function LogosSection() {
   return (
     <section className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="space-y-8">
         <Reveal className="text-center space-y-2">
           <KineticEyebrow className="text-[11px] font-mono uppercase tracking-widest block">
             [ CLIENTS & PARTNERS ]
@@ -1058,7 +1058,7 @@ function LogosSection() {
 function ReviewsSection() {
   return (
     <section className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
-      <div className="max-w-7xl mx-auto space-y-10">
+      <div className="space-y-10">
         <SectionHeader kicker="GOOGLE REVIEWS" title="Trusted by clients" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {REVIEWS.map((r, i) => (
@@ -1089,7 +1089,7 @@ function ScopeSection() {
       id="pricing"
       className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto space-y-10">
+      <div className="space-y-10">
         <SectionHeader
           kicker="SCOPE"
           title="One proven process. Infinite possibilities."
