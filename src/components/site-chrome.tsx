@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { Instagram, Facebook, Linkedin, Youtube, Menu, X } from "lucide-react";
+import { useState, useEffect, type ReactNode } from "react";
 import { LEGAL_NAME, SOCIALS } from "@/lib/site";
 
 
@@ -34,36 +34,131 @@ const FOOTER_NAV: { key: string; label: string; to: any }[] = [
 ];
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
-      <div className="flex items-center px-6 md:px-12 py-4 gap-6">
-        <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Novo Reperio home">
-          <img src="/novo-logo.png" alt="Novo Reperio" className="h-12 md:h-14 w-auto" />
-        </Link>
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400 ml-auto">
-          {NAV.map((n) => (
-            <Link
-              key={n.key ?? n.label}
-              to={n.to}
-              className={
-                active === n.key
-                  ? "text-emerald-300"
-                  : "hover:text-emerald-300 transition"
-              }
-            >
-              {n.label}
-            </Link>
-          ))}
-          <Link
-            to="/estimate"
-            onClick={() => trackEvent("cta_click", { label: "Get an assessment" })}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 text-emerald-300 text-sm hover:bg-emerald-500/10"
-          >
-            Get an assessment
+    <>
+      <header className="sticky top-0 z-40 backdrop-blur bg-[#020203]/80 border-b border-neutral-900">
+        <div className="flex items-center px-6 md:px-12 py-4 gap-6">
+          <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="Novo Reperio home">
+            <img src="/novo-logo.png" alt="Novo Reperio" className="h-12 md:h-14 w-auto" />
           </Link>
-        </nav>
-      </div>
-    </header>
+
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((s) => !s)}
+            className="md:hidden ml-auto p-2 -mr-2 text-neutral-300 hover:text-emerald-300"
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400 ml-auto">
+            {NAV.map((n) => (
+              <Link
+                key={n.key ?? n.label}
+                to={n.to}
+                className={
+                  active === n.key
+                    ? "text-emerald-300"
+                    : "hover:text-emerald-300 transition"
+                }
+              >
+                {n.label}
+              </Link>
+            ))}
+            <Link
+              to="/estimate"
+              onClick={() => trackEvent("cta_click", { label: "Get an assessment" })}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-500/40 text-emerald-300 text-sm hover:bg-emerald-500/10"
+            >
+              Get an assessment
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      {open && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="absolute right-0 top-0 h-full w-[min(88vw,360px)] bg-[#020203] border-l border-neutral-900 shadow-2xl flex flex-col">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-900">
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-500">Menu</span>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="p-2 -mr-2 text-neutral-300 hover:text-emerald-300"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <nav className="flex-1 overflow-y-auto px-6 py-8">
+              <ul className="space-y-1">
+                {NAV.map((n) => (
+                  <li key={n.key ?? n.label}>
+                    <Link
+                      to={n.to}
+                      onClick={() => setOpen(false)}
+                      className={`block py-3 text-sm tracking-wider uppercase transition ${
+                        active === n.key ? "text-emerald-300" : "text-neutral-300 hover:text-emerald-300"
+                      }`}
+                    >
+                      {n.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-8 border-t border-neutral-900">
+                <Link
+                  to="/estimate"
+                  onClick={() => {
+                    setOpen(false);
+                    trackEvent("cta_click", { label: "Get an assessment" });
+                  }}
+                  className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full border border-emerald-500/40 text-emerald-300 text-sm hover:bg-emerald-500/10"
+                >
+                  Get an assessment
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center justify-center gap-2 w-full mt-3 px-5 py-3 rounded-full bg-emerald-500/10 text-emerald-300 text-sm hover:bg-emerald-500/20"
+                >
+                  Contact us
+                </Link>
+              </div>
+
+              <div className="mt-8">
+                <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">Explore</div>
+                <ul className="space-y-2 text-sm text-neutral-400">
+                  <li><Link to="/contact" onClick={() => setOpen(false)} className="hover:text-emerald-300">Contact</Link></li>
+                  <li><Link to="/faq" onClick={() => setOpen(false)} className="hover:text-emerald-300">FAQ</Link></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
