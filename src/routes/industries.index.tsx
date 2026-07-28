@@ -70,16 +70,22 @@ function IndustriesHub() {
 
         <section className="px-6 md:px-24 py-20 md:py-24">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {INDUSTRIES.map((ind) => (
+            {INDUSTRIES.map((ind) => {
+              const Icon = industryIcon(ind.slug);
+              return (
               <Link
                 key={ind.slug}
                 to="/industries/$slug"
                 params={{ slug: ind.slug }}
                 className="group border border-white/10 rounded-xl p-6 bg-white/[0.02] hover:border-emerald-400/40 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60"
               >
+                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-emerald-400/25 bg-emerald-400/[0.06] text-emerald-300 group-hover:border-emerald-400/50 transition">
+                  <Icon size={20} strokeWidth={1.25} />
+                </div>
                 <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
                   {ind.name}
                 </div>
+
                 <h2 className="mt-3 text-xl text-white font-light leading-snug group-hover:text-emerald-200">
                   {ind.h1}
                 </h2>
