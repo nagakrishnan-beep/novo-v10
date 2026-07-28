@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, ScanLine, Ruler, Users, CalendarClock } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
 import { abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
@@ -34,21 +34,26 @@ export const Route = createFileRoute("/methodology")({
 const STEPS = [
   {
     title: "1 · Measured capture, not photography",
+    icon: ScanLine,
     body: "Every Novo Reperio twin is captured with either Matterport Pro3 LiDAR or survey-grade terrestrial LiDAR. The output is a registered point cloud (real geometry) from which the visible twin, the 2D floorplan and any BIM deliverable are derived. Nothing in the tour is modelled from imagination.",
   },
   {
     title: "2 · Dimensions come from the capture, not the copy",
+    icon: Ruler,
     body: "Inside the tour you can measure walls, doors, ceiling heights, corridor widths and window openings directly. Those numbers come from LiDAR, not from a spec sheet, not from a legacy CAD file. When you compare our tour to a room, they should agree.",
   },
   {
     title: "3 · Capacity figures: how they should be derived",
+    icon: Users,
     body: "Room capacity is not a Matterport output. Capacity is the measured usable floor area multiplied by a stated layout standard (banquet / theatre / classroom / cabaret / standing) provided by the venue operator. Where a work page shows a capacity number, that number comes from the client's own standard, never from us.",
   },
   {
     title: "4 · Freshness dating",
+    icon: CalendarClock,
     body: "Every twin carries a capture date. Renovations, re-branding and menu changes drift the record. Scheduled recapture keeps the record current, so the twin you share tomorrow still matches the space a visitor sees.",
   },
 ];
+
 
 function MethodologyPage() {
   return (
@@ -71,13 +76,20 @@ function MethodologyPage() {
         </section>
 
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 space-y-10 max-w-4xl">
-          {STEPS.map((s) => (
-            <div key={s.title} className="border-l-2 border-emerald-400/40 pl-5">
-              <h2 className="text-2xl font-light text-white">{s.title}</h2>
-              <p className="mt-3 text-sm text-neutral-400 leading-relaxed">{s.body}</p>
-            </div>
-          ))}
+          {STEPS.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div key={s.title} className="border-l-2 border-emerald-400/40 pl-5">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-400/25 bg-emerald-400/[0.06] text-emerald-300">
+                  <Icon size={20} />
+                </span>
+                <h2 className="mt-4 text-2xl font-light text-white">{s.title}</h2>
+                <p className="mt-3 text-sm text-neutral-400 leading-relaxed">{s.body}</p>
+              </div>
+            );
+          })}
         </section>
+
 
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">

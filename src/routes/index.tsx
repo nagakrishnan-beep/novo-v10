@@ -13,6 +13,8 @@ import {
   Building2,
   Ruler,
   Wrench,
+  Box,
+  ScanLine,
   Map as MapIcon,
 } from "lucide-react";
 import {
@@ -27,8 +29,10 @@ import {
 import { LaserTrail } from "@/components/laser-trail";
 import { PointCloudHero } from "@/components/point-cloud-hero";
 import { CLIENT_LOGOS } from "@/lib/logos";
-import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { WORKS } from "@/lib/works";
+import { SiteHeader, SiteFooter, SmartImage } from "@/components/site-chrome";
 import { YouTubeEmbed } from "@/components/youtube-embed";
+
 
 
 const TITLE = "360° Virtual Tour & Digital Twin Experts Malaysia | Novo Reperio";
@@ -159,6 +163,8 @@ function PageContent() {
       <SideRail />
       <main>
         <Hero />
+        <FeaturedWorkStrip />
+
         <ByTheNumbers />
         <DefinedTerms />
         <FourDoorRouter />
@@ -231,13 +237,15 @@ type Door = {
   href: string;
   routeTo?: "/services/facilities-operations" | "/services/urban-digital-twins";
   icon: React.ComponentType<{ className?: string; size?: number }>;
+  /** work slug whose photography represents this track */
+  imageFrom: string;
 };
 
 const DOORS: Door[] = [
-  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2 },
-  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler },
-  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench },
-  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon },
+  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2, imageFrom: "royal-lexis" },
+  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler, imageFrom: "pnb-cimb-hub" },
+  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench, imageFrom: "kuala-lumpur-convention-centre" },
+  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon, imageFrom: "majlis-bandaraya-seremban" },
 ];
 
 function FourDoorRouter() {
@@ -253,18 +261,31 @@ function FourDoorRouter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {DOORS.map((d, i) => {
             const Icon = d.icon;
+            const bg = WORKS.find((w) => w.slug === d.imageFrom)?.image;
             const inner = (
               <MagneticCard
                 strength={10}
-                className="h-full p-6 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
+                className="group relative h-full overflow-hidden bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
               >
-                <Icon className="text-emerald-300" size={22} />
-                <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
-                  {d.label}
-                </div>
-                <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
-                <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
-                  Open <ArrowRight size={12} />
+                {bg && (
+                  <img
+                    src={bg}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-35 transition duration-500 scale-105"
+                  />
+                )}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
+                <div className="relative z-10 p-6 flex flex-col h-full">
+                  <Icon className="text-emerald-300" size={22} />
+                  <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
+                    {d.label}
+                  </div>
+                  <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
+                  <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
+                    Open <ArrowRight size={12} />
+                  </div>
                 </div>
               </MagneticCard>
             );
@@ -282,6 +303,7 @@ function FourDoorRouter() {
       </div>
     </section>
   );
+
 }
 
 /* ---------- side rail (desktop only, scroll-spy over in-page sections) ---------- */
@@ -503,9 +525,110 @@ function Hero() {
         </span>
         <ArrowRight className="w-4 h-4 text-neutral-500" />
       </div>
+
+      {/* client logo row */}
+      <div className="mt-8 max-w-5xl">
+        <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
+          Trusted by
+        </div>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
+          {CLIENT_LOGOS.slice(0, 8).map((l) => (
+            <img
+              key={l.alt}
+              src={l.src}
+              alt={`${l.alt} logo`}
+              loading="lazy"
+              className="h-6 md:h-7 w-auto object-contain invert opacity-40 hover:opacity-90 transition"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+  );
+}
+
+/* ---------- featured work strip ---------- */
+
+const FEATURED_SLUGS = [
+  "world-trade-centre-kuala-lumpur",
+  "kuala-lumpur-convention-centre",
+  "porsche-center-ara-damansara",
+  "hyatt-kuantan-ballroom",
+  "lexis-hibiscus-port-dickson",
+  "royal-lexis",
+];
+
+function FeaturedWorkStrip() {
+  const items = FEATURED_SLUGS.map((s) => WORKS.find((w) => w.slug === s)).filter(
+    (w): w is NonNullable<typeof w> => !!w,
+  );
+
+  return (
+    <section
+      aria-label="Selected projects"
+      className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5"
+    >
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="space-y-2">
+            <KineticEyebrow className="text-xs font-mono uppercase block">
+              [ SELECTED WORK ]
+            </KineticEyebrow>
+            <h2 className="text-2xl md:text-4xl font-light text-white tracking-tight">
+              Real spaces we have already captured.
+            </h2>
+          </div>
+          <Link
+            to="/works"
+            className="text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200"
+          >
+            All projects →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {items.map((w, i) => (
+            <Reveal key={w.slug} delay={i * 0.05}>
+              <Link
+                to="/works/$slug"
+                params={{ slug: w.slug }}
+                className="group block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] hover:border-emerald-400/40 transition"
+              >
+                <div className="relative">
+                  <SmartImage
+                    src={w.image}
+                    alt={w.title}
+                    ratio="aspect-[4/3]"
+                    className="!rounded-none !border-0"
+                    imgClassName="transition duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute left-4 bottom-4 right-4">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-emerald-300">
+                      {w.format}
+                    </div>
+                    <div className="mt-1 text-base md:text-lg font-light text-white leading-snug">
+                      {w.title}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <p className="text-sm text-neutral-300 leading-relaxed">{w.helps}</p>
+                  <div className="mt-4 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white group-hover:text-emerald-300 transition">
+                    View project <ArrowRight size={12} />
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
+
+
 
 /* ---------- By the numbers strip ---------- */
 function ByTheNumbers() {
@@ -534,26 +657,35 @@ function ByTheNumbers() {
 /* ---------- Defined terms ---------- */
 function DefinedTerms() {
   const terms = [
-    { term: "Digital Twin", def: "A photorealistic, walkable 3D replica of a physical space, measurable, shareable and always up to date." },
-    { term: "Scan-to-BIM", def: "The process of converting a LiDAR point cloud into an accurate BIM model that design and FM teams can trust." },
-    { term: "LiDAR", def: "Light Detection and Ranging: laser scanning that captures a building's true geometry at centimetre-grade accuracy." },
+    { term: "Digital Twin", icon: Box, def: "A photorealistic, walkable 3D replica of a physical space, measurable, shareable and always up to date." },
+    { term: "Scan-to-BIM", icon: Ruler, def: "The process of converting a LiDAR point cloud into an accurate BIM model that design and FM teams can trust." },
+    { term: "LiDAR", icon: ScanLine, def: "Light Detection and Ranging: laser scanning that captures a building's true geometry at centimetre-grade accuracy." },
   ];
   return (
     <section className="px-6 md:px-24 pb-14">
       <div className="grid md:grid-cols-3 gap-4">
-        {terms.map((t) => (
-          <div key={t.term} className="border border-white/10 rounded-xl p-5 bg-white/[0.02]">
-            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
-              Definition
+        {terms.map((t) => {
+          const Icon = t.icon;
+          return (
+            <div key={t.term} className="border border-white/10 rounded-xl p-5 bg-white/[0.02]">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-400/25 bg-emerald-400/[0.06] text-emerald-300">
+                  <Icon size={18} />
+                </span>
+                <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80">
+                  Definition
+                </div>
+              </div>
+              <div className="mt-3 text-white text-lg font-light">{t.term}</div>
+              <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                <span className="text-emerald-300">{t.term}:</span> {t.def.replace(/^[^:]*:\s*/,"")}
+              </p>
             </div>
-            <div className="mt-2 text-white text-lg font-light">{t.term}</div>
-            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              <span className="text-emerald-300">{t.term}:</span> {t.def.replace(/^[^:]*:\s*/,"")}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
+
   );
 }
 
