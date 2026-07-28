@@ -1,52 +1,34 @@
-# Visual enrichment plan for Novo Reperio
+## What's actually wrong
 
-## Confirmed direction
-- **Image source:** pull from the existing WordPress site first, supplement with AI-generated imagery only where gaps remain.
-- **Visual style:** photorealistic imagery for hero/thumbnail slots, plus an iconographic layer (simple line icons with emerald accents) for structural and explanatory content.
+Verified against the running site:
 
-## Current-state finding
-`public/images/works/`, `public/images/services/`, and `public/images/insights/` are all empty, so every `image` field in `src/lib/works.ts`, `services.ts`, and `insights.ts` resolves to nothing. Live visuals today are only the point-cloud hero, hot-linked WordPress team photos, hot-linked client logos, and YouTube embeds. Everything else is text on flat dark backgrounds.
+- **Homepage renders no photography.** Of 23 image tags, only the logo and one YouTube poster load. The four-track cards, definitions, by-the-numbers and FAQ sections are pure text on a dark gradient. The previous pass edited works, insights, services and industries, but never `src/routes/index.tsx`.
+- **A large empty gap sits under the hero** (roughly 600px of blank canvas between the proof line and "By the numbers").
+- **Roughly a third of `/works` cards are still blank.** MAEPS, Majlis Bandaraya Seremban and Peel Lane render the branded grid placeholder because no local image is mapped to their slugs, even though 148 images are downloaded and serving correctly.
 
-No routes, copy, or IA change in this plan.
+## Plan
 
----
+### 1. Homepage visual layer (`src/routes/index.tsx`)
 
-## Step 1 — Fill the empty image folders (biggest gain)
-- Extend `scripts/sync-wp-content.mjs` to download, not just map, WordPress media into `public/images/works/`, `public/images/insights/`, and `public/images/logos/`.
-- Convert client and affiliation logos in `src/lib/logos.ts` from hot-linked WP URLs to local files (removes 404/CORS risk).
-- Cache the five team portraits from `src/routes/about.tsx` locally.
-- Add a `MediaSlot` fallback component: any still-empty slot renders a branded emerald-accented placeholder tile instead of a broken image.
+- **Featured work strip.** Insert a horizontal 3-up (desktop) / scroll-snap (mobile) band of real project photography after the four-track section, pulled from the existing works library via `SmartImage`. Each tile: image, project name, one-line outcome, link to the detail page.
+- **Four-track cards get imagery.** Each of SELL / BUILD / OPERATE / PLAN gets a representative photo as a dimmed background layer behind the existing icon and copy, so the grid reads as a visual choice rather than four text boxes.
+- **Client logo wall.** The logos already downloaded to `public/images/logos` (KLCC, Maxis, Mah Sing, Glomac, Setia, UEM, Yamaha, MMC and more) become a quiet monochrome strip under the proof line, brightening on hover.
+- **Close the hero gap.** Tighten the spacing so the point-cloud canvas and the following section sit at the standard `py-20 md:py-24` rhythm instead of leaving a void.
+- **Definition cards get a visual anchor** — a small emerald line icon each, matching the industry icon treatment already shipped.
 
-## Step 2 — Fill remaining gaps with AI-generated photorealistic imagery
-For slots WordPress cannot cover:
-- **Service pages** (~18): one photoreal hero each, matched to the service (LiDAR scanner on a tripod in a ballroom, drone over a development, BIM model overlay on a site, training environment, etc.).
-- **Industry pages** (8): one sector-appropriate photoreal hero each.
-- **Insights**: featured images for articles with no WP thumbnail.
-- All generated at a consistent dark, cinematic, low-key grade so they sit naturally on `#020203` and never look stocky.
+### 2. Fill the blank work thumbnails (`src/lib/wp-content.ts`)
 
-## Step 3 — Iconographic layer (line icons + emerald accents)
-- **Four outcome doors** (Sell / Build / Operate / Plan): one custom line icon each, emerald-300 stroke.
-- **Eight industries**: a line icon per sector on hub cards and detail headers.
-- **Process / workflow strips** (Capture → Process → Create → Act, and the Define/Engineer/Launch scope steps): numbered line-icon nodes connected by a thin emerald rule.
-- **Benefit and feature bullets** across services, solutions, digital-twins, reality-capture: replace plain bullets with small `lucide-react` icons in emerald.
-- **Estimator steps**: icon per step in the 5-step assessment.
+- Enumerate every work slug that currently resolves to no image, then map each to the closest correct photo already downloaded. Where the WordPress archive genuinely has nothing for a project, map to a representative image from the same space type rather than leaving a placeholder.
+- Re-verify with a headless pass that every card on `/works` renders a real photo at every filter setting.
 
-## Step 4 — Ambient graphics (no new content)
-- Faint technical grid / dot texture behind hero and major section breaks, at very low opacity.
-- Thin emerald hairline dividers replacing some plain neutral borders, used sparingly.
-- Hover treatment on work and insight cards: subtle image zoom plus emerald border, consistent sitewide.
+### 3. Methodology page icons (`src/routes/methodology.tsx`)
 
----
+Add the emerald line-icon treatment to the process steps, finishing the iconographic layer started on `/industries`.
+
+## Out of scope
+
+No copy changes, no new routes, no typography or navigation changes. Purely additive imagery and spacing within the existing structure.
 
 ## Technical notes
-- Images stored in `public/images/**` and referenced by the existing `img()` helpers in `works.ts`, `services.ts`, `insights.ts`, so no data-shape changes are needed.
-- Large generated images externalized through the Lovable assets CDN where appropriate to keep the repo light.
-- All images get `loading="lazy"`, explicit dimensions, and descriptive `alt` text for SEO and CLS.
-- Icons come from `lucide-react` (already a dependency) with emerald-300/400 stroke, so no new icon package.
-- No changes to routes, navigation, copy, schema, or the point-cloud hero.
 
-## Delivery order
-1. Step 1 (WordPress download + local logos + MediaSlot fallback)
-2. Step 3 (icon layer, purely presentational, immediate visible lift)
-3. Step 2 (AI-generated photoreal heroes for services, industries, insights)
-4. Step 4 (ambient texture and hover polish)
+Uses the already-built `SmartImage` component (graceful fallback to the branded `MediaSlot`), the `localMedia` helper in `src/lib/wp-content.ts`, and the 148 images already downloaded to `public/images/`. No new downloads or AI-generated assets required for this pass. Verification via headless Chromium counting loaded vs. total images per route.
