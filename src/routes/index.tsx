@@ -509,7 +509,26 @@ function Hero() {
         </span>
         <ArrowRight className="w-4 h-4 text-neutral-500" />
       </div>
+
+      {/* client logo row */}
+      <div className="mt-8 max-w-5xl">
+        <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
+          Trusted by
+        </div>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
+          {CLIENT_LOGOS.slice(0, 8).map((l) => (
+            <img
+              key={l.alt}
+              src={l.src}
+              alt={`${l.alt} logo`}
+              loading="lazy"
+              className="h-6 md:h-7 w-auto object-contain invert opacity-40 hover:opacity-90 transition"
+            />
+          ))}
+        </div>
+      </div>
     </section>
+
   );
 }
 
