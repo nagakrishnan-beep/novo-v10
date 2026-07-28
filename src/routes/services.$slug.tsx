@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
-import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, SmartImage } from "@/components/site-chrome";
+import { localMedia } from "@/lib/wp-content";
+
 import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import { LaserTrail } from "@/components/laser-trail";
 import { getService, getNextService, SERVICES } from "@/lib/services";
