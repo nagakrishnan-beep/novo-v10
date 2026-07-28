@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -22,7 +22,6 @@ export function LaserTrail() {
   const reduced = !!useReducedMotion();
   const [enabled, setEnabled] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const coordRef = useRef<HTMLSpanElement>(null);
 
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
@@ -54,11 +53,6 @@ export function LaserTrail() {
     const onMove = (e: PointerEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
-      if (coordRef.current) {
-        coordRef.current.textContent = `LDR_IDX // X:${Math.round(
-          e.clientX + window.scrollX
-        )} Y:${Math.round(e.clientY + window.scrollY)}`;
-      }
     };
     const onOver = (e: PointerEvent) => {
       if (isTarget(e.target)) setHovered(true);
