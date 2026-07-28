@@ -15,7 +15,27 @@ const WP_JSON = resolve(ROOT, "src/lib/wp-content.generated.json");
 const OUT = resolve(ROOT, "src/lib/wp-media.generated.json");
 const PUB = resolve(ROOT, "public/images");
 
-const EXTRA_URLS = [];
+const U = "https://novoreperio.com/wp-content/uploads/2026/07/";
+const EXTRA_URLS = [
+  ...[
+    "3D-Rendering-balcony-view-scaled.webp",
+    "3D-Rendering-common-area-scaled.webp",
+    "3D-Rendering-entrance-sunset-scaled.webp",
+    "3D-Rendering-exterior-facade-scaled.jpeg",
+    "3D-Rendering-exterior-facade2-scaled.webp",
+    "3D-Rendering-facade-klcc-scaled.webp",
+    "3D-Rendering-liftlobby-scaled.webp",
+    "3D-Rendering-piazza-scaled.webp",
+    "3D-Rendering-pool-facade-scaled.webp",
+    "3D-Rendering-pool-nightview.jpeg",
+    "Interior-Photography-1-scaled.webp",
+    "Interior-Photography-2-scaled.webp",
+    "Interior-Photography-3-scaled.webp",
+    "Interior-Photography-4-scaled.webp",
+    "Interior-Photography-5-scaled.webp",
+  ].map((f) => `${U}${f}`),
+];
+
 
 function collect() {
   const urls = new Set();
