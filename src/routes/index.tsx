@@ -29,7 +29,6 @@ import { PointCloudHero } from "@/components/point-cloud-hero";
 import { CLIENT_LOGOS } from "@/lib/logos";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 import { YouTubeEmbed } from "@/components/youtube-embed";
-import { TelemetryHUD } from "@/components/telemetry-hud";
 
 
 const TITLE = "360° Virtual Tour & Digital Twin Experts Malaysia | Novo Reperio";
@@ -145,7 +144,6 @@ function Index() {
       <ClientOnly fallback={null}>
         <AuroraBackdrop />
         <LaserTrail />
-        <TelemetryHUD />
       </ClientOnly>
 
       <PageContent />

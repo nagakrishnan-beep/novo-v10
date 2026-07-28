@@ -60,12 +60,12 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}
-            className="md:hidden ml-auto p-2 -mr-2 text-neutral-300 hover:text-emerald-300"
+            className="lg:hidden ml-auto p-2 -mr-2 text-neutral-300 hover:text-emerald-300"
           >
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400 ml-auto">
+          <nav className="hidden lg:flex items-center gap-6 lg:gap-8 text-xs tracking-wider uppercase text-neutral-400 ml-auto">
             {NAV.map((n) => (
               <Link
                 key={n.key ?? n.label}
@@ -91,7 +91,7 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-50 lg:hidden">
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setOpen(false)}
