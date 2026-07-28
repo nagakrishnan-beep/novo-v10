@@ -20,9 +20,8 @@ export const WORK_WP_SLUG: Record<string, string> = {
   "eastin-hotel-kuala-lumpur": "matterport-3d-virtual-tour-eastin-ballroom",
   "muzium-negara-gallery-a-pre-history": "muzium-adat-istiadat-perkahwinan-langkawi",
   "flora-hijauan-melati-east": "taman-tugu-nursery",
-
-  "muzium-negara-gallery-a-pre-history": "muzium-negara-gallery-a",
   "porsche-center-ara-damansara": "porsche-ara-damansara-2",
+
   "kuala-lumpur-convention-centre": "klcc-aerial-360",
   "parkland-residence-kj2": "parkland-residence-kj2-929sqft",
   "swarovski-marina-bay-sands-singapore": "swarovski-marina-bay-sands-singapore",
