@@ -34,21 +34,26 @@ export const Route = createFileRoute("/methodology")({
 const STEPS = [
   {
     title: "1 · Measured capture, not photography",
+    icon: ScanLine,
     body: "Every Novo Reperio twin is captured with either Matterport Pro3 LiDAR or survey-grade terrestrial LiDAR. The output is a registered point cloud (real geometry) from which the visible twin, the 2D floorplan and any BIM deliverable are derived. Nothing in the tour is modelled from imagination.",
   },
   {
     title: "2 · Dimensions come from the capture, not the copy",
+    icon: Ruler,
     body: "Inside the tour you can measure walls, doors, ceiling heights, corridor widths and window openings directly. Those numbers come from LiDAR, not from a spec sheet, not from a legacy CAD file. When you compare our tour to a room, they should agree.",
   },
   {
     title: "3 · Capacity figures: how they should be derived",
+    icon: Users,
     body: "Room capacity is not a Matterport output. Capacity is the measured usable floor area multiplied by a stated layout standard (banquet / theatre / classroom / cabaret / standing) provided by the venue operator. Where a work page shows a capacity number, that number comes from the client's own standard, never from us.",
   },
   {
     title: "4 · Freshness dating",
+    icon: CalendarClock,
     body: "Every twin carries a capture date. Renovations, re-branding and menu changes drift the record. Scheduled recapture keeps the record current, so the twin you share tomorrow still matches the space a visitor sees.",
   },
 ];
+
 
 function MethodologyPage() {
   return (
