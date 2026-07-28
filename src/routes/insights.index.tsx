@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { ALL_INSIGHTS, INSIGHT_CATEGORIES } from "@/lib/insights";
-import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, BreadcrumbNav, SmartImage } from "@/components/site-chrome";
 import { BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
