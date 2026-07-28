@@ -261,14 +261,14 @@ function WorkThumb({ work }: { work: Work }) {
         }}
       />
       <div className="relative">
-        <div className="text-[10px] font-mono uppercase tracking-[0.35em] text-neutral-500">
+        <div className="text-xs font-mono uppercase tracking-[0.35em] text-neutral-500">
           {work.categories.join(" · ")}
         </div>
         <div className="mt-2 text-lg font-light leading-tight text-white">
           {work.title}
         </div>
         {work.tourUrl && (
-          <span className="mt-4 inline-block rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[10px] font-mono uppercase tracking-widest text-emerald-300">
+          <span className="mt-4 inline-block rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-emerald-300">
             Live 360° Tour
           </span>
         )}

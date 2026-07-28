@@ -12,7 +12,7 @@ export function MonthlyValue({
 }) {
   return (
     <section className="px-6 md:px-24 py-16 border-b border-neutral-900">
-      <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+      <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
         Recurring value
       </div>
       <h2 className="text-3xl md:text-4xl font-light text-white leading-tight max-w-3xl">
@@ -45,7 +45,7 @@ export function PricingBands({ id = "pricing" }: { id?: string }) {
       id={id}
       className="px-6 md:px-24 py-16 border-b border-neutral-900 scroll-mt-24"
     >
-      <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+      <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
         Indicative pricing (MYR)
       </div>
       <h2 className="text-3xl md:text-4xl font-light text-white leading-tight max-w-3xl">
@@ -61,7 +61,7 @@ export function PricingBands({ id = "pricing" }: { id?: string }) {
             key={b.key}
             className="border border-white/10 rounded-xl p-6 bg-white/[0.02] flex flex-col h-full"
           >
-            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-emerald-300">
+            <div className="text-xs font-mono uppercase tracking-[0.3em] text-emerald-300">
               {b.title}
             </div>
             <div className="mt-3 text-2xl font-light text-white">{b.price}</div>
@@ -85,7 +85,7 @@ export function VerifiedByScanStrip() {
           <div className="w-10 h-10 rounded-full border border-emerald-400/60 flex items-center justify-center">
             <ShieldCheck className="text-emerald-300" size={18} />
           </div>
-          <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-emerald-300">
+          <div className="text-xs font-mono uppercase tracking-[0.3em] text-emerald-300">
             Verified by scan
           </div>
         </div>
@@ -106,7 +106,7 @@ export function FreeOpenLayer() {
   return (
     <section className="px-6 md:px-24 py-14 border-b border-neutral-900">
       <div className="max-w-4xl">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-3">
+        <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-3">
           Always free
         </div>
         <p className="text-lg md:text-xl font-light text-white leading-relaxed">

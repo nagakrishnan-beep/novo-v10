@@ -229,7 +229,7 @@ export function MediaSlot({
           backgroundSize: "40px 40px",
         }}
       />
-      <span className="relative text-[10px] font-mono uppercase tracking-[0.35em] text-neutral-500">
+      <span className="relative text-xs font-mono uppercase tracking-[0.35em] text-neutral-500">
         {label}
       </span>
     </div>

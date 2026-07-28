@@ -362,7 +362,7 @@ function SideRail() {
         <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 origin-right translate-x-3 scale-95 opacity-0 transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-x-0 group-focus-within:scale-100 group-focus-within:opacity-100">
           <div className="relative flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/[0.05] px-4 py-4 shadow-[0_12px_40px_rgba(0,0,0,0.4)] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150">
             <div aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.07] to-transparent" />
-            <div className="relative z-10 text-[10px] font-mono uppercase tracking-[0.35em] text-emerald-300 [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">
+            <div className="relative z-10 text-xs font-mono uppercase tracking-[0.35em] text-emerald-300 [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]">
               Quick Link
             </div>
             <div className="relative z-10 h-px bg-white/10" />
@@ -484,7 +484,7 @@ function Hero() {
           className="mt-10 inline-flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 w-full max-w-3xl border border-emerald-400/30 rounded-2xl bg-emerald-400/[0.03] hover:border-emerald-400/60 transition px-6 py-5"
         >
           <div>
-            <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-emerald-300">
+            <div className="text-xs font-mono uppercase tracking-[0.3em] text-emerald-300">
               Project assessment
             </div>
             <div className="mt-2 text-base md:text-lg font-light text-white">
@@ -645,7 +645,7 @@ function CaptureSection() {
                   strength={8}
                   className="p-6 bg-white/[0.02] border border-white/10 rounded-xl backdrop-blur-md flex gap-4 items-start hover:border-cyan-400/40 transition h-full"
                 >
-                  <div className="bg-black/60 border border-white/10 px-2.5 py-1.5 rounded text-cyan-300 font-mono text-[10px] font-bold">
+                  <div className="bg-black/60 border border-white/10 px-2.5 py-1.5 rounded text-cyan-300 font-mono text-xs font-bold">
                     0{idx + 1}
                   </div>
                   <div>
@@ -666,7 +666,7 @@ function CaptureSection() {
           <div className="bg-black/50 border border-white/10 rounded-2xl p-6 flex flex-col justify-between min-h-[520px] backdrop-blur-md lg:sticky lg:top-24">
             <div>
               <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
-                <span className="text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-widest flex items-center gap-2">
+                <span className="text-xs font-mono text-cyan-300 font-bold uppercase tracking-widest flex items-center gap-2">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-ping" />
                   LIVE PREVIEW
                 </span>
@@ -687,7 +687,7 @@ function CaptureSection() {
                 <div className="w-12 h-12 rounded-full bg-cyan-400 text-black flex items-center justify-center shadow-lg shadow-cyan-500/30 hover:scale-110 transition">
                   <Play className="w-4 h-4 fill-current translate-x-0.5" />
                 </div>
-                <span className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase">
+                <span className="text-xs font-mono text-neutral-400 tracking-widest uppercase">
                   [ LAUNCH SAMPLE ]
                 </span>
               </Link>
@@ -778,14 +778,14 @@ function ServicesSection() {
 
         <Reveal>
           <div className="p-6 md:p-8 bg-white/[0.02] border border-white/10 rounded-2xl backdrop-blur-md">
-            <h3 className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest mb-6">
+            <h3 className="text-xs font-mono text-cyan-300 uppercase tracking-widest mb-6">
               [ Capture → Process → Create → Act ]
             </h3>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-xs text-neutral-400">
               {WORKFLOW.map((node, idx, arr) => (
                 <React.Fragment key={node}>
                   <div className="bg-black/60 px-4 py-3 border border-white/10 rounded flex items-center gap-2">
-                    <span className="text-cyan-400 text-[10px] font-bold">▶</span>
+                    <span className="text-cyan-400 text-xs font-bold">▶</span>
                     <span>{node}</span>
                   </div>
                   {idx < arr.length - 1 && (
@@ -804,7 +804,7 @@ function ServicesSection() {
                 strength={8}
                 className="p-6 bg-white/[0.02] border border-white/10 rounded-xl hover:border-cyan-400/40 transition h-full"
               >
-                <div className="text-[10px] font-mono text-cyan-300 uppercase tracking-widest">
+                <div className="text-xs font-mono text-cyan-300 uppercase tracking-widest">
                   {s.kicker}
                 </div>
                 <h3 className="text-lg md:text-xl font-medium text-white mt-2">

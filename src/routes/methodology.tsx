@@ -57,7 +57,7 @@ function MethodologyPage() {
       <main>
         <section className="px-6 md:px-24 pt-20 pb-10 border-b border-neutral-900">
           <BreadcrumbNav items={[{ label: "Home", to: "/" }, { label: "Methodology" }]} />
-          <div className="mt-6 flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-emerald-400">
+          <div className="mt-6 flex items-center gap-2 text-xs tracking-[0.4em] uppercase text-emerald-400">
             <ShieldCheck size={12} /> Verified by scan
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-light leading-[1.05] max-w-4xl text-white">
@@ -80,7 +80,7 @@ function MethodologyPage() {
         </section>
 
         <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-          <div className="text-[10px] tracking-[0.4em] uppercase text-emerald-400 mb-4">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
             Capacity standards: pending client input
           </div>
           <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
@@ -89,7 +89,7 @@ function MethodologyPage() {
           <div className="mt-8 overflow-x-auto">
             <table className="min-w-[560px] w-full text-sm font-mono border border-white/10">
               <thead className="bg-white/[0.03]">
-                <tr className="text-left text-emerald-300 uppercase tracking-widest text-[10px]">
+                <tr className="text-left text-emerald-300 uppercase tracking-widest text-xs">
                   <th className="p-3 border-b border-white/10">Layout</th>
                   <th className="p-3 border-b border-white/10">Area per person</th>
                   <th className="p-3 border-b border-white/10">Source</th>

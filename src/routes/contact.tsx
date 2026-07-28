@@ -162,7 +162,7 @@ function ContactPage() {
       <SiteHeader active="contact" />
 
       <section className="px-6 md:px-24 pt-20 pb-16 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-6">Contact</div>
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-6">Contact</div>
         <h1 className="text-4xl md:text-6xl font-light leading-[1.05] text-white max-w-5xl">
           Let's turn your space into a shareable, sellable digital asset.
         </h1>
@@ -201,7 +201,7 @@ function ContactPage() {
               className="border border-white/10 rounded-xl p-6 bg-white/[0.02] hover:border-cyan-400/40 transition block"
             >
               <m.icon className="text-cyan-300" size={18} />
-              <div className="mt-4 text-[10px] font-mono uppercase tracking-[0.3em] text-cyan-300">
+              <div className="mt-4 text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
                 {m.label}
               </div>
               <div className="mt-2 text-white font-light">{m.value}</div>
@@ -214,7 +214,7 @@ function ContactPage() {
       {/* Project brief form */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-[1fr_1.2fr] gap-12">
         <div>
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
             Project brief
           </div>
           <h2 className="text-3xl md:text-4xl font-light text-white leading-tight">
@@ -282,7 +282,7 @@ function ContactPage() {
               maxLength={200}
             />
             <div>
-              <label className="text-[10px] font-mono uppercase tracking-[0.3em] text-cyan-300">
+              <label className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
                 What do you need?
               </label>
               <textarea
@@ -316,7 +316,7 @@ function ContactPage() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-        <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">
+        <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
           How we work
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-4xl leading-tight">
@@ -335,7 +335,7 @@ function ContactPage() {
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
         <div>
-          <div className="text-[10px] tracking-[0.4em] uppercase text-cyan-400 mb-4">Nerve Center</div>
+          <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">Nerve Center</div>
           <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
             {LEGAL_NAME}
           </h2>
@@ -374,7 +374,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-[10px] font-mono uppercase tracking-[0.3em] text-cyan-300">
+      <label className="text-xs font-mono uppercase tracking-[0.3em] text-cyan-300">
         {label}
       </label>
       <input

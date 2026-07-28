@@ -27,7 +27,7 @@ export function TelemetryHUD() {
       aria-hidden
       className="pointer-events-none fixed bottom-5 left-5 z-40 hidden md:block"
     >
-      <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] backdrop-blur-md">
+      <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 font-mono text-xs uppercase tracking-[0.25em] backdrop-blur-md">
         <span className="text-neutral-500">Scroll velocity:</span>{" "}
         <span className="text-emerald-300/80">{velocity}</span>
         <span className="text-neutral-700"> · </span>
