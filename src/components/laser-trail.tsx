@@ -131,24 +131,6 @@ export function LaserTrail() {
         />
       </motion.div>
 
-      {/* Telemetry chip */}
-      <motion.div
-        aria-hidden
-        className="fixed top-0 left-0 z-[62] pointer-events-none font-mono text-[9px] tracking-wider uppercase text-emerald-300/80 bg-neutral-950/80 border border-white/10 px-2 py-1 rounded hidden md:block"
-        style={{
-          x: fx,
-          y: fy,
-          translateX: 22,
-          translateY: -28,
-          color: hovered ? "rgb(103 232 249)" : undefined,
-          borderColor: hovered
-            ? "rgba(34,211,238,0.35)"
-            : "rgba(255,255,255,0.08)",
-          transition: "color 200ms ease, border-color 200ms ease",
-        }}
-      >
-        <span ref={coordRef}>LDR_IDX // X:0 Y:0</span>
-      </motion.div>
     </>
   );
 }
