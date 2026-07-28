@@ -1,4 +1,7 @@
+import { SERVICE_IMAGE } from "./service-media";
+
 export type ServiceTier = "flagship" | "core" | "supporting";
+
 export type ServiceTrack = "have" | "unbuilt" | "supporting";
 export type ServiceCluster = "market" | "build" | "train" | "plan" | "supporting";
 
@@ -412,6 +415,13 @@ const RAW_SERVICES: Service[] = [
     image: img("photography.jpg"),
   },
 ];
+
+export const SERVICES: Service[] = RAW_SERVICES.map((s) => ({
+  ...s,
+  image: SERVICE_IMAGE[s.slug] ?? s.image,
+}));
+
+
 
 export type ClusterDef = {
   key: ServiceCluster;
