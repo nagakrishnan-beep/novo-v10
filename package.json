@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "node scripts/sync-wp-content.mjs && vite build",
-    "build:dev": "node scripts/sync-wp-content.mjs && vite build --mode development",
+    "build": "node scripts/sync-wp-content.mjs && node scripts/download-wp-media.mjs && vite build",
+    "build:dev": "node scripts/sync-wp-content.mjs && node scripts/download-wp-media.mjs && vite build --mode development",
     "sync:wp": "node scripts/sync-wp-content.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
