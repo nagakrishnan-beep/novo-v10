@@ -132,13 +132,14 @@ function ServiceDetail() {
       </section>
 
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 grid md:grid-cols-2 gap-10 items-start">
-        <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-black/40">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <SmartImage
+          src={service.image}
+          alt={service.title}
+          label={service.title}
+          ratio="aspect-[4/3]"
+          loading="eager"
+        />
+
         <div>
           <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
             What we deliver
