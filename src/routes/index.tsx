@@ -241,38 +241,71 @@ function ScanRealitySection() {
         </div>
       </div>
 
-      {/* reality -> data comparison, same aircraft, same capture session */}
+      {/* capture -> deliverable diptych */}
       <div className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
           <div className="space-y-5">
-            <HudLabel k="Reality" v="Digital twin" />
+            <HudLabel k="Capture" v="Deliverable" />
             <h3 className="text-2xl md:text-4xl font-light text-white">
-              Drag to see the space become data.
+              What we put on site, and what you get back.
             </h3>
             <p className="text-[15px] text-neutral-400 font-light leading-relaxed max-w-xl">
-              The left frame is the cabin as photographed on site. The right
-              frame is the same cabin as captured geometry, the point cloud our
-              measurements, BIM models and walkthroughs are derived from.
+              Capture is the easy half. The value sits in what the scan becomes:
+              a measurable twin, a registered point cloud, a BIM model, a
+              walkthrough your buyers or engineers can actually use.
             </p>
             <ul className="space-y-2 text-sm text-neutral-300 font-light">
               <li className="border-l-2 border-emerald-400/50 pl-4">
-                Same session, same aircraft, no staging between frames.
-              </li>
-              <li className="border-l-2 border-emerald-400/50 pl-4">
                 Geometry you can measure, not a render you have to trust.
               </li>
+              <li className="border-l-2 border-emerald-400/50 pl-4">
+                One capture session, multiple output formats.
+              </li>
             </ul>
+            <Link
+              to="/methodology"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200"
+            >
+              How we measure <ArrowRight size={14} />
+            </Link>
           </div>
-          <CompareSlider
-            beforeSrc="/images/media/falcon-7x-05072019-154952.jpg"
-            afterSrc="/images/falcon-point-cloud.jpg"
-            beforeAlt="Falcon 7X cabin photographed on site"
-            afterAlt="Point cloud of the same Falcon 7X cabin captured by LiDAR"
-            beforeLabel="On site"
-            afterLabel="Point cloud"
-          />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                src: "/images/media/12-24-2021-11-19-06.webp",
+                k: "On site",
+                t: "LiDAR capture",
+                d: "Terrestrial scanning across the live building.",
+              },
+              {
+                src: "/images/media/1003-novo-reperio-interactive-360-virtual-tours-asia-wtckl.jpg",
+                k: "Delivered",
+                t: "Navigable twin",
+                d: "WTCKL, the venue twin event buyers walk before booking.",
+              },
+            ].map((f) => (
+              <figure
+                key={f.t}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]"
+              >
+                <img
+                  src={f.src}
+                  alt={f.d}
+                  loading="lazy"
+                  className="h-56 w-full object-cover opacity-80 transition duration-700 group-hover:scale-[1.04] group-hover:opacity-100"
+                />
+                <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-5">
+                  <HudLabel k={f.k} />
+                  <div className="mt-2 text-base font-light text-white">{f.t}</div>
+                  <p className="mt-1 text-xs text-neutral-400 leading-relaxed">{f.d}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
+
     </section>
   );
 }
