@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, ScanLine, Ruler, Users, CalendarClock, Layers, MoveRight } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav, SmartImage } from "@/components/site-chrome";
+import matterportPro3 from "@/assets/matterport-pro3.png.asset.json";
+import faroFocus from "@/assets/faro-focus-s.png.asset.json";
 import { abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
@@ -106,6 +108,48 @@ function MethodologyPage() {
             />
           </div>
         </section>
+
+        <section className="px-6 md:px-24 py-14 md:py-18 border-b border-neutral-900">
+          <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-8">
+            Capture hardware
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                src: matterportPro3.url,
+                name: "Matterport Pro3",
+                spec: "LiDAR capture, ±20 mm dimensional accuracy",
+                body: "Primary tool for photorealistic digital twins with measured geometry, schematic floor plans and BIM-ready point clouds.",
+              },
+              {
+                src: faroFocus.url,
+                name: "FARO Focus S 150 / 350",
+                spec: "Survey-grade terrestrial laser scanner",
+                body: "Used where tighter tolerances or long-range coverage are required: as-built verification, structural surveys and scan-to-BIM at LOD 300 to 400.",
+              },
+            ].map((k) => (
+              <figure
+                key={k.name}
+                className="rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden"
+              >
+                <div className="aspect-[16/10] bg-gradient-to-b from-white/[0.06] to-transparent flex items-center justify-center p-6">
+                  <img
+                    src={k.src}
+                    alt={`${k.name} laser scanner used by Novo Reperio`}
+                    loading="lazy"
+                    className="max-h-full w-auto object-contain"
+                  />
+                </div>
+                <figcaption className="p-5 border-t border-white/5">
+                  <h3 className="text-lg font-light text-white">{k.name}</h3>
+                  <div className="mt-1 text-xs font-mono text-emerald-300/80">{k.spec}</div>
+                  <p className="mt-3 text-sm text-neutral-400 leading-relaxed">{k.body}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
 
         <section className="px-6 md:px-24 py-14 md:py-18 border-b border-neutral-900">
           <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-8">
