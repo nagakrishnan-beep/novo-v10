@@ -32,6 +32,11 @@ import { CLIENT_LOGOS } from "@/lib/logos";
 import { WORKS } from "@/lib/works";
 import { SiteHeader, SiteFooter, SmartImage } from "@/components/site-chrome";
 import { YouTubeEmbed } from "@/components/youtube-embed";
+import { HudLabel, HudRail } from "@/components/spatial/hud-label";
+import { CountUp } from "@/components/spatial/count-up";
+import { CompareSlider } from "@/components/spatial/compare-slider";
+import { PipelineRail } from "@/components/spatial/pipeline-rail";
+import { TrackProvider, useTrack, type TrackKey } from "@/components/spatial/track-context";
 
 
 
