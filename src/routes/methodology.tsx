@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck, ScanLine, Ruler, Users, CalendarClock, Layers, MoveRight } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav, SmartImage } from "@/components/site-chrome";
+import matterportPro3 from "@/assets/matterport-pro3.png.asset.json";
+import faroFocus from "@/assets/faro-focus-s.png.asset.json";
 import { abs, BASE_URL } from "@/lib/site";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
