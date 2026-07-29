@@ -750,24 +750,30 @@ function FeaturedWorkStrip() {
 
 /* ---------- By the numbers strip ---------- */
 function ByTheNumbers() {
-  const stats = [
-    "12+ years in spatial capture (since 2014).",
-    "400+ projects delivered.",
-    "WTCKL digital twin: 8,000+ visits, averaging 37 per week.",
-    "Skylon Residences: 60% of units sold, supported by 360° virtual tours.",
+  const stats: { value: number; prefix?: string; suffix?: string; label: string }[] = [
+    { value: 12, suffix: "+", label: "Years in spatial capture, since 2014." },
+    { value: 400, suffix: "+", label: "Projects delivered across Malaysia and the region." },
+    { value: 8000, suffix: "+", label: "WTCKL digital twin visits, averaging 37 a week." },
+    { value: 60, suffix: "%", label: "Skylon Residences units sold, supported by 360° tours." },
   ];
   return (
     <section className="px-6 md:px-24 py-20 md:py-24 border-t border-neutral-900">
-      <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
-        By the numbers
-      </div>
-      <ul className="space-y-3 max-w-3xl">
+      <HudLabel k="By the numbers" v="Verified" className="mb-8" />
+      <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
         {stats.map((s) => (
-          <li key={s} className="text-base md:text-lg text-white font-light border-l-2 border-emerald-400/50 pl-4">
-            {s}
-          </li>
+          <div key={s.label} className="border-l-2 border-emerald-400/50 pl-4">
+            <dt className="sr-only">{s.label}</dt>
+            <dd>
+              <span className="block text-3xl md:text-5xl font-light text-white tabular-nums tracking-tight">
+                <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
+              </span>
+              <span className="mt-3 block text-sm text-neutral-400 font-light leading-relaxed">
+                {s.label}
+              </span>
+            </dd>
+          </div>
         ))}
-      </ul>
+      </dl>
     </section>
   );
 }
