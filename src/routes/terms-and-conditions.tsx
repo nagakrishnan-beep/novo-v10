@@ -498,7 +498,7 @@ function TermsGroup({
   sections,
 }: {
   heading: string;
-  sections: { title: string; items: string[] }[];
+  sections: readonly { readonly title: string; readonly items: readonly string[] }[];
 }) {
   return (
     <div>
