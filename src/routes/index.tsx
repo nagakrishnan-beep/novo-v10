@@ -163,31 +163,33 @@ function Index() {
 
 function PageContent() {
   return (
-    <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-clip selection:bg-emerald-400 selection:text-black">
-      <SiteHeader active="home" />
-      <SideRail />
-      <main>
-        <Hero />
-        <FeaturedWorkStrip />
+    <TrackProvider>
+      <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-clip selection:bg-emerald-400 selection:text-black">
+        <SiteHeader active="home" />
+        <SideRail />
+        <main>
+          <Hero />
+          <FeaturedWorkStrip />
 
-        <ByTheNumbers />
-        <DefinedTerms />
-        <FourDoorRouter />
-        <ScanRealitySection />
-        <IndustriesRow />
-        <CaptureSection />
-        <OutcomesSection />
-        <IndustriesSection />
-        <ServicesSection />
-        <StoriesSection />
-        <LogosSection />
-        <ReviewsSection />
-        <ScopeSection />
-        <FaqSection />
-        <CtaSection />
-      </main>
-      <SiteFooter />
-    </div>
+          <ByTheNumbers />
+          <DefinedTerms />
+          <FourDoorRouter />
+          <ScanRealitySection />
+          <IndustriesRow />
+          <CaptureSection />
+          <OutcomesSection />
+          <IndustriesSection />
+          <ServicesSection />
+          <StoriesSection />
+          <LogosSection />
+          <ReviewsSection />
+          <ScopeSection />
+          <FaqSection />
+          <CtaSection />
+        </main>
+        <SiteFooter />
+      </div>
+    </TrackProvider>
   );
 }
 
