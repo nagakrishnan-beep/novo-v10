@@ -28,12 +28,41 @@ const NAV: { key: ActiveKey; label: string; to: any }[] = [
   { key: "about", label: "About", to: "/about" },
 ];
 
-const FOOTER_NAV: { key: string; label: string; to: any }[] = [
-  ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
-  { key: "contact", label: "Contact", to: "/contact" },
-  { key: "faq", label: "FAQ", to: "/faq" },
-  { key: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" },
+/** Footer is split into short columns so it never becomes one long list. */
+const FOOTER_COLUMNS: {
+  title: string;
+  links: { key: string; label: string; to: any }[];
+}[] = [
+  {
+    title: "Explore",
+    links: [
+      { key: "digital-twins", label: "Digital Twins", to: "/digital-twins" },
+      { key: "reality-capture", label: "Reality Capture", to: "/reality-capture" },
+      { key: "solutions", label: "Solutions", to: "/solutions" },
+      { key: "services", label: "Services", to: "/services" },
+      { key: "industries", label: "Industries", to: "/industries" },
+    ],
+  },
+  {
+    title: "Studio",
+    links: [
+      { key: "works", label: "Works", to: "/works" },
+      { key: "insights", label: "Insights", to: "/insights" },
+      { key: "about", label: "About", to: "/about" },
+      { key: "methodology", label: "Methodology", to: "/methodology" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { key: "contact", label: "Contact", to: "/contact" },
+      { key: "estimate", label: "Get an assessment", to: "/estimate" },
+      { key: "faq", label: "FAQ", to: "/faq" },
+      { key: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" },
+    ],
+  },
 ];
+
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
   const [open, setOpen] = useState(false);
