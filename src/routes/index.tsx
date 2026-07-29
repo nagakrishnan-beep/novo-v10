@@ -601,7 +601,7 @@ function Hero() {
       {/* scan-data backdrop: our own point cloud, dimmed behind the copy */}
       <ClientOnly fallback={null}>
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-          <PointCloudHero className="absolute inset-0 opacity-[0.35]" offsetX={-0.9} />
+          <PointCloudHero className="absolute inset-0 opacity-[0.22]" offsetX={-0.9} />
           <div className="absolute inset-0 bg-gradient-to-r from-[#020203] via-[#020203]/85 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#020203] to-transparent" />
         </div>
