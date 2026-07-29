@@ -179,12 +179,15 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
               </div>
 
               <div className="mt-8">
-                <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">Explore</div>
+                <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">More</div>
                 <ul className="space-y-2 text-sm text-neutral-400">
-                  <li><Link to="/contact" onClick={() => setOpen(false)} className="hover:text-emerald-300">Contact</Link></li>
+                  <li><Link to="/services" onClick={() => setOpen(false)} className="hover:text-emerald-300">Services</Link></li>
+                  <li><Link to="/methodology" onClick={() => setOpen(false)} className="hover:text-emerald-300">Methodology</Link></li>
                   <li><Link to="/faq" onClick={() => setOpen(false)} className="hover:text-emerald-300">FAQ</Link></li>
+                  <li><Link to="/terms-and-conditions" onClick={() => setOpen(false)} className="hover:text-emerald-300">Terms &amp; Conditions</Link></li>
                 </ul>
               </div>
+
             </nav>
           </div>
         </div>
