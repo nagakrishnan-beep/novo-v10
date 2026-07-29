@@ -192,22 +192,6 @@ function MethodologyPage() {
           })}
         </section>
 
-        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
-          <div className="text-xs tracking-[0.4em] uppercase text-emerald-400 mb-4">
-            Capacity standards
-          </div>
-          <h2 className="text-2xl md:text-3xl font-light text-white max-w-3xl">
-            Layout standards used to derive capacity from measured area.
-          </h2>
-          <p className="mt-4 max-w-3xl text-neutral-400 leading-relaxed">
-            We do not publish capacity numbers we cannot back with a stated
-            standard. Room capacity is always the measured usable floor area
-            multiplied by the venue operator's chosen layout standard
-            (banquet, theatre, classroom, cabaret or standing). When your
-            operator confirms the sqm-per-pax it uses, the capacity fields on
-            your venue's work page fill in automatically.
-          </p>
-        </section>
 
         <section className="px-6 md:px-24 py-20 md:py-24">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
