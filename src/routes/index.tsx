@@ -280,9 +280,11 @@ function ScanRealitySection() {
 
 
 type Door = {
-  key: string;
+  key: TrackKey;
   label: string;
   outcome: string;
+  /** one-line spatial readout shown when the track is active */
+  readout: { k: string; v: string }[];
   href: string;
   routeTo?: "/services/facilities-operations" | "/services/urban-digital-twins";
   icon: React.ComponentType<{ className?: string; size?: number }>;
@@ -291,13 +293,15 @@ type Door = {
 };
 
 const DOORS: Door[] = [
-  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2, imageFrom: "royal-lexis" },
-  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler, imageFrom: "pnb-cimb-hub" },
-  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench, imageFrom: "kuala-lumpur-convention-centre" },
-  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon, imageFrom: "majlis-bandaraya-seremban" },
+  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", readout: [{ k: "Output", v: "Matterport, 360°, CGI" }, { k: "Buyer", v: "Sales and marketing" }], href: "/services#market", icon: Building2, imageFrom: "royal-lexis" },
+  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", readout: [{ k: "Output", v: "Point cloud, BIM, CAD" }, { k: "Buyer", v: "AEC and project teams" }], href: "/services#build",  icon: Ruler, imageFrom: "pnb-cimb-hub" },
+  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", readout: [{ k: "Output", v: "Asset twin, tagged data" }, { k: "Buyer", v: "Facilities and operations" }], href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench, imageFrom: "kuala-lumpur-convention-centre" },
+  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", readout: [{ k: "Output", v: "Aerial mesh, city twin" }, { k: "Buyer", v: "Planning and government" }], href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon, imageFrom: "majlis-bandaraya-seremban" },
 ];
 
 function FourDoorRouter() {
+  const { track, setTrack } = useTrack();
+
   return (
     <section id="doors" className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24">
       <div className="space-y-8">
@@ -307,14 +311,49 @@ function FourDoorRouter() {
             Pick the track that matches the job: sell, build, operate or plan.
           </h2>
         </Reveal>
+
+        {/* track selector */}
+        <div
+          role="tablist"
+          aria-label="Business tracks"
+          className="flex flex-wrap gap-2"
+        >
+          {DOORS.map((d) => {
+            const on = track === d.key;
+            return (
+              <button
+                key={d.key}
+                type="button"
+                role="tab"
+                aria-selected={on}
+                onMouseEnter={() => setTrack(d.key)}
+                onFocus={() => setTrack(d.key)}
+                onClick={() => setTrack(d.key)}
+                className={`px-4 py-2 rounded-full border font-mono text-xs uppercase tracking-widest transition ${
+                  on
+                    ? "border-emerald-400/60 bg-emerald-400/10 text-emerald-300"
+                    : "border-white/10 bg-white/[0.02] text-neutral-400 hover:text-white"
+                }`}
+              >
+                {d.label}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {DOORS.map((d, i) => {
             const Icon = d.icon;
             const bg = WORKS.find((w) => w.slug === d.imageFrom)?.image;
+            const on = track === d.key;
             const inner = (
               <MagneticCard
                 strength={10}
-                className="group relative h-full overflow-hidden bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
+                className={`group relative h-full overflow-hidden bg-white/[0.02] border rounded-2xl transition duration-500 flex flex-col ${
+                  on
+                    ? "border-emerald-400/50 shadow-[0_0_40px_-18px_rgba(52,211,153,0.8)] md:-translate-y-1"
+                    : "border-white/10 md:opacity-70 hover:opacity-100 hover:border-emerald-400/30"
+                }`}
               >
                 {bg && (
                   <img
@@ -322,16 +361,34 @@ function FourDoorRouter() {
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
-                    className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-35 transition duration-500 scale-105"
+                    className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition duration-700 scale-105 ${
+                      on ? "opacity-40 scale-110" : "opacity-20 group-hover:opacity-35"
+                    }`}
                   />
                 )}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
+                {/* corner ticks */}
+                <span aria-hidden className={`pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t transition ${on ? "border-emerald-400/70" : "border-white/15"}`} />
+                <span aria-hidden className={`pointer-events-none absolute right-3 bottom-3 h-3 w-3 border-r border-b transition ${on ? "border-emerald-400/70" : "border-white/15"}`} />
                 <div className="relative z-10 p-6 flex flex-col h-full">
                   <Icon className="text-emerald-300" size={22} />
                   <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
                     {d.label}
                   </div>
                   <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
+                  <dl
+                    className={`mt-4 grid gap-1 overflow-hidden transition-all duration-500 ${
+                      on ? "max-h-24 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    {d.readout.map((r) => (
+                      <div key={r.k} className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <dt className="text-neutral-500">{r.k}</dt>
+                        <span aria-hidden className="h-px w-3 bg-emerald-400/40" />
+                        <dd className="text-emerald-300">{r.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
                   <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
                     Open <ArrowRight size={12} />
                   </div>
