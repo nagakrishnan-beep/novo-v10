@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
 import { abs, BASE_URL } from "@/lib/site";
+import { HudRail } from "@/components/spatial/hud-label";
+import { PipelineRail } from "@/components/spatial/pipeline-rail";
 import {
   breadcrumbJsonLd,
   webPageJsonLd,
@@ -165,6 +167,8 @@ function RealityCapturePage() {
             different budget. We run LiDAR, Matterport, 360°, drone, photogrammetry and
             Scan-to-BIM under one roof and pick the right one for the outcome.
           </p>
+          <HudRail className="mt-8" items={[{ k: "Sensors", v: "LiDAR, 360°, drone" }, { k: "Coverage", v: "Malaysia and region" }, { k: "Delivery", v: "Days, not weeks" }]} />
+          <PipelineRail className="mt-8 max-w-2xl" />
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/estimate"

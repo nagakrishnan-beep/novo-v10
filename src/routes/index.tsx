@@ -32,6 +32,10 @@ import { CLIENT_LOGOS } from "@/lib/logos";
 import { WORKS } from "@/lib/works";
 import { SiteHeader, SiteFooter, SmartImage } from "@/components/site-chrome";
 import { YouTubeEmbed } from "@/components/youtube-embed";
+import { HudLabel, HudRail } from "@/components/spatial/hud-label";
+import { CountUp } from "@/components/spatial/count-up";
+import { PipelineRail } from "@/components/spatial/pipeline-rail";
+import { TrackProvider, useTrack, type TrackKey } from "@/components/spatial/track-context";
 
 
 
@@ -158,31 +162,33 @@ function Index() {
 
 function PageContent() {
   return (
-    <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-clip selection:bg-emerald-400 selection:text-black">
-      <SiteHeader active="home" />
-      <SideRail />
-      <main>
-        <Hero />
-        <FeaturedWorkStrip />
+    <TrackProvider>
+      <div className="relative min-h-screen text-neutral-100 font-sans antialiased overflow-x-clip selection:bg-emerald-400 selection:text-black">
+        <SiteHeader active="home" />
+        <SideRail />
+        <main>
+          <Hero />
+          <FeaturedWorkStrip />
 
-        <ByTheNumbers />
-        <DefinedTerms />
-        <FourDoorRouter />
-        <ScanRealitySection />
-        <IndustriesRow />
-        <CaptureSection />
-        <OutcomesSection />
-        <IndustriesSection />
-        <ServicesSection />
-        <StoriesSection />
-        <LogosSection />
-        <ReviewsSection />
-        <ScopeSection />
-        <FaqSection />
-        <CtaSection />
-      </main>
-      <SiteFooter />
-    </div>
+          <ByTheNumbers />
+          <DefinedTerms />
+          <FourDoorRouter />
+          <ScanRealitySection />
+          <IndustriesRow />
+          <CaptureSection />
+          <OutcomesSection />
+          <IndustriesSection />
+          <ServicesSection />
+          <StoriesSection />
+          <LogosSection />
+          <ReviewsSection />
+          <ScopeSection />
+          <FaqSection />
+          <CtaSection />
+        </main>
+        <SiteFooter />
+      </div>
+    </TrackProvider>
   );
 }
 
@@ -203,7 +209,8 @@ function ScanRealitySection() {
         <div className="relative z-10 h-full flex items-end md:items-center px-6 md:px-24 pb-10 md:pb-0">
           <div className="max-w-2xl">
             <div className="text-xs font-mono uppercase tracking-[0.4em] text-emerald-300 mb-6">
-              [ Scan-verified geometry · 77,399 points ]
+              [ Scan-verified geometry ·{" "}
+              <CountUp value={77399} /> points ]
             </div>
             <h2 className="text-4xl md:text-6xl font-light text-white leading-[1.05] tracking-tight">
               This is measured reality.
@@ -212,6 +219,14 @@ function ScanRealitySection() {
               Every point you see was laser-captured on a real Novo Reperio
               project. Walk the actual space. Nothing here is rendered marketing.
             </p>
+            <HudRail
+              className="mt-8"
+              items={[
+                { k: "Source", v: "Falcon 7X cabin" },
+                { k: "Method", v: "LiDAR + photogrammetry" },
+                { k: "Deliverable", v: "Point cloud, twin" },
+              ]}
+            />
             <div className="mt-8">
               <Link
                 to="/works/$slug"
@@ -224,6 +239,72 @@ function ScanRealitySection() {
           </div>
         </div>
       </div>
+
+      {/* capture -> deliverable diptych */}
+      <div className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
+          <div className="space-y-5">
+            <HudLabel k="Capture" v="Deliverable" />
+            <h3 className="text-2xl md:text-4xl font-light text-white">
+              What we put on site, and what you get back.
+            </h3>
+            <p className="text-[15px] text-neutral-400 font-light leading-relaxed max-w-xl">
+              Capture is the easy half. The value sits in what the scan becomes:
+              a measurable twin, a registered point cloud, a BIM model, a
+              walkthrough your buyers or engineers can actually use.
+            </p>
+            <ul className="space-y-2 text-sm text-neutral-300 font-light">
+              <li className="border-l-2 border-emerald-400/50 pl-4">
+                Geometry you can measure, not a render you have to trust.
+              </li>
+              <li className="border-l-2 border-emerald-400/50 pl-4">
+                One capture session, multiple output formats.
+              </li>
+            </ul>
+            <Link
+              to="/methodology"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-300 hover:text-emerald-200"
+            >
+              How we measure <ArrowRight size={14} />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                src: "/images/media/12-24-2021-11-19-06.webp",
+                k: "On site",
+                t: "LiDAR capture",
+                d: "Terrestrial scanning across the live building.",
+              },
+              {
+                src: "/images/media/1003-novo-reperio-interactive-360-virtual-tours-asia-wtckl.jpg",
+                k: "Delivered",
+                t: "Navigable twin",
+                d: "WTCKL, the venue twin event buyers walk before booking.",
+              },
+            ].map((f) => (
+              <figure
+                key={f.t}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]"
+              >
+                <img
+                  src={f.src}
+                  alt={f.d}
+                  loading="lazy"
+                  className="h-56 w-full object-cover opacity-80 transition duration-700 group-hover:scale-[1.04] group-hover:opacity-100"
+                />
+                <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-5">
+                  <HudLabel k={f.k} />
+                  <div className="mt-2 text-base font-light text-white">{f.t}</div>
+                  <p className="mt-1 text-xs text-neutral-400 leading-relaxed">{f.d}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 }
@@ -231,9 +312,11 @@ function ScanRealitySection() {
 
 
 type Door = {
-  key: string;
+  key: TrackKey;
   label: string;
   outcome: string;
+  /** one-line spatial readout shown when the track is active */
+  readout: { k: string; v: string }[];
   href: string;
   routeTo?: "/services/facilities-operations" | "/services/urban-digital-twins";
   icon: React.ComponentType<{ className?: string; size?: number }>;
@@ -242,13 +325,15 @@ type Door = {
 };
 
 const DOORS: Door[] = [
-  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", href: "/services#market", icon: Building2, imageFrom: "royal-lexis" },
-  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", href: "/services#build",  icon: Ruler, imageFrom: "pnb-cimb-hub" },
-  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench, imageFrom: "kuala-lumpur-convention-centre" },
-  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon, imageFrom: "majlis-bandaraya-seremban" },
+  { key: "sell", label: "SELL", outcome: "Property marketing, virtual showrooms, venue sales, CGI and launch microsites.", readout: [{ k: "Output", v: "Matterport, 360°, CGI" }, { k: "Buyer", v: "Sales and marketing" }], href: "/services#market", icon: Building2, imageFrom: "royal-lexis" },
+  { key: "build",  label: "BUILD",  outcome: "Scan-to-BIM up to LOD 400, as-built capture and construction progress documentation.", readout: [{ k: "Output", v: "Point cloud, BIM, CAD" }, { k: "Buyer", v: "AEC and project teams" }], href: "/services#build",  icon: Ruler, imageFrom: "pnb-cimb-hub" },
+  { key: "operate", label: "OPERATE", outcome: "Facilities digital twins, asset documentation and remote inspection.", readout: [{ k: "Output", v: "Asset twin, tagged data" }, { k: "Buyer", v: "Facilities and operations" }], href: "/services/facilities-operations", routeTo: "/services/facilities-operations", icon: Wrench, imageFrom: "kuala-lumpur-convention-centre" },
+  { key: "plan",   label: "PLAN",   outcome: "City and masterplan-scale digital twins with data overlay for planning.", readout: [{ k: "Output", v: "Aerial mesh, city twin" }, { k: "Buyer", v: "Planning and government" }], href: "/services/urban-digital-twins", routeTo: "/services/urban-digital-twins", icon: MapIcon, imageFrom: "majlis-bandaraya-seremban" },
 ];
 
 function FourDoorRouter() {
+  const { track, setTrack } = useTrack();
+
   return (
     <section id="doors" className="relative z-10 px-6 md:px-24 py-20 md:py-24 border-t border-white/5 scroll-mt-24">
       <div className="space-y-8">
@@ -258,14 +343,49 @@ function FourDoorRouter() {
             Pick the track that matches the job: sell, build, operate or plan.
           </h2>
         </Reveal>
+
+        {/* track selector */}
+        <div
+          role="tablist"
+          aria-label="Business tracks"
+          className="flex flex-wrap gap-2"
+        >
+          {DOORS.map((d) => {
+            const on = track === d.key;
+            return (
+              <button
+                key={d.key}
+                type="button"
+                role="tab"
+                aria-selected={on}
+                onMouseEnter={() => setTrack(d.key)}
+                onFocus={() => setTrack(d.key)}
+                onClick={() => setTrack(d.key)}
+                className={`px-4 py-2 rounded-full border font-mono text-xs uppercase tracking-widest transition ${
+                  on
+                    ? "border-emerald-400/60 bg-emerald-400/10 text-emerald-300"
+                    : "border-white/10 bg-white/[0.02] text-neutral-400 hover:text-white"
+                }`}
+              >
+                {d.label}
+              </button>
+            );
+          })}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {DOORS.map((d, i) => {
             const Icon = d.icon;
             const bg = WORKS.find((w) => w.slug === d.imageFrom)?.image;
+            const on = track === d.key;
             const inner = (
               <MagneticCard
                 strength={10}
-                className="group relative h-full overflow-hidden bg-white/[0.02] border border-white/10 rounded-2xl hover:border-emerald-400/40 transition flex flex-col"
+                className={`group relative h-full overflow-hidden bg-white/[0.02] border rounded-2xl transition duration-500 flex flex-col ${
+                  on
+                    ? "border-emerald-400/50 shadow-[0_0_40px_-18px_rgba(52,211,153,0.8)] md:-translate-y-1"
+                    : "border-white/10 md:opacity-70 hover:opacity-100 hover:border-emerald-400/30"
+                }`}
               >
                 {bg && (
                   <img
@@ -273,16 +393,34 @@ function FourDoorRouter() {
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
-                    className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-35 transition duration-500 scale-105"
+                    className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition duration-700 scale-105 ${
+                      on ? "opacity-40 scale-110" : "opacity-20 group-hover:opacity-35"
+                    }`}
                   />
                 )}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
+                {/* corner ticks */}
+                <span aria-hidden className={`pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t transition ${on ? "border-emerald-400/70" : "border-white/15"}`} />
+                <span aria-hidden className={`pointer-events-none absolute right-3 bottom-3 h-3 w-3 border-r border-b transition ${on ? "border-emerald-400/70" : "border-white/15"}`} />
                 <div className="relative z-10 p-6 flex flex-col h-full">
                   <Icon className="text-emerald-300" size={22} />
                   <div className="mt-4 text-xs font-mono uppercase tracking-widest text-emerald-300">
                     {d.label}
                   </div>
                   <p className="mt-3 text-sm text-neutral-300 leading-relaxed flex-1">{d.outcome}</p>
+                  <dl
+                    className={`mt-4 grid gap-1 overflow-hidden transition-all duration-500 ${
+                      on ? "max-h-24 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    {d.readout.map((r) => (
+                      <div key={r.k} className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+                        <dt className="text-neutral-500">{r.k}</dt>
+                        <span aria-hidden className="h-px w-3 bg-emerald-400/40" />
+                        <dd className="text-emerald-300">{r.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
                   <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white">
                     Open <ArrowRight size={12} />
                   </div>
@@ -460,7 +598,18 @@ function Hero() {
       id="top"
       className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-24 pt-16 pb-16"
     >
-      <div className="max-w-5xl origin-left">
+      {/* scan-data backdrop: our own point cloud, dimmed behind the copy */}
+      <ClientOnly fallback={null}>
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+          <PointCloudHero className="absolute inset-0 opacity-[0.22]" offsetX={-0.9} />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#020203] via-[#020203]/85 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#020203] to-transparent" />
+        </div>
+      </ClientOnly>
+
+      <div className="relative z-10 max-w-5xl origin-left">
+        <PipelineRail className="mb-8 max-w-3xl" />
+
         <KineticEyebrow className="text-xs font-mono block mb-6 uppercase tracking-widest">
           NOVO REPERIO · DIGITAL TWIN & REALITY CAPTURE
         </KineticEyebrow>
@@ -518,7 +667,7 @@ function Hero() {
       </div>
 
       {/* proof line */}
-      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-300">
+      <div className="relative z-10 mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-300">
         <span className="font-mono text-xs uppercase tracking-wider text-emerald-300">Proof</span>
         <span className="font-light">
           WTCKL digital twin: <span className="text-white font-medium">8,000+ visits · 37/week</span>, bookings confirmed faster.
@@ -527,7 +676,8 @@ function Hero() {
       </div>
 
       {/* client logo row */}
-      <div className="mt-8 max-w-5xl">
+      <div className="relative z-10 mt-8 max-w-5xl">
+
         <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
           Trusted by
         </div>
@@ -632,24 +782,30 @@ function FeaturedWorkStrip() {
 
 /* ---------- By the numbers strip ---------- */
 function ByTheNumbers() {
-  const stats = [
-    "12+ years in spatial capture (since 2014).",
-    "400+ projects delivered.",
-    "WTCKL digital twin: 8,000+ visits, averaging 37 per week.",
-    "Skylon Residences: 60% of units sold, supported by 360° virtual tours.",
+  const stats: { value: number; prefix?: string; suffix?: string; label: string }[] = [
+    { value: 12, suffix: "+", label: "Years in spatial capture, since 2014." },
+    { value: 400, suffix: "+", label: "Projects delivered across Malaysia and the region." },
+    { value: 8000, suffix: "+", label: "WTCKL digital twin visits, averaging 37 a week." },
+    { value: 60, suffix: "%", label: "Skylon Residences units sold, supported by 360° tours." },
   ];
   return (
     <section className="px-6 md:px-24 py-20 md:py-24 border-t border-neutral-900">
-      <div className="text-xs font-mono uppercase tracking-widest text-emerald-400/80 mb-6">
-        By the numbers
-      </div>
-      <ul className="space-y-3 max-w-3xl">
+      <HudLabel k="By the numbers" v="Verified" className="mb-8" />
+      <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
         {stats.map((s) => (
-          <li key={s} className="text-base md:text-lg text-white font-light border-l-2 border-emerald-400/50 pl-4">
-            {s}
-          </li>
+          <div key={s.label} className="border-l-2 border-emerald-400/50 pl-4">
+            <dt className="sr-only">{s.label}</dt>
+            <dd>
+              <span className="block text-3xl md:text-5xl font-light text-white tabular-nums tracking-tight">
+                <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
+              </span>
+              <span className="mt-3 block text-sm text-neutral-400 font-light leading-relaxed">
+                {s.label}
+              </span>
+            </dd>
+          </div>
         ))}
-      </ul>
+      </dl>
     </section>
   );
 }
