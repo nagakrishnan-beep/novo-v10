@@ -29,7 +29,7 @@ const STEPS = [
 
 const METHODS = [
   { icon: MessageCircle, label: "WhatsApp", value: WHATSAPP_PHONE, href: WHATSAPP_URL, hint: "Fastest response, same day." },
-  { icon: Phone, label: "Call the studio", value: PHONE, href: `tel:${PHONE_TEL}`, hint: "Office direct line, weekdays 9:00–18:00 MYT." },
+  { icon: Phone, label: "Call the company", value: PHONE, href: `tel:${PHONE_TEL}`, hint: "Office direct line, weekdays 9:00–18:00 MYT." },
   { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, hint: "For scoping, quotes and briefing documents." },
   { icon: MapPin, label: "Nerve Center", value: "Solaris Mont Kiara, KL", href: "https://maps.google.com/?q=Solaris+Mont+Kiara", hint: ADDRESS_FULL },
 ];
@@ -185,7 +185,7 @@ function ContactPage() {
             href={`mailto:${EMAIL}`}
             className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-cyan-400/50 hover:text-cyan-300"
           >
-            <Mail size={14} /> Email the studio
+            <Mail size={14} /> Email the company
           </a>
         </div>
       </section>
@@ -343,7 +343,7 @@ function ContactPage() {
         </div>
         <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10">
           <iframe
-            title="Novo Reperio studio location"
+            title="Novo Reperio company location"
             src="https://www.google.com/maps?q=Solaris+Mont+Kiara,+Kuala+Lumpur&output=embed"
             className="w-full h-full grayscale contrast-125"
             loading="lazy"

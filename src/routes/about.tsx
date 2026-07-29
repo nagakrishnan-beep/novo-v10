@@ -9,7 +9,7 @@ import { localMedia } from "@/lib/wp-content";
 
 
 const WHATSAPP_URL = "https://wa.me/60172029996";
-const TITLE = "About Novo Reperio: Spatial capture studio in Kuala Lumpur";
+const TITLE = "About Novo Reperio: Spatial capture company in Kuala Lumpur";
 const DESCRIPTION =
   "Since 2014, Novo Reperio has helped venues, developers, and facilities present space with more clarity, through Matterport, 360°, LiDAR, aerial, and launch-ready web assets.";
 
@@ -40,7 +40,7 @@ const TIMELINE = [
     year: "2014–2018",
     tag: "Immersive capture",
     title: "The work shifted toward immersive capture.",
-    body: "Matterport walkthroughs, drone-led presentation, and interactive spatial assets started defining the studio's delivery model.",
+    body: "Matterport walkthroughs, drone-led presentation, and interactive spatial assets started defining the company's delivery model.",
   },
   {
     year: "2019–2021",
@@ -51,7 +51,7 @@ const TIMELINE = [
   {
     year: "2022–2023",
     tag: "Category platforms",
-    title: "Category-led platforms followed the studio work.",
+    title: "Category-led platforms followed the company work.",
     body: "Novo launched initiatives such as Virtual Property and EventVenues Asia while continuing digital twin and destination presentation work.",
   },
 ];
@@ -226,11 +226,11 @@ function AboutPage() {
         </div>
         <div>
           <h2 className="text-3xl md:text-4xl font-light text-white leading-tight max-w-3xl">
-            A studio built around spatial clarity.
+            A company built around spatial clarity.
           </h2>
           <p className="mt-6 text-neutral-400 max-w-3xl leading-relaxed">
             Novo Reperio started in 2014 and moved early into immersive capture,
-            spatial data, and digital twin work. Over time, the studio expanded
+            spatial data, and digital twin work. Over time, the company expanded
             from pure scanning into a broader presentation layer that includes
             360 experiences, aerial visuals, project websites, and launch-ready
             assets.
@@ -281,7 +281,7 @@ function AboutPage() {
       {/* Timeline */}
       <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900">
         <div className="text-xs tracking-[0.4em] uppercase text-cyan-400 mb-4">
-          Studio trajectory
+          Company trajectory
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-3xl leading-tight">
           A steady move from tech services into immersive space presentation.
@@ -313,7 +313,7 @@ function AboutPage() {
           The team
         </div>
         <h2 className="text-3xl md:text-4xl font-light text-white max-w-3xl leading-tight">
-          Small studio. Deep spatial specialisation.
+          Small company. Deep spatial specialisation.
         </h2>
         <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-6">
           {TEAM.map((m) => (
@@ -392,7 +392,7 @@ function AboutPage() {
           >
             <MapPin size={16} className="text-cyan-300 mb-3" />
             <div className="text-xs uppercase tracking-widest text-neutral-500 mb-1">
-              Studio Base
+              Company Base
             </div>
             <div className="text-white text-sm leading-snug">
               Solaris Mont Kiara, 50480 Kuala Lumpur, Malaysia

@@ -248,7 +248,7 @@ const RAW_SERVICES: Service[] = [
       "More directions per budget",
       "Concept turnaround in hours",
       "Human artists finish every final frame",
-      "Consistent with the studio's photoreal standard",
+      "Consistent with the company's photoreal standard",
     ],
     image: img("ai-viz.jpg"),
   },

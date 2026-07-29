@@ -245,7 +245,7 @@ export const INSIGHTS: Insight[] = [
       "Aerial shots communicate scale, access and surroundings.",
       "Aerial 360° at multiple floor heights previews real views.",
       "Combines with CGI hybrids for unbuilt developments.",
-      "Drone licensing is handled end-to-end by the studio.",
+      "Drone licensing is handled end-to-end by the company.",
     ],
     relatedService: "property-visualization",
     relatedServiceLabel: "Property Visualization",

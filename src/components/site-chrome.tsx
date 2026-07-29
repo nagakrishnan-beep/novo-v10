@@ -44,7 +44,7 @@ const FOOTER_COLUMNS: {
     ],
   },
   {
-    title: "Studio",
+    title: "Company",
     links: [
       { key: "works", label: "Works", to: "/works" },
       { key: "insights", label: "Insights", to: "/insights" },
@@ -203,7 +203,7 @@ export function SiteFooter() {
         <div className="md:col-span-4">
           <img src="/novo-logo.png" alt="Novo Reperio" className="h-12 md:h-14 w-auto opacity-90" />
           <p className="mt-4 text-sm text-neutral-400 max-w-sm leading-relaxed">
-            {LEGAL_NAME}, spatial capture studio in Kuala Lumpur since 2014.
+            {LEGAL_NAME}, spatial capture company in Kuala Lumpur since 2014.
           </p>
           <ul className="mt-5 flex flex-wrap items-center gap-4 text-sm text-neutral-300">
             <li>
