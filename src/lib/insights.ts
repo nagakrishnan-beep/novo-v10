@@ -260,7 +260,7 @@ export const INSIGHTS: Insight[] = [
     date: "1 April 2026",
     datePublished: "2026-04-01",
     category: "Digital Twins & Matterport",
-    image: img("digital-twin-convention.jpg"),
+    image: "/images/media/kuala-lumpur-convention-centre-03312021-110706.jpg",
     sourceUrl:
       "https://novoreperio.com/digital-twin-for-convention-centres/",
     body:
@@ -284,7 +284,7 @@ export const INSIGHTS: Insight[] = [
     date: "22 March 2026",
     datePublished: "2026-03-22",
     category: "3D Rendering & Visualisation",
-    image: img("cgi-vs-photography.jpg"),
+    image: "/images/media/matterport-vs-cgi-walkthrough-which-fits-featured.webp",
     sourceUrl:
       "https://novoreperio.com/cgi-vs-photography-property-marketing/",
     body:
