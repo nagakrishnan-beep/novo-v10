@@ -635,7 +635,7 @@ function Hero() {
       </div>
 
       {/* proof line */}
-      <div className="mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-300">
+      <div className="relative z-10 mt-12 max-w-5xl border-t border-white/10 pt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-neutral-300">
         <span className="font-mono text-xs uppercase tracking-wider text-emerald-300">Proof</span>
         <span className="font-light">
           WTCKL digital twin: <span className="text-white font-medium">8,000+ visits · 37/week</span>, bookings confirmed faster.
@@ -644,7 +644,8 @@ function Hero() {
       </div>
 
       {/* client logo row */}
-      <div className="mt-8 max-w-5xl">
+      <div className="relative z-10 mt-8 max-w-5xl">
+
         <div className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
           Trusted by
         </div>
