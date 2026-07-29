@@ -20,7 +20,34 @@ export const Route = createFileRoute("/terms-and-conditions")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Terms & Conditions",
+          description: DESCRIPTION,
+          url: CANONICAL,
+          inLanguage: ["en-MY", "ms-MY"],
+          isPartOf: { "@type": "WebSite", name: SITE_NAME, url: BASE_URL },
+          publisher: { "@type": "Organization", name: LEGAL_NAME, url: BASE_URL },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+            { "@type": "ListItem", position: 2, name: "Terms & Conditions", item: CANONICAL },
+          ],
+        }),
+      },
+    ],
   }),
+
   component: TermsPage,
 });
 
