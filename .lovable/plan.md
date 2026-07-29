@@ -1,26 +1,28 @@
 ## Objective
-Create a new internal `/terms-and-conditions` route on the novo-v10 site, migrate the content from the existing WordPress page, and add a link in the footer.
+Keep one `/terms-and-conditions` page, but let visitors switch between the English and Bahasa Malaysia versions with a toggle.
 
 ## Steps
 
-1. **Fetch source content**
-   - Pull the existing page at `https://novoreperio.com/terms-and-conditions/` to capture the terms text and section structure.
+1. **Pull the Bahasa content**
+   - Re-fetch `https://novoreperio.com/terms-and-conditions-to-use-m/` and transcribe the full Bahasa text for both parts (Matterport 3D Showcase, and 3D rendering services), keeping the original casual tone exactly as written.
 
-2. **Create the route**
-   - Add `src/routes/terms-and-conditions.tsx` with a dark-brand editorial layout consistent with `/faq` and `/about`.
-   - Use sentence-case headings, `font-light` hierarchy, and `px-6 md:px-24` gutters.
-   - Preserve the original legal copy; replace any em-dashes if present.
-   - Add route-specific `head()` metadata (title, description, og:title, og:description, og:type, twitter:card).
+2. **Restructure the route data**
+   - In `src/routes/terms-and-conditions.tsx`, move the existing English arrays into an `en` object and add a parallel `ms` object with the same `{ title, items }` shape.
+   - Localize the page chrome too: eyebrow, H1, intro paragraph, group headings, and the closing "Need more information?" block.
 
-3. **Wire the footer**
-   - Add `{ key: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" }` to `FOOTER_NAV` in `src/components/site-chrome.tsx`.
-   - Place it after FAQ in the Explore column.
+3. **Add the toggle**
+   - A small pill switch (`English` / `Bahasa Malaysia`) placed under the H1, styled with the emerald accent used site-wide.
+   - Client-side `useState` only, no route change, no reload. Default = English.
+   - Set `lang="ms"` on the Bahasa content wrapper for accessibility and correct search-engine language detection.
 
-4. **Verify**
-   - Confirm the route resolves and the footer link renders on desktop and mobile.
-   - Confirm no build/type errors.
+4. **SEO handling**
+   - Keep the canonical at `/terms-and-conditions` and the English `head()` metadata unchanged, since English stays the default rendered version.
+   - No separate BM route, so no hreflang tags needed.
+
+5. **Verify**
+   - Toggle works on desktop and mobile, no layout shift, no build or type errors.
+   - No em-dashes introduced in the new copy.
 
 ## Notes
-- No new dependencies required.
-- No changes to the top navigation; this is footer-only discovery.
-- Keep the page static (no forms or server functions).
+- No new dependencies, no backend, no changes to the footer link.
+- The Bahasa version is content-equivalent but not a literal translation; both are shown as authored on the original site.
