@@ -97,8 +97,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     ],
     scripts: [
       {
@@ -113,11 +111,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify(LOCALBUSINESS_JSONLD),
       },
-      // GA4 loader - TODO replace G-XXXXXXXXXX in src/lib/site.ts
+      // GA4
       {
         src: `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`,
         async: true,
       },
+
       {
         children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}');`,
       },

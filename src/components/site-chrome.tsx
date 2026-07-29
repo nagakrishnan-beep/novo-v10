@@ -28,12 +28,41 @@ const NAV: { key: ActiveKey; label: string; to: any }[] = [
   { key: "about", label: "About", to: "/about" },
 ];
 
-const FOOTER_NAV: { key: string; label: string; to: any }[] = [
-  ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
-  { key: "contact", label: "Contact", to: "/contact" },
-  { key: "faq", label: "FAQ", to: "/faq" },
-  { key: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" },
+/** Footer is split into short columns so it never becomes one long list. */
+const FOOTER_COLUMNS: {
+  title: string;
+  links: { key: string; label: string; to: any }[];
+}[] = [
+  {
+    title: "Explore",
+    links: [
+      { key: "digital-twins", label: "Digital Twins", to: "/digital-twins" },
+      { key: "reality-capture", label: "Reality Capture", to: "/reality-capture" },
+      { key: "solutions", label: "Solutions", to: "/solutions" },
+      { key: "services", label: "Services", to: "/services" },
+      { key: "industries", label: "Industries", to: "/industries" },
+    ],
+  },
+  {
+    title: "Studio",
+    links: [
+      { key: "works", label: "Works", to: "/works" },
+      { key: "insights", label: "Insights", to: "/insights" },
+      { key: "about", label: "About", to: "/about" },
+      { key: "methodology", label: "Methodology", to: "/methodology" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { key: "contact", label: "Contact", to: "/contact" },
+      { key: "estimate", label: "Get an assessment", to: "/estimate" },
+      { key: "faq", label: "FAQ", to: "/faq" },
+      { key: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" },
+    ],
+  },
 ];
+
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
   const [open, setOpen] = useState(false);
@@ -150,12 +179,15 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
               </div>
 
               <div className="mt-8">
-                <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">Explore</div>
+                <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-3">More</div>
                 <ul className="space-y-2 text-sm text-neutral-400">
-                  <li><Link to="/contact" onClick={() => setOpen(false)} className="hover:text-emerald-300">Contact</Link></li>
+                  <li><Link to="/services" onClick={() => setOpen(false)} className="hover:text-emerald-300">Services</Link></li>
+                  <li><Link to="/methodology" onClick={() => setOpen(false)} className="hover:text-emerald-300">Methodology</Link></li>
                   <li><Link to="/faq" onClick={() => setOpen(false)} className="hover:text-emerald-300">FAQ</Link></li>
+                  <li><Link to="/terms-and-conditions" onClick={() => setOpen(false)} className="hover:text-emerald-300">Terms &amp; Conditions</Link></li>
                 </ul>
               </div>
+
             </nav>
           </div>
         </div>
@@ -167,40 +199,54 @@ export function SiteHeader({ active = null }: { active?: ActiveKey }) {
 export function SiteFooter() {
   return (
     <footer className="border-t border-neutral-900 bg-[#020203] mt-0">
-      <div className="px-6 md:px-24 py-16 grid gap-10 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <div className="px-6 md:px-24 py-14 md:py-16 grid gap-10 md:gap-8 md:grid-cols-12">
+        <div className="md:col-span-4">
           <img src="/novo-logo.png" alt="Novo Reperio" className="h-12 md:h-14 w-auto opacity-90" />
-          <p className="mt-4 text-sm text-neutral-400 max-w-md leading-relaxed">
-            {LEGAL_NAME}, spatial capture studio in Kuala Lumpur since 2014. Matterport
-            digital twins, 360° tours, drone capture, CGI and UE5 experiences for venues,
-            developers and enterprises worldwide.
+          <p className="mt-4 text-sm text-neutral-400 max-w-sm leading-relaxed">
+            {LEGAL_NAME}, spatial capture studio in Kuala Lumpur since 2014.
           </p>
-        </div>
-
-        <div>
-          <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">Explore</div>
-          <ul className="space-y-2 text-sm text-neutral-300">
-            {FOOTER_NAV.map((n) => (
-              <li key={n.key}>
-                <Link to={n.to} className="hover:text-emerald-300">{n.label}</Link>
-              </li>
-            ))}
+          <ul className="mt-5 flex flex-wrap items-center gap-4 text-sm text-neutral-300">
+            <li>
+              <a href={SOCIALS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:text-emerald-300 inline-flex"><Instagram size={18} /></a>
+            </li>
+            <li>
+              <a href={SOCIALS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="hover:text-emerald-300 inline-flex"><Facebook size={18} /></a>
+            </li>
+            <li>
+              <a href={SOCIALS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-emerald-300 inline-flex"><Linkedin size={18} /></a>
+            </li>
+            <li>
+              <a href={SOCIALS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube" className="hover:text-emerald-300 inline-flex"><Youtube size={18} /></a>
+            </li>
           </ul>
         </div>
 
-        <div>
-          <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">Follow</div>
-          <ul className="space-y-2 text-sm text-neutral-300">
-            <li><a href={SOCIALS.instagram} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Instagram size={14}/> Instagram</a></li>
-            <li><a href={SOCIALS.facebook} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Facebook size={14}/> Facebook</a></li>
-            <li><a href={SOCIALS.linkedin} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Linkedin size={14}/> LinkedIn</a></li>
-            <li><a href={SOCIALS.youtube} target="_blank" rel="noreferrer" className="hover:text-emerald-300 inline-flex items-center gap-2"><Youtube size={14}/> YouTube</a></li>
-          </ul>
-        </div>
+        <nav
+          aria-label="Footer"
+          className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-6"
+        >
+          {FOOTER_COLUMNS.map((col) => (
+            <div key={col.title}>
+              <div className="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-4">
+                {col.title}
+              </div>
+              <ul className="space-y-2 text-sm text-neutral-300">
+                {col.links.map((n) => (
+                  <li key={n.key}>
+                    <Link to={n.to} className="hover:text-emerald-300">
+                      {n.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
       </div>
 
-      <div className="border-t border-neutral-900 px-6 md:px-24 py-6 flex items-center justify-center text-xs font-mono text-neutral-500">
+      <div className="border-t border-neutral-900 px-6 md:px-24 py-6 flex items-center justify-center text-center text-xs font-mono text-neutral-500">
         <span>© {new Date().getFullYear()} {LEGAL_NAME}. All rights reserved.</span>
+
       </div>
     </footer>
   );
