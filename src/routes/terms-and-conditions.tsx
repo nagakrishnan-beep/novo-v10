@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
-import { abs, EMAIL } from "@/lib/site";
+import { abs, EMAIL, SITE_NAME, LEGAL_NAME, BASE_URL } from "@/lib/site";
 
 const TITLE = "Terms & Conditions | Novo Reperio";
 const DESCRIPTION =
