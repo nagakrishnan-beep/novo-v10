@@ -210,7 +210,8 @@ function ScanRealitySection() {
         <div className="relative z-10 h-full flex items-end md:items-center px-6 md:px-24 pb-10 md:pb-0">
           <div className="max-w-2xl">
             <div className="text-xs font-mono uppercase tracking-[0.4em] text-emerald-300 mb-6">
-              [ Scan-verified geometry · 77,399 points ]
+              [ Scan-verified geometry ·{" "}
+              <CountUp value={77399} /> points ]
             </div>
             <h2 className="text-4xl md:text-6xl font-light text-white leading-[1.05] tracking-tight">
               This is measured reality.
@@ -219,6 +220,14 @@ function ScanRealitySection() {
               Every point you see was laser-captured on a real Novo Reperio
               project. Walk the actual space. Nothing here is rendered marketing.
             </p>
+            <HudRail
+              className="mt-8"
+              items={[
+                { k: "Source", v: "Falcon 7X cabin" },
+                { k: "Method", v: "LiDAR + photogrammetry" },
+                { k: "Deliverable", v: "Point cloud, twin" },
+              ]}
+            />
             <div className="mt-8">
               <Link
                 to="/works/$slug"
@@ -229,6 +238,39 @@ function ScanRealitySection() {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* reality -> data comparison, same aircraft, same capture session */}
+      <div className="px-6 md:px-24 py-20 md:py-24 border-t border-white/5">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center">
+          <div className="space-y-5">
+            <HudLabel k="Reality" v="Digital twin" />
+            <h3 className="text-2xl md:text-4xl font-light text-white">
+              Drag to see the space become data.
+            </h3>
+            <p className="text-[15px] text-neutral-400 font-light leading-relaxed max-w-xl">
+              The left frame is the cabin as photographed on site. The right
+              frame is the same cabin as captured geometry, the point cloud our
+              measurements, BIM models and walkthroughs are derived from.
+            </p>
+            <ul className="space-y-2 text-sm text-neutral-300 font-light">
+              <li className="border-l-2 border-emerald-400/50 pl-4">
+                Same session, same aircraft, no staging between frames.
+              </li>
+              <li className="border-l-2 border-emerald-400/50 pl-4">
+                Geometry you can measure, not a render you have to trust.
+              </li>
+            </ul>
+          </div>
+          <CompareSlider
+            beforeSrc="/images/media/falcon-7x-05072019-154952.jpg"
+            afterSrc="/images/falcon-point-cloud.jpg"
+            beforeAlt="Falcon 7X cabin photographed on site"
+            afterAlt="Point cloud of the same Falcon 7X cabin captured by LiDAR"
+            beforeLabel="On site"
+            afterLabel="Point cloud"
+          />
         </div>
       </div>
     </section>
