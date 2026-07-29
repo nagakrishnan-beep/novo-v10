@@ -32,6 +32,7 @@ const FOOTER_NAV: { key: string; label: string; to: any }[] = [
   ...NAV.map((n) => ({ key: String(n.key), label: n.label, to: n.to })),
   { key: "contact", label: "Contact", to: "/contact" },
   { key: "faq", label: "FAQ", to: "/faq" },
+  { key: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" },
 ];
 
 export function SiteHeader({ active = null }: { active?: ActiveKey }) {
