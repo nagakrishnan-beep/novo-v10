@@ -133,7 +133,7 @@ function MethodologyPage() {
           </div>
         </section>
 
-        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 space-y-10 max-w-4xl">
+        <section className="px-6 md:px-24 py-20 md:py-24 border-b border-neutral-900 space-y-10">
           {PRINCIPLES.map((s) => {
             const Icon = s.icon;
             return (
