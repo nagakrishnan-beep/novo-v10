@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, Ruler, Wrench, Map as MapIcon } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
 import { abs, BASE_URL } from "@/lib/site";
+import { HudRail } from "@/components/spatial/hud-label";
+import { PipelineRail } from "@/components/spatial/pipeline-rail";
 import { breadcrumbJsonLd, webPageJsonLd } from "@/lib/schema";
 
 const TITLE = "Solutions | Novo Reperio";
@@ -162,6 +164,8 @@ function SolutionsPage() {
             plant and inform a masterplan. What changes is the deliverable, not the site
             visit. Start from the outcome you need and work backwards.
           </p>
+          <HudRail className="mt-8" items={[{ k: "Tracks", v: "Sell, build, operate, plan" }, { k: "One capture", v: "Many deliverables" }]} />
+          <PipelineRail className="mt-8 max-w-2xl" />
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/estimate"

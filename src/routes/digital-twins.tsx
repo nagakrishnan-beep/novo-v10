@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, Ruler, Wrench, Map as MapIcon } from "lucide-react";
 import { SiteHeader, SiteFooter, BreadcrumbNav } from "@/components/site-chrome";
 import { abs, BASE_URL } from "@/lib/site";
+import { HudRail } from "@/components/spatial/hud-label";
+import { PipelineRail } from "@/components/spatial/pipeline-rail";
 import {
   breadcrumbJsonLd,
   webPageJsonLd,
@@ -176,6 +178,8 @@ function DigitalTwinsPage() {
             physical space that anyone can explore, measure and act on from anywhere.
             Ours are built from laser-measured reality, not rendered marketing.
           </p>
+          <HudRail className="mt-8" items={[{ k: "Input", v: "LiDAR scan" }, { k: "Output", v: "Measurable twin" }, { k: "Accuracy", v: "cm-grade" }]} />
+          <PipelineRail className="mt-8 max-w-2xl" />
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/estimate"
